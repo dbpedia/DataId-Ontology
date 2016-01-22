@@ -754,11 +754,11 @@ foaf:homepage ...<y:LabelModel>
           <y:Path sx="-107.52404239704275" sy="39.459699960041675" tx="0.0" ty="0.0">
             <y:Point x="-91.30298902344688" y="462.7178916142713"/>
             <y:Point x="-91.30298902344688" y="771.3077836408364"/>
-            <y:Point x="478.5" y="771.3077836408364"/>
+            <y:Point x="478.5" y="771.0959362982514"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="128.7578125" x="487.64513397216797" y="331.39564371760275">dataid:associatedAgent
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="128.7578125" x="487.64513397216797" y="331.2897200463102">dataid:associatedAgent
 dct:publisher<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
