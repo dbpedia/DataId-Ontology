@@ -69,80 +69,81 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
 		        owl:onProperty foaf:primaryTopic;
 		        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
 	        ]
-         )
-		] ,[
+	    	)
+		],[
 	        a owl:Restriction ;
 	        owl:onProperty foaf:topic ;
 	        owl:allValuesFrom dataid:Dataset
-        ],[
+	    ],[
 	        a owl:Restriction ;
 	        owl:onProperty foaf:primaryTopic ;
 	        owl:allValuesFrom dataid:Dataset
-        ], [
+	    ], [
 	        a owl:Restriction ;
 	        owl:cardinality "1"^^xsd:nonNegativeInteger ;
 	        owl:onProperty dataid:hasAccessLevel
-    ], [
+	    ], [
 	        a owl:Restriction ;
 	        owl:cardinality "1"^^xsd:nonNegativeInteger ;
 	        owl:onProperty dct:hasVersion
-    ], [
+	    ], [
 	        a owl:Restriction ;
 	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	        owl:onDataRange xsd:date ;
 	        owl:onProperty dct:issued
-    ] ,[
+	    ] ,[
 	        a owl:Restriction ;
 	        owl:allValuesFrom dataid:DataId ;
 	        owl:onProperty dataid:latestVersion
-    ] ,[
+	    ] ,[
 	        a owl:Restriction ;
 	        owl:allValuesFrom dataid:DataId ;
 	        owl:onProperty dataid:nextVersion
-    ] ,[
+	    ] ,[
 	        a owl:Restriction ;
 	        owl:allValuesFrom dataid:DataId ;
 	        owl:onProperty dataid:previousVersion
-    ] ,[
+	    ] ,[
 	        a owl:Restriction ;
 	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	        owl:onDataRange xsd:date ;
 	        owl:onProperty dct:modified
-    ], [
-	         a owl:Restriction ;
-	         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	         owl:onClass dataid:Dataset ;
-	         owl:onProperty dataid:nextVersion
-     ], [
-	         a owl:Restriction ;
-	         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-	         owl:onProperty dataid:version
-     ] ,[
-	         a owl:Restriction ;
-	         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-	         owl:onProperty dataid:hasAccessLevel
-     ] , [
-	        #recommanded
-	         a owl:Restriction ;
-	         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	         owl:onClass dataid:Dataset ;
-	         owl:onProperty dataid:latestVersion
-     ], [
-	        #recommanded
-	         a owl:Restriction ;
-	         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	         owl:onClass dataid:Dataset ;
-	         owl:onProperty dataid:previousVersion
-     ],[
+	    ], [
+			a owl:Restriction ;
+			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			owl:onClass dataid:Dataset ;
+			owl:onProperty dataid:nextVersion
+	     ], [
+			a owl:Restriction ;
+			owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+			owl:onProperty dataid:version
+	     ] ,[
+			a owl:Restriction ;
+			owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+			owl:onProperty dataid:hasAccessLevel
+	     ] , [
+			#recommanded
+			a owl:Restriction ;
+			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			owl:onClass dataid:Dataset ;
+			owl:onProperty dataid:latestVersion
+	     ], [
+			#recommanded
+			a owl:Restriction ;
+			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			owl:onClass dataid:Dataset ;
+			owl:onProperty dataid:previousVersion
+	     ],[
 	        a owl:Restriction ;
 	        owl:onProperty dataid:associatedAgent ;
 	        owl:cardinality "1"^^xsd:nonNegativeInteger
-    ] .
+	    ] .
 
 dataid:Dataset
     a owl:Class ;
     rdfs:label "Dataset"@en ;
-    rdfs:subClassOf void:Dataset, dcat:Dataset, prov:Entity, [
+    rdfs:subClassOf void:Dataset, dcat:Dataset, prov:Entity, 
+    [
         a owl:Restriction ;
         owl:allValuesFrom dataid:Dataset ;
         owl:onProperty dataid:latestVersion
@@ -155,9 +156,9 @@ dataid:Dataset
         owl:allValuesFrom dataid:Dataset ;
         owl:onProperty dataid:previousVersion
     ],[
-         a owl:Restriction ;
-         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dataid:version
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:version
      ], [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -167,9 +168,9 @@ dataid:Dataset
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty void:vocabulary
     ],[
-         a owl:Restriction ;
-         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dataid:hasAccessLevel
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:hasAccessLevel
     ] ,[
     	#recommanded
         a owl:Restriction ;
@@ -424,15 +425,14 @@ dataid:SingleFile
     rdfs:label "single dump file"@en ;
     rdfs:subClassOf dataid:Distribution, [
         a owl:Restriction ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange [
-            a rdfs:Datatype ;
-            owl:unionOf (dataid:crc32
-                dataid:md5
-            )
-        ] ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:checksum
-    ] .
+    ];
+    [
+         a owl:Restriction ;
+         owl:cardinality "1"^^xsd:nonNegativeInteger ;
+         owl:onProperty dcat:downloadURL
+    ].
 
 dataid:Directory
     a owl:Class;
@@ -440,16 +440,30 @@ dataid:Directory
     rdfs:label "dataset files in one directory"@en ;
     rdfs:subClassOf dataid:Distribution, [
         a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange [
-            a rdfs:Datatype ;
-            owl:unionOf (dataid:crc32
-                dataid:md5
-            )
-        ] ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:checksum
-    ] .
+    ];
+    [
+         a owl:Restriction ;
+         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+         owl:onProperty dcat:accessURL
+    ].
 
+dataid:FileCollection
+    a owl:Class;
+    rdfs:comment "Multiple files of a distribution constituting one dataset."@en ;
+    rdfs:label "dataset files in differnt paths of a distribution"@en ;
+    rdfs:subClassOf dataid:Distribution, [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:checksum
+    ];
+    [
+         a owl:Restriction ;
+         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+         owl:onProperty dcat:downloadURL
+    ].
+    
 dataid:Linkset
     a owl:Class ;
     rdfs:label "Linkset"@en ;
@@ -599,17 +613,6 @@ dataid:md5
     a rdfs:Datatype ;
     rdfs:comment "A md5 checksum"@en ;
     rdfs:label "md5 checksum"@en .
-
-#do not see the need for the sub property...
-#dataid:md5Hash
-#    a owl:DatatypeProperty, owl:FunctionalProperty ;
-#    rdfs:domain [
-#    	a owl:Class;
-#    	owl:unionOf(dataid:SingleFile dataid:Directory)
-#    ] ;
-#    rdfs:label "md5 hash"@en ;
-#    rdfs:range dataid:md5 ;
-#    rdfs:subPropertyOf dataid:checksum .
     
 dataid:nextVersion
     a owl:ObjectProperty ;
@@ -742,9 +745,53 @@ dataid:AccessLevel
 			dataid:PublicAccess 
 		)
 	].
+	
+dataid:AgentIdentifier
+	a owl:Class;
+	rdfs:label "agent identifier"@en ;
+	dct:description "Uniquly identifies an agent given a identifier and a correspondng aid/pid system (ORCID, ResearcherID etc.)."@en ;
+	rdfs:comment """"""@en ;
+	rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:aid
+	],[
+		a owl:Restriction ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:aidSystem
+	].
+	
+dataid:agentId
+    a owl:InverseFunctionalProperty;
+    rdfs:subPropertyOf  foaf:isPrimaryTopicOf;
+    rdfs:comment "provides an unique identifier for this agent"@en ;
+    rdfs:domain dataid:Agent ;
+    rdfs:label "agent id"@en ;
+    rdfs:range dataid:AgentIdentifier .
+    
+dataid:aid
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:comment 	"the id of an agent as string"@en ;
+    rdfs:domain 	prov:Entity ;
+    rdfs:label 		"aid"@en ;
+    rdfs:range  	xsd:string . 
+    
+dataid:aidSystem
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:comment 	"the aid/pid system used for this identifier (ORCID, ResearcherID etc.)"@en ;
+    rdfs:domain 	prov:Entity ;
+    rdfs:label 		"aid system"@en ;
+    rdfs:range  	xsd:string . 
+    
+dataid:aidURI
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:comment 	"uri/url provided as, or in addition to an id"@en ;
+    rdfs:domain 	prov:Entity ;
+    rdfs:label 		"aid uri"@en ;
+    rdfs:range  	foaf:Document . 
 
 dataid:hasAccessLevel
-    a owl:ObjectProperty ;
+    a owl:ObjectProperty, owl:FunctionalProperty ;
     rdfs:comment "defines the access rights for DataId related entities"@en ;
     rdfs:domain prov:Entity ;
     rdfs:label "access level"@en ;
@@ -758,7 +805,7 @@ dataid:authorizedFor
     rdfs:range prov:Entity .
     
 dataid:authorizedAgent
-   	a owl:ObjectProperty ;
+   	a owl:ObjectProperty;
     rdfs:comment "Provides an agent the ability to execute authorized actions in a certain scope (e.g. to modify the metadata of a dataset)"@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
     rdfs:label "authorized for"@en ;
@@ -792,7 +839,7 @@ dataid:validUntil
     rdfs:label 		"valid until"@en ;
     rdfs:range  	xsd:date . 
     
-################# Instances ####################
+################### Instances ####################
 dataid:PrivateAccess 
 	a dataid:AccessLevel;
 	rdfs:label "private"@en;
