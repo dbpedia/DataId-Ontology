@@ -54,27 +54,8 @@ Validating and delivering metadata files in a uniform way, as well as providing 
 for datasets are main objectives of the DBpedia/DataID project.
 To learn more including how to draft an new DataID, please visit http://dataid.dbpedia.org."""@en ;
 
-	rdfs:subClassOf void:DatasetDescription, dcat:CatalogRecord, prov:Entity, [
-        a owl:Class;
-        owl:unionOf(
-	        [
-		        a owl:Restriction ;
-		        owl:onClass dataid:Dataset ;
-		        owl:onProperty foaf:topic ;
-		        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-	    	]
-	        [
-		        a owl:Restriction ;
-		        owl:onClass dataid:Dataset ;
-		        owl:onProperty foaf:primaryTopic;
-		        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-	        ]
-	    	)
-		],[
-	        a owl:Restriction ;
-	        owl:onProperty foaf:topic ;
-	        owl:allValuesFrom dataid:Dataset
-	    ],[
+	rdfs:subClassOf void:DatasetDescription, dcat:CatalogRecord, prov:Entity, 
+		[
 	        a owl:Restriction ;
 	        owl:onProperty foaf:primaryTopic ;
 	        owl:allValuesFrom dataid:Dataset
