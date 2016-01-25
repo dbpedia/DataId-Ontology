@@ -12,7 +12,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
-@prefix lvont: <http://lexvo.org/ontology> .
+@prefix lvont: <http://lexvo.org/ontology#> .
 
 <http://dataid.dbpedia.org/ns/core#>
     a owl:Ontology ;
@@ -408,7 +408,7 @@ dataid:SingleFile
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:checksum
-    ];
+    ],
     [
          a owl:Restriction ;
          owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -423,7 +423,7 @@ dataid:Directory
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:checksum
-    ];
+    ],
     [
          a owl:Restriction ;
          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -438,7 +438,7 @@ dataid:FileCollection
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:checksum
-    ];
+    ],
     [
          a owl:Restriction ;
          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
