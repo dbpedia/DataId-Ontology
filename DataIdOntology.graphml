@@ -1227,13 +1227,13 @@ dataid:latestVersion*<y:LabelModel>
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-66.2649587681259" sy="51.553847952329534" tx="0.0" ty="0.0">
+          <y:Path sx="-66.2649587681259" sy="51.553847952329534" tx="-14.30589539833213" ty="51.51614411917626">
             <y:Point x="156.7109138820635" y="1156.7616116199226"/>
-            <y:Point x="-6.169739736526694" y="1156.7616116199226"/>
+            <y:Point x="-20.475635134858823" y="1156.7616116199226"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="147.40234375" x="-155.14149178465348" y="21.248305955860133">dataid:validForAccessLevel<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="147.40234375" x="-162.29443948381953" y="21.248305955860133">dataid:validForAccessLevel<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>

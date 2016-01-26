@@ -30,19 +30,26 @@ dataid:Agent
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Any type of agent without a specific function."@en ;
     rdfs:label "Agent"@en ;
+    owl:equivalentClass [
+        a owl:Class;
+        owl:disjointUnionOf
+        (   [
+                a owl:Restriction ;
+                owl:onProperty foaf:mbox ;
+                owl:minCardinality "1"^^xsd:nonNegativeInteger
+            ]
+            [
+                a owl:Restriction ;
+                owl:onProperty foaf:homepage ;
+                owl:minCardinality "1"^^xsd:nonNegativeInteger
+            ]
+        )
+    ];
     rdfs:subClassOf prov:Agent, dct:Agent, [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty foaf:homepage
-    ], [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty foaf:account
     ],[
-        a owl:Restriction ;
-        owl:onProperty foaf:mbox ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger
-    ], [
         a owl:Restriction ;
         owl:onProperty foaf:name ;
         owl:cardinality "1"^^xsd:nonNegativeInteger
@@ -150,11 +157,7 @@ dataid:Dataset
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:version
-     ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty rdfs:label
-    ],[
+     ],[
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty void:vocabulary
@@ -337,7 +340,7 @@ dataid:Distribution
     ], [
         a owl:Restriction ;
         owl:onProperty dct:title ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
     ], [
        a owl:Restriction ;
        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -913,8 +916,7 @@ dataid:PublicAccess
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "public"@en;
 	rdfs:comment "No restriction on read and modification rights"@en .
-	
-	
+		
 dataid:ResponseToContact
 	a dataid:ResponsibleAction ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
@@ -1061,3 +1063,10 @@ dataid:Publisher
 	dataid:allowsFor dataid:ModifyAccessLevel;
     rdfs:comment "Publisher of the dataset. An agent that makes the dataset accessible online on a server or repository without necessarily being involved in its creation."@en ;
 	rdfs:label "publisher"@en .
+
+#defining the generic Agent for any Agent not specifically defined
+dataid:GuestAgent
+    a dataid:Agent;
+    foaf:homepage  <http://dataid.dbpedia.org>;
+    foaf:name   "guest".
+
