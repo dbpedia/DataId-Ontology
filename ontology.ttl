@@ -820,6 +820,14 @@ dataid:validUntil
     rdfs:label 		"valid until"@en ;
     rdfs:range  	xsd:date . 
     
+    
+dataid:isInheritable
+    a owl:DatatypeProperty ;
+    rdfs:comment 	"Defines that a context keeps intact for the next version of a DataID (if set to 'true')."@en ;
+    rdfs:domain 	prov:Entity ;
+    rdfs:label 		"is inheritable"@en ;
+    rdfs:range  	xsd:boolean . 
+    
 ################### Instances ####################
 dataid:PrivateAccess 
 	a dataid:AccessLevel;
@@ -857,39 +865,15 @@ dataid:AgentSupervision
 	a dataid:ResponsibleAction;
 	rdfs:label "agent supervision"@en .
 	
-dataid:ReadDataIdPublicAccess
+dataid:ReadDataId
 	a dataid:EntitledAction;
 	rdfs:label "read content right"@en .
 	
-dataid:ModifyContentPublicAccess
+dataid:ModifyContent
 	a dataid:EntitledAction;
 	rdfs:label "modify content right"@en .
 	
-dataid:DeleteContentPublicAccess
-	a dataid:EntitledAction;
-	rdfs:label "delete content right"@en .
-		
-dataid:ReadContentSemiPrivateAccess
-	a dataid:EntitledAction;
-	rdfs:label "read content right"@en .
-	
-dataid:ModifyContentSemiPrivateAccess
-	a dataid:EntitledAction;
-	rdfs:label "modify content right"@en .
-	
-dataid:DeleteContentSemiPrivateAccess
-	a dataid:EntitledAction;
-	rdfs:label "delete content right"@en .
-		
-dataid:ReadContentPrivateAccess
-	a dataid:EntitledAction;
-	rdfs:label "read content right"@en .
-	
-dataid:ModifyContentPrivateAccess
-	a dataid:EntitledAction;
-	rdfs:label "modify content right"@en .
-	
-dataid:DeleteContentPrivateAccess
+dataid:DeleteContent
 	a dataid:EntitledAction;
 	rdfs:label "delete content right"@en .
 	
@@ -907,43 +891,33 @@ dataid:ModifyAgentRoles
 		
 dataid:Guest
 	a dataid:AgentRole;
-	dataid:allowsFor dataid:ReadDataIdPublicAccess;
-	dataid:allowsFor dataid:ModifyDataIdPublicAccess;
-	dataid:allowsFor dataid:ReadDataIdSemiPrivateAccess;
+	dataid:allowsFor dataid:ReadDataId;
+	dataid:allowsFor dataid:ModifyDataId;
+	dataid:allowsFor dataid:ReadDataId;
     rdfs:comment "A visitor/anonymous agent has only read rights on public and semi-private documents"@en ;
 	rdfs:label "guest"@en .
 	
 dataid:Creator
 	a dataid:AgentRole;
-	dataid:allowsFor dataid:ReadDataIdPublicAccess;
-	dataid:allowsFor dataid:ModifyDataIdPublicAccess;
-	dataid:allowsFor dataid:ReadDataIdSemiPrivateAccess;
-	dataid:allowsFor dataid:ModifyDataIdSemiPrivateAccess;
-	dataid:allowsFor dataid:ReadDataIdPrivateAccess;
-	dataid:allowsFor dataid:ModifyDataIdPrivateAccess;
-	dataid:allowsFor dataid:DeleteDataIdPrivateAccess;
+	dataid:allowsFor dataid:ReadDataId;
+	dataid:allowsFor dataid:ModifyDataId;
+	dataid:allowsFor dataid:DeleteDataId;
+	dataid:allowsFor dataid:UpdateDataId;
 	dataid:allowsFor dataid:ModifyAuthorizedAgents;
 	dataid:allowsFor dataid:ResponseToLifeCycleEvent;
 	dataid:allowsFor dataid:ResponseToContact;
-	dataid:allowsFor dataid:UpdateDataId;
 	dataid:allowsFor dataid:AgentSupervision;
 	dataid:allowsFor dataid:PublishingDecision;
 	dataid:allowsFor dataid:ModifyAccessLevel;
-	dataid:allowsFor dataid:DeleteDataIdSemiPrivateAccess;
-	dataid:allowsFor dataid:DeleteDataIdPublicAccess;
 	dataid:allowsFor dataid:ModifyAgentRoles;
     rdfs:comment "Creator of the resource. An agent that is credited with a main part in the initial creation of the resource."@en ;
 	rdfs:label "creator"@en .
 	
 dataid:Maintainer
 	a dataid:AgentRole;
-	dataid:allowsFor dataid:ReadDataIdPublicAccess;
-	dataid:allowsFor dataid:ModifyDataIdPublicAccess;
-	dataid:allowsFor dataid:ReadDataIdSemiPrivateAccess;
-	dataid:allowsFor dataid:ModifyDataIdSemiPrivateAccess;
-	dataid:allowsFor dataid:ReadDataIdPrivateAccess;
-	dataid:allowsFor dataid:ModifyDataIdPrivateAccess;
-	dataid:allowsFor dataid:DeleteDataIdPrivateAccess;
+	dataid:allowsFor dataid:ReadDataId;
+	dataid:allowsFor dataid:ModifyDataId;
+	dataid:allowsFor dataid:DeleteDataId;
 	dataid:allowsFor dataid:ModifyAuthorizedAgents;
 	dataid:allowsFor dataid:ResponseToLifeCycleEvent;
 	dataid:allowsFor dataid:ResponseToContact;
@@ -953,32 +927,27 @@ dataid:Maintainer
 	
 dataid:Contributor
 	a dataid:AgentRole;
-	dataid:allowsFor dataid:ReadDataIdPublicAccess;
-	dataid:allowsFor dataid:ModifyDataIdPublicAccess;
-	dataid:allowsFor dataid:ReadDataIdSemiPrivateAccess;
+	dataid:allowsFor dataid:ReadDataId;
+	dataid:allowsFor dataid:ModifyDataId;
 	rdfs:comment "Contributor to the resource. An agent that was involved in creating or maintaining the resource but does not have the main part in this activity."@en ;
 	rdfs:label "contributor"@en .
 	
 dataid:Contact
 	a dataid:AgentRole;
-	dataid:allowsFor dataid:ReadDataIdPublicAccess;
-	dataid:allowsFor dataid:ModifyDataIdPublicAccess;
-	dataid:allowsFor dataid:ReadDataIdSemiPrivateAccess;
-	dataid:allowsFor dataid:ModifyDataIdSemiPrivateAccess;
-	dataid:allowsFor dataid:ReadDataIdPrivateAccess;
+	dataid:allowsFor dataid:ReadDataId;
+	dataid:allowsFor dataid:ModifyDataId;
+	dataid:allowsFor dataid:ReadDataId;
+	dataid:allowsFor dataid:ModifyDataId;
+	dataid:allowsFor dataid:ReadDataId;
 	dataid:allowsFor dataid:ResponseToContact;
     rdfs:comment "Contact agent. An agent that can be contacted for general requests about the resource."@en ;
 	rdfs:label "contact"@en .
 	
 dataid:Publisher
 	a dataid:AgentRole;
-	dataid:allowsFor dataid:ReadDataIdPublicAccess;
-	dataid:allowsFor dataid:ModifyDataIdPublicAccess;
-	dataid:allowsFor dataid:ReadDataIdSemiPrivateAccess;
-	dataid:allowsFor dataid:ModifyDataIdSemiPrivateAccess;
-	dataid:allowsFor dataid:ReadDataIdPrivateAccess;
-	dataid:allowsFor dataid:ModifyDataIdPrivateAccess;
-	dataid:allowsFor dataid:DeleteDataIdPrivateAccess;
+	dataid:allowsFor dataid:ReadDataId;
+	dataid:allowsFor dataid:ModifyDataId;
+	dataid:allowsFor dataid:DeleteDataId;
 	dataid:allowsFor dataid:ModifyAuthorizedAgents;
 	dataid:allowsFor dataid:ResponseToLifeCycleEvent;
 	dataid:allowsFor dataid:ResponseToContact;
@@ -986,7 +955,5 @@ dataid:Publisher
 	dataid:allowsFor dataid:AgentSupervision;
 	dataid:allowsFor dataid:PublishingDecision;
 	dataid:allowsFor dataid:ModifyAccessLevel;
-	dataid:allowsFor dataid:DeleteDataIdSemiPrivateAccess;
-	dataid:allowsFor dataid:DeleteDataIdPublicAccess;
     rdfs:comment "Publisher of the dataset. An agent that makes the dataset accessible online on a server or repository without necessarily being involved in its creation."@en ;
 	rdfs:label "publisher"@en .
