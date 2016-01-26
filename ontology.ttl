@@ -592,12 +592,6 @@ dataid:containsLinks
     rdfs:label "contains links"@en ;
     rdfs:range dataid:Linkset .
 
-dataid:crc32
-    a rdfs:Datatype ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A crc32 checksum"@en ;
-    rdfs:label "crc32 checksum"@en .
-
 dataid:graphName
     a owl:DatatypeProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
@@ -621,12 +615,6 @@ dataid:accessProcedure
     rdfs:domain dataid:Distribution ;
     rdfs:label "access procedure"@en ;
     rdfs:range xsd:string .
-    
-dataid:md5
-    a rdfs:Datatype ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A md5 checksum"@en ;
-    rdfs:label "md5 checksum"@en .
     
 dataid:nextVersion
     a owl:ObjectProperty ;
@@ -655,9 +643,8 @@ dataid:latestVersion
 dataid:AuthorityEntityContext
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "todo"@en ;
-	dct:description "todo"@en ;
-	rdfs:comment """todo"""@en ;
+    rdfs:label "authority entity context"@en ;
+	rdfs:comment """This concept defines a scope of Entities and links it to an Agent which has certain rights for those entities (defined by the AgentRole). This scope consists of all Entities directly linked to the context, as well as transitively dependend Entities"""@en ;
 
 	rdfs:subClassOf [
         a owl:Restriction ;
@@ -688,9 +675,8 @@ dataid:AuthorityEntityContext
 dataid:AgentRole
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "todo"@en ;
-	dct:description "todo"@en ;
-	rdfs:comment """todo"""@en ;
+    rdfs:label "agent role"@en ;
+	rdfs:comment """Instances of this class define an array of rights and responsibilities an agent, assigned with this role for a given scope of entities, has to address or can execute."""@en ;
 	rdfs:subClassOf [
         a owl:Restriction ;
         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -711,13 +697,12 @@ dataid:AgentRole
 dataid:AuthorizedAction
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "todo"@en ;
-	dct:description "AgentRoles provide agents with the ability to execute certain actions as well as demand certain responsibilities, which are defines by the instances of this concept."@en ;
+    rdfs:label "authorized action"@en ;
+    rdfs:comment """AgentRoles provide agents with the ability to execute certain actions as well as demand certain responsibilities, which are defines by the instances of this concept."""@en .
 	owl:equivalentClass [
 		a		owl:Class;
 		owl:unionOf(dataid:ResponsibleAction dataid:EntitledAction)
 	];
-	rdfs:comment """todo"""@en .
 	
 dataid:ResponsibleAction
 	a owl:Class ;
@@ -849,7 +834,15 @@ dataid:authorityAgentRole
     rdfs:domain dataid:AuthorityEntityContext ;
     rdfs:label "authority agent role"@en ;
     rdfs:range dataid:AgentRole .
-    
+        
+dataid:validForAccessLevel
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "The defined Actions an Agent is allwed to take is only valid for Entities within the scope of the AuthorityEntityContext defined with this AccessLevel."@en ;
+    rdfs:domain dataid:AuthorityEntityContext ;
+    rdfs:label "valid for access level"@en ;
+    rdfs:range dataid:AccessLevel .
+
 dataid:allowsFor
    	a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
@@ -862,7 +855,7 @@ dataid:validFrom
     a owl:DatatypeProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"An AuthorityEntityContext is valid for a specific Agent from a certain point in time."@en ;
-    rdfs:domain 	prov:Entity ;
+    rdfs:domain 	dataid:AuthorityEntityContext ;
     rdfs:label 		"valid from"@en ;
     rdfs:range  	xsd:date . 
     
@@ -870,18 +863,32 @@ dataid:validUntil
     a owl:DatatypeProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"An AuthorityEntityContext is valid for a specific Agent until a certain point in time."@en ;
-    rdfs:domain 	prov:Entity ;
+    rdfs:domain 	dataid:AuthorityEntityContext ;
     rdfs:label 		"valid until"@en ;
     rdfs:range  	xsd:date . 
     
     
 dataid:isInheritable
     a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"Defines that a context keeps intact for the next version of a DataID (if set to 'true')."@en ;
-    rdfs:domain 	prov:Entity ;
+    rdfs:domain 	dataid:AuthorityEntityContext ;
     rdfs:label 		"is inheritable"@en ;
     rdfs:range  	xsd:boolean . 
     
+################### DataTypes ####################
+dataid:crc32
+    a rdfs:Datatype ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "A crc32 checksum"@en ;
+    rdfs:label "crc32 checksum"@en .
+
+dataid:md5
+    a rdfs:Datatype ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "A md5 checksum"@en ;
+    rdfs:label "md5 checksum"@en .
+
 ################### Instances ####################
 dataid:PrivateAccess 
 	a dataid:AccessLevel ;
