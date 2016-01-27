@@ -73,11 +73,17 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
 	        a owl:Restriction ;
 	        owl:onProperty foaf:primaryTopic ;
 	        owl:allValuesFrom dataid:Dataset
-	    ], [
-	        a owl:Restriction ;
-	        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onProperty dataid:hasAccessLevel
-	    ], [
+	    ],[ 
+            a owl:Class ;
+            owl:unionOf ( [ rdf:type owl:Restriction ;
+                owl:onProperty dataid:hasAccessLevel ;
+                owl:cardinality "1"^^xsd:nonNegativeInteger
+            ]
+            [ rdf:type owl:Restriction ;
+                owl:onProperty dataid:hasEntityContext ;
+                owl:minCardinality "1"^^xsd:nonNegativeInteger
+            ] )
+        ], [
 	        a owl:Restriction ;
 	        owl:cardinality "1"^^xsd:nonNegativeInteger ;
 	        owl:onProperty dct:hasVersion
@@ -112,11 +118,7 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
 			a owl:Restriction ;
 			owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
 			owl:onProperty dataid:version
-	     ] ,[
-			a owl:Restriction ;
-			owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-			owl:onProperty dataid:hasAccessLevel
-	     ] , [
+	     ], [
 			#recommanded
 			a owl:Restriction ;
 			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -161,11 +163,17 @@ dataid:Dataset
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty void:vocabulary
+    ],[ 
+            a owl:Class ;
+            owl:unionOf ( [ rdf:type owl:Restriction ;
+                owl:onProperty dataid:hasAccessLevel ;
+                owl:cardinality "1"^^xsd:nonNegativeInteger
+            ]
+            [ rdf:type owl:Restriction ;
+                owl:onProperty dataid:hasEntityContext ;
+                owl:minCardinality "1"^^xsd:nonNegativeInteger
+            ] )
     ],[
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:hasAccessLevel
-    ] ,[
     	#recommanded
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -333,10 +341,6 @@ dataid:Distribution
          a owl:Restriction ;
          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
          owl:onProperty dataid:version
-     ] ,[
-        a owl:Restriction ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:hasAccessLevel
     ], [
         a owl:Restriction ;
         owl:onProperty dct:title ;
@@ -485,10 +489,16 @@ dataid:Linkset
          a owl:Restriction ;
          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
          owl:onProperty dataid:version
-     ],[
-        a owl:Restriction ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:hasAccessLevel
+     ],[ 
+        a owl:Class ;
+        owl:unionOf ( [ rdf:type owl:Restriction ;
+            owl:onProperty dataid:hasAccessLevel ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger
+        ]
+        [ rdf:type owl:Restriction ;
+            owl:onProperty dataid:hasEntityContext ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger
+        ] )
     ],[
         a owl:Restriction ;
         owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -533,7 +543,6 @@ dataid:Linkset
         owl:onProperty dataid:nextVersion
     ] .
 
-#does inverseOf work with limited domain and rang?
 dataid:isDistributionOf
 	a	owl:ObjectProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
@@ -761,6 +770,7 @@ dataid:AccessLevel
 			dataid:PrivateAccess
 			dataid:SemiPrivateAccess
 			dataid:PublicAccess 
+            dataid:NoAccess 
 		)
 	].
 	
@@ -847,7 +857,7 @@ dataid:authorityAgentRole
 dataid:validForAccessLevel
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "The defined Actions an Agent is allwed to take is only valid for Entities within the scope of the AuthorityEntityContext defined with this AccessLevel."@en ;
+    rdfs:comment "Limits rights and actions an Agent is allwed to take depending on the AccessLevel chosen for this AuthorityEntityContext."@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
     rdfs:label "valid for access level"@en ;
     rdfs:range dataid:AccessLevel .
@@ -859,6 +869,13 @@ dataid:allowsFor
     rdfs:domain dataid:AgentRole ;
     rdfs:label "allowes for"@en ;
     rdfs:range dataid:AuthorizedAction .
+
+dataid:hasEntityContext
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Points out a dataid:AuthorityEntityContext pertaining to this resource."@en ;
+    owl:inverseOf  authorizedFor ;
+    rdfs:label "has authority-entity-context"@en .
     
 dataid:validFrom
     a owl:DatatypeProperty ;
@@ -903,19 +920,25 @@ dataid:PrivateAccess
 	a dataid:AccessLevel ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "private"@en ;
-	rdfs:comment "restricted access only to authorized agents"@en .
+	rdfs:comment "Provides an agent with unrestricted access and all rights of a resource."@en .
 	
 dataid:SemiPrivateAccess 
 	a dataid:AccessLevel ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "semi-private"@en ;
-	rdfs:comment "Read-only access to any agent, restiricted modification rights"@en .
+	rdfs:comment "Limits the rights an agent has on a resource to read and modify."@en .
 	
 dataid:PublicAccess 
 	a dataid:AccessLevel ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "public"@en;
-	rdfs:comment "No restriction on read and modification rights"@en .
+	rdfs:comment "Limits the rights an agent has on a resource to read rights."@en .
+    
+dataid:NoAccess 
+    a dataid:AccessLevel ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "no access"@en;
+    rdfs:comment "Disallows access to a resource for an agent."@en .
 		
 dataid:ResponseToContact
 	a dataid:ResponsibleAction ;
@@ -1067,6 +1090,6 @@ dataid:Publisher
 #defining the generic Agent for any Agent not specifically defined
 dataid:GuestAgent
     a dataid:Agent;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     foaf:homepage  <http://dataid.dbpedia.org>;
     foaf:name   "guest".
-
