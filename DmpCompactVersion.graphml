@@ -245,24 +245,17 @@ foaf:homepage ...<y:LabelModel>
       <data key="d4"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="179.11277347591022" width="392.2048632131259" x="1593.9375" y="1237.6630967027052"/>
+          <y:Geometry height="81.40371037957652" width="1117.5560627572345" x="-204.4329501863457" y="1090.8379244996581"/>
           <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="2.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="157.65625" modelName="custom" textColor="#000000" visible="true" width="337.1875" x="64.40625" y="4.0">Legend:
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="59.875" modelName="custom" textColor="#000000" visible="true" width="534.77734375" x="198.97713214717987" y="4.0">                                                       Legend:
+new property in the DMP ontology                         Classes of the DMP ontology
 
-                        new property in the DMP ontology
-
-                        Classes of the DataID ontology
-
-
-                        Classes of the DMP ontology
-
-
-                        External classes<y:LabelModel>
+Classes of the DataID ontology                               External classes<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.09407728423139605" nodeRatioY="-0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/>
+              <y:SmartNodeLabelModelParameter labelRatioX="-0.5" labelRatioY="-0.5" nodeRatioX="-0.3219533330110854" nodeRatioY="-0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:Shape type="rectangle"/>
@@ -272,7 +265,7 @@ foaf:homepage ...<y:LabelModel>
     <node id="n10">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="30.0" width="30.0" x="1622.9375" y="1380.7758701786154"/>
+          <y:Geometry height="30.0" width="30.0" x="293.3731125708887" y="1133.9636348792346"/>
           <y:Fill color="#FFCC99" color2="#FFCC99" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" hasText="false" height="4.0" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="4.0" x="13.0" y="4.0"/>
@@ -293,7 +286,7 @@ foaf:homepage ...<y:LabelModel>
     <node id="n11">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="30.000000000000114" width="30.00000000000003" x="1622.9375" y="1295.3168070822815"/>
+          <y:Geometry height="30.000000000000114" width="30.00000000000003" x="-61.66688742911134" y="1133.9636348792346"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" hasText="false" height="4.0" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="4.0" x="13.0" y="4.0"/>
@@ -314,7 +307,7 @@ foaf:homepage ...<y:LabelModel>
     <node id="n12">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="30.000000000000114" width="30.0" x="1622.9375" y="1338.0463386304484"/>
+          <y:Geometry height="30.000000000000114" width="30.0" x="293.3731125708887" y="1096.9636348792349"/>
           <y:Fill color="#CCFFCC" color2="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#99CC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="15" fontStyle="plain" hasLineColor="false" hasText="false" height="4.0" modelName="internal" modelPosition="t" textColor="#000000" underlinedText="true" visible="true" width="4.0" x="13.0" y="4.0"/>
@@ -335,7 +328,7 @@ foaf:homepage ...<y:LabelModel>
     <node id="n13">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="18.01475103852158" width="30.0" x="1622.9375" y="1270.30205604376"/>
+          <y:Geometry height="18.01475103852158" width="30.0" x="-61.66688742911134" y="1108.9488838407133"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="69.82421875" x="-19.912109375" y="0.02300051926067681">dmp:prop<y:LabelModel>
@@ -371,13 +364,13 @@ foaf:homepage ...<y:LabelModel>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="117.07645875443107" sy="154.89797454298568" tx="133.14137026947162" ty="115.4196665068921">
-            <y:Point x="467.64644910995906" y="1095.3009193226"/>
-            <y:Point x="524.92322850164" y="1095.3009193226"/>
+            <y:Point x="467.64644910995906" y="1085.4705193226"/>
+            <y:Point x="524.92322850164" y="1085.4705193226"/>
             <y:Point x="524.92322850164" y="1030.1719705542396"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="31.9375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="102.841796875" x="28.656888098950276" y="-22.882573616267564">void:subset*
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="31.9375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="102.841796875" x="28.656888098950276" y="-27.797773616267705">void:subset*
 dataid:similarData<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
