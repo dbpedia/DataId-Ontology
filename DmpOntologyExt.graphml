@@ -559,7 +559,6 @@ dataid:AgentSupervision
     </node>
     <node id="n23">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="179.11277347591022" width="392.2048632131259" x="758.0" y="1117.7914690601287"/>
@@ -650,7 +649,6 @@ dataid:AgentSupervision
       </data>
     </node>
     <node id="n27">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="18.01475103852158" width="30.0" x="787.0" y="1150.4304284011837"/>
