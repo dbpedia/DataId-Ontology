@@ -7,6 +7,7 @@ Due to the growing complexity and different usage purposes we modularised the Da
 ![alt tag](https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataID%20onion.png)
 
 The respective mid-level ontologies can be found in the folders ld (Linked Data), pv (Provenance), st (Statistics) and ps (Preservation), providing dedicated properties fitting the respective domain of interest. Further extending these ontologies can by necessary for the special purposes in some use cases.
+(01.02.2016: all mid level ontologies are still in a draft stage, while DataID core is considered stable)
 
 Visit the DataID [landing page](http://wiki.dbpedia.org/projects/dbpedia-dataid) for more.
 
