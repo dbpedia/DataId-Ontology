@@ -10,6 +10,6 @@ The respective mid-level ontologies can be found in the folders ld (Linked Data)
 
 Visit the DataID [landing page](http://wiki.dbpedia.org/projects/dbpedia-dataid) for more.
 
-**DataID core:**
+**DataID core:**<Enter>
 The DataID core vocabulary describes datasets (based heavily on the DCAT ontology), as well as their relation to agents like persons or organizations in regard to their rights and responsibilities.
 ![alt tag](https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataIdOntology.png)
