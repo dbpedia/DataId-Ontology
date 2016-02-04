@@ -8,6 +8,7 @@ Due to the growing complexity and different usage purposes we unitized the DataI
 
 The respective mid-level ontologies can be found in the folders ld (Linked Data), pv (Provenance), st (Statistics) and ps (Preservation), providing dedecated properties fitting the respective domain of interest. Further extending these ontologies can by necessary for the special purposes in some use cases.
 
+Visit the DataID [landing page](http://wiki.dbpedia.org/projects/dbpedia-dataid) for more.
 
 **DataID core:**
 The DataID core vocabulary describes datasets (based heavily on the DCAT ontology), as well as their relation to agents like persons or organizations in regard to their rights and responsibilities.
