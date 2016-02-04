@@ -6,7 +6,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix wsdl: <http://www.w3.org/ns/wsdl-rdf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -21,7 +20,7 @@
     vann:preferredNamespacePrefix "dataid"^^xsd:string ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     owl:versionInfo "1.0.0" ; 
-    rdfs:comment "DBpedia Data ID is an ontology with the goal of describing LOD datasets via RDF files in a uniform way. Established vocabularies like DCAT, VoID, Prov-O and SPARQL Service Description are used for maximum compatibility."@en ;
+    rdfs:comment "DBpedia Data ID is an ontology with the goal of extensively describing datasets via RDF files in a uniform way. Established vocabularies like DCAT, VoID, Prov-O are used for maximum compatibility."@en ;
     rdfs:label "DataID"@en ;
     owl:imports <http://vocab.deri.ie/void>, <http://www.w3.org/ns/dcat>, <http://www.w3.org/ns/prov> .
 
@@ -194,10 +193,6 @@ dataid:Dataset
     ], [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:distinctObjects
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dct:rights
     ], [
         a owl:Restriction ;
@@ -248,11 +243,6 @@ dataid:Dataset
         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:associatedAgent
     ], [
-    	#recommanded
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:triples
-    ], [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty void:documents
@@ -290,20 +280,12 @@ dataid:Dataset
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:previousVersion
     ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:properties
-    ], [
     	#recommanded
         a owl:Restriction ;
         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onDataRange xsd:date ;
         owl:onProperty dct:modified
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:distinctSubjects
-    ] .
+    ].
 
 dataid:Distribution
     a owl:Class ;
@@ -394,10 +376,6 @@ dataid:Distribution
         owl:onProperty dct:description
     ], [
         a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:graphName
-    ], [
-        a owl:Restriction ;
         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onDataRange xsd:date ;
         owl:onProperty dct:issued
@@ -407,17 +385,6 @@ dataid:Distribution
         owl:onDataRange xsd:date ;
         owl:onProperty dct:modified
     ] .
-
-dataid:SparqlEndpoint
-    a owl:Class ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A specific distribution, which is accessible via an access url and can be queried with the SPARQL language."@en ;
-    rdfs:label "Sparql Endpoint"@en ;
-    rdfs:subClassOf dataid:Distribution, sd:Service, [
-         a owl:Restriction ;
-         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dcat:accessURL
-     ].
 
 dataid:ServiceEndpoint
     a owl:Class ;
@@ -477,81 +444,6 @@ dataid:FileCollection
          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
          owl:onProperty dcat:downloadURL
     ].
-
-dataid:Linkset
-    a owl:Class ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "Linkset"@en ;
-    rdfs:comment "Entity representing the set of links between two datasets."@en ;
-    rdfs:subClassOf void:Linkset, prov:Entity,[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Linkset ;
-        owl:onProperty dataid:latestVersion
-    ],[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Linkset ;
-        owl:onProperty dataid:nextVersion
-    ] ,[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Linkset ;
-        owl:onProperty dataid:previousVersion
-    ],[
-         a owl:Restriction ;
-         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dataid:version
-     ],[
-        a owl:Class ;
-        owl:unionOf ( [ rdf:type owl:Restriction ;
-            owl:onProperty dataid:hasAccessLevel ;
-            owl:cardinality "1"^^xsd:nonNegativeInteger
-        ]
-        [ rdf:type owl:Restriction ;
-            owl:onProperty dataid:hasEntityContext ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger
-        ] )
-    ],[
-        a owl:Restriction ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dct:hasVersion
-    ],[
-        a owl:Restriction ;
-        owl:onClass void:Dataset ;
-        owl:onProperty void:objectsTarget ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ], [
-        a owl:Restriction ;
-        owl:onClass void:Dataset ;
-        owl:onProperty void:subjectsTarget ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:triples
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:exampleResource
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Linkset ;
-        owl:onProperty dataid:previousVersion
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
-        owl:onProperty dct:modified
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Linkset ;
-        owl:onProperty dataid:latestVersion
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Linkset ;
-        owl:onProperty dataid:nextVersion
-    ] .
 
 dataid:isDistributionOf
 	a	owl:ObjectProperty ;
@@ -613,22 +505,6 @@ dataid:checksum
     rdfs:label "checksum"@en ;
     rdfs:range dataid:crc32, dataid:md5 .
 
-dataid:containsLinks
-    a owl:ObjectProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Set of links to another dataset contained in this dataset"@en ;
-    rdfs:domain dataid:Dataset ;
-    rdfs:label "contains links"@en ;
-    rdfs:range dataid:Linkset .
-
-dataid:graphName
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "The name of the graph of this distribution in a SPARQL endpoint"@en ;
-    rdfs:domain dataid:Distribution ;
-    rdfs:label "Graph name"@en ;
-    rdfs:range xsd:string .
-
 dataid:softwareRquirement
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
@@ -666,7 +542,7 @@ dataid:latestVersion
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Latest version of a DataIdPart"@en ;
     rdfs:domain prov:Entity ;
-    rdfs:label "latest linkset version"@en ;
+    rdfs:label "latest version"@en ;
     rdfs:range prov:Entity .
 
 dataid:AuthorityEntityContext
