@@ -97,7 +97,9 @@ re3:repositoryUrl : foaf:Document
           <y:Fill color="#CCFFCC" color2="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#99CC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#000000" underlinedText="true" visible="true" width="185.22314453125" x="29.263427734375" y="4.0">dataid-ps:PreservationPlan</y:NodeLabel>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="165.794921875" x="2.0" y="33.4609375">dc:title
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="165.794921875" x="2.0" y="33.4609375">subClassOf: prov:Entity
+
+dc:title
 dataid-ps:beginning : xsd:date
 dataid-ps:timeSpan : xsd:date<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
@@ -140,10 +142,10 @@ foaf:homepage ...<y:LabelModel>
           <y:Geometry height="81.40371037957652" width="1083.1739090767805" x="141.5670498136543" y="545.0798772883826"/>
           <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="2.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="59.875" modelName="custom" textColor="#000000" visible="true" width="567.8359375" x="192.8555042804744" y="4.0">                        Legend:
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="59.875" modelName="custom" textColor="#000000" visible="true" width="836.8515625" x="192.8555042804744" y="4.0">                        Legend:
 new property in the dataid-ps ontology                 Classes of the dataid-ps ontology
 
-Classes of the DataID ontology                               External classes<y:LabelModel>
+Classes of the DataID ontology                               External classes                               indirectly connected via dataid:Agent<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -306,6 +308,48 @@ EnsureUptime
         </y:GenericNode>
       </data>
     </node>
+    <node id="n13">
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+          <y:Geometry height="30.000000000000114" width="30.00000000000003" x="948.4380888904344" y="551.2055876679594"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" hasText="false" height="4.0" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="4.0" x="13.0" y="4.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="2.0" y="16.0">
+            <y:LabelModel>
+              <y:ErdAttributesNodeLabelModel/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:ErdAttributesNodeLabelModelParameter/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n14">
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+          <y:Geometry height="30.000000000000114" width="30.00000000000003" x="1021.3252188904339" y="551.2055876679594"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" hasText="false" height="4.0" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="4.0" x="13.0" y="4.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="2.0" y="16.0">
+            <y:LabelModel>
+              <y:ErdAttributesNodeLabelModel/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:ErdAttributesNodeLabelModelParameter/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
     <edge id="e0" source="n1" target="n0">
       <data key="d10">
         <y:PolyLineEdge visible="false">
@@ -392,7 +436,7 @@ foaf:isPrimaryTopicOf<y:LabelModel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="87.361328125" x="-43.68067196894026" y="25.122201099539666">dmp:repository<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="112.826171875" x="-56.41309384394026" y="25.122201099539666">dataid-ps:repository<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -498,6 +542,18 @@ foaf:isPrimaryTopicOf<y:LabelModel>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="75.43613701805964" sy="43.4496142460664" tx="-80.30813056315128" ty="-89.55941140489472"/>
+          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
+          <y:Arrows source="none" target="plain"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e12" source="n13" target="n14">
+      <data key="d8"/>
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="plain"/>
           <y:BendStyle smoothed="false"/>
