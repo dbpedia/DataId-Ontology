@@ -1,7 +1,7 @@
 # DataId-Ontology
-The DBpedia DataID core vocabulary is a meta-data system for detailed descriptions of datasets and their different manifestations. Established vocabularies like DCAT, VoID, Prov-O and FOAF are reused for maximum compatibility to establish a uniform and accepted way to describe and deliver dataset metadata for arbitrary datasets and to put existing standards into practice. In addition DataID can describe the relations of Agents (like persons or organizations) in regard to theit rights and responsibilities.
+The DBpedia DataID core vocabulary is a meta-data system for detailed descriptions of datasets and their different manifestations. Established vocabularies like DCAT, VoID, Prov-O and FOAF are reused for maximum compatibility to establish a uniform and accepted way to describe and deliver dataset metadata for arbitrary datasets and to put existing standards into practice. In addition DataID can describe the relations of Agents (like persons or organizations) in regard to their rights and responsibilities.
 
-Due to the growing complexity and different usage purposes we unitized the DataID ontology in a core and multiple mid-layer ontologies. While the core ontology is a mandatory import for any of the mid-level ontologies presented, non of those are required for describing data.. That said, in many use cases some or all of the mid-level ontologies will be a useful extension.
+Due to the growing complexity and different usage purposes we modularised the DataID ontology in a core and multiple mid-layer ontologies. While the core ontology is mandatory to import for any of the mid-level ontologies presented, non of those are required for describing data. That said, in many use cases some or all of the mid-level ontologies will be a useful extension.
 
 **The DataID onion:**
 ![alt tag](https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataID%20onion.png)
