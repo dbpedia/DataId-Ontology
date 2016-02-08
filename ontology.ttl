@@ -574,6 +574,7 @@ dataid:preview
 
 dataid:associatedAgent
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasAttributedTo ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "some agent generally connected to the dataset, their function to be specified by their rdf:type"@en ;
     rdfs:domain prov:Entity ;
@@ -672,7 +673,7 @@ dataid:AgentRole
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Agent role"@en ;
 	rdfs:comment """Instances of this class define an array of rights and responsibilities an agent, assigned with this role for a given scope of entities, has to address or can execute."""@en ;
-	rdfs:subClassOf [
+	rdfs:subClassOf prov:Role, [
         a owl:Restriction ;
         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:allowsFor
@@ -683,6 +684,7 @@ dataid:AuthorizedAction
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Authorized action"@en ;
     rdfs:comment """AgentRoles provide agents with the ability to execute certain actions as well as demand certain responsibilities, which are defines by the instances of this concept."""@en ;
+	rdfs:subClassOf prov:Activity ;
 	owl:equivalentClass [
 		a		owl:Class;
 		owl:disjointUnionOf (dataid:ResponsibleAction dataid:EntitledAction)
@@ -707,7 +709,7 @@ dataid:AccessLevel
 	a owl:Class ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Access level"@en ;
-	rdfs:comment "The level of openness of access to particular groups of agents"@en ;
+	rdfs:comment "The level of openness of access to a particular groups of agents"@en ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:oneOf (
@@ -827,6 +829,7 @@ dataid:hasAccessLevel
 
 dataid:authorizedFor
 	a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:entity ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Defines the scope of an authority-context. An Agent has the right to execute authorized actions in this scope (e.g. a single DataId and all it's members)."@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
@@ -835,6 +838,7 @@ dataid:authorizedFor
 
 dataid:authorizedAgent
    	a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:agent ;
    	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Provides an agent the ability to execute authorized actions in a certain scope (e.g. to modify the metadata of a dataset)"@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
@@ -843,6 +847,7 @@ dataid:authorizedAgent
 
 dataid:authorityAgentRole
    	a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:hadRole ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Adds a role an agent can administer in the scope provided by the AuthorityEntityContext, thereby allowing for certain actions an agent can execute."@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
