@@ -626,7 +626,8 @@ dataid:AuthorityEntityContext
     rdfs:label "Authority entity context"@en ;
 	rdfs:comment """This concept defines a scope of Entities and links it to an Agent which has certain rights for those entities (defined by the AgentRole). This scope consists of all Entities directly linked to the context, as well as transitively dependend Entities"""@en ;
 
-	rdfs:subClassOf [
+	rdfs:subClassOf prov:Association, prov:EntityInfluence, 
+	[
         a owl:Restriction ;
         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:authorizedFor
@@ -792,6 +793,10 @@ dataid:MediaType
 		a owl:Restriction ;
         owl:cardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:typeTemplate
+	],[
+		a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:innerMediaType
 	].
 		
 dataid:innerMediaType a owl:ObjectProperty, owl:FunctionalProperty ;
