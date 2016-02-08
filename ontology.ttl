@@ -64,11 +64,6 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
 	        owl:onProperty dct:publisher
 		],[
 	        a owl:Restriction ;
-	        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:string ;
-	        owl:onProperty dct:title
-	    ],[
-	        a owl:Restriction ;
 	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	        owl:onDataRange xsd:date ;
 	        owl:onProperty dct:issued
@@ -77,6 +72,10 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
 	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	        owl:onDataRange xsd:date ;
 	        owl:onProperty dct:modified
+	    ],[#recommended
+	        a owl:Restriction ;
+	        owl:allValuesFrom xsd:string ;
+	        owl:onProperty dct:title
 	    ],[#recommended
 	        a owl:Restriction ;
 	        owl:allValuesFrom dataid:Agent ;
@@ -581,17 +580,6 @@ dataid:associatedAgent
     rdfs:label "associated agent"@en ;
     rdfs:range dataid:Agent .
 
-dataid:checksum
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Checksum of a file to check for correctness"@en ;
-    rdfs:domain [
-    	a owl:Class;
-    	owl:disjointUnionOf (dataid:SingleFile dataid:Directory)
-    ] ;
-    rdfs:label "checksum"@en ;
-    rdfs:range dataid:crc32, dataid:md5 .
-
 dataid:softwareRquirement
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
@@ -725,7 +713,7 @@ dataid:SimpleStatement
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Simple Statement"@en ;
 	rdfs:comment "Implements the Statement and Standard classes of Dublin Core, containing a textual statement and a reference pointer."@en ;
-	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard 
+	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard ,
 		[
 		    a owl:Restriction ;
             owl:onProperty dataid:statement ;
@@ -793,9 +781,62 @@ dataid:Identifier
         owl:onDataRange xsd:date;
         owl:onProperty dct:issued
 	].
-	
+	    
+dataid:MediaType
+	a owl:Class;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "Iana Media Type"@en ;
+	rdfs:comment "Extends the dct:MediaType class of Dublin Core by implementing the Iana media type description and adding a pointer to inner media types to deal with (multiple) compressions of a serialized file."@en ;
+	rdfs:subClassOf dct:MediaType, 
+	[
+		a owl:Restriction ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:typeTemplate
+	].
+		
+dataid:innerMediaType a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf dcat:mediaType;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Points out the MediaType of the (compressed) file inside this one."@en ;
+    rdfs:domain dataid:MediaType ;
+    rdfs:label "inner media type"@en ;
+    rdfs:range dataid:MediaType .
+    
+dataid:typeTemplate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:comment "The template (or mime type string) of a media Type."@en ;
+    rdfs:domain dataid:MediaType ;
+    rdfs:label "media type template"@en ;
+    rdfs:range xsd:string .
+    
+dataid:typeReference
+	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:comment "Refers to a standard or person associated with this mime type."@en ;
+    rdfs:domain dataid:MediaType ;
+    rdfs:label "media type reference"@en ;
+    rdfs:range rdfs:Resource .
+    
+dataid:typeExtension
+	a owl:DatatypeProperty;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:comment "Lists file extensions commonly used with this mime type."@en ;
+    rdfs:domain dataid:MediaType ;
+    rdfs:label "media type file extension"@en ;
+    rdfs:range xsd:string .
+	    
+dataid:typeName
+	a owl:DatatypeProperty;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:comment "Names the media types described."@en ;
+    rdfs:domain dataid:MediaType ;
+    rdfs:label "media type name"@en ;
+    rdfs:range xsd:string .
+    
 dataid:statement
 	a owl:DatatypeProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"an actual textual statment"@en ;
     rdfs:label "statement"@en ;
@@ -885,6 +926,19 @@ dataid:validFrom
     rdfs:label 		"valid from"@en ;
     rdfs:range  	xsd:date .
 
+#status testing
+dataid:accessProtocol
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment 	"Defines the protocol used by the distribution provider (e.g. repository). By default dataid-hub assumes tcp."@en ;
+    rdfs:domain 	dataid:Distribution ;
+    rdfs:label 		"access protocol"@en ;
+    rdfs:range  	rdfs:Literal ;
+    owl:equivalentClass [
+    	a owl:Class ;
+    	owl:oneOf( "tcp" "udp" "dccp" "sctp" )
+    ].
+    
 dataid:validUntil
     a owl:DatatypeProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
@@ -901,19 +955,6 @@ dataid:isInheritable
     rdfs:domain 	dataid:AuthorityEntityContext ;
     rdfs:label 		"is inheritable"@en ;
     rdfs:range  	xsd:boolean .
-
-################### DataTypes ####################
-dataid:crc32
-    a rdfs:Datatype ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A crc32 checksum"@en ;
-    rdfs:label "crc32 checksum"@en .
-
-dataid:md5
-    a rdfs:Datatype ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A md5 checksum"@en ;
-    rdfs:label "md5 checksum"@en .
 
 ################### Instances ####################
 dataid:PrivateAccess
