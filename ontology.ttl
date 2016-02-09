@@ -404,7 +404,7 @@ dataid:Distribution
             owl:onProperty dataid:hasEntityContext ;
             owl:minCardinality "1"^^xsd:nonNegativeInteger
         ] )
-    ],[#recommended
+    ],[#recommended using dataid:MediaType
         a owl:Restriction ;
         owl:onProperty dcat:mediaType ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger
