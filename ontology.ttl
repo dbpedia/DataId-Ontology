@@ -473,6 +473,10 @@ dataid:Distribution
 		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 		owl:onClass dataid:SimpleStatement ;
 		owl:onProperty dct:rights
+    ],[
+		a owl:Restriction ;
+		owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+		owl:onProperty dataid:uncompressed
     ].
 
 dataid:ServiceEndpoint
@@ -545,6 +549,14 @@ dataid:isDistributionOf
 	owl:inverseOf	dcat:distribution;
 	rdfs:domain		dataid:Distribution;
 	rdfs:range		dataid:Dataset.
+
+dataid:uncompressed
+	a	owl:DatatypeProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "uncompressed"@en ;
+	rdfs:comment "Records the byte size of the uncompressed version of this file."@en ;
+	rdfs:domain		dataid:Distribution ;
+    rdfs:range      xsd:integer.
 
 dataid:isInheritable
 	a	owl:DatatypeProperty ;
