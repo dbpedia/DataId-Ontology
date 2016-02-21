@@ -1,0 +1,160 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix wsdl: <http://www.w3.org/ns/wsdl-rdf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
+@prefix lvont: <http://lexvo.org/ontology#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dataid-ld: <http://dataid.dbpedia.org/ns/ld#> .
+
+<http://dataid.dbpedia.org/ns/ld#>
+    a owl:Ontology ;
+    vann:preferredNamespaceUri <http://dataid.dbpedia.org/ns/ld#> ;
+    vann:preferredNamespacePrefix "dataid"^^xsd:string ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
+    owl:versionInfo "1.0.0" ; 
+    rdfs:comment "This is the Linked Data extension ontology for DataID <http://dataid.dbpedia.org/ns/core#>, describing Linked Data specific, additional properties and Classes (heavily depending on VOID)."@en ;
+    rdfs:label "DataID - Linked Data"@en ;
+    owl:imports <http://dataid.dbpedia.org/ns/core#> .
+
+dataid-ld:Linkset
+    a owl:Class ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
+    rdfs:label "Linkset"@en ;
+    rdfs:comment "Entity representing the set of links between two datasets."@en ;
+    rdfs:subClassOf void:Linkset, prov:Entity,[
+        a owl:Restriction ;
+        owl:allValuesFrom dataid-ld:Linkset ;
+        owl:onProperty dataid:latestVersion
+    ],[
+        a owl:Restriction ;
+        owl:allValuesFrom dataid-ld:Linkset ;
+        owl:onProperty dataid:nextVersion
+    ] ,[
+        a owl:Restriction ;
+        owl:allValuesFrom dataid-ld:Linkset ;
+        owl:onProperty dataid:previousVersion
+    ],[
+         a owl:Restriction ;
+         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+         owl:onProperty dataid:version
+     ],[
+        a owl:Class ;
+        owl:unionOf ( [ rdf:type owl:Restriction ;
+            owl:onProperty dataid:hasAccessLevel ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger
+        ]
+        [ rdf:type owl:Restriction ;
+            owl:onProperty dataid:hasEntityContext ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger
+        ] )
+    ],[
+        a owl:Restriction ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:hasVersion
+    ],[
+        a owl:Restriction ;
+        owl:onClass void:Dataset ;
+        owl:onProperty void:objectsTarget ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass void:Dataset ;
+        owl:onProperty void:subjectsTarget ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:triples
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:exampleResource
+    ], [
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass dataid:Linkset ;
+        owl:onProperty dataid:previousVersion
+    ], [
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onDataRange xsd:date ;
+        owl:onProperty dct:modified
+    ], [
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass dataid:Linkset ;
+        owl:onProperty dataid:latestVersion
+    ], [
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass dataid:Linkset ;
+        owl:onProperty dataid:nextVersion
+    ] .
+
+dataid-ld:Dataset
+    a owl:Class;
+    owl:equivalentClass dataid:Dataset;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:distinctSubjects
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:properties
+    ], [
+        #recommanded
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:triples
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:distinctObjects
+    ].
+
+dataid-ld:SparqlEndpoint
+    a owl:Class ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
+    rdfs:comment "A specific distribution, which is accessible via an access url and can be queried with the SPARQL language."@en ;
+    rdfs:label "Sparql Endpoint"@en ;
+    rdfs:subClassOf dataid:Distribution, sd:Service, [
+         a owl:Restriction ;
+         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+         owl:onProperty dcat:accessURL
+     ].
+
+dataid-ld:Distribution
+    a owl:Class;
+    owl:equivalentClass dataid:Distribution;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:graphName
+    ].
+
+dataid-ld:containsLinks
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
+    rdfs:comment "Set of links to another dataset contained in this dataset"@en ;
+    rdfs:domain dataid:Dataset ;
+    rdfs:label "contains links"@en ;
+    rdfs:range dataid-ld:Linkset .
+
+dataid-ld:graphName
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
+    rdfs:comment "The name of the graph of this distribution in a SPARQL endpoint"@en ;
+    rdfs:domain dataid:Distribution ;
+    rdfs:label "Graph name"@en ;
+    rdfs:range xsd:string .

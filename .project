@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>DataId-Ontology</name>
+	<comment></comment>
+	<projects>
+		<project>xturtle.core</project>
+		<project>xturtle.dc</project>
+		<project>xturtle.doap</project>
+		<project>xturtle.foaf</project>
+		<project>xturtle.lvont</project>
+		<project>xturtle.odrl</project>
+		<project>xturtle.prov</project>
+		<project>xturtle.services</project>
+		<project>xturtle.voidvann</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.xtext.ui.shared.xtextBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
+	</natures>
+	<filteredResources>
+		<filter>
+			<id>1453724623203</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-.all</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
+</projectDescription>

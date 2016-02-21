@@ -6,6 +6,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix wsdl: <http://www.w3.org/ns/wsdl-rdf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -13,9 +14,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
 @prefix lvont: <http://lexvo.org/ontology#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix adms: <http://www.w3.org/ns/adms#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix datacite: <http://purl.org/spar/datacite> .
 
 <http://dataid.dbpedia.org/ns/core#>
     a owl:Ontology ;
@@ -23,9 +21,39 @@
     vann:preferredNamespacePrefix "dataid"^^xsd:string ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     owl:versionInfo "1.0.0" ; 
-    rdfs:comment "DBpedia Data ID is an ontology with the goal of extensively describing datasets via RDF files in a uniform way. Established vocabularies like DCAT, VoID, Prov-O are used for maximum compatibility."@en ;
+    rdfs:comment "DBpedia Data ID is an ontology with the goal of describing LOD datasets via RDF files in a uniform way. Established vocabularies like DCAT, VoID, Prov-O and SPARQL Service Description are used for maximum compatibility."@en ;
     rdfs:label "DataID"@en ;
     owl:imports <http://vocab.deri.ie/void>, <http://www.w3.org/ns/dcat>, <http://www.w3.org/ns/prov> .
+
+dataid:Agent
+    a owl:Class ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Any type of agent without a specific function."@en ;
+    rdfs:label "Agent"@en ;
+    owl:equivalentClass [
+        a owl:Class;
+        owl:disjointUnionOf
+        (   [
+                a owl:Restriction ;
+                owl:onProperty foaf:mbox ;
+                owl:minCardinality "1"^^xsd:nonNegativeInteger
+            ]
+            [
+                a owl:Restriction ;
+                owl:onProperty foaf:homepage ;
+                owl:minCardinality "1"^^xsd:nonNegativeInteger
+            ]
+        )
+    ];
+    rdfs:subClassOf prov:Agent, dct:Agent, [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty foaf:account
+    ],[
+        a owl:Restriction ;
+        owl:onProperty foaf:name ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger
+    ] .
     
 dataid:DataId
 	a owl:Class ;
@@ -40,35 +68,14 @@ Validating and delivering metadata files in a uniform way, as well as providing 
 for datasets are main objectives of the DBpedia/DataID project.
 To learn more including how to draft an new DataID, please visit http://dataid.dbpedia.org."""@en ;
 
-	rdfs:subClassOf void:DatasetDescription, dcat:CatalogRecord, prov:Entity, [
-        a owl:Class;
-        owl:unionOf(
-	        [
-		        a owl:Restriction ;
-		        owl:onClass dataid:Dataset ;
-		        owl:onProperty foaf:topic ;
-		        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-	    	]
-	        [
-		        a owl:Restriction ;
-		        owl:onClass dataid:Dataset ;
-		        owl:onProperty foaf:primaryTopic;
-		        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-	        ]
-	    	)
-		],[
+	rdfs:subClassOf void:DatasetDescription, dcat:CatalogRecord, prov:Entity, 
+		[
 	        a owl:Restriction ;
-	        owl:onProperty foaf:topic ;
+	        owl:onProperty foaf:primaryTopic ;
 	        owl:allValuesFrom dataid:Dataset
-	    ],[
-	        a owl:Restriction ;
-	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass dataid:Dataset ;
-	        owl:onProperty foaf:primaryTopic
 	    ],[ 
-            a owl:Restriction ;
-            owl:disjointUnionOf 
-            ( [ rdf:type owl:Restriction ;
+            a owl:Class ;
+            owl:unionOf ( [ rdf:type owl:Restriction ;
                 owl:onProperty dataid:hasAccessLevel ;
                 owl:cardinality "1"^^xsd:nonNegativeInteger
             ]
@@ -76,151 +83,58 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
                 owl:onProperty dataid:hasEntityContext ;
                 owl:minCardinality "1"^^xsd:nonNegativeInteger
             ] )
-        ],[
-			a owl:Restriction ;
-	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass dataid:Agent ;
-	        owl:onProperty dct:publisher
-		],[
+        ], [
+	        a owl:Restriction ;
+	        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+	        owl:onProperty dct:hasVersion
+	    ], [
 	        a owl:Restriction ;
 	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:datetime ;
+	        owl:onDataRange xsd:date ;
 	        owl:onProperty dct:issued
-	    ],[
-	        a owl:Restriction ;
-	        owl:onProperty dataid:associatedAgent ;
-            owl:cardinality "1"^^xsd:nonNegativeInteger
-	    ],[
-	        a owl:Restriction ;
-	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:datetime ;
-	        owl:onProperty dct:modified
-	    ],[#recommended
-	        a owl:Restriction ;
-	        owl:allValuesFrom xsd:string ;
-	        owl:onProperty dct:title
-	    ],[#recommended
-			a owl:Restriction ;
-			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			owl:onDataRange xsd:string ;
-			owl:onProperty owl:versionInfo
-	    ],[#recommended
+	    ] ,[
 	        a owl:Restriction ;
 	        owl:allValuesFrom dataid:DataId ;
-	        owl:onProperty dataid:previousVersion
-	    ],[#recommended
-			a owl:Restriction ;
-			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			owl:onClass dataid:DataId ;
-			owl:onProperty dataid:latestVersion
-	    ],[#recommended
-			a owl:Restriction ;
-	        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:string ;
-	        owl:onProperty dct:description
-		],[
+	        owl:onProperty dataid:latestVersion
+	    ] ,[
 	        a owl:Restriction ;
 	        owl:allValuesFrom dataid:DataId ;
 	        owl:onProperty dataid:nextVersion
-	    ],[
-			a owl:Restriction ;
-	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass dataid:Agent ;
-	        owl:onProperty dct:creator
-		],[
-			a owl:Restriction ;
-	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass skos:Concept ;
-	        owl:onProperty adms:status
-		],[
-			a owl:Restriction ;
-	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass dcat:CatalogRecord ;
-	        owl:onProperty dct:source
-		],[
+	    ] ,[
 	        a owl:Restriction ;
-	        owl:allValuesFrom lvont:Language ;
-	        owl:onProperty dct:language
-	    ],[
+	        owl:allValuesFrom dataid:DataId ;
+	        owl:onProperty dataid:previousVersion
+	    ] ,[
 	        a owl:Restriction ;
-	        owl:allValuesFrom dataid:Identifier ;
-	        owl:onProperty adms:identifier
-	    ].
-	  
-#refining dcat:Catalog to fit DCAT-AP profile	  
-[]	a owl:Class;
-	owl:equivalentClass dcat:Catalog;
-	rdfs:subClassOf [
-			a owl:Restriction ;
-	        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onProperty dcat:dataset
-		],[
-			a owl:Restriction ;
-	        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:string ;
-	        owl:onProperty dct:title
-		],[
-			a owl:Restriction ;
-	        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:string ;
-	        owl:onProperty dct:description
-		],[
-			a owl:Restriction ;
 	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass dataid:Agent ;
-	        owl:onProperty dct:publisher
-		],[
-			a owl:Restriction ;
-	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass dataid:DataId ;
-	        owl:onProperty dcat:record
-		],[#recommended
-			a owl:Restriction ;
-	        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onProperty foaf:homepage
-		],[#recommended
-	        a owl:Restriction ;
-	        owl:allValuesFrom lvont:Language ;
-	        owl:onProperty dct:language
-	    ],[#recommended
-			a owl:Restriction ;
-	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass odrl:Policy ;
-	        owl:onProperty dct:license
-		],[#recommended
-			a owl:Restriction ;
-	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:datetime ;
-	        owl:onProperty dct:issued
-		],[#recommended
-			a owl:Restriction ;
-	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:datetime ;
+	        owl:onDataRange xsd:date ;
 	        owl:onProperty dct:modified
-		],[#recommended
+	    ], [
+			a owl:Restriction ;
+			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			owl:onClass dataid:Dataset ;
+			owl:onProperty dataid:nextVersion
+	     ], [
+			a owl:Restriction ;
+			owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+			owl:onProperty dataid:version
+	     ], [
+			#recommanded
+			a owl:Restriction ;
+			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			owl:onClass dataid:Dataset ;
+			owl:onProperty dataid:latestVersion
+	     ], [
+			#recommanded
+			a owl:Restriction ;
+			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			owl:onClass dataid:Dataset ;
+			owl:onProperty dataid:previousVersion
+	     ],[
 	        a owl:Restriction ;
-	        owl:allValuesFrom skos:ConceptScheme ;
-	        owl:onProperty dcat:themeTaxonomy
-	    ],[
-			a owl:Restriction ;
-	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass dataid:Agent ;
-	        owl:onProperty dct:creator
-		],[
-			a owl:Restriction ;
-	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass dcat:Catalog ;
-	        owl:onProperty dct:isPartOf
-		],[
-			a owl:Restriction ;
-	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onClass dataid:SimpleStatement ;
-	        owl:onProperty dct:rights
-		],[
-	        a owl:Restriction ;
-	        owl:allValuesFrom dataid:Identifier ;
-	        owl:onProperty adms:identifier
-	    ].
+	        owl:onProperty dataid:associatedAgent ;
+	        owl:cardinality "1"^^xsd:nonNegativeInteger
+	    ] .
 
 dataid:Dataset
     a owl:Class ;
@@ -231,142 +145,165 @@ dataid:Dataset
     rdfs:subClassOf void:Dataset, dcat:Dataset, prov:Entity,
     [
         a owl:Restriction ;
-        owl:onProperty dct:title ;
-        owl:onDataRange xsd:string ;
-        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ],[
-        a owl:Restriction ;
-        owl:onProperty dct:description ;
-        owl:onDataRange xsd:string ;
-        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ],[
-        a owl:Restriction ;
-        owl:onProperty dcat:distribution ;
-        owl:onClass dataid:Distribution ;
-        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ],[
-        a owl:Restriction ;
-        owl:onProperty dcat:keyword ;
-        owl:onDataRange xsd:string ;
-        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ],[
-		a owl:Restriction ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Agent ;
-        owl:onProperty dct:publisher
-	],[
-        a owl:Restriction ;
-        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass odrl:Policy ;
-        owl:onProperty dct:license
-    ],[
-        a owl:Restriction ;
-        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:datetime ;
-        owl:onProperty dct:modified
-    ],[ 
-        a owl:Class ;
-        owl:disjointUnionOf
-        ( [ rdf:type owl:Restriction ;
-            owl:onProperty dataid:hasAccessLevel ;
-            owl:cardinality "1"^^xsd:nonNegativeInteger
-        ]
-        [ rdf:type owl:Restriction ;
-            owl:onProperty dataid:hasEntityContext ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger
-        ] )
-    ],[#recommended
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:datetime ;
-        owl:onProperty dct:issued
-    ],[#recommended
-		a owl:Restriction ;
-		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onDataRange xsd:string ;
-		owl:onProperty owl:versionInfo
-    ],[#recommended
-        a owl:Restriction ;
-        owl:allValuesFrom foaf:Document ;
-        owl:onProperty dcat:landingPage;
-    ],[#recommended
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Agent ;
-        owl:onProperty dataid:associatedAgent;
-    ],[#recommended
-        a owl:Restriction ;
         owl:allValuesFrom dataid:Dataset ;
-        owl:onProperty dataid:previousVersion
-    ],[#recommended
-		a owl:Restriction ;
-		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onClass dataid:Dataset ;
-		owl:onProperty dataid:latestVersion
-    ],[#recommended
-        a owl:Restriction ;
-        owl:allValuesFrom dcat:Dataset ;
-        owl:onProperty dataid:similarData;
-    ],[#recommended
-        a owl:Restriction ;
-        owl:allValuesFrom skos:Concept ;
-        owl:onProperty dcat:theme;
-    ],[#recommended
-		a owl:Restriction ;
-		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onClass dataid:SimpleStatement ;
-		owl:onProperty dct:accessRights
-    ],[#recommended
-        a owl:Restriction ;
-        owl:allValuesFrom lvont:Language ;
-        owl:onProperty dct:language
-    ],[#recommended
-        a owl:Restriction ;
-        owl:allValuesFrom foaf:Document ;
-        owl:onProperty foaf:page
+        owl:onProperty dataid:latestVersion
     ],[
-		a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Agent ;
-        owl:onProperty dct:creator
-	],[
         a owl:Restriction ;
         owl:allValuesFrom dataid:Dataset ;
         owl:onProperty dataid:nextVersion
-    ],[
-		a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dcat:CatalogRecord ;
-        owl:onProperty foaf:isPrimaryTopicOf
-	],[
+    ] ,[
         a owl:Restriction ;
-        owl:allValuesFrom dataid:SimpleStatement ;
-        owl:onProperty dct:conformsTo
+        owl:allValuesFrom dataid:Dataset ;
+        owl:onProperty dataid:previousVersion
     ],[
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:version
+     ],[
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:vocabulary
+    ],[ 
+            a owl:Class ;
+            owl:unionOf ( [ rdf:type owl:Restriction ;
+                owl:onProperty dataid:hasAccessLevel ;
+                owl:cardinality "1"^^xsd:nonNegativeInteger
+            ]
+            [ rdf:type owl:Restriction ;
+                owl:onProperty dataid:hasEntityContext ;
+                owl:minCardinality "1"^^xsd:nonNegativeInteger
+            ] )
+    ],[
+    	#recommanded
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty rdfs:label
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:entities
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:classes
+    ], [
+    	#recommanded
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:description
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:distinctObjects
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:rights
+    ], [
+        a owl:Restriction ;
+        owl:onProperty dct:title ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger
+    ], [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dct:accrualPeriodicity
-    ],[
+    ], [
         a owl:Restriction ;
-        owl:allValuesFrom dataid:Identifier ;
-        owl:onProperty adms:identifier
-    ],[
+        owl:allValuesFrom lvont:Language ;
+        owl:onProperty dct:language
+    ] ,[
+    	#recommanded
         a owl:Restriction ;
-        owl:allValuesFrom dataid:SimpleStatement ;
-        owl:onProperty dct:provenance
-    ],[
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass lvont:Language ;
+        owl:onProperty dct:language
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:nextVersion
+    ], [
+    	#recommanded
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty void:rootResource
-    ],[ 
+    ], [
+        a owl:Restriction ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass odrl:Policy ;
+        owl:onProperty dct:license
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom odrl:Policy ;
+        owl:onProperty dct:license
+    ],[
+        a owl:Restriction ;
+        owl:allValuesFrom dataid:Distribution ;
+        owl:onProperty dcat:distribution
+    ], [
+        a owl:Restriction ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dcat:keyword
+    ], [
+        a owl:Restriction ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:associatedAgent
+    ], [
+    	#recommanded
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:triples
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:documents
+    ], [ 
 		rdf:type owl:Restriction ;
 		owl:onProperty void:subset ;
 	 	owl:allValuesFrom dataid:Dataset
- 	],[
-		a owl:Restriction ;
+ 	], [ 
+		rdf:type owl:Class ;
+		owl:unionOf ( [ rdf:type owl:Restriction ;
+			owl:onProperty void:subset ;
+		 	owl:minCardinality "1"^^xsd:nonNegativeInteger
+		]
+     	[ rdf:type owl:Restriction ;
+         	owl:onProperty dcat:distribution ;
+         	owl:minCardinality "1"^^xsd:nonNegativeInteger
+       	] )
+    ], [
+        a owl:Restriction ;
+        owl:onProperty dcat:landingPage ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Dataset ;
-        owl:onProperty dct:isPartOf
-	].
+        owl:onDataRange xsd:date ;
+        owl:onProperty dct:issued
+    ], [
+    	#recommanded
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:latestVersion
+    ], [
+    	#recommanded
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:previousVersion
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:properties
+    ], [
+    	#recommanded
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onDataRange xsd:date ;
+        owl:onProperty dct:modified
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:distinctSubjects
+    ] .
 
 dataid:Distribution
     a owl:Class ;
@@ -388,30 +325,21 @@ dataid:Distribution
         ]
         )
     ];
-    rdfs:subClassOf dcat:Distribution, prov:Entity,
-    [
-		a owl:Restriction ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Agent ;
-        owl:onProperty dct:publisher
-	],[
+    rdfs:subClassOf dcat:Distribution, prov:Entity,[
         a owl:Restriction ;
-        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass odrl:Policy ;
-        owl:onProperty dct:license
+        owl:allValuesFrom dataid:Distribution ;
+        owl:onProperty dataid:latestVersion
     ],[
         a owl:Restriction ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:datetime ;
-        owl:onProperty dct:modified
-    ],[
+        owl:allValuesFrom dataid:Distribution ;
+        owl:onProperty dataid:nextVersion
+    ] ,[
         a owl:Restriction ;
-        owl:onProperty dct:format ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger
-    ],[
+        owl:allValuesFrom dataid:Distribution ;
+        owl:onProperty dataid:previousVersion
+    ], [
         a owl:Class ;
-        owl:disjointUnionOf 
-        ( [ rdf:type owl:Restriction ;
+        owl:unionOf ( [ rdf:type owl:Restriction ;
             owl:onProperty dataid:hasAccessLevel ;
             owl:cardinality "1"^^xsd:nonNegativeInteger
         ]
@@ -419,80 +347,77 @@ dataid:Distribution
             owl:onProperty dataid:hasEntityContext ;
             owl:minCardinality "1"^^xsd:nonNegativeInteger
         ] )
-    ],[#recommended using dataid:MediaType
+    ],[
+         a owl:Restriction ;
+         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+         owl:onProperty dataid:version
+    ], [
         a owl:Restriction ;
-        owl:onProperty dcat:mediaType ;
+        owl:onProperty dct:title ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger
-    ],[#recommended
+    ], [
+       a owl:Restriction ;
+       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+       owl:onProperty dct:rights
+    ], [
+       a owl:Restriction ;
+       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+       owl:onClass odrl:Policy ;
+       owl:onProperty dct:license
+    ], [
         a owl:Restriction ;
-        owl:allValuesFrom xsd:string ;
+        owl:allValuesFrom odrl:Policy ;
+        owl:onProperty dct:license
+    ], [
+        a owl:Restriction ;
+        owl:onProperty dct:format ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dcat:accessURL
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty rdfs:label
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dcat:mediaType
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dcat:byteSize      #xsd:decimal!
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dct:description
-    ],[#recommended
+    ], [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dcat:byteSize      
-    ],[#recommended
-        a owl:Restriction ;
-        owl:allValuesFrom foaf:Document ;
-        owl:onProperty foaf:page
-    ],[#recommended
+        owl:onProperty dataid:graphName
+    ], [
         a owl:Restriction ;
         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:datetime ;
+        owl:onDataRange xsd:date ;
         owl:onProperty dct:issued
-    ],[#recommended
+    ], [
         a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:accessProcedure
-    ],[#recommended
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:softwareRequirement
-    ],[#recommended
-		a owl:Restriction ;
-		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onDataRange xsd:string ;
-		owl:onProperty owl:versionInfo
-    ],[#recommended
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Dataset ;
-        owl:onProperty dataid:previousVersion
-    ],[#recommended
-		a owl:Restriction ;
-		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onClass dataid:Dataset ;
-		owl:onProperty dataid:latestVersion
-    ],[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Dataset ;
-        owl:onProperty dataid:nextVersion
-    ],[
-		a owl:Restriction ;
         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Agent ;
-        owl:onProperty dct:creator
-	],[
-        a owl:Restriction ;
-        owl:allValuesFrom lvont:Language ;
-        owl:onProperty dct:language
-    ],[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:SimpleStatement ;
-        owl:onProperty dct:conformsTo
-    ],[
-        a owl:Restriction ;
-        owl:allValuesFrom xsd:string ;
-        owl:onProperty dct:title
-    ],[
-		a owl:Restriction ;
-		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onClass dataid:SimpleStatement ;
-		owl:onProperty dct:rights
-    ],[
-		a owl:Restriction ;
-		owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onProperty dataid:uncompressed
-    ].
+        owl:onDataRange xsd:date ;
+        owl:onProperty dct:modified
+    ] .
+
+dataid:SparqlEndpoint
+    a owl:Class ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "A specific distribution, which is accessible via an access url and can be queried with the SPARQL language."@en ;
+    rdfs:label "Sparql Endpoint"@en ;
+    rdfs:subClassOf dataid:Distribution, sd:Service, [
+         a owl:Restriction ;
+         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+         owl:onProperty dcat:accessURL
+     ].
 
 dataid:ServiceEndpoint
     a owl:Class ;
@@ -510,11 +435,10 @@ dataid:SingleFile
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "A single data dump file representing your dataset."@en ;
     rdfs:label "single dump file"@en ;
-    rdfs:subClassOf dataid:Distribution, 
-    [#recommended
+    rdfs:subClassOf dataid:Distribution, [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dcat:checksum
+        owl:onProperty dataid:checksum
     ],
     [
          a owl:Restriction ;
@@ -527,11 +451,10 @@ dataid:Directory
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "A dedicated directory holding multiple files of the same dataset."@en ;
     rdfs:label "dataset files in one directory"@en ;
-    rdfs:subClassOf dataid:Distribution, 
-    [#recommended
+    rdfs:subClassOf dataid:Distribution, [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dcat:checksum
+        owl:onProperty dataid:checksum
     ],
     [
          a owl:Restriction ;
@@ -544,17 +467,91 @@ dataid:FileCollection
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Multiple files of a distribution constituting one dataset."@en ;
     rdfs:label "dataset files in differnt paths of a distribution"@en ;
-    rdfs:subClassOf dataid:Distribution, 
-    [#recommended
+    rdfs:subClassOf dataid:Distribution, [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dcat:checksum
+        owl:onProperty dataid:checksum
     ],
     [
          a owl:Restriction ;
          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
          owl:onProperty dcat:downloadURL
     ].
+
+dataid:Linkset
+    a owl:Class ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "Linkset"@en ;
+    rdfs:comment "Entity representing the set of links between two datasets."@en ;
+    rdfs:subClassOf void:Linkset, prov:Entity,[
+        a owl:Restriction ;
+        owl:allValuesFrom dataid:Linkset ;
+        owl:onProperty dataid:latestVersion
+    ],[
+        a owl:Restriction ;
+        owl:allValuesFrom dataid:Linkset ;
+        owl:onProperty dataid:nextVersion
+    ] ,[
+        a owl:Restriction ;
+        owl:allValuesFrom dataid:Linkset ;
+        owl:onProperty dataid:previousVersion
+    ],[
+         a owl:Restriction ;
+         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+         owl:onProperty dataid:version
+     ],[
+        a owl:Class ;
+        owl:unionOf ( [ rdf:type owl:Restriction ;
+            owl:onProperty dataid:hasAccessLevel ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger
+        ]
+        [ rdf:type owl:Restriction ;
+            owl:onProperty dataid:hasEntityContext ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger
+        ] )
+    ],[
+        a owl:Restriction ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:hasVersion
+    ],[
+        a owl:Restriction ;
+        owl:onClass void:Dataset ;
+        owl:onProperty void:objectsTarget ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass void:Dataset ;
+        owl:onProperty void:subjectsTarget ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:triples
+    ], [
+        a owl:Restriction ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:exampleResource
+    ], [
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass dataid:Linkset ;
+        owl:onProperty dataid:previousVersion
+    ], [
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onDataRange xsd:date ;
+        owl:onProperty dct:modified
+    ], [
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass dataid:Linkset ;
+        owl:onProperty dataid:latestVersion
+    ], [
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass dataid:Linkset ;
+        owl:onProperty dataid:nextVersion
+    ] .
 
 dataid:isDistributionOf
 	a	owl:ObjectProperty ;
@@ -564,14 +561,6 @@ dataid:isDistributionOf
 	owl:inverseOf	dcat:distribution;
 	rdfs:domain		dataid:Distribution;
 	rdfs:range		dataid:Dataset.
-
-dataid:uncompressed
-	a	owl:DatatypeProperty ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "uncompressed"@en ;
-	rdfs:comment "Records the byte size of the uncompressed version of this file."@en ;
-	rdfs:domain		dataid:Distribution ;
-    rdfs:range      xsd:integer.
 
 dataid:isInheritable
 	a	owl:DatatypeProperty ;
@@ -583,29 +572,62 @@ dataid:isInheritable
 
 dataid:similarData
     a owl:ObjectProperty ;
-    rdfs:subPropertyOf dct:relation ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"Points to other dataset containing related data."@en ;
+    rdfs:comment 	"points to other dataset containing related data"@en ;
     rdfs:domain 	dataid:Dataset ;
     rdfs:label 		"similar data"@en ;
-    rdfs:range  	dcat:Dataset .
+    rdfs:range  	dataid:Dataset .
 
 dataid:preview
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"Provides the uri of a short preview of the data provided by a distribution (do not link to the download or accessURL with this property)."@en ;
+    rdfs:comment 	"provides the uri of a short preview of the data provided by a distribution (do not link to the download or accessURL with this property)"@en ;
     rdfs:domain 	dataid:Distribution ;
     rdfs:label 		"data preview"@en ;
     rdfs:range  	foaf:Document .
 
+dataid:version
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment 	"provides a version string for any entity"@en ;
+    rdfs:domain 	prov:Entity ;
+    rdfs:label 		"version"@en ;
+    rdfs:range  	xsd:string .
+
 dataid:associatedAgent
     a owl:ObjectProperty ;
-    rdfs:subPropertyOf prov:wasAttributedTo ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "some agent generally connected to the dataset, their function to be specified by their rdf:type"@en ;
     rdfs:domain prov:Entity ;
     rdfs:label "associated agent"@en ;
     rdfs:range dataid:Agent .
+
+dataid:checksum
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Checksum of a file to check for correctness"@en ;
+    rdfs:domain [
+    	a owl:Class;
+    	owl:unionOf(dataid:SingleFile dataid:Directory)
+    ] ;
+    rdfs:label "checksum"@en ;
+    rdfs:range dataid:crc32, dataid:md5 .
+
+dataid:containsLinks
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Set of links to another dataset contained in this dataset"@en ;
+    rdfs:domain dataid:Dataset ;
+    rdfs:label "contains links"@en ;
+    rdfs:range dataid:Linkset .
+
+dataid:graphName
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "The name of the graph of this distribution in a SPARQL endpoint"@en ;
+    rdfs:domain dataid:Distribution ;
+    rdfs:label "Graph name"@en ;
+    rdfs:range xsd:string .
 
 dataid:softwareRquirement
     a owl:ObjectProperty ;
@@ -644,41 +666,36 @@ dataid:latestVersion
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Latest version of a DataIdPart"@en ;
     rdfs:domain prov:Entity ;
-    rdfs:label "latest version"@en ;
+    rdfs:label "latest linkset version"@en ;
     rdfs:range prov:Entity .
 
 dataid:AuthorityEntityContext
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Authority entity context"@en ;
-	rdfs:comment """This concept defines a scope of Entities and links it to an Agent who has certain rights for those entities (defined by the AgentRole). The scope consists of all Entities directly linked to the context, as well as transitively dependent Entities."""@en ;
+	rdfs:comment """This concept defines a scope of Entities and links it to an Agent which has certain rights for those entities (defined by the AgentRole). This scope consists of all Entities directly linked to the context, as well as transitively dependend Entities"""@en ;
 
-	rdfs:subClassOf prov:Association, prov:EntityInfluence, 
-	[
+	rdfs:subClassOf [
         a owl:Restriction ;
         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:authorizedFor
-	],[
+	], [
         a owl:Restriction ;
-        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:authorityAgentRole
-	],[
-        a owl:Restriction ;
-        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:validForAccessLevel
-	],[
+	], [
         a owl:Restriction ;
         owl:cardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:authorizedAgent
-	],[
+	], [
         a owl:Restriction ;
         owl:cardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:isInheritable
-	],[
+	], [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:validFrom
-	],[
+	], [
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:validUntil
@@ -689,21 +706,31 @@ dataid:AgentRole
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Agent role"@en ;
 	rdfs:comment """Instances of this class define an array of rights and responsibilities an agent, assigned with this role for a given scope of entities, has to address or can execute."""@en ;
-	rdfs:subClassOf prov:Role, [
+	rdfs:subClassOf [
         a owl:Restriction ;
         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty dataid:allowsFor
-    ].
+    ];
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:oneOf (
+			dataid:Guest
+			dataid:Creator
+			dataid:Contributor
+			dataid:Maintainer
+			dataid:Publisher
+			dataid:Contact
+		)
+	] .
 
 dataid:AuthorizedAction
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Authorized action"@en ;
     rdfs:comment """AgentRoles provide agents with the ability to execute certain actions as well as demand certain responsibilities, which are defines by the instances of this concept."""@en ;
-	rdfs:subClassOf prov:Activity ;
 	owl:equivalentClass [
 		a		owl:Class;
-		owl:disjointUnionOf (dataid:ResponsibleAction dataid:EntitledAction)
+		owl:unionOf(dataid:ResponsibleAction dataid:EntitledAction)
 	].
 
 dataid:ResponsibleAction
@@ -711,7 +738,17 @@ dataid:ResponsibleAction
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "responsible actions"@en ;
 	rdfs:comment """AgentRoles provide access rights as well as responsibilities an agent has to attend to in order to fullfill this role. Responsible actions should describe actions pertaining to responsibilities an agent is supposed to do."""@en ;
-	rdfs:subClassOf dataid:AuthorizedAction.
+	rdfs:subClassOf dataid:AuthorizedAction;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:oneOf (
+			dataid:ResponseToContact
+			dataid:AgentSupervision
+			dataid:UpdateDataId
+			dataid:PublishingDecision
+			dataid:ResponseToLifeCycleEvent
+		)
+	] .
 
 
 dataid:EntitledAction
@@ -719,13 +756,24 @@ dataid:EntitledAction
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Entitled action"@en ;
 	rdfs:comment """AgentRoles provide access and modification rights to an agent. Entitled actions should comprise actions pertaining to access/modification restrictions."""@en ;
-	rdfs:subClassOf dataid:AuthorizedAction.
+	rdfs:subClassOf dataid:AuthorizedAction;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:oneOf (
+			dataid:ReadContent
+			dataid:ModifyContent
+			dataid:DeleteContent
+			dataid:ModifyAuthorizedAgents
+			dataid:ModifyAccessLevel
+			dataid:ModifyAgentRoles
+		)
+	] .
 
 dataid:AccessLevel
 	a owl:Class ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Access level"@en ;
-	rdfs:comment "The level of openness of access to a particular groups of agents"@en ;
+	rdfs:comment "The level of openness of access to particular groups of agents"@en ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:oneOf (
@@ -735,161 +783,53 @@ dataid:AccessLevel
             dataid:NoAccess
 		)
 	].
-	
-dataid:SimpleStatement
-	a owl:Class;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "Simple Statement"@en ;
-	rdfs:comment "Implements the Statement and Standard classes of Dublin Core, containing a textual statement and a reference pointer."@en ;
-	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard ,
-		[
-		    a owl:Restriction ;
-            owl:onProperty dataid:statement ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger
-		],[#recommended
-	        a owl:Restriction ;
-	        owl:allValuesFrom foaf:Document ;
-	        owl:onProperty dct:references
-	    ].
-	
-dataid:Agent
-    a owl:Class ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Any type of agent without a specific function."@en ;
-    rdfs:label "Agent"@en ;
-    owl:equivalentClass [
-        a owl:Class;
-        owl:disjointUnionOf
-        (   [
-                a owl:Restriction ;
-                owl:onProperty foaf:mbox ;
-                owl:minCardinality "1"^^xsd:nonNegativeInteger
-            ]
-            [
-                a owl:Restriction ;
-                owl:onProperty foaf:homepage ;
-                owl:minCardinality "1"^^xsd:nonNegativeInteger
-            ]
-        )
-    ];
-    rdfs:subClassOf prov:Agent, dct:Agent, [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty foaf:account
-    ],[
-        a owl:Restriction ;
-        owl:onProperty foaf:name ;
-        owl:onDataRange xsd:string ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ] .
 
-dataid:Identifier
+dataid:AgentIdentifier
 	a owl:Class ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "agent identifier"@en ;
-	rdfs:comment "Uniquly identifies an agent or entity, given an identifier and a correspondng aid/pid system (ORCID, ResearcherID etc.)."@en ;
-	rdfs:subClassOf adms:Identifier, [  #to be conform with dcat-ap
+	rdfs:comment "Uniquly identifies an agent given a identifier and a correspondng aid/pid system (ORCID, ResearcherID etc.)."@en ;
+	rdfs:subClassOf [
         a owl:Restriction ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty skos:notation ;
-        owl:onClass datacite:IdentifierScheme
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dataid:aid
 	],[
-		a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:string ;
-        owl:onProperty adms:schemeAgency
-	],[
-		a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass foaf:Agent ;
-        owl:onProperty dct:creator
-	],[
-		a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:datetime;
-        owl:onProperty dct:issued
-	].
-	    
-dataid:MediaType
-	a owl:Class;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "Iana Media Type"@en ;
-	rdfs:comment "Extends the dct:MediaType class of Dublin Core by implementing the Iana media type description and adding a pointer to inner media types to deal with (multiple) compressions of a serialized file."@en ;
-	rdfs:subClassOf dct:MediaType, 
-	[
 		a owl:Restriction ;
         owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:typeTemplate
-	],[
-		a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:innerMediaType
+        owl:onProperty dataid:aidSystem
 	].
-		
-dataid:innerMediaType a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf dcat:mediaType;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Points out the MediaType of the (compressed) file inside this one."@en ;
-    rdfs:domain dataid:MediaType ;
-    rdfs:label "inner media type"@en ;
-    rdfs:range dataid:MediaType .
-    
-dataid:typeTemplate
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:comment "The template (or mime type string) of a media Type."@en ;
-    rdfs:domain dataid:MediaType ;
-    rdfs:label "media type template"@en ;
-    rdfs:range xsd:string .
-    
-dataid:typeReference
-	a owl:ObjectProperty;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:comment "Refers to a standard or person associated with this mime type."@en ;
-    rdfs:domain dataid:MediaType ;
-    rdfs:label "media type reference"@en ;
-    rdfs:range rdfs:Resource .
-    
-dataid:typeExtension
-	a owl:DatatypeProperty;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:comment "Lists file extensions commonly used with this mime type."@en ;
-    rdfs:domain dataid:MediaType ;
-    rdfs:label "media type file extension"@en ;
-    rdfs:range xsd:string .
-	    
-dataid:typeName
-	a owl:DatatypeProperty;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:comment "Names the media types described."@en ;
-    rdfs:domain dataid:MediaType ;
-    rdfs:label "media type name"@en ;
-    rdfs:range xsd:string .
-    
-dataid:statement
-	a owl:DatatypeProperty ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"An actual textual statment"@en ;
-    rdfs:label "statement"@en ;
-    rdfs:range xsd:string.
 
-dataid:identifier
+dataid:agentId
     a owl:InverseFunctionalProperty ;
-    rdfs:subPropertyOf adms:identifier, foaf:isPrimaryTopicOf ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "An unique identifier which was created by a SchemaAgency for an agent or entity."@en ;
-    rdfs:domain [ a owl:Class ;
-			    	owl:disjointUnionOf ( foaf:Agent prov:Agent prov:Entity ) ] ;
-    rdfs:label "(additional) identifier"@en ;
-    rdfs:range dataid:Identifier .
+    rdfs:subPropertyOf  foaf:isPrimaryTopicOf;
+    rdfs:comment "provides an unique identifier for this agent"@en ;
+    rdfs:domain dataid:Agent ;
+    rdfs:label "agent id"@en ;
+    rdfs:range dataid:AgentIdentifier .
 
-dataid:identifierURL
+dataid:aid
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment 	"the id of an agent as string"@en ;
+    rdfs:domain 	prov:Entity ;
+    rdfs:label 		"aid"@en ;
+    rdfs:range  	xsd:string .
+
+dataid:aidSystem
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment 	"the aid/pid system used for this identifier (ORCID, ResearcherID etc.)"@en ;
+    rdfs:domain 	prov:Entity ;
+    rdfs:label 		"aid system"@en ;
+    rdfs:range  	xsd:string .
+
+dataid:aidURI
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"uri/url provided as, or in addition to an id"@en ;
-    rdfs:domain 	dataid:Identifier ;
-    rdfs:label 		"URL of a page pertaining to this identifier (usualy on a website of the SchemaAgency)."@en ;
+    rdfs:domain 	prov:Entity ;
+    rdfs:label 		"aid uri"@en ;
     rdfs:range  	foaf:Document .
 
 dataid:hasAccessLevel
@@ -902,7 +842,6 @@ dataid:hasAccessLevel
 
 dataid:authorizedFor
 	a owl:ObjectProperty ;
-    rdfs:subPropertyOf prov:entity ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Defines the scope of an authority-context. An Agent has the right to execute authorized actions in this scope (e.g. a single DataId and all it's members)."@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
@@ -911,16 +850,14 @@ dataid:authorizedFor
 
 dataid:authorizedAgent
    	a owl:ObjectProperty ;
-    rdfs:subPropertyOf prov:agent ;
    	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Points out the Agent the authority-entity-context is defined for (e.g. to modify the metadata of a dataset)."@en ;
+    rdfs:comment "Provides an agent the ability to execute authorized actions in a certain scope (e.g. to modify the metadata of a dataset)"@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
     rdfs:label "authorized agent"@en ;
     rdfs:range dataid:Agent .
 
 dataid:authorityAgentRole
    	a owl:ObjectProperty ;
-    rdfs:subPropertyOf prov:hadRole ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Adds a role an agent can administer in the scope provided by the AuthorityEntityContext, thereby allowing for certain actions an agent can execute."@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
@@ -930,7 +867,7 @@ dataid:authorityAgentRole
 dataid:validForAccessLevel
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Limits rights and actions an Agent is allowed to take depending on the AccessLevel chosen for this AuthorityEntityContext."@en ;
+    rdfs:comment "Limits rights and actions an Agent is allwed to take depending on the AccessLevel chosen for this AuthorityEntityContext."@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
     rdfs:label "valid for access level"@en ;
     rdfs:range dataid:AccessLevel .
@@ -956,37 +893,37 @@ dataid:validFrom
     rdfs:comment 	"An AuthorityEntityContext is valid for a specific Agent from a certain point in time."@en ;
     rdfs:domain 	dataid:AuthorityEntityContext ;
     rdfs:label 		"valid from"@en ;
-    rdfs:range  	xsd:datetime .
+    rdfs:range  	xsd:date .
 
-#status testing
-dataid:accessProtocol
-    a owl:DatatypeProperty, owl:FunctionalProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"Defines the protocol used by the distribution provider (e.g. repository). By default dataid-hub assumes tcp."@en ;
-    rdfs:domain 	dataid:Distribution ;
-    rdfs:label 		"access protocol"@en ;
-    rdfs:range  	rdfs:Literal ;
-    owl:equivalentClass [
-    	a owl:Class ;
-    	owl:oneOf( "tcp" "udp" "dccp" "sctp" )
-    ].
-    
 dataid:validUntil
     a owl:DatatypeProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"An AuthorityEntityContext is valid for a specific Agent until a certain point in time."@en ;
     rdfs:domain 	dataid:AuthorityEntityContext ;
     rdfs:label 		"valid until"@en ;
-    rdfs:range  	xsd:datetime .
+    rdfs:range  	xsd:date .
 
 
 dataid:isInheritable
     a owl:DatatypeProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"Defines that a authority-entity-context is also valid for the next version of a DataID (if set to 'true')."@en ;
+    rdfs:comment 	"Defines that a context keeps intact for the next version of a DataID (if set to 'true')."@en ;
     rdfs:domain 	dataid:AuthorityEntityContext ;
     rdfs:label 		"is inheritable"@en ;
     rdfs:range  	xsd:boolean .
+
+################### DataTypes ####################
+dataid:crc32
+    a rdfs:Datatype ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "A crc32 checksum"@en ;
+    rdfs:label "crc32 checksum"@en .
+
+dataid:md5
+    a rdfs:Datatype ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "A md5 checksum"@en ;
+    rdfs:label "md5 checksum"@en .
 
 ################### Instances ####################
 dataid:PrivateAccess
