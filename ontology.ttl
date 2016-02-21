@@ -65,21 +65,21 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
 		],[
 	        a owl:Restriction ;
 	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:date ;
+	        owl:onDataRange xsd:datetime ;
 	        owl:onProperty dct:issued
 	    ],[
 	        a owl:Restriction ;
+	        owl:onProperty dataid:associatedAgent ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger
+	    ],[
+	        a owl:Restriction ;
 	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:date ;
+	        owl:onDataRange xsd:datetime ;
 	        owl:onProperty dct:modified
 	    ],[#recommended
 	        a owl:Restriction ;
 	        owl:allValuesFrom xsd:string ;
 	        owl:onProperty dct:title
-	    ],[#recommended
-	        a owl:Restriction ;
-	        owl:allValuesFrom dataid:Agent ;
-	        owl:onProperty dataid:associatedAgent
 	    ],[#recommended
 			a owl:Restriction ;
 			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -171,12 +171,12 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
 		],[#recommended
 			a owl:Restriction ;
 	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:date ;
+	        owl:onDataRange xsd:datetime ;
 	        owl:onProperty dct:issued
 		],[#recommended
 			a owl:Restriction ;
 	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:date ;
+	        owl:onDataRange xsd:datetime ;
 	        owl:onProperty dct:modified
 		],[#recommended
 	        a owl:Restriction ;
@@ -243,7 +243,7 @@ dataid:Dataset
     ],[
         a owl:Restriction ;
         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
+        owl:onDataRange xsd:datetime ;
         owl:onProperty dct:modified
     ],[ 
         a owl:Class ;
@@ -259,7 +259,7 @@ dataid:Dataset
     ],[#recommended
         a owl:Restriction ;
         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
+        owl:onDataRange xsd:datetime ;
         owl:onProperty dct:issued
     ],[#recommended
 		a owl:Restriction ;
@@ -337,10 +337,6 @@ dataid:Dataset
     ],[
         a owl:Restriction ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:vocabulary
-    ],[
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
         owl:onProperty void:rootResource
     ],[ 
 		rdf:type owl:Restriction ;
@@ -387,7 +383,7 @@ dataid:Distribution
     ],[
         a owl:Restriction ;
         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
+        owl:onDataRange xsd:datetime ;
         owl:onProperty dct:modified
     ],[
         a owl:Restriction ;
@@ -423,7 +419,7 @@ dataid:Distribution
     ],[#recommended
         a owl:Restriction ;
         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
+        owl:onDataRange xsd:datetime ;
         owl:onProperty dct:issued
     ],[#recommended
         a owl:Restriction ;
@@ -570,7 +566,7 @@ dataid:similarData
     a owl:ObjectProperty ;
     rdfs:subPropertyOf dct:relation ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"points to other dataset containing related data"@en ;
+    rdfs:comment 	"Points to other dataset containing related data."@en ;
     rdfs:domain 	dataid:Dataset ;
     rdfs:label 		"similar data"@en ;
     rdfs:range  	dcat:Dataset .
@@ -578,7 +574,7 @@ dataid:similarData
 dataid:preview
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"provides the uri of a short preview of the data provided by a distribution (do not link to the download or accessURL with this property)"@en ;
+    rdfs:comment 	"Provides the uri of a short preview of the data provided by a distribution (do not link to the download or accessURL with this property)."@en ;
     rdfs:domain 	dataid:Distribution ;
     rdfs:label 		"data preview"@en ;
     rdfs:range  	foaf:Document .
@@ -636,7 +632,7 @@ dataid:AuthorityEntityContext
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Authority entity context"@en ;
-	rdfs:comment """This concept defines a scope of Entities and links it to an Agent which has certain rights for those entities (defined by the AgentRole). This scope consists of all Entities directly linked to the context, as well as transitively dependend Entities"""@en ;
+	rdfs:comment """This concept defines a scope of Entities and links it to an Agent who has certain rights for those entities (defined by the AgentRole). The scope consists of all Entities directly linked to the context, as well as transitively dependent Entities."""@en ;
 
 	rdfs:subClassOf prov:Association, prov:EntityInfluence, 
 	[
@@ -772,7 +768,7 @@ dataid:Identifier
 	a owl:Class ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "agent identifier"@en ;
-	rdfs:comment "Uniquly identifies an agent given a identifier and a correspondng aid/pid system (ORCID, ResearcherID etc.)."@en ;
+	rdfs:comment "Uniquly identifies an agent or entity, given an identifier and a correspondng aid/pid system (ORCID, ResearcherID etc.)."@en ;
 	rdfs:subClassOf adms:Identifier, [  #to be conform with dcat-ap
         a owl:Restriction ;
         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -791,7 +787,7 @@ dataid:Identifier
 	],[
 		a owl:Restriction ;
         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date;
+        owl:onDataRange xsd:datetime;
         owl:onProperty dct:issued
 	].
 	    
@@ -855,7 +851,7 @@ dataid:statement
 	a owl:DatatypeProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"an actual textual statment"@en ;
+    rdfs:comment 	"An actual textual statment"@en ;
     rdfs:label "statement"@en ;
     rdfs:range xsd:string.
 
@@ -863,7 +859,7 @@ dataid:identifier
     a owl:InverseFunctionalProperty ;
     rdfs:subPropertyOf adms:identifier, foaf:isPrimaryTopicOf ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "An unique identifier which was created by a SchemaAgency."@en ;
+    rdfs:comment "An unique identifier which was created by a SchemaAgency for an agent or entity."@en ;
     rdfs:domain [ a owl:Class ;
 			    	owl:disjointUnionOf ( foaf:Agent prov:Agent prov:Entity ) ] ;
     rdfs:label "(additional) identifier"@en ;
@@ -898,7 +894,7 @@ dataid:authorizedAgent
    	a owl:ObjectProperty ;
     rdfs:subPropertyOf prov:agent ;
    	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Provides an agent the ability to execute authorized actions in a certain scope (e.g. to modify the metadata of a dataset)"@en ;
+    rdfs:comment "Points out the Agent the authority-entity-context is defined for (e.g. to modify the metadata of a dataset)."@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
     rdfs:label "authorized agent"@en ;
     rdfs:range dataid:Agent .
@@ -915,7 +911,7 @@ dataid:authorityAgentRole
 dataid:validForAccessLevel
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Limits rights and actions an Agent is allwed to take depending on the AccessLevel chosen for this AuthorityEntityContext."@en ;
+    rdfs:comment "Limits rights and actions an Agent is allowed to take depending on the AccessLevel chosen for this AuthorityEntityContext."@en ;
     rdfs:domain dataid:AuthorityEntityContext ;
     rdfs:label "valid for access level"@en ;
     rdfs:range dataid:AccessLevel .
@@ -941,7 +937,7 @@ dataid:validFrom
     rdfs:comment 	"An AuthorityEntityContext is valid for a specific Agent from a certain point in time."@en ;
     rdfs:domain 	dataid:AuthorityEntityContext ;
     rdfs:label 		"valid from"@en ;
-    rdfs:range  	xsd:date .
+    rdfs:range  	xsd:datetime .
 
 #status testing
 dataid:accessProtocol
@@ -962,13 +958,13 @@ dataid:validUntil
     rdfs:comment 	"An AuthorityEntityContext is valid for a specific Agent until a certain point in time."@en ;
     rdfs:domain 	dataid:AuthorityEntityContext ;
     rdfs:label 		"valid until"@en ;
-    rdfs:range  	xsd:date .
+    rdfs:range  	xsd:datetime .
 
 
 dataid:isInheritable
     a owl:DatatypeProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"Defines that a context keeps intact for the next version of a DataID (if set to 'true')."@en ;
+    rdfs:comment 	"Defines that a authority-entity-context is also valid for the next version of a DataID (if set to 'true')."@en ;
     rdfs:domain 	dataid:AuthorityEntityContext ;
     rdfs:label 		"is inheritable"@en ;
     rdfs:range  	xsd:boolean .
