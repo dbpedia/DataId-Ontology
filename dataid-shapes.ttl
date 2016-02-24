@@ -1,0 +1,347 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wsdl: <http://www.w3.org/ns/wsdl-rdf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
+@prefix lvont: <http://lexvo.org/ontology#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix datacite: <http://purl.org/spar/datacite> .
+@prefix sh:	<http://www.w3.org/ns/shacl#> .
+@prefix shapes: <http://dataid.dbpedia.org/ns/core/shapes#> .
+
+
+### This document is a shape definition for Classes of the DataID core ontology
+### By using SHACL (Shapes Constraint Language - http://w3c.github.io/data-shapes/shacl) 
+### we can define a quasi closed world sub context for the definition of a valid DataIDs,
+### while adhearing to the open world assumption of OWL in the definition of the Ontology.
+###
+### All DataIDs must reflect the constraint defined in this document to be considered as 'valid'.
+### Additional shape definitions on top of the ones in this document will be introduced parallel
+### to the mid-level ontologies on top of the DataID core.
+
+### Class: dcat:Catalog
+shapes:Catalog a sh:Shape;
+	sh:scopeClass dcat:Class ;
+	sh:property [
+		sh:predicate dcat:dataset ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dcat:dataset ;
+		sh:minCount 1 ;
+		sh:class dataid:Dataset
+	] ;
+	sh:property [
+		sh:predicate dct:description ;
+		sh:minCount 1 ;
+		sh:datatype xsd:string
+	] ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:minCount 1 ;
+		sh:datatype xsd:string
+	] ;
+	sh:property [
+		sh:predicate dcat:record ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:class dataid:DataId
+	] ;
+	sh:property [
+		sh:predicate dct:publisher ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:class dataid:Agent
+	] ;
+	sh:property [
+		sh:predicate dct:creator ;
+		sh:maxCount 1 ;
+		sh:class dataid:Agent
+	] ;
+	sh:property [
+		sh:predicate dct:isPartOf ;
+		sh:maxCount 1 ;
+		sh:class dcat:Catalog
+	] ;
+	sh:property [
+		sh:predicate dct:rights ;
+		sh:maxCount 1 ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:license ;
+		sh:maxCount 1 ;
+		sh:class odrl:Policy
+	] ;
+	sh:property [
+		sh:predicate dct:license ;
+		sh:severity sh:Warning ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:datetime
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:severity sh:Warning ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate dct:modified ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:datetime
+	] ;
+	sh:property [
+		sh:predicate dct:modified ;
+		sh:severity sh:Warning ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate dct:language ;
+		sh:class lvont:Language
+	] ;
+	sh:property [
+		sh:predicate dct:language ;
+		sh:severity sh:Warning ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate dcat:themeTaxonomy ;
+		sh:class skos:ConceptScheme
+	] ;
+	sh:property [
+		sh:predicate dcat:themeTaxonomy ;
+		sh:severity sh:Warning ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate foaf:homepage ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate foaf:homepage ;
+		sh:severity sh:Warning ;
+		sh:minCount 1
+	] .
+	
+### dataid:DataId
+shapes:DataId a sh:Shape;
+	sh:scopeClass dataid:DataId ;
+	sh:property [
+		sh:predicate foaf:primaryTopic ;
+		sh:class dataid:Dataset ;
+		sh:minCount 1 ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:publisher ;
+		sh:class dataid:Agent ;
+		sh:minCount 1 ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dataid:associatedAgent ;
+		sh:class dataid:Agent ;
+		sh:minCount 1 ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:datatype xsd:datetime ;
+		sh:minCount 1 ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:modified ;
+		sh:datatype xsd:datetime ;
+		sh:minCount 1 ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:datatype xsd:string
+	] ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning 
+	] ;
+	sh:property [
+		sh:predicate dataid:previousVersion ;
+		sh:class dataid:DataId
+	] ;
+	sh:property [
+		sh:predicate dataid:previousVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning 
+	] ;
+	sh:property [
+		sh:predicate dataid:latestVersion ;
+		sh:class dataid:DataId
+	] ;
+	sh:property [
+		sh:predicate dataid:nextVersion ;
+		sh:class dataid:DataId
+	] ;
+	sh:property [
+		sh:predicate dataid:latestVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning 
+	] ;
+	sh:property [
+		sh:predicate dataid:versionStatement ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning 
+	] ;
+	sh:property [
+		sh:predicate dct:description ;
+		sh:datatype xsd:string
+	] ;
+	sh:property [
+		sh:predicate dct:description ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning 
+	] ;
+	sh:property [
+		sh:predicate dct:creator ;
+		sh:class dataid:Agent ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:source ;
+		sh:class dcat:CatalogRecord ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:language ;
+		sh:class lvont:Language
+	] ;
+	sh:property [
+		sh:predicate dataid:nextVersion ;
+		sh:class dataid:DataId
+	] ;
+	sh:constraint [
+		sh:or (
+			[
+				sh:property [
+					sh:predicate dataid:hasAccessLevel ;
+					sh:minCount 1 ;
+					sh:maxCount 1 
+				]
+			]
+			[
+				sh:property [
+					sh:predicate dataid:hasEntityContext ;
+					sh:minCount 1 ;
+				]
+			]
+		)
+	].
+	
+### dataid:DataId
+shapes:Dataset a sh:Shape;
+	sh:scopeClass dataid:Dataset ;
+	sh:property [
+		sh:predicate foaf:primaryTopic ;
+		sh:class dataid:Dataset ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:datatype xsd:string ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:description ;
+		sh:datatype xsd:string ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dcat:keyword ;
+		sh:datatype xsd:string ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:publisher ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:class dataid:Agent
+	] ;
+	sh:property [
+		sh:predicate dct:modified ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:dateTime
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:dateTime
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning
+	] ;
+	sh:property [
+		sh:predicate dct:hasVersion ;
+		sh:maxCount 1 ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:hasVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning
+	] ;
+	sh:property [
+		sh:predicate dct:license ;
+		sh:minCount 1 ;
+		sh:class odrl:Policy
+	] ;
+	sh:constraint [
+		sh:or (
+			[
+				sh:property [
+					sh:predicate dcat:distribution ;
+					sh:minCount 1 ;
+					sh:class dataid:Distribution
+				]
+			]
+			[
+				sh:property [
+					sh:predicate void:subset ;
+					sh:minCount 1 ;
+					sh:class dataid:Dataset
+				]
+			]
+		)
+	] ;
+	sh:constraint [
+		sh:or (
+			[
+				sh:property [
+					sh:predicate dataid:hasAccessLevel ;
+					sh:minCount 1 ;
+					sh:maxCount 1 
+				]
+			]
+			[
+				sh:property [
+					sh:predicate dataid:hasEntityContext ;
+					sh:minCount 1 ;
+				]
+			]
+		)
+	].

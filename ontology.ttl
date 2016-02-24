@@ -40,27 +40,8 @@ Validating and delivering metadata files in a uniform way, as well as providing 
 for datasets are main objectives of the DBpedia/DataID project.
 To learn more including how to draft an new DataID, please visit http://dataid.dbpedia.org."""@en ;
 
-	rdfs:subClassOf void:DatasetDescription, dcat:CatalogRecord, prov:Entity, [
-        a owl:Class;
-        owl:unionOf(
-	        [
-		        a owl:Restriction ;
-		        owl:onClass dataid:Dataset ;
-		        owl:onProperty foaf:topic ;
-		        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-	    	]
-	        [
-		        a owl:Restriction ;
-		        owl:onClass dataid:Dataset ;
-		        owl:onProperty foaf:primaryTopic;
-		        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-	        ]
-	    	)
-		],[
-	        a owl:Restriction ;
-	        owl:onProperty foaf:topic ;
-	        owl:allValuesFrom dataid:Dataset
-	    ],[
+	rdfs:subClassOf void:DatasetDescription, dcat:CatalogRecord, prov:Entity, 
+		[
 	        a owl:Restriction ;
 	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	        owl:onClass dataid:Dataset ;
@@ -101,9 +82,8 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
 	        owl:onProperty dct:title
 	    ],[#recommended
 			a owl:Restriction ;
-			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			owl:onDataRange xsd:string ;
-			owl:onProperty owl:versionInfo
+			owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+			owl:onProperty dataid:versionStatement
 	    ],[#recommended
 	        a owl:Restriction ;
 	        owl:allValuesFrom dataid:DataId ;
@@ -141,10 +121,6 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
 	        a owl:Restriction ;
 	        owl:allValuesFrom lvont:Language ;
 	        owl:onProperty dct:language
-	    ],[
-	        a owl:Restriction ;
-	        owl:allValuesFrom dataid:Identifier ;
-	        owl:onProperty adms:identifier
 	    ].
 	  
 #refining dcat:Catalog to fit DCAT-AP profile	  
@@ -216,11 +192,7 @@ To learn more including how to draft an new DataID, please visit http://dataid.d
 	        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	        owl:onClass dataid:SimpleStatement ;
 	        owl:onProperty dct:rights
-		],[
-	        a owl:Restriction ;
-	        owl:allValuesFrom dataid:Identifier ;
-	        owl:onProperty adms:identifier
-	    ].
+		].
 
 dataid:Dataset
     a owl:Class ;
@@ -284,7 +256,7 @@ dataid:Dataset
 		a owl:Restriction ;
 		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 		owl:onDataRange xsd:string ;
-		owl:onProperty owl:versionInfo
+		owl:onProperty dataid:versionStatement
     ],[#recommended
         a owl:Restriction ;
         owl:allValuesFrom foaf:Document ;
@@ -452,7 +424,7 @@ dataid:Distribution
 		a owl:Restriction ;
 		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 		owl:onDataRange xsd:string ;
-		owl:onProperty owl:versionInfo
+		owl:onProperty dataid:versionStatement
     ],[#recommended
         a owl:Restriction ;
         owl:allValuesFrom dataid:Dataset ;
@@ -598,6 +570,14 @@ dataid:preview
     rdfs:label 		"data preview"@en ;
     rdfs:range  	foaf:Document .
 
+dataid:versionStatement
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Provides an optional statement and pointer for version information of a resource represented by this DataId."@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:label "version statement"@en ;
+    rdfs:range dataid:SimpleStatement .
+    
 dataid:associatedAgent
     a owl:ObjectProperty ;
     rdfs:subPropertyOf prov:wasAttributedTo ;
