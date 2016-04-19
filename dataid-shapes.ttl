@@ -1,0 +1,898 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wsdl: <http://www.w3.org/ns/wsdl-rdf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
+@prefix lvont: <http://lexvo.org/ontology#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix datacite: <http://purl.org/spar/datacite> .
+@prefix sh:	<http://www.w3.org/ns/shacl#> .
+@prefix shapes: <http://dataid.dbpedia.org/ns/core/shapes#> .
+
+
+### This document is a shape definition for Classes of the DataID core ontology
+### By using SHACL (Shapes Constraint Language - http://w3c.github.io/data-shapes/shacl) 
+### we can define a quasi closed world sub context for the definition of a valid DataIDs,
+### while adhearing to the open world assumption of OWL in the definition of the Ontology.
+###
+### All DataIDs must reflect the constraint defined in this document to be considered as 'valid'.
+### Additional shape definitions on top of the ones in this document will be introduced parallel
+### to the mid-level ontologies on top of the DataID core.
+	
+### Class: dcat:Catalog
+shapes:Catalog a sh:Shape;
+	sh:scopeClass dcat:Class ;
+	sh:property [
+		sh:predicate dcat:dataset ;
+		sh:minCount 1 ;
+		sh:class dataid:Dataset
+	] ;
+	sh:property [
+		sh:predicate dct:description ;
+		sh:minCount 1 ;
+		sh:datatype rdfs:Literal ;
+		sh:message "Please add an description to the catlalog."@en
+	] ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:minCount 1 ;
+		sh:datatype rdfs:Literal ;
+		sh:message "Please add a title to the caltalog."@en
+	] ;
+	sh:property [
+		sh:predicate dcat:record ;
+		sh:minCount 1 ;
+		sh:class dataid:DataId ;
+		sh:message "Each ctalog has to have at least one record (a DataID)."@en
+	] ;
+	sh:property [
+		sh:predicate dct:publisher ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:class dataid:Agent ;
+		sh:message "Please specify publisher for the catalog."@en
+	] ;
+	sh:property [
+		sh:predicate dct:creator ;
+		sh:maxCount 1 ;
+		sh:class dataid:Agent
+	] ;
+	sh:property [
+		sh:predicate dct:isPartOf ;
+		sh:maxCount 1 ;
+		sh:class dcat:Catalog
+	] ;
+	sh:property [  #max count for license?
+		sh:predicate dct:rights ;
+		sh:maxCount 1 ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:license ;
+		sh:maxCount 1 ;
+		sh:class odrl:Policy
+	] ;
+	sh:property [
+		sh:predicate dct:license ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "The reference to a licence document is recommended for the dcat:Catalog class."@en
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:datetime
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "Providing a release date (dc:issued) is recommended for the dcat:Catalog class."@en
+	] ;
+	sh:property [
+		sh:predicate dct:modified ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:datetime
+	] ;
+	sh:property [
+		sh:predicate dct:modified ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "Providing a modification date (dc:modified) is recommended for the dcat:Catalog class."@en
+	] ;
+	sh:property [
+		sh:predicate dct:language ;
+		sh:class lvont:Language
+	] ;
+	sh:property [
+		sh:predicate dct:language ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "The use of property dc:language is recommended for class dcat:Catalog."@en
+	] ;
+	sh:property [
+		sh:predicate dcat:themeTaxonomy ;
+		sh:class skos:ConceptScheme
+	] ;
+	sh:property [
+		sh:predicate dcat:themeTaxonomy ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "Providing a taxonomy (dcat:themeTaxonomy) is recommended for class dcat:Catalog."@en
+	] ;
+	sh:property [
+		sh:predicate foaf:homepage ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "Providing a landing page (foaf:homepage) is recommended for class dcat:Catalog."@en
+	] .
+	
+### dataid:DataId
+shapes:DataId a sh:Shape;
+	sh:scopeClass dataid:DataId ;
+	sh:property [
+		sh:predicate foaf:primaryTopic ;
+		sh:class dataid:Dataset ;
+		sh:minCount 1 ;
+		sh:maxCount 1  ;
+		sh:message "Every DataID has to point to exactly one Dataset (foaf:primaryTopic)."@en
+	] ;
+	sh:property [
+		sh:predicate dct:publisher ;
+		sh:class dataid:Agent ;
+		sh:minCount 1 ;
+		sh:maxCount 1  ;
+		sh:message "Every DataID has to have exactly one publisher."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:associatedAgent ;
+		sh:class dataid:Agent ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:datatype xsd:datetime ;
+		sh:minCount 1 ;
+		sh:maxCount 1  ;
+		sh:message "Please provide a release date (dc:issued) for every DataID."@en
+	] ;
+	sh:property [
+		sh:predicate dct:modified ;
+		sh:datatype xsd:datetime ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:message "Please provide a modification date (dc:modified) for every DataID."@en
+	] ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:datatype rdfs:Literal 
+	] ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Please provide a title for every DataID."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:previousVersion ;
+		sh:class dataid:DataId
+	] ;
+	sh:property [
+		sh:predicate dataid:previousVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Pointing to a previous version of a DataID is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:latestVersion ;
+		sh:maxCount 1 ;
+		sh:class dataid:DataId
+	] ;
+	sh:property [
+		sh:predicate dataid:latestVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Pointing to the latest version of a DataID is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:nextVersion ;
+		sh:class dataid:DataId
+	] ;
+	sh:property [
+		sh:predicate dct:hasVersion ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:hasVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Providing a human readable version statement (dc:hasVersion) is recommended for every DataID."@en
+	] ;
+	sh:property [
+		sh:predicate dct:description ;
+		sh:datatype rdfs:Literal
+	] ;
+	sh:property [
+		sh:predicate dct:description ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Providing at least one description (dc:description) for a DataID is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dct:creator ;
+		sh:class dataid:Agent ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate adms:status ;
+		sh:class skos:Concept ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:source ;
+		sh:class dcat:CatalogRecord ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:language ;
+		sh:class lvont:Language ;
+		sh:message "Property dc:language has to reference an instance of type lvont:Language."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:hasAccessLevel ;
+		sh:maxCount 1
+	] ;
+	sh:constraint [
+		sh:or (
+			[
+				sh:property [
+					sh:predicate dataid:hasAccessLevel ;
+					sh:minCount 1 
+				]
+			]
+			[
+				sh:property [
+					sh:predicate dataid:hasEntityContext ;
+					sh:minCount 1 ;
+				]
+			]
+		) ;
+		sh:message "Every DataID has to provide either the property dataid:hasAccessLevel or dataid:hasEntityContext."@en
+	].
+	
+### dataid:Dataset
+shapes:Dataset a sh:Shape;
+	sh:scopeClass dataid:Dataset ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:datatype rdfs:Literal ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:description ;
+		sh:datatype rdfs:Literal ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dcat:keyword ;
+		sh:datatype rdfs:Literal ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:publisher ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:class dataid:Agent
+	] ;
+	sh:property [
+		sh:predicate dct:modified ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:dateTime
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:dateTime
+	] ;
+	sh:property [
+		sh:predicate dct:license ;
+		sh:minCount 1 ;
+		sh:class odrl:Policy ;
+		sh:message "please add a license description to the dataset"@en
+	] ;
+	sh:property [
+		sh:predicate dcat:landingPage ;
+		sh:class foaf:Document
+	] ;
+	sh:property [
+		sh:predicate dcat:landingPage ;
+		sh:minCount 1;
+		sh:severity sh:Warning ;
+		sh:message "linking to a home or landing page from a dataid:Dataset is recommended"@en
+	] ;
+	sh:property [
+		sh:predicate dataid:associatedAgent ;
+		sh:minCount 1 ;
+		sh:message "at least one dataid:associatedAgent is necessary for dataid:Datset, should include the dct:publisher"@en
+	] ;
+	sh:property [
+		sh:predicate dataid:previousVersion ;
+		sh:class dataid:Dataset
+	] ;
+	sh:property [
+		sh:predicate dataid:previousVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Pointing to a previous version of a DataID is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:latestVersion ;
+		sh:maxCount 1 ;
+		sh:class dataid:Dataset
+	] ;
+	sh:property [
+		sh:predicate dataid:latestVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Pointing to the latest version of a DataID is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:nextVersion ;
+		sh:class dataid:Dataset
+	] ;
+	sh:property [
+		sh:predicate dct:hasVersion ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:hasVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Providing a human readable version statement (dc:hasVersion) is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:similarData ;
+		sh:class dcat:Dataset
+	] ;
+	sh:property [
+		sh:predicate dataid:similarData ;
+		sh:minCount 1;
+		sh:severity sh:Warning ;
+		sh:message "Providing links to similar datasets (dataid:similarData) is encouraged if possible."@en
+	] ;
+	sh:property [
+		sh:predicate dcat:theme ;
+		sh:class skos:Concept
+	] ;
+	sh:property [
+		sh:predicate dcat:theme ;
+		sh:minCount 1;
+		sh:severity sh:Warning ;
+		sh:message "Providing a skos:Concept for dcat:theme is recommended for dataid:Dataset."@en
+	] ;
+	sh:property [
+		sh:predicate dct:rights ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:rights ;
+		sh:minCount 1;
+		sh:severity sh:Warning ;
+		sh:message "Providing a human readable rights statement is recommended for dataid:Dataset."@en
+	] ;
+	sh:property [
+		sh:predicate dct:language ;
+		sh:class lvont:Language
+	] ;
+	sh:property [
+		sh:predicate dct:language ;
+		sh:severity sh:Warning ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate foaf:page ;
+		sh:class foaf:Document
+	] ;
+	sh:property [
+		sh:predicate foaf:page ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "Property foaf:page, used to point to additional documentation on the web, is recommended for dataid:Dataset."@en
+	] ;
+	sh:property [
+		sh:predicate foaf:isPrimaryTopicOf ;
+		sh:class dataid:DataId
+	] ;
+	sh:property [
+		sh:predicate dct:creator ;
+		sh:maxCount 1 ;
+		sh:class dataid:Agent
+	] ;
+	sh:property [
+		sh:predicate dct:conformsTo ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:provenance ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:accrualPeriodicity ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate void:rootResource ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate void:subset ;
+		sh:class dataid:Dataset
+	] ;
+	sh:property [
+		sh:predicate dcat:distribution ;
+		sh:class dataid:Distribution
+	] ;
+	sh:constraint [
+		sh:or (
+			[
+				sh:property [
+					sh:predicate dcat:distribution ;
+					sh:minCount 1 					
+				]
+			]
+			[
+				sh:property [
+					sh:predicate void:subset ;
+					sh:minCount 1 
+				]
+			]
+		)
+	] ;
+	sh:property [
+		sh:predicate dataid:hasAccessLevel ;
+		sh:maxCount 1 
+	] ;
+	sh:constraint [
+		sh:or (
+			[
+				sh:property [
+					sh:predicate dataid:hasAccessLevel ;
+					sh:minCount 1 
+				]
+			]
+			[
+				sh:property [
+					sh:predicate dataid:hasEntityContext ;
+					sh:minCount 1 ;
+				]
+			]
+		)
+	].
+	
+### dataid:Dataset additional checks for the existence of properties if we deal with a root dataset (directly linked datasets with foaf:primaryTopc)
+shapes:DatasetExtension a sh:Shape;
+	sh:scopeClass dataid:Dataset ;
+	sh:filterShape [
+	  	sh:inverseProperty [
+		   sh:predicate foaf:primaryTopic ;
+		   sh:minCount 1 
+  		]
+	];
+	sh:property [
+		sh:predicate foaf:isPrimaryTopicOf ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "the use of foaf:isPrimaryTopicOf pointing to a DataID is recommended"@en
+	] ;
+	sh:property [
+		sh:predicate dcat:landingPage ;
+		sh:minCount 1;
+		sh:message "linking to a home or landing page from a root dataset is mandatory"@en
+	] ;.
+  	
+	
+### dataid:Distribution
+shapes:Distribution a sh:Shape;
+	sh:scopeClass dataid:Distribution ;
+	sh:constraint [
+		sh:or (
+			[
+				sh:property [
+					sh:predicate dcat:accessURL ;
+					sh:minCount 1 					
+				]
+			]
+			[
+				sh:property [
+					sh:predicate dcat:downloadURL ;
+					sh:minCount 1 
+				]
+			]
+		)
+	] ;
+	sh:property [
+		sh:predicate dct:publisher ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:class dataid:Agent
+	] ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:datatype rdfs:Literal
+	] ;
+	sh:property [
+		sh:predicate dct:license ;
+		sh:class odrl:Policy ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate dct:modified ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:dateTime
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:dateTime
+	] ;
+	sh:property [
+		sh:predicate dcat:mediaType ;
+		sh:maxCount 1 ;
+		sh:class dataid:MediaType
+	] ;
+	sh:property [
+		sh:predicate dcat:mediaType ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning ;
+		sh:message "dcat:mediaType is strongly recommended for dataid:Distribution"@en
+	] ;
+	sh:property [
+		sh:predicate dct:description ;
+		sh:datatype rdfs:Literal
+	] ;
+	sh:property [
+		sh:predicate foaf:page ;
+		sh:class foaf:Document
+	] ;
+	sh:property [
+		sh:predicate foaf:page ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "Property foaf:page, used to point to additional documentation on the web, is recommended for dataid:Distribution."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:accessProcedure ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dataid:accessProcedure ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "dataid:accessProcedure is recommnded for dataid:Distribution"@en
+	] ;
+	sh:property [
+		sh:predicate dataid:previousVersion ;
+		sh:class dataid:Distribution
+	] ;
+	sh:property [
+		sh:predicate dataid:previousVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Pointing to a previous version of a DataID is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:latestVersion ;
+		sh:maxCount 1 ;
+		sh:class dataid:Distribution
+	] ;
+	sh:property [
+		sh:predicate dataid:latestVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Pointing to the latest version of a DataID is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:nextVersion ;
+		sh:class dataid:Distribution
+	] ;
+	sh:property [
+		sh:predicate dct:hasVersion ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:hasVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Providing a human readable version statement (dc:hasVersion) is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dct:creator ;
+		sh:maxCount 1 ;
+		sh:class dataid:Agent
+	] ;
+	sh:property [
+		sh:predicate dct:language ;
+		sh:class lvont:Language
+	] ;
+	sh:property [
+		sh:predicate dct:conformsTo ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:rights ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dataid:uncompressed ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dataid:hasAccessLevel ;
+		sh:maxCount 1 
+	] ;
+	sh:constraint [
+		sh:or (
+			[
+				sh:property [
+					sh:predicate dataid:hasAccessLevel ;
+					sh:minCount 1 
+				]
+			]
+			[
+				sh:property [
+					sh:predicate dataid:hasEntityContext ;
+					sh:minCount 1 ;
+				]
+			]
+		)
+	].
+	
+### dataid:ServiceEndpoint
+shapes:ServiceEndpoint a sh:Shape;
+	sh:scopeClass dataid:ServiceEndpoint ;
+	sh:property [
+		sh:predicate dcat:accessURL ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate dcat:downloadURL ;
+		sh:maxCount 0
+	] ;
+	sh:property [
+		sh:predicate dataid:accessProcedure ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning
+	] .
+	
+### dataid:SingleFile
+shapes:SingleFile a sh:Shape;
+	sh:scopeClass dataid:SingleFile ;
+	sh:property [
+		sh:predicate dcat:downloadURL ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate dcat:accessURL ;
+		sh:maxCount 0
+	] ;
+	sh:property [
+		sh:predicate dcat:byteSize ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning
+	] ;
+	sh:property [
+		sh:predicate dcat:checksum ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning
+	] .
+		
+### dataid:Directory
+shapes:Directory a sh:Shape;
+	sh:scopeClass dataid:Directory ;
+	sh:property [
+		sh:predicate dcat:accessURL ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate dcat:downloadURL ;
+		sh:maxCount 0
+	] ;
+	sh:property [ #the combind size of all files in the directory
+		sh:predicate dcat:byteSize ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning
+	] ;
+	sh:property [ #checksum over all files in directory
+		sh:predicate dcat:checksum ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning
+	] .
+			
+### dataid:FileCollection
+shapes:FileCollection a sh:Shape;
+	sh:scopeClass dataid:FileCollection ;
+	sh:property [
+		sh:predicate dcat:downloadURL ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate dcat:accessURL ;
+		sh:maxCount 0
+	] ;
+	sh:property [
+		sh:predicate dcat:downloadURL ;
+		sh:minCount 2 ;
+		sh:severity sh:Warning ;
+		sh:message "a FileCollection should have more than one file"@en
+	] ;
+	sh:property [ #the combind size of all files in the collection
+		sh:predicate dcat:byteSize ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning
+	] ;
+	sh:property [ #checksum over all files in the collection
+		sh:predicate dcat:checksum ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning
+	] .
+	
+### dataid:AuthorityEntityContext
+shapes:AuthorityEntityContext a sh:Shape;
+	sh:scopeClass dataid:AuthorityEntityContext ;
+	sh:property [
+		sh:predicate dataid:authorizedFor ;
+		sh:minCount 1
+	] ;
+	sh:property [
+		sh:predicate dataid:authorityAgentRole ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dataid:validForAccessLevel ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dataid:authorizedAgent ;
+		sh:maxCount 1 ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dataid:isInheritable ;
+		sh:defaultValue true ;
+		sh:maxCount 1 ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dataid:validFrom ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dataid:validUntil ;
+		sh:maxCount 1 
+	] .
+	
+### dataid:AgentRole
+shapes:AgentRole a sh:Shape;
+	sh:scopeClass dataid:AgentRole ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:minCount 1 ;
+		sh:datatype rdfs:Literal
+	] ;
+	sh:property [
+		sh:predicate dataid:allowsFor ;
+		sh:minCount 1 
+	] .
+	
+### dataid:AuthorizedAction
+shapes:AuthorizedAction a sh:Shape;
+	sh:scopeClass dataid:AuthorizedAction ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:minCount 1 ;
+		sh:datatype rdfs:Literal
+	] .
+	
+### dataid:AccessLevel
+shapes:AccessLevel a sh:Shape;
+	sh:scopeClass dataid:AccessLevel ;
+	sh:property [
+		sh:predicate dct:title ;
+		sh:minCount 1 ;
+		sh:datatype rdfs:Literal
+	] .
+	
+### dataid:SimpleStatement
+shapes:SimpleStatement a sh:Shape;
+	sh:scopeClass dataid:SimpleStatement ;
+	sh:property [
+		sh:predicate dataid:statement ;
+		sh:minCount 1 ;
+		sh:maxCount 1
+	] ;
+	sh:property [
+		sh:predicate dct:references ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning
+	] .
+	
+### dataid:Agent
+shapes:Agent a sh:Shape;
+	sh:scopeClass dataid:Agent ;
+	sh:property [
+		sh:predicate foaf:name ;
+		sh:minCount 1 ;
+		sh:maxCount 1
+	] ;
+	sh:property [
+		sh:predicate foaf:mbox ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate foaf:account ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dataid:identifier ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning ;
+		sh:message "Using a persistent identifier (like ORCID, ResearcherID...) for an agent is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate foaf:homepage ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning;
+		sh:message "If possible provide a homepage for any agent."@en
+	] .
+		
+### dataid:Identifier
+shapes:Identifier a sh:Shape;
+	sh:scopeClass dataid:Identifier ;
+	sh:property [
+		sh:predicate skos:notation ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:class datacite:IdentifierScheme
+	] ;
+	sh:property [
+		sh:predicate adms:schemeAgency ;
+		sh:maxCount 1 ;
+		sh:class datacite:IdentifierScheme
+	] ;
+	sh:property [
+		sh:predicate dct:creator ;
+		sh:maxCount 1 ;
+		sh:class foaf:Agent
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:dateTime
+	] .
+			
+### dataid:MediaType
+shapes:MediaType a sh:Shape;
+	sh:scopeClass dataid:MediaType ;
+	sh:property [
+		sh:predicate dataid:typeTemplate ;
+		sh:minCount 1 ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dataid:innerMediaType ;
+		sh:maxCount 1 
+	] .

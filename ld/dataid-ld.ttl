@@ -31,117 +31,14 @@ dataid-ld:Linkset
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
     rdfs:label "Linkset"@en ;
     rdfs:comment "Entity representing the set of links between two datasets."@en ;
-    rdfs:subClassOf void:Linkset, prov:Entity,[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid-ld:Linkset ;
-        owl:onProperty dataid:latestVersion
-    ],[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid-ld:Linkset ;
-        owl:onProperty dataid:nextVersion
-    ] ,[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid-ld:Linkset ;
-        owl:onProperty dataid:previousVersion
-    ],[
-         a owl:Restriction ;
-         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dataid:version
-     ],[
-        a owl:Class ;
-        owl:unionOf ( [ rdf:type owl:Restriction ;
-            owl:onProperty dataid:hasAccessLevel ;
-            owl:cardinality "1"^^xsd:nonNegativeInteger
-        ]
-        [ rdf:type owl:Restriction ;
-            owl:onProperty dataid:hasEntityContext ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger
-        ] )
-    ],[
-        a owl:Restriction ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dct:hasVersion
-    ],[
-        a owl:Restriction ;
-        owl:onClass void:Dataset ;
-        owl:onProperty void:objectsTarget ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ], [
-        a owl:Restriction ;
-        owl:onClass void:Dataset ;
-        owl:onProperty void:subjectsTarget ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:triples
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:exampleResource
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Linkset ;
-        owl:onProperty dataid:previousVersion
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
-        owl:onProperty dct:modified
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Linkset ;
-        owl:onProperty dataid:latestVersion
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Linkset ;
-        owl:onProperty dataid:nextVersion
-    ] .
-
-dataid-ld:Dataset
-    a owl:Class;
-    owl:equivalentClass dataid:Dataset;
-    rdfs:subClassOf [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:distinctSubjects
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:properties
-    ], [
-        #recommanded
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:triples
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:distinctObjects
-    ].
+    rdfs:subClassOf void:Linkset, prov:Entity.
 
 dataid-ld:SparqlEndpoint
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
     rdfs:comment "A specific distribution, which is accessible via an access url and can be queried with the SPARQL language."@en ;
     rdfs:label "Sparql Endpoint"@en ;
-    rdfs:subClassOf dataid:Distribution, sd:Service, [
-         a owl:Restriction ;
-         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dcat:accessURL
-     ].
-
-dataid-ld:Distribution
-    a owl:Class;
-    owl:equivalentClass dataid:Distribution;
-    rdfs:subClassOf [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:graphName
-    ].
+    rdfs:subClassOf dataid:Distribution, sd:Service.
 
 dataid-ld:containsLinks
     a owl:ObjectProperty ;
