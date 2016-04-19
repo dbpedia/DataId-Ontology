@@ -1,0 +1,161 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wsdl: <http://www.w3.org/ns/wsdl-rdf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
+@prefix lvont: <http://lexvo.org/ontology#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix datacite: <http://purl.org/spar/datacite> .
+@prefix sh:	<http://www.w3.org/ns/shacl#> .
+@prefix dataid-ld: <http://dataid.dbpedia.org/ns/ld#> .
+@prefix shapes-ld: <http://dataid.dbpedia.org/ns/core/shapes/ld#> .
+
+
+### This document is a shape definition for Classes of the DataID core ontology
+### By using SHACL (Shapes Constraint Language - http://w3c.github.io/data-shapes/shacl) 
+### we can define a quasi closed world sub context for the definition of a valid DataIDs,
+### while adhearing to the open world assumption of OWL in the definition of the Ontology.
+###
+### All DataIDs must reflect the constraint defined in this document to be considered as 'valid'.
+### Additional shape definitions on top of the ones in this document will be introduced parallel
+
+shapes-ld:Linkset a sh:Shape;
+	sh:scopeClass dataid-ld:Linkset ;
+	sh:property [
+			sh:predicate dataid:previousVersion ;
+			sh:class dataid-ld:Linkset
+	] ;
+	sh:property [
+		sh:predicate dataid:previousVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Pointing to a previous version of a DataID is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:latestVersion ;
+		sh:maxCount 1 ;
+		sh:class dataid-ld:Linkset
+	] ;
+	sh:property [
+		sh:predicate dataid:latestVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Pointing to the latest version of a DataID is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate dataid:nextVersion ;
+		sh:class dataid-ld:Linkset
+	] ;
+	sh:property [
+		sh:predicate dct:hasVersion ;
+		sh:class dataid:SimpleStatement
+	] ;
+	sh:property [
+		sh:predicate dct:hasVersion ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning  ;
+		sh:message "Providing a human readable version statement (dc:hasVersion) is recommended."@en
+	] ;
+	sh:property [
+		sh:predicate void:objectsTarget ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:class void:Dataset
+	] ;
+	sh:property [
+		sh:predicate void:subjectsTarget ;
+		sh:maxCount 1 ;
+		sh:minCount 1 ;
+		sh:class void:Dataset
+	] ;
+	sh:property [
+		sh:predicate void:triples ;
+		sh:maxCount 1 ;
+		sh:minCount 1 
+	] ;
+	sh:property [
+		sh:predicate dct:modified ;
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:dateTime
+	] ;
+	sh:property [
+		sh:predicate dct:issued ;
+		sh:maxCount 1 ;
+		sh:datatype xsd:dateTime
+	] ;
+	sh:property [
+		sh:predicate dataid:hasAccessLevel ;
+		sh:maxCount 1 
+	] ;
+	sh:constraint [
+		sh:or (
+			[
+				sh:property [
+					sh:predicate dataid:hasAccessLevel ;
+					sh:minCount 1 
+				]
+			]
+			[
+				sh:property [
+					sh:predicate dataid:hasEntityContext ;
+					sh:minCount 1 ;
+				]
+			]
+		)
+	].
+	
+shapes-ld:Dataset a sh:Shape;
+	sh:scopeClass dataid:Dataset ;
+	sh:property [
+		sh:predicate void:distinctSubjects ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate void:properties ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate void:triples ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate void:triples ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning;
+		sh:message "a Linked Data dataset should contain the void:triples property"@en
+	] ;
+	sh:property [
+		sh:predicate void:distinctObjects ;
+		sh:maxCount 1 
+	] .
+	
+shapes-ld:Distribution a sh:Shape;
+	sh:scopeClass dataid:Distribution ;
+	sh:property [
+		sh:predicate dataid-ld:graphName ;
+		sh:maxCount 1 
+	] .
+	
+shapes-ld:SparqlEndpoint a sh:Shape;
+	sh:scopeClass dataid-ld:SparqlEndpoint ;
+	sh:property [
+		sh:predicate dcat:accessURL ;
+		sh:minCount 1 ;
+		sh:maxCount 1 
+	] ;
+	sh:property [
+		sh:predicate dcat:downloadURL ;
+		sh:maxCount 0
+	] .
+	
