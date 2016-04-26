@@ -252,6 +252,7 @@ dataid:MediaType
 		
 		
 ########## properties #########
+
 dataid:isDistributionOf
 	a	owl:ObjectProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
@@ -512,6 +513,44 @@ dataid:isInheritable
     rdfs:label 		"is inheritable"@en ;
     rdfs:range  	xsd:boolean .
 
+
+#The follwing property is only inferred by the propertyChains of its sub-properties. None of which is to be used in an actual instantiation.
+dataid:authorityChain
+	a	owl:ObjectProperty, owl:TransitiveProperty;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "authority chain"@en ;
+	rdfs:comment """This property (with its sub-properties) describes how an dataid:Authorization is spread to other entities (lower level entities, like Dataset & Distribution). 
+		This inferred chain of authority can be overwritten by introducing other dataid:Authorization objects with the scope of lower level entities. See the example in Github for more information."""@en ;
+	rdfs:domain	prov:Entity ;
+	rdfs:range prov:Entity .
+	
+	[]	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorityChain ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "dataid - dataset authority chain"@en ;
+	rdfs:comment "Represents the authority link between the DataID and Dataset entities (if connectd by foaf:primaryTopic)."@en ;
+    owl:propertyChainAxiom (
+	   foaf:primaryTopic
+	) .
+	
+	[]	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorityChain ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "dataset - distribution authority chain"@en ;
+	rdfs:comment "Represents the authority link between the Dataset and Distribution entities (if connectd by dcat:distribution)."@en ;
+    owl:propertyChainAxiom (
+	   dcat:distribution
+	) .
+	
+	[]	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorityChain ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "dataset - dataset authority chain"@en ;
+	rdfs:comment "Represents the authority link between two Dataset entities (if connectd by void:subset)."@en ;
+    owl:propertyChainAxiom (
+	   void:subset
+	) .	
+	
 #status testing
 #dataid:accessProtocol
 #    a owl:DatatypeProperty, owl:FunctionalProperty ;

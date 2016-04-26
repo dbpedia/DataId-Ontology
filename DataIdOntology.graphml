@@ -437,21 +437,21 @@ foaf:homepage : foaf:Document<y:LabelModel>
           <y:Geometry height="186.59985840707964" width="309.4026548672564" x="627.9293911995526" y="350.5212845868019"/>
           <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Droid Sans" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="187.7646484375" modelName="custom" textColor="#000000" visible="true" width="289.8203125" x="9.791171183628194" y="-0.5823950152101816">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
-@prefix dataid: &lt;http://dataid.dbpedia.org/ns/core#&gt; .
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Droid Sans" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="187.7646484375" modelName="custom" textColor="#000000" visible="true" width="303.189453125" x="3.106600871128194" y="-0.5823950152101816">@prefix dataid: &lt;http://dataid.dbpedia.org/ns/core#&gt; .
 @prefix dcat: &lt;http://www.w3.org/ns/dcat#&gt; .
 @prefix dct: &lt;http://purl.org/dc/terms/&gt; .
 @prefix odrl: &lt;http://www.w3.org/ns/odrl/2/&gt; .
 @prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
 @prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-@prefix sd: &lt;http://www.w3.org/ns/sparql-service-description#&gt; .
-@prefix wsdl: &lt;http://www.w3.org/ns/wsdl-rdf#&gt; .
 @prefix void: &lt;http://rdfs.org/ns/void#&gt; .
-@prefix xml: &lt;http://www.w3.org/XML/1998/namespace&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 @prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; . 
-@prefix lvont: &lt;http://lexvo.org/ontology&gt; .<y:LabelModel>
+@prefix lvont: &lt;http://lexvo.org/ontology&gt; .
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
+@prefix spdx: &lt;http://spdx.org/rdf/terms/#&gt; .
+@prefix datacite: &lt;http://purl.org/spar/datacite/&gt; .
+@prefix litre: &lt;http://www.essepuntato.it/2010/06/literalreification/&gt; .<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -525,9 +525,9 @@ dct:issued : xsd:date<y:LabelModel>
           <y:Geometry height="59.24114583333335" width="159.98754555825042" x="180.25887278419532" y="488.90676130310624"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle hasColor="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="115.38671875" x="22.30041340412521" y="5.568815104166674">- Ontology -
-Martin Brümmer
-Markus Freudenberg<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" modelName="custom" textColor="#000000" visible="true" width="115.38671875" x="22.30041340412521" y="5.568815104166674">- Core Ontology -
+Markus Freudenberg
+Martin Brümmer<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -604,6 +604,24 @@ dataid:typeExtension : rdfs:Literal
             <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
           </y:StyleProperties>
         </y:GenericNode>
+      </data>
+    </node>
+    <node id="n25">
+      <data key="d5"/>
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="30.0" width="30.0" x="375.0347540983604" y="156.51846994535555"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="17.34765625" x="6.326171875" y="5.6494140625">26<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:Shape type="rectangle"/>
+        </y:ShapeNode>
       </data>
     </node>
     <edge id="e0" source="n6" target="n0">
