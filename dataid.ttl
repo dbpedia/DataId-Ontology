@@ -524,31 +524,84 @@ dataid:authorityChain
 	rdfs:domain	prov:Entity ;
 	rdfs:range prov:Entity .
 	
-	[]	a	owl:ObjectProperty ;
+dataid:authoritySubChain1	
+	a	owl:ObjectProperty ;
 	rdfs:subPropertyOf dataid:authorityChain ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "dataid - dataset authority chain"@en ;
-	rdfs:comment "Represents the authority link between the DataID and Dataset entities (if connectd by foaf:primaryTopic)."@en ;
+	rdfs:label "dataid to subset authority chain"@en ;
+	rdfs:comment "Represents the authority link between the DataID and Subset entities (if connectd by foaf:primaryTopic/void:subset)."@en ;
     owl:propertyChainAxiom (
-	   foaf:primaryTopic
+	    foaf:primaryTopic
+	    void:subset
 	) .
 	
-	[]	a	owl:ObjectProperty ;
+dataid:authoritySubChain2	
+	a	owl:ObjectProperty ;
 	rdfs:subPropertyOf dataid:authorityChain ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "dataset - distribution authority chain"@en ;
-	rdfs:comment "Represents the authority link between the Dataset and Distribution entities (if connectd by dcat:distribution)."@en ;
+	rdfs:label "dataid to distribution authority chain"@en ;
+	rdfs:comment "Represents the authority link between the DataID and Distribution entities (if connectd by foaf:primaryTopic/dcat:distribution)."@en ;
     owl:propertyChainAxiom (
-	   dcat:distribution
+    	foaf:primaryTopic
+	    dcat:distribution
 	) .
 	
-	[]	a	owl:ObjectProperty ;
+dataid:authoritySubChain3	
+	a	owl:ObjectProperty ;
 	rdfs:subPropertyOf dataid:authorityChain ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "dataset - dataset authority chain"@en ;
-	rdfs:comment "Represents the authority link between two Dataset entities (if connectd by void:subset)."@en ;
+	rdfs:label "dataset to distribution authority chain"@en ;
+	rdfs:comment "Represents the authority link between a Dataset and Distribution entities (via a scond Dataset)."@en ;
     owl:propertyChainAxiom (
-	   void:subset
+	   	void:subset
+	    dcat:distribution
+	) .	
+	
+dataid:authoritySubChain4	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorityChain ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "dataset to dataset to dataset authority chain"@en ;
+	rdfs:comment "Represents the authority link between three Dataset entities (if connectd by void:subset twice)."@en ;
+    owl:propertyChainAxiom (
+	   	void:subset
+	   	void:subset
+	) .	
+	
+dataid:authoritySubChain5	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorityChain ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "dataid to distribution authority chain"@en ;
+	rdfs:comment "Represents the authority link between the DataID and Distribution entities (if connectd by foaf:primaryTopic/dcat:distribution)."@en ;
+    owl:propertyChainAxiom (
+    	foaf:primaryTopic
+    	void:subset
+	    dcat:distribution
+	) .
+	
+dataid:authoritySubChain6	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorityChain ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "dataset to distribution authority chain"@en ;
+	rdfs:comment "Represents the authority link between a Dataset and Distribution entities (via a scond Dataset)."@en ;
+    owl:propertyChainAxiom (
+    	void:subset
+	   	void:subset
+	    dcat:distribution
+	) .	
+	
+dataid:authoritySubChain7	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorityChain ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "dataset to dataset to dataset authority chain"@en ;
+	rdfs:comment "Represents the authority link between three Dataset entities (if connectd by void:subset twice)."@en ;
+    owl:propertyChainAxiom (
+    	foaf:primaryTopic
+	   	void:subset
+	   	void:subset
 	) .	
 	
 #status testing

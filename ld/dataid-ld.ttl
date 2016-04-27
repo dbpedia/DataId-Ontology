@@ -38,7 +38,7 @@ dataid-ld:SparqlEndpoint
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
     rdfs:comment "A specific distribution, which is accessible via an access url and can be queried with the SPARQL language."@en ;
     rdfs:label "Sparql Endpoint"@en ;
-    rdfs:subClassOf dataid:Distribution, sd:Service.
+    rdfs:subClassOf dataid:ServiceEndpoint, sd:Service.
 
 dataid-ld:containsLinks
     a owl:ObjectProperty ;
