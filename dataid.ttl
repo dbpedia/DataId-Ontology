@@ -25,8 +25,8 @@ dataid:
     owl:versionInfo "1.0.0" ; 
     rdfs:comment "DBpedia Data ID is an ontology with the goal of extensively describing datasets via RDF files in a uniform way. Established vocabularies like DCAT, VoID, Prov-O are used for maximum compatibility."@en ;
     rdfs:label "DataID"@en ;
-    owl:imports dcat:, prov:, rdfs:, foaf:, void: , dct: .
-    #owl:imports <http://www.w3.org/ns/dcat>, rdfs: , <http://www.w3.org/ns/prov-o-20130430> , foaf: ,void: , dct: .
+    #owl:imports dcat:, prov:, rdfs:, foaf:, void: , dct: .
+    owl:imports <http://www.w3.org/ns/dcat>, rdfs: , <http://www.w3.org/ns/prov-o-20130430> , foaf: ,void: , dct: .
     
     
 ########### classes ###########
@@ -229,19 +229,20 @@ dataid:Identifier
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "identifier"@en ;
 	rdfs:comment "Uniquly identifies any resource, given an identifier as literal and a correspondng aid/pid scheme (ORCID, ResearcherID etc.). "@en ;
-	rdfs:subClassOf datacite:Identifier,
-	[
-		a owl:Restriction ;
-		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onProperty litre:hasLiteralValue ;
-		owl:onDatatype rdfs:Literal
-    ] ,
-	[
-		a owl:Restriction ;
-		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onProperty datacite:usesIdentifierScheme ;
-		owl:onClass datacite:identifierScheme
-    ] .
+	rdfs:subClassOf datacite:Identifier
+#	[
+#		a owl:Restriction ;
+#		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+#		owl:onProperty litre:hasLiteralValue ;
+#		owl:onDatatype rdfs:Literal
+#    ] ,
+#	[
+#		a owl:Restriction ;
+#		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+#		owl:onProperty datacite:usesIdentifierScheme ;
+#		owl:onClass datacite:identifierScheme
+#    ] 
+    .
 	    
 dataid:MediaType
 	a owl:Class;

@@ -9,7 +9,7 @@
     <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/odrl/2/" uri="imports/odrl.ttl"/>
     <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/adms#" uri="imports/adms.ttl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1461238032573" name="http://www.w3.org/2004/02/skos/core" uri="imports/skos.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1461866073657" name="http://www.w3.org/2004/02/skos/core" uri="imports/skos.rdf"/>
     </group>
     <uri id="Repo Redirect" name="http://www.w3.org/2000/01/rdf-schema#" uri="imports/rdfs.ttl"/>
     <uri id="Repo Redirect" name="http://www.w3.org/2004/02/skos/core#" uri="imports/skos.rdf"/>
