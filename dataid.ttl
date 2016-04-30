@@ -25,8 +25,8 @@ dataid:
     owl:versionInfo "1.0.0" ; 
     rdfs:comment "DBpedia Data ID is an ontology with the goal of extensively describing datasets via RDF files in a uniform way. Established vocabularies like DCAT, VoID, Prov-O are used for maximum compatibility."@en ;
     rdfs:label "DataID"@en ;
-    #owl:imports dcat:, prov:, rdfs:, foaf:, void: , dct: .
-    owl:imports <http://www.w3.org/ns/dcat>, rdfs: , <http://www.w3.org/ns/prov-o-20130430> , foaf: ,void: , dct: .
+    owl:imports dcat:, prov:, rdfs:, foaf:, void: , dct: .
+    #owl:imports <http://www.w3.org/ns/dcat>, rdfs: , <http://www.w3.org/ns/prov-o-20130430> , foaf: ,void: , dct: .
     
     
 ########### classes ###########
@@ -179,8 +179,7 @@ dataid:AuthorizedAction
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Authorized action"@en ;
-    rdfs:comment """AgentRoles provide agents with the ability to execute certain actions as well as demand certain responsibilities, which are defines by the instances of this concept."""@en ;
-	rdfs:subClassOf prov:Activity .
+    rdfs:comment """AgentRoles provide agents with the ability to execute certain actions as well as demand certain responsibilities, which are defines by the instances of this concept."""@en .
 
 dataid:ResponsibleAction
 	a owl:Class ;
@@ -229,20 +228,19 @@ dataid:Identifier
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "identifier"@en ;
 	rdfs:comment "Uniquly identifies any resource, given an identifier as literal and a correspondng aid/pid scheme (ORCID, ResearcherID etc.). "@en ;
-	rdfs:subClassOf datacite:Identifier
-#	[
-#		a owl:Restriction ;
-#		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-#		owl:onProperty litre:hasLiteralValue ;
-#		owl:onDatatype rdfs:Literal
-#    ] ,
-#	[
-#		a owl:Restriction ;
-#		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-#		owl:onProperty datacite:usesIdentifierScheme ;
-#		owl:onClass datacite:identifierScheme
-#    ] 
-    .
+	rdfs:subClassOf datacite:Identifier,
+	[
+		a owl:Restriction ;
+		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+		owl:onProperty litre:hasLiteralValue ;
+		owl:onDatatype rdfs:Literal
+    ] ,
+	[
+		a owl:Restriction ;
+		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+		owl:onProperty datacite:usesIdentifierScheme ;
+		owl:onClass datacite:identifierScheme
+    ] .
 	    
 dataid:MediaType
 	a owl:Class;
@@ -434,7 +432,7 @@ dataid:authorizedAgent
     rdfs:subPropertyOf prov:agent ;
    	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Points out the Agent the dataid:Authorization is defined for (e.g. to modify the metadata of a dataset)."@en ;
-    rdfs:domain dataid:Authorization ;
+    rdfs:domain prov:AgentInfluence ;
     rdfs:label "authorized agent"@en ;
     rdfs:range dataid:Agent .
 
@@ -450,7 +448,7 @@ dataid:authorityAgentRole
     rdfs:subPropertyOf prov:hadRole ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Adds a role an agent can administer in the scope provided by the Authorization, thereby allowing for certain actions an agent can execute."@en ;
-    rdfs:domain dataid:Authorization ;
+    rdfs:domain prov:AgentInfluence ;
     rdfs:label "authority agent role"@en ;
     rdfs:range dataid:AgentRole .
 
@@ -474,7 +472,7 @@ dataid:authorizedAction
    	a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Actions, agents are allowed to execute under a given Authorization, without regard to an AgentRole optionally specified in addition."@en ;
-    rdfs:domain dataid:Authorization ;
+    rdfs:domain prov:AgentInfluence ;
     rdfs:label "authorized action"@en ;
     rdfs:range dataid:AuthorizedAction ;
     owl:propertyChainAxiom (
@@ -494,7 +492,7 @@ dataid:validFrom
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"An Authorization is valid for a specific Agent from a certain point in time."@en ;
-    rdfs:domain 	dataid:Authorization ;
+    rdfs:domain 	prov:AgentInfluence ;
     rdfs:label 		"valid from"@en ;
     rdfs:range  	xsd:datetime .
     
@@ -502,7 +500,7 @@ dataid:validUntil
     a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"An Authorization is valid for a specific Agent until a certain point in time."@en ;
-    rdfs:domain 	dataid:Authorization ;
+    rdfs:domain 	prov:AgentInfluence ;
     rdfs:label 		"valid until"@en ;
     rdfs:range  	xsd:datetime .
 
@@ -515,95 +513,44 @@ dataid:isInheritable
     rdfs:range  	xsd:boolean .
 
 
-#The follwing property is only inferred by the propertyChains of its sub-properties. None of which is to be used in an actual instantiation.
+#The follwing properties are only inferred by the the existence of property paths of foaf:primaryTopc, void:subset and dcat:distribution.
 dataid:authorityChain
-	a	owl:ObjectProperty, owl:TransitiveProperty;
+	a	owl:ObjectProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "authority chain"@en ;
 	rdfs:comment """This property (with its sub-properties) describes how an dataid:Authorization is spread to other entities (lower level entities, like Dataset & Distribution). 
-		This inferred chain of authority can be overwritten by introducing other dataid:Authorization objects with the scope of lower level entities. See the example in Github for more information."""@en ;
-	rdfs:domain	prov:Entity ;
-	rdfs:range prov:Entity .
+		This inferred chain of authority can be overwritten by introducing other dataid:Authorization objects with the scope of lower level entities. See the example in Github for more information."""@en .
 	
 dataid:authoritySubChain1	
 	a	owl:ObjectProperty ;
 	rdfs:subPropertyOf dataid:authorityChain ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "dataid to subset authority chain"@en ;
-	rdfs:comment "Represents the authority link between the DataID and Subset entities (if connectd by foaf:primaryTopic/void:subset)."@en ;
+	rdfs:label "authority chain axiom with subset"@en ;
+	rdfs:comment "Represents the authority link between the DataID and a Dataset (if connectd via a Subset)."@en ;
     owl:propertyChainAxiom (
-	    foaf:primaryTopic
-	    void:subset
+	   foaf:primaryTopic	
+	   dataid:transitiveSubset
+	   dcat:distribution
 	) .
 	
 dataid:authoritySubChain2	
 	a	owl:ObjectProperty ;
 	rdfs:subPropertyOf dataid:authorityChain ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "dataid to distribution authority chain"@en ;
-	rdfs:comment "Represents the authority link between the DataID and Distribution entities (if connectd by foaf:primaryTopic/dcat:distribution)."@en ;
+	rdfs:label "authority chain axiom without subset"@en ;
+	rdfs:comment "Represents the authority link between the DataID and a Dataset (if connectd without a Subset)."@en ;
     owl:propertyChainAxiom (
-    	foaf:primaryTopic
-	    dcat:distribution
+	   foaf:primaryTopic	
+	   dcat:distribution
 	) .
 	
-dataid:authoritySubChain3	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorityChain ;
+dataid:transitiveSubset	
+	a	owl:ObjectProperty, owl:TransitiveProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "dataset to distribution authority chain"@en ;
-	rdfs:comment "Represents the authority link between a Dataset and Distribution entities (via a scond Dataset)."@en ;
-    owl:propertyChainAxiom (
-	   	void:subset
-	    dcat:distribution
-	) .	
+	rdfs:label "transitive super property of void:subset"@en ;
+	rdfs:comment "Represents the authority link between two Datsets (if connectd by void:subset)."@en .	
 	
-dataid:authoritySubChain4	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorityChain ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "dataset to dataset to dataset authority chain"@en ;
-	rdfs:comment "Represents the authority link between three Dataset entities (if connectd by void:subset twice)."@en ;
-    owl:propertyChainAxiom (
-	   	void:subset
-	   	void:subset
-	) .	
-	
-dataid:authoritySubChain5	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorityChain ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "dataid to distribution authority chain"@en ;
-	rdfs:comment "Represents the authority link between the DataID and Distribution entities (if connectd by foaf:primaryTopic/dcat:distribution)."@en ;
-    owl:propertyChainAxiom (
-    	foaf:primaryTopic
-    	void:subset
-	    dcat:distribution
-	) .
-	
-dataid:authoritySubChain6	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorityChain ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "dataset to distribution authority chain"@en ;
-	rdfs:comment "Represents the authority link between a Dataset and Distribution entities (via a scond Dataset)."@en ;
-    owl:propertyChainAxiom (
-    	void:subset
-	   	void:subset
-	    dcat:distribution
-	) .	
-	
-dataid:authoritySubChain7	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorityChain ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "dataset to dataset to dataset authority chain"@en ;
-	rdfs:comment "Represents the authority link between three Dataset entities (if connectd by void:subset twice)."@en ;
-    owl:propertyChainAxiom (
-    	foaf:primaryTopic
-	   	void:subset
-	   	void:subset
-	) .	
+void:subset rdfs:subPropertyOf dataid:transitiveSubset.
 	
 #status testing
 #dataid:accessProtocol
