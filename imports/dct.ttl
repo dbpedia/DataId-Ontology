@@ -1,0 +1,1041 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix dbox: <http://dublincore.org/documents/dcmi-box/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+
+dc:
+  dc:title "DCMI Metadata Terms - other"@en ;
+  dc:publisher <http://purl.org/dc/aboutdcmi#DCMI> ;
+  dc:modified "2012-06-14"^^xsd:date .
+
+dc:title
+  rdfs:label "Title"@en ;
+  rdfs:comment "A name given to the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2010-10-11"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#titleT-002> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:title .
+
+dc:creator
+  rdfs:label "Creator"@en ;
+  rdfs:comment "An entity primarily responsible for making the resource."@en ;
+  dc:description "Examples of a Creator include a person, an organization, or a service."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2010-10-11"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
+  rdfs:range dc:Agent ;
+  rdfs:subPropertyOf dc11:creator, dc:contributor ;
+  owl:equivalentProperty foaf:maker .
+
+dc:subject
+  rdfs:label "Subject"@en ;
+  rdfs:comment "The topic of the resource."@en ;
+  dc:description "Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2012-06-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#subjectT-002> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:subject .
+
+dc:description
+  rdfs:label "Description"@en ;
+  rdfs:comment "An account of the resource."@en ;
+  dc:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#descriptionT-001> ;
+  rdfs:subPropertyOf dc11:description .
+
+dc:publisher
+  rdfs:label "Publisher"@en ;
+  rdfs:comment "An entity responsible for making the resource available."@en ;
+  dc:description "Examples of a Publisher include a person, an organization, or a service."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2010-10-11"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#publisherT-001> ;
+  rdfs:range dc:Agent ;
+  rdfs:subPropertyOf dc11:publisher .
+
+dc:contributor
+  rdfs:label "Contributor"@en ;
+  rdfs:comment "An entity responsible for making contributions to the resource."@en ;
+  dc:description "Examples of a Contributor include a person, an organization, or a service."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2010-10-11"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#contributorT-001> ;
+  rdfs:range dc:Agent ;
+  rdfs:subPropertyOf dc11:contributor .
+
+dc:date
+  rdfs:label "Date"@en ;
+  rdfs:comment "A point or period of time associated with an event in the lifecycle of the resource."@en ;
+  dc:description "Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF]."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#dateT-001> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:date .
+
+dc:type
+  rdfs:label "Type"@en ;
+  rdfs:comment "The nature or genre of the resource."@en ;
+  dc:description "Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#typeT-001> ;
+  rdfs:range rdfs:Class ;
+  rdfs:subPropertyOf dc11:type .
+
+dc:format
+  rdfs:label "Format"@en ;
+  rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
+  dc:description "Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME]."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#formatT-001> ;
+  rdfs:range dc:MediaTypeOrExtent ;
+  rdfs:subPropertyOf dc11:format .
+
+dc:identifier
+  rdfs:label "Identifier"@en ;
+  rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
+  dc:description "Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. "@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#identifierT-001> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:identifier .
+
+dc:source
+  rdfs:label "Source"@en ;
+  rdfs:comment "A related resource from which the described resource is derived."@en ;
+  dc:description "The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#sourceT-001> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:source, dc:relation .
+
+dc:language
+  rdfs:label "Language"@en ;
+  rdfs:comment "A language of the resource."@en ;
+  dc:description "Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646]."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#languageT-001> ;
+  rdfs:range dc:LinguisticSystem ;
+  rdfs:subPropertyOf dc11:language .
+
+dc:relation
+  rdfs:label "Relation"@en ;
+  rdfs:comment "A related resource."@en ;
+  dc:description "Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. "@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#relationT-001> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation .
+
+dc:coverage
+  rdfs:label "Coverage"@en ;
+  rdfs:comment "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant."@en ;
+  dc:description "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#coverageT-001> ;
+  rdfs:range dc:LocationPeriodOrJurisdiction ;
+  rdfs:subPropertyOf dc11:coverage .
+
+dc:rights
+  rdfs:label "Rights"@en ;
+  rdfs:comment "Information about rights held in and over the resource."@en ;
+  dc:description "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#rightsT-001> ;
+  rdfs:range dc:RightsStatement ;
+  rdfs:subPropertyOf dc11:rights .
+
+dc:audience
+  rdfs:label "Audience"@en ;
+  rdfs:comment "A class of entity for whom the resource is intended or useful."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2001-05-21"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#audience-003> ;
+  rdfs:range dc:AgentClass .
+
+dc:alternative
+  rdfs:label "Alternative Title"@en ;
+  rdfs:comment "An alternative name for the resource."@en ;
+  dc:description "The distinction between titles and alternative titles is application-specific."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2010-10-11"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#alternative-003> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:title, dc:title .
+
+dc:tableOfContents
+  rdfs:label "Table Of Contents"@en ;
+  rdfs:comment "A list of subunits of the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#tableOfContents-003> ;
+  rdfs:subPropertyOf dc11:description, dc:description .
+
+dc:abstract
+  rdfs:label "Abstract"@en ;
+  rdfs:comment "A summary of the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#abstract-003> ;
+  rdfs:subPropertyOf dc11:description, dc:description .
+
+dc:created
+  rdfs:label "Date Created"@en ;
+  rdfs:comment "Date of creation of the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#created-003> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:date, dc:date .
+
+dc:valid
+  rdfs:label "Date Valid"@en ;
+  rdfs:comment "Date (often a range) of validity of a resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#valid-003> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:date, dc:date .
+
+dc:available
+  rdfs:label "Date Available"@en ;
+  rdfs:comment "Date (often a range) that the resource became or will become available."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#available-003> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:date, dc:date .
+
+dc:issued
+  rdfs:label "Date Issued"@en ;
+  rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#issued-003> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:date, dc:date .
+
+dc:modified
+  rdfs:label "Date Modified"@en ;
+  rdfs:comment "Date on which the resource was changed."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#modified-003> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:date, dc:date .
+
+dc:extent
+  rdfs:label "Extent"@en ;
+  rdfs:comment "The size or duration of the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#extent-003> ;
+  rdfs:range dc:SizeOrDuration ;
+  rdfs:subPropertyOf dc11:format, dc:format .
+
+dc:medium
+  rdfs:label "Medium"@en ;
+  rdfs:comment "The material or physical carrier of the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#medium-003> ;
+  rdfs:domain dc:PhysicalResource ;
+  rdfs:range dc:PhysicalMedium ;
+  rdfs:subPropertyOf dc11:format, dc:format .
+
+dc:isVersionOf
+  rdfs:label "Is Version Of"@en ;
+  rdfs:comment "A related resource of which the described resource is a version, edition, or adaptation."@en ;
+  dc:description "Changes in version imply substantive changes in content rather than differences in format."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#isVersionOf-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:hasVersion
+  rdfs:label "Has Version"@en ;
+  rdfs:comment "A related resource that is a version, edition, or adaptation of the described resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#hasVersion-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:isReplacedBy
+  rdfs:label "Is Replaced By"@en ;
+  rdfs:comment "A related resource that supplants, displaces, or supersedes the described resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#isReplacedBy-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:replaces
+  rdfs:label "Replaces"@en ;
+  rdfs:comment "A related resource that is supplanted, displaced, or superseded by the described resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#replaces-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:isRequiredBy
+  rdfs:label "Is Required By"@en ;
+  rdfs:comment "A related resource that requires the described resource to support its function, delivery, or coherence."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#isRequiredBy-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:requires
+  rdfs:label "Requires"@en ;
+  rdfs:comment "A related resource that is required by the described resource to support its function, delivery, or coherence."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#requires-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:isPartOf
+  rdfs:label "Is Part Of"@en ;
+  rdfs:comment "A related resource in which the described resource is physically or logically included."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#isPartOf-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:hasPart
+  rdfs:label "Has Part"@en ;
+  rdfs:comment "A related resource that is included either physically or logically in the described resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#hasPart-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:isReferencedBy
+  rdfs:label "Is Referenced By"@en ;
+  rdfs:comment "A related resource that references, cites, or otherwise points to the described resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#isReferencedBy-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:references
+  rdfs:label "References"@en ;
+  rdfs:comment "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#references-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:isFormatOf
+  rdfs:label "Is Format Of"@en ;
+  rdfs:comment "A related resource that is substantially the same as the described resource, but in another format."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#isFormatOf-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:hasFormat
+  rdfs:label "Has Format"@en ;
+  rdfs:comment "A related resource that is substantially the same as the pre-existing described resource, but in another format."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#hasFormat-003> ;
+  skos:note "This term is intended to be used with non-literal values as defined in the DCMI Abstract Model (http://dublincore.org/documents/abstract-model/).  As of December 2007, the DCMI Usage Board is seeking a way to express this intention with a formal range declaration."@en ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:conformsTo
+  rdfs:label "Conforms To"@en ;
+  rdfs:comment "An established standard to which the described resource conforms."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2001-05-21"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#conformsTo-003> ;
+  rdfs:range dc:Standard ;
+  rdfs:subPropertyOf dc11:relation, dc:relation .
+
+dc:spatial
+  rdfs:label "Spatial Coverage"@en ;
+  rdfs:comment "Spatial characteristics of the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#spatial-003> ;
+  rdfs:range dc:Location ;
+  rdfs:subPropertyOf dc11:coverage, dc:coverage .
+
+dc:temporal
+  rdfs:label "Temporal Coverage"@en ;
+  rdfs:comment "Temporal characteristics of the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#temporal-003> ;
+  rdfs:range dc:PeriodOfTime ;
+  rdfs:subPropertyOf dc11:coverage, dc:coverage .
+
+dc:mediator
+  rdfs:label "Mediator"@en ;
+  rdfs:comment "An entity that mediates access to the resource and for whom the resource is intended or useful."@en ;
+  dc:description "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2001-05-21"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#mediator-003> ;
+  rdfs:range dc:AgentClass ;
+  rdfs:subPropertyOf dc:audience .
+
+dc:dateAccepted
+  rdfs:label "Date Accepted"@en ;
+  rdfs:comment "Date of acceptance of the resource."@en ;
+  dc:description "Examples of resources to which a Date Accepted may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal)."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2002-07-13"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#dateAccepted-002> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:date, dc:date .
+
+dc:dateCopyrighted
+  rdfs:label "Date Copyrighted"@en ;
+  rdfs:comment "Date of copyright."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2002-07-13"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#dateCopyrighted-002> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:date, dc:date .
+
+dc:dateSubmitted
+  rdfs:label "Date Submitted"@en ;
+  rdfs:comment "Date of submission of the resource."@en ;
+  dc:description "Examples of resources to which a Date Submitted may be relevant are a thesis (submitted to a university department) or an article (submitted to a journal)."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2002-07-13"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#dateSubmitted-002> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:date, dc:date .
+
+dc:educationLevel
+  rdfs:label "Audience Education Level"@en ;
+  rdfs:comment "A class of entity, defined in terms of progression through an educational or training context, for which the described resource is intended."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2002-07-13"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#educationLevel-002> ;
+  rdfs:range dc:AgentClass ;
+  rdfs:subPropertyOf dc:audience .
+
+dc:accessRights
+  rdfs:label "Access Rights"@en ;
+  rdfs:comment "Information about who can access the resource or an indication of its security status."@en ;
+  dc:description "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2003-02-15"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#accessRights-002> ;
+  rdfs:range dc:RightsStatement ;
+  rdfs:subPropertyOf dc11:rights, dc:rights .
+
+dc:bibliographicCitation
+  rdfs:label "Bibliographic Citation"@en ;
+  rdfs:comment "A bibliographic reference for the resource."@en ;
+  dc:description "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2003-02-15"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#bibliographicCitation-002> ;
+  rdfs:domain dc:BibliographicResource ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc11:identifier, dc:identifier .
+
+dc:license
+  rdfs:label "License"@en ;
+  rdfs:comment "A legal document giving official permission to do something with the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2004-06-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#license-002> ;
+  rdfs:range dc:LicenseDocument ;
+  rdfs:subPropertyOf dc11:rights, dc:rights .
+
+dc:rightsHolder
+  rdfs:label "Rights Holder"@en ;
+  rdfs:comment "A person or organization owning or managing rights over the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2004-06-14"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#rightsHolder-002> ;
+  rdfs:range dc:Agent .
+
+dc:provenance
+  rdfs:label "Provenance"@en ;
+  rdfs:comment "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
+  dc:description "The statement may include a description of any changes successive custodians made to the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2004-09-20"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#provenance-002> ;
+  rdfs:range dc:ProvenanceStatement .
+
+dc:instructionalMethod
+  rdfs:label "Instructional Method"@en ;
+  rdfs:comment "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support."@en ;
+  dc:description "Instructional Method will typically include ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured.  Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2005-06-13"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#instructionalMethod-002> ;
+  rdfs:range dc:MethodOfInstruction .
+
+dc:accrualMethod
+  rdfs:label "Accrual Method"@en ;
+  rdfs:comment "The method by which items are added to a collection."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2005-06-13"^^xsd:date ;
+  dc:modified "2010-10-11"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#accrualMethod-003> ;
+  rdfs:domain dctype:Collection ;
+  rdfs:range dc:MethodOfAccrual .
+
+dc:accrualPeriodicity
+  rdfs:label "Accrual Periodicity"@en ;
+  rdfs:comment "The frequency with which items are added to a collection."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2005-06-13"^^xsd:date ;
+  dc:modified "2010-10-11"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#accrualPeriodicity-003> ;
+  rdfs:domain dctype:Collection ;
+  rdfs:range dc:Frequency .
+
+dc:accrualPolicy
+  rdfs:label "Accrual Policy"@en ;
+  rdfs:comment "The policy governing the addition of items to a collection."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2005-06-13"^^xsd:date ;
+  dc:modified "2010-10-11"^^xsd:date ;
+  a rdf:Property ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#accrualPolicy-003> ;
+  rdfs:domain dctype:Collection ;
+  rdfs:range dc:Policy .
+
+dc:Agent
+  rdfs:label "Agent"@en ;
+  rdfs:comment "A resource that acts or has the power to act."@en ;
+  dc:description "Examples of Agent include person, organization, and software agent."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class, dc:AgentClass ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#Agent-001> .
+
+dc:AgentClass
+  rdfs:label "Agent Class"@en ;
+  rdfs:comment "A group of agents."@en ;
+  dc:description "Examples of Agent Class include groups seen as classes, such as students, women, charities, lecturers."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  dc:modified "2012-06-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#AgentClass-003> ;
+  rdfs:subClassOf rdfs:Class .
+
+dc:BibliographicResource
+  rdfs:label "Bibliographic Resource"@en ;
+  rdfs:comment "A book, article, or other documentary resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#BibliographicResource-001> .
+
+dc:FileFormat
+  rdfs:label "File Format"@en ;
+  rdfs:comment "A digital resource format."@en ;
+  dc:description "Examples include the formats defined by the list of Internet Media Types."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#FileFormat-001> ;
+  rdfs:subClassOf dc:MediaType .
+
+dc:Frequency
+  rdfs:label "Frequency"@en ;
+  rdfs:comment "A rate at which something recurs."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#Frequency-001> .
+
+dc:Jurisdiction
+  rdfs:label "Jurisdiction"@en ;
+  rdfs:comment "The extent or range of judicial, law enforcement, or other authority."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#Jurisdiction-001> ;
+  rdfs:subClassOf dc:LocationPeriodOrJurisdiction .
+
+dc:LicenseDocument
+  rdfs:label "License Document"@en ;
+  rdfs:comment "A legal document giving official permission to do something with a Resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#LicenseDocument-001> ;
+  rdfs:subClassOf dc:RightsStatement .
+
+dc:LinguisticSystem
+  rdfs:label "Linguistic System"@en ;
+  rdfs:comment "A system of signs, symbols, sounds, gestures, or rules used in communication."@en ;
+  dc:description "Examples include written, spoken, sign, and computer languages."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#LinguisticSystem-001> .
+
+dc:Location
+  rdfs:label "Location"@en ;
+  rdfs:comment "A spatial region or named place."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#Location-001> ;
+  rdfs:subClassOf dc:LocationPeriodOrJurisdiction .
+
+dc:LocationPeriodOrJurisdiction
+  rdfs:label "Location, Period, or Jurisdiction"@en ;
+  rdfs:comment "A location, period of time, or jurisdiction."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#LocationPeriodOrJurisdiction-001> .
+
+dc:MediaType
+  rdfs:label "Media Type"@en ;
+  rdfs:comment "A file format or physical medium."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#MediaType-001> ;
+  rdfs:subClassOf dc:MediaTypeOrExtent .
+
+dc:MediaTypeOrExtent
+  rdfs:label "Media Type or Extent"@en ;
+  rdfs:comment "A media type or extent."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#MediaTypeOrExtent-001> .
+
+dc:MethodOfInstruction
+  rdfs:label "Method of Instruction"@en ;
+  rdfs:comment "A process that is used to engender knowledge, attitudes, and skills."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#MethodOfInstruction-001> .
+
+dc:MethodOfAccrual
+  rdfs:label "Method of Accrual"@en ;
+  rdfs:comment "A method by which resources are added to a collection."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#MethodOfAccrual-001> .
+
+dc:PeriodOfTime
+  rdfs:label "Period of Time"@en ;
+  rdfs:comment "An interval of time that is named or defined by its start and end dates."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#PeriodOfTime-001> ;
+  rdfs:subClassOf dc:LocationPeriodOrJurisdiction .
+
+dc:PhysicalMedium
+  rdfs:label "Physical Medium"@en ;
+  rdfs:comment "A physical material or carrier."@en ;
+  dc:description "Examples include paper, canvas, or DVD."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#PhysicalMedium-001> ;
+  rdfs:subClassOf dc:MediaType .
+
+dc:PhysicalResource
+  rdfs:label "Physical Resource"@en ;
+  rdfs:comment "A material thing."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#PhysicalResource-001> .
+
+dc:Policy
+  rdfs:label "Policy"@en ;
+  rdfs:comment "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#Policy-001> .
+
+dc:ProvenanceStatement
+  rdfs:label "Provenance Statement"@en ;
+  rdfs:comment "A statement of any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#ProvenanceStatement-001> .
+
+dc:RightsStatement
+  rdfs:label "Rights Statement"@en ;
+  rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a Resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#RightsStatement-001> .
+
+dc:SizeOrDuration
+  rdfs:label "Size or Duration"@en ;
+  rdfs:comment "A dimension or extent, or a time taken to play or execute."@en ;
+  dc:description "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#SizeOrDuration-001> ;
+  rdfs:subClassOf dc:MediaTypeOrExtent .
+
+dc:Standard
+  rdfs:label "Standard"@en ;
+  rdfs:comment "A basis for comparison; a reference point against which other things can be evaluated."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Class ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#Standard-001> .
+
+dc:ISO639-2
+  rdfs:label "ISO 639-2"@en ;
+  rdfs:comment "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#ISO639-2-003> ;
+  rdfs:seeAlso <http://lcweb.loc.gov/standards/iso639-2/langhome.html> .
+
+dc:RFC1766
+  rdfs:label "RFC 1766"@en ;
+  rdfs:comment "The set of tags, constructed according to RFC 1766, for the identification of languages."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#RFC1766-003> ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc1766.txt> .
+
+dc:URI
+  rdfs:label "URI"@en ;
+  rdfs:comment "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#URI-003> ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc3986.txt> .
+
+dc:Point
+  rdfs:label "DCMI Point"@en ;
+  rdfs:comment "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#Point-003> ;
+  rdfs:seeAlso <http://dublincore.org/documents/dcmi-point/> .
+
+dc:ISO3166
+  rdfs:label "ISO 3166"@en ;
+  rdfs:comment "The set of codes listed in ISO 3166-1 for the representation of names of countries."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#ISO3166-004> ;
+  rdfs:seeAlso <http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html> .
+
+dc:Box
+  rdfs:label "DCMI Box"@en ;
+  rdfs:comment "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#Box-003> ;
+  rdfs:seeAlso dbox: .
+
+dc:Period
+  rdfs:label "DCMI Period"@en ;
+  rdfs:comment "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#Period-003> ;
+  rdfs:seeAlso <http://dublincore.org/documents/dcmi-period/> .
+
+dc:W3CDTF
+  rdfs:label "W3C-DTF"@en ;
+  rdfs:comment "The set of dates and times constructed according to the W3C Date and Time Formats Specification."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#W3CDTF-003> ;
+  rdfs:seeAlso <http://www.w3.org/TR/NOTE-datetime> .
+
+dc:RFC3066
+  rdfs:label "RFC 3066"@en ;
+  rdfs:comment "The set of tags constructed according to RFC 3066 for the identification of languages."@en ;
+  dc:description "RFC 3066 has been obsoleted by RFC 4646."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2002-07-13"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#RFC3066-002> ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc3066.txt> .
+
+dc:RFC5646
+  rdfs:label "RFC 5646"@en ;
+  rdfs:comment "The set of tags constructed according to RFC 5646 for the identification of languages."@en ;
+  dc:description "RFC 5646 obsoletes RFC 4646."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2010-10-11"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#RFC5646-001> ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc5646.txt> .
+
+dc:RFC4646
+  rdfs:label "RFC 4646"@en ;
+  rdfs:comment "The set of tags constructed according to RFC 4646 for the identification of languages."@en ;
+  dc:description "RFC 4646 obsoletes RFC 3066."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#RFC4646-001> ;
+  rdfs:seeAlso <http://www.ietf.org/rfc/rfc4646.txt> .
+
+dc:ISO639-3
+  rdfs:label "ISO 639-3"@en ;
+  rdfs:comment "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2008-01-14"^^xsd:date ;
+  a rdfs:Datatype ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#ISO639-3-001> ;
+  rdfs:seeAlso <http://www.sil.org/iso639-3/> .
+
+dc:LCSH
+  rdfs:label "LCSH"@en ;
+  rdfs:comment "The set of labeled concepts specified by the Library of Congress Subject Headings."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a dcam:VocabularyEncodingScheme ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#LCSH-003> .
+
+dc:MESH
+  rdfs:label "MeSH"@en ;
+  rdfs:comment "The set of labeled concepts specified by the Medical Subject Headings."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a dcam:VocabularyEncodingScheme ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#MESH-003> ;
+  rdfs:seeAlso <http://www.nlm.nih.gov/mesh/meshhome.html> .
+
+dc:DDC
+  rdfs:label "DDC"@en ;
+  rdfs:comment "The set of conceptual resources specified by the Dewey Decimal Classification."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a dcam:VocabularyEncodingScheme ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#DDC-003> ;
+  rdfs:seeAlso <http://www.oclc.org/dewey/> .
+
+dc:LCC
+  rdfs:label "LCC"@en ;
+  rdfs:comment "The set of conceptual resources specified by the Library of Congress Classification."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a dcam:VocabularyEncodingScheme ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#LCC-003> ;
+  rdfs:seeAlso <http://lcweb.loc.gov/catdir/cpso/lcco/lcco.html> .
+
+dc:UDC
+  rdfs:label "UDC"@en ;
+  rdfs:comment "The set of conceptual resources specified by the Universal Decimal Classification."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a dcam:VocabularyEncodingScheme ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#UDC-003> ;
+  rdfs:seeAlso <http://www.udcc.org/> .
+
+dc:DCMIType
+  rdfs:label "DCMI Type Vocabulary"@en ;
+  rdfs:comment "The set of classes specified by the DCMI Type Vocabulary, used to categorize the nature or genre of the resource."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2012-06-14"^^xsd:date ;
+  a dcam:VocabularyEncodingScheme ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#DCMIType-005> ;
+  rdfs:seeAlso dctype: .
+
+dc:IMT
+  rdfs:label "IMT"@en ;
+  rdfs:comment "The set of media types specified by the Internet Assigned Numbers Authority."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a dcam:VocabularyEncodingScheme ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#IMT-004> ;
+  rdfs:seeAlso <http://www.iana.org/assignments/media-types/> .
+
+dc:TGN
+  rdfs:label "TGN"@en ;
+  rdfs:comment "The set of places specified by the Getty Thesaurus of Geographic Names."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2000-07-11"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a dcam:VocabularyEncodingScheme ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#TGN-003> ;
+  rdfs:seeAlso <http://www.getty.edu/research/tools/vocabulary/tgn/index.html> .
+
+dc:NLM
+  rdfs:label "NLM"@en ;
+  rdfs:comment "The set of conceptual resources specified by the National Library of Medicine Classification."@en ;
+  rdfs:isDefinedBy dc: ;
+  dc:issued "2005-06-13"^^xsd:date ;
+  dc:modified "2008-01-14"^^xsd:date ;
+  a dcam:VocabularyEncodingScheme ;
+  dc:hasVersion <http://dublincore.org/usage/terms/history/#NLM-002> ;
+  rdfs:seeAlso <http://wwwcf.nlm.nih.gov/class/> .

@@ -97,10 +97,10 @@ dct:modified : xsd:date<y:LabelModel>
     <node id="n3">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="59.24114583333335" width="94.86674700087485" x="892.0709481572391" y="1028.1478523379428"/>
+          <y:Geometry height="59.24114583333335" width="132.52764655178657" x="693.7806661269148" y="1059.301032447213"/>
           <y:Fill color="#C0C0C0" color2="#C0C0C0" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#808080" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="59.353515625" x="17.756615687937483" y="4.0">odlr:Policy</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#808080" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="127.375" x="2.5763232758932872" y="4.0">msr:License/odlr:Policy</y:NodeLabel>
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="2.0" y="30.701171875">
             <y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
@@ -737,10 +737,12 @@ dmp:security: dataid:SimpleS..<y:LabelModel>
     <edge id="e1" source="n1" target="n3">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="20.4221884876888" sy="-29.607316460087304" tx="0.0" ty="0.0"/>
+          <y:Path sx="-36.921614779360766" sy="-29.598313615868165" tx="0.0" ty="18.843220624646165">
+            <y:Point x="882.160518390627" y="1107.764825988526"/>
+          </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="60.6953125" x="-30.347668088417095" y="-44.49450406268079">dct:license<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="60.6953125" x="-30.347660320310524" y="-41.49091632593081">dct:license<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -793,16 +795,17 @@ dmp:security: dataid:SimpleS..<y:LabelModel>
     <edge id="e4" source="n0" target="n3">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="116.93615820386442" sy="40.261156540981574" tx="0.0" ty="0.0">
-            <y:Point x="939.5043216576764" y="921.5987765505682"/>
+          <y:Path sx="0.0" sy="138.77023138385732" tx="0.0" ty="0.0">
+            <y:Point x="760.044489402808" y="1020.107851393444"/>
+            <y:Point x="760.044489402808" y="1047.090898160552"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="60.6953125" x="32.17601355220768" y="36.748680655193084">dct:license<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="60.6953125" x="-30.34766147609821" y="4.140939718404297">dct:license<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="8.862867431361533" distanceToCenter="true" position="center" ratio="0.5" segment="-1"/>
+              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="8.862867431361533" distanceToCenter="true" position="center" ratio="0.5" segment="1"/>
             </y:ModelParameter>
             <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
           </y:EdgeLabel>
@@ -810,26 +813,7 @@ dmp:security: dataid:SimpleS..<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e5" source="n1" target="n0">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="-84.96533998099437" sy="-29.65732355287105" tx="74.07230378618533" ty="138.741257704325"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="standard" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="121.38671875" x="-74.42928521351553" y="-85.49074815174504">dcat:distribution &lt;&gt;
-dataid:isDistributionOf<y:LabelModel>
-              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="0.0" distance="13.735897738446425" distanceToCenter="true" position="left" ratio="0.5" segment="0"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e6" source="n4" target="n7">
+    <edge id="e5" source="n4" target="n7">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-107.61803436755508" sy="-71.35108423125848" tx="65.14347179331963" ty="-16.21720894302416"/>
@@ -847,7 +831,7 @@ dataid:isDistributionOf<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e7" source="n0" target="n6">
+    <edge id="e6" source="n0" target="n6">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-116.93848761458833" sy="97.64609710174966" tx="70.26184767218578" ty="-22.80780966007281"/>
@@ -857,7 +841,7 @@ dataid:isDistributionOf<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e8" source="n2" target="n6">
+    <edge id="e7" source="n2" target="n6">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="80.76139047594239" sy="86.31500160527196" tx="-70.23160419800826" ty="-24.358987383210675">
@@ -869,7 +853,7 @@ dataid:isDistributionOf<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e9" source="n1" target="n4">
+    <edge id="e8" source="n1" target="n4">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="102.18483559816775" sy="-29.62920095848108" tx="-21.760236840128528" ty="89.54191568870783"/>
@@ -888,7 +872,7 @@ dlo:stores &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e10" source="n28" target="n4">
+    <edge id="e9" source="n28" target="n4">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="100.89096443028392" sy="-55.062154556968835" tx="-107.62483060828369" ty="-17.899349223028707"/>
@@ -906,7 +890,7 @@ dlo:stores &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e11" source="n7" target="n2">
+    <edge id="e10" source="n7" target="n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -920,7 +904,7 @@ dlo:stores &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e12" source="n0" target="n28">
+    <edge id="e11" source="n0" target="n28">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-116.9367904317661" sy="-123.8981016492445" tx="100.86191354297182" ty="17.277251001198238"/>
@@ -933,7 +917,7 @@ dmp:preservedEntity &gt;<y:PreferredPlacementDescriptor angle="0.0" angleOffsetO
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e13" source="n8" target="n11">
+    <edge id="e12" source="n8" target="n11">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -946,7 +930,7 @@ dmp:preservedEntity &gt;<y:PreferredPlacementDescriptor angle="0.0" angleOffsetO
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e14" source="n12" target="n11">
+    <edge id="e13" source="n12" target="n11">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -959,7 +943,7 @@ dmp:preservedEntity &gt;<y:PreferredPlacementDescriptor angle="0.0" angleOffsetO
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e15" source="n4" target="n12">
+    <edge id="e14" source="n4" target="n12">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -972,7 +956,7 @@ dmp:preservedEntity &gt;<y:PreferredPlacementDescriptor angle="0.0" angleOffsetO
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e16" source="n12" target="n11">
+    <edge id="e15" source="n12" target="n11">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -994,7 +978,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e17" source="n4" target="n13">
+    <edge id="e16" source="n4" target="n13">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1007,7 +991,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e18" source="n12" target="n13">
+    <edge id="e17" source="n12" target="n13">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1026,7 +1010,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e19" source="n13" target="n15">
+    <edge id="e18" source="n13" target="n15">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1039,7 +1023,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e20" source="n13" target="n11">
+    <edge id="e19" source="n13" target="n11">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1060,7 +1044,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e21" source="n14" target="n9">
+    <edge id="e20" source="n14" target="n9">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1081,7 +1065,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e22" source="n14" target="n15">
+    <edge id="e21" source="n14" target="n15">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1092,7 +1076,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e23" source="n16" target="n5">
+    <edge id="e22" source="n16" target="n5">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1113,7 +1097,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e24" source="n17" target="n8">
+    <edge id="e23" source="n17" target="n8">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1132,7 +1116,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e25" source="n17" target="n14">
+    <edge id="e24" source="n17" target="n14">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1151,7 +1135,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e26" source="n16" target="n17">
+    <edge id="e25" source="n16" target="n17">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1170,7 +1154,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e27" source="n28" target="n16">
+    <edge id="e26" source="n28" target="n16">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1181,7 +1165,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e28" source="n5" target="n9">
+    <edge id="e27" source="n5" target="n9">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1203,7 +1187,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e29" source="n16" target="n6">
+    <edge id="e28" source="n16" target="n6">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1214,7 +1198,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e30" source="n16" target="n8">
+    <edge id="e29" source="n16" target="n8">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1235,7 +1219,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e31" source="n0" target="n6">
+    <edge id="e30" source="n0" target="n6">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1254,7 +1238,7 @@ org:memberOf &gt;<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e32" source="n16" target="n6">
+    <edge id="e31" source="n16" target="n6">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1276,7 +1260,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e33" source="n25" target="n16">
+    <edge id="e32" source="n25" target="n16">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1289,7 +1273,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e34" source="n25" target="n28">
+    <edge id="e33" source="n25" target="n28">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1310,7 +1294,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e35" source="n2" target="n25">
+    <edge id="e34" source="n2" target="n25">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1331,7 +1315,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e36" source="n17" target="n8">
+    <edge id="e35" source="n17" target="n8">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1352,7 +1336,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e37" source="n16" target="n26">
+    <edge id="e36" source="n16" target="n26">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1371,7 +1355,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e38" source="n26" target="n5">
+    <edge id="e37" source="n26" target="n5">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1393,7 +1377,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e39" source="n26" target="n6">
+    <edge id="e38" source="n26" target="n6">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1414,7 +1398,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e40" source="n26" target="n17">
+    <edge id="e39" source="n26" target="n17">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1433,7 +1417,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e41" source="n26" target="n27">
+    <edge id="e40" source="n26" target="n27">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1452,7 +1436,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e42" source="n26" target="n6">
+    <edge id="e41" source="n26" target="n6">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1473,7 +1457,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e43" source="n17" target="n9">
+    <edge id="e42" source="n17" target="n9">
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1494,7 +1478,7 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e44" source="n29" target="n9">
+    <edge id="e43" source="n29" target="n9">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -1505,13 +1489,35 @@ dataid-act:willResultIn<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e45" source="n30" target="n9">
+    <edge id="e44" source="n30" target="n9">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-57.61883354496937" sy="-61.79409741766153" tx="48.98561831564671" ty="29.604684841070366"/>
           <y:LineStyle color="#000000" type="line" width="2.0"/>
           <y:Arrows source="none" target="white_delta"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e45" source="n0" target="n1">
+      <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="93.81332023839695" tx="27.078385220639234" ty="-2.742063615868119">
+            <y:Point x="946.160518390627" y="975.1509402479836"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="standard" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="131.728515625" x="3.338557941408226" y="63.74675750301685">&lt; dataid:isDistributionOf
+dcat:distribution &gt;<y:LabelModel>
+              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="10.0" distanceToCenter="false" position="center" ratio="0.5" segment="-1"/>
+            </y:ModelParameter>
+            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>

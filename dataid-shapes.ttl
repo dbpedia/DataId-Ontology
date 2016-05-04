@@ -12,10 +12,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
 @prefix lvont: <http://lexvo.org/ontology#> .
+@prefix msr: <http://purl.org/ms-rights#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix datacite: <http://purl.org/spar/datacite> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
 @prefix sh:	<http://www.w3.org/ns/shacl#> .
 @prefix shapes: <http://dataid.dbpedia.org/ns/core/shapes#> .
 
@@ -80,7 +81,8 @@ shapes:Catalog a sh:Shape;
 	sh:property [
 		sh:predicate dct:license ;
 		sh:maxCount 1 ;
-		sh:class odrl:Policy
+		sh:class msr:License
+		#sh:classIn (odrl:Policy msr:License) --> not sure id rdfUnit catches the msr:License is skos:broader than odrl:Policy
 	] ;
 	sh:property [
 		sh:predicate dct:license ;
@@ -234,11 +236,6 @@ shapes:DataId a sh:Shape;
 		sh:maxCount 1 
 	] ;
 	sh:property [
-		sh:predicate adms:status ;
-		sh:class skos:Concept ;
-		sh:maxCount 1 
-	] ;
-	sh:property [
 		sh:predicate dct:source ;
 		sh:class dcat:CatalogRecord ;
 		sh:maxCount 1 
@@ -262,12 +259,12 @@ shapes:DataId a sh:Shape;
 			]
 			[
 				sh:property [
-					sh:predicate dataid:hasEntityContext ;
+					sh:predicate dataid:underAuthorization ;
 					sh:minCount 1 ;
 				]
 			]
 		) ;
-		sh:message "Every DataID has to provide either the property dataid:hasAccessLevel or dataid:hasEntityContext."@en
+		sh:message "Every DataID has to provide either the property dataid:hasAccessLevel or dataid:underAuthorization."@en
 	].
 	
 ### dataid:Dataset
@@ -309,7 +306,8 @@ shapes:Dataset a sh:Shape;
 	sh:property [
 		sh:predicate dct:license ;
 		sh:minCount 1 ;
-		sh:class odrl:Policy ;
+		sh:class msr:License ;
+		#sh:classIn (odrl:Policy msr:License) --> not sure id rdfUnit catches the msr:License is skos:broader than odrl:Policy ;
 		sh:message "please add a license description to the dataset"@en
 	] ;
 	sh:property [
@@ -474,7 +472,7 @@ shapes:Dataset a sh:Shape;
 			]
 			[
 				sh:property [
-					sh:predicate dataid:hasEntityContext ;
+					sh:predicate dataid:underAuthorization ;
 					sh:minCount 1 ;
 				]
 			]
@@ -534,7 +532,8 @@ shapes:Distribution a sh:Shape;
 	] ;
 	sh:property [
 		sh:predicate dct:license ;
-		sh:class odrl:Policy ;
+		sh:class msr:License ;
+		#sh:classIn (odrl:Policy msr:License) --> not sure id rdfUnit catches the msr:License is skos:broader than odrl:Policy ;
 		sh:minCount 1
 	] ;
 	sh:property [
@@ -654,7 +653,7 @@ shapes:Distribution a sh:Shape;
 			]
 			[
 				sh:property [
-					sh:predicate dataid:hasEntityContext ;
+					sh:predicate dataid:underAuthorization ;
 					sh:minCount 1 ;
 				]
 			]
@@ -750,9 +749,9 @@ shapes:FileCollection a sh:Shape;
 		sh:severity sh:Warning
 	] .
 	
-### dataid:AuthorityEntityContext
-shapes:AuthorityEntityContext a sh:Shape;
-	sh:scopeClass dataid:AuthorityEntityContext ;
+### dataid:Authorization
+shapes:Authorization a sh:Shape;
+	sh:scopeClass dataid:Authorization ;
 	sh:property [
 		sh:predicate dataid:authorizedFor ;
 		sh:minCount 1
@@ -840,7 +839,8 @@ shapes:Agent a sh:Shape;
 	] ;
 	sh:property [
 		sh:predicate foaf:mbox ;
-		sh:minCount 1 
+		sh:minCount 1 ;
+		sh:maxCount 1
 	] ;
 	sh:property [
 		sh:predicate foaf:account ;
@@ -863,13 +863,14 @@ shapes:Agent a sh:Shape;
 shapes:Identifier a sh:Shape;
 	sh:scopeClass dataid:Identifier ;
 	sh:property [
-		sh:predicate skos:notation ;
+		sh:predicate litre:hasLiteralValue ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
-		sh:class datacite:IdentifierScheme
+		sh:datatype rdfs:Literal
 	] ;
 	sh:property [
-		sh:predicate adms:schemeAgency ;
+		sh:predicate datacite:usesIdentifierScheme ;
+		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:class datacite:IdentifierScheme
 	] ;
@@ -882,6 +883,12 @@ shapes:Identifier a sh:Shape;
 		sh:predicate dct:issued ;
 		sh:maxCount 1 ;
 		sh:datatype xsd:dateTime
+	] ;
+	sh:property [
+		sh:predicate dataid:identifierURL ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning ;
+		sh:message "Using a direct link to an web page representing the identifier is recommended."@en
 	] .
 			
 ### dataid:MediaType
