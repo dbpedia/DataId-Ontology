@@ -1,0 +1,1292 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+
+<http://data.openbudgets.eu/codelist/currency/AFN> <http://www.w3.org/2004/02/skos/core#prefLabel> "Afghani"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "AFN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/resource/codelist/currency> a <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+	rdfs:label "Currencies"@en .
+
+<http://data.openbudgets.eu/codelist/currency/EUR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Euro"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "EUR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/ALL> <http://www.w3.org/2004/02/skos/core#prefLabel> "Lek"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "ALL" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/DZD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Algerian Dinar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "DZD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/USD> <http://www.w3.org/2004/02/skos/core#prefLabel> "US Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "USD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/AOA> <http://www.w3.org/2004/02/skos/core#prefLabel> "Kwanza"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "AOA" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XCD> <http://www.w3.org/2004/02/skos/core#prefLabel> "East Caribbean Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XCD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/NA> <http://www.w3.org/2004/02/skos/core#prefLabel> "No universal currency"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "NA" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/ARS> <http://www.w3.org/2004/02/skos/core#prefLabel> "Argentine Peso"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "ARS" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/AMD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Armenian Dram"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "AMD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/AWG> <http://www.w3.org/2004/02/skos/core#prefLabel> "Aruban Florin"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "AWG" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/AUD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Australian Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "AUD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/AZN> <http://www.w3.org/2004/02/skos/core#prefLabel> "Azerbaijanian Manat"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "AZN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BSD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Bahamian Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BSD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BHD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Bahraini Dinar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BHD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BDT> <http://www.w3.org/2004/02/skos/core#prefLabel> "Taka"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BDT" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BBD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Barbados Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BBD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BYR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Belarussian Ruble"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BYR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BZD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Belize Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BZD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XOF> <http://www.w3.org/2004/02/skos/core#prefLabel> "CFA Franc BCEAO"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XOF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BMD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Bermudian Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BMD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BTN> <http://www.w3.org/2004/02/skos/core#prefLabel> "Ngultrum"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BTN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/INR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Indian Rupee"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "INR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BOB> <http://www.w3.org/2004/02/skos/core#prefLabel> "Boliviano"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BOB" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BOV> <http://www.w3.org/2004/02/skos/core#prefLabel> "Mvdol"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BOV" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BAM> <http://www.w3.org/2004/02/skos/core#prefLabel> "Convertible Mark"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BAM" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BWP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Pula"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BWP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/NOK> <http://www.w3.org/2004/02/skos/core#prefLabel> "Norwegian Krone"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "NOK" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BRL> <http://www.w3.org/2004/02/skos/core#prefLabel> "Brazilian Real"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BRL" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BND> <http://www.w3.org/2004/02/skos/core#prefLabel> "Brunei Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BND" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BGN> <http://www.w3.org/2004/02/skos/core#prefLabel> "Bulgarian Lev"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BGN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/BIF> <http://www.w3.org/2004/02/skos/core#prefLabel> "Burundi Franc"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "BIF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CVE> <http://www.w3.org/2004/02/skos/core#prefLabel> "Cabo Verde Escudo"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CVE" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/KHR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Riel"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "KHR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XAF> <http://www.w3.org/2004/02/skos/core#prefLabel> "CFA Franc BEAC"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XAF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CAD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Canadian Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CAD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/KYD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Cayman Islands Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "KYD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CLF> <http://www.w3.org/2004/02/skos/core#prefLabel> "Unidad de Fomento"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CLF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CLP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Chilean Peso"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CLP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CNY> <http://www.w3.org/2004/02/skos/core#prefLabel> "Yuan Renminbi"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CNY" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/COP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Colombian Peso"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "COP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/COU> <http://www.w3.org/2004/02/skos/core#prefLabel> "Unidad de Valor Real"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "COU" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/KMF> <http://www.w3.org/2004/02/skos/core#prefLabel> "Comoro Franc"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "KMF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CDF> <http://www.w3.org/2004/02/skos/core#prefLabel> "Congolese Franc"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CDF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/NZD> <http://www.w3.org/2004/02/skos/core#prefLabel> "New Zealand Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "NZD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CRC> <http://www.w3.org/2004/02/skos/core#prefLabel> "Costa Rican Colon"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CRC" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/HRK> <http://www.w3.org/2004/02/skos/core#prefLabel> "Kuna"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "HRK" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CUC> <http://www.w3.org/2004/02/skos/core#prefLabel> "Peso Convertible"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CUC" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CUP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Cuban Peso"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CUP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/ANG> <http://www.w3.org/2004/02/skos/core#prefLabel> "Netherlands Antillean Guilder"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "ANG" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CZK> <http://www.w3.org/2004/02/skos/core#prefLabel> "Czech Koruna"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CZK" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/DKK> <http://www.w3.org/2004/02/skos/core#prefLabel> "Danish Krone"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "DKK" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/DJF> <http://www.w3.org/2004/02/skos/core#prefLabel> "Djibouti Franc"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "DJF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/DOP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Dominican Peso"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "DOP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/EGP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Egyptian Pound"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "EGP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SVC> <http://www.w3.org/2004/02/skos/core#prefLabel> "El Salvador Colon"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SVC" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/ERN> <http://www.w3.org/2004/02/skos/core#prefLabel> "Nakfa"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "ERN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/ETB> <http://www.w3.org/2004/02/skos/core#prefLabel> "Ethiopian Birr"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "ETB" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/FKP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Falkland Islands Pound"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "FKP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/FJD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Fiji Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "FJD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XPF> <http://www.w3.org/2004/02/skos/core#prefLabel> "CFP Franc"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XPF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/GMD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Dalasi"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "GMD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/GEL> <http://www.w3.org/2004/02/skos/core#prefLabel> "Lari"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "GEL" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/GHS> <http://www.w3.org/2004/02/skos/core#prefLabel> "Ghana Cedi"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "GHS" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/GIP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Gibraltar Pound"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "GIP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/GTQ> <http://www.w3.org/2004/02/skos/core#prefLabel> "Quetzal"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "GTQ" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/GBP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Pound Sterling"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "GBP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/GNF> <http://www.w3.org/2004/02/skos/core#prefLabel> "Guinea Franc"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "GNF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/GYD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Guyana Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "GYD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/HTG> <http://www.w3.org/2004/02/skos/core#prefLabel> "Gourde"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "HTG" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/HNL> <http://www.w3.org/2004/02/skos/core#prefLabel> "Lempira"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "HNL" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/HKD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Hong Kong Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "HKD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/HUF> <http://www.w3.org/2004/02/skos/core#prefLabel> "Forint"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "HUF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/ISK> <http://www.w3.org/2004/02/skos/core#prefLabel> "Iceland Krona"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "ISK" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/IDR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Rupiah"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "IDR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XDR> <http://www.w3.org/2004/02/skos/core#prefLabel> "SDR (Special Drawing Right)"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XDR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/IRR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Iranian Rial"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "IRR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/IQD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Iraqi Dinar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "IQD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/ILS> <http://www.w3.org/2004/02/skos/core#prefLabel> "New Israeli Sheqel"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "ILS" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/JMD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Jamaican Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "JMD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/JPY> <http://www.w3.org/2004/02/skos/core#prefLabel> "Yen"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "JPY" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/JOD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Jordanian Dinar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "JOD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/KZT> <http://www.w3.org/2004/02/skos/core#prefLabel> "Tenge"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "KZT" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/KES> <http://www.w3.org/2004/02/skos/core#prefLabel> "Kenyan Shilling"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "KES" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/KPW> <http://www.w3.org/2004/02/skos/core#prefLabel> "North Korean Won"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "KPW" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/KRW> <http://www.w3.org/2004/02/skos/core#prefLabel> "Won"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "KRW" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/KWD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Kuwaiti Dinar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "KWD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/KGS> <http://www.w3.org/2004/02/skos/core#prefLabel> "Som"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "KGS" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/LAK> <http://www.w3.org/2004/02/skos/core#prefLabel> "Kip"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "LAK" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/LBP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Lebanese Pound"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "LBP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/LSL> <http://www.w3.org/2004/02/skos/core#prefLabel> "Loti"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "LSL" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/ZAR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Rand"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "ZAR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/LRD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Liberian Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "LRD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/LYD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Libyan Dinar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "LYD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CHF> <http://www.w3.org/2004/02/skos/core#prefLabel> "Swiss Franc"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CHF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MOP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Pataca"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MOP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MKD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Denar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MKD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MGA> <http://www.w3.org/2004/02/skos/core#prefLabel> "Malagasy Ariary"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MGA" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MWK> <http://www.w3.org/2004/02/skos/core#prefLabel> "Kwacha"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MWK" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MYR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Malaysian Ringgit"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MYR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MVR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Rufiyaa"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MVR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MRO> <http://www.w3.org/2004/02/skos/core#prefLabel> "Ouguiya"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MRO" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MUR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Mauritius Rupee"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MUR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XUA> <http://www.w3.org/2004/02/skos/core#prefLabel> "ADB Unit of Account"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XUA" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MXN> <http://www.w3.org/2004/02/skos/core#prefLabel> "Mexican Peso"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MXN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MXV> <http://www.w3.org/2004/02/skos/core#prefLabel> "Mexican Unidad de Inversion (UDI)"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MXV" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MDL> <http://www.w3.org/2004/02/skos/core#prefLabel> "Moldovan Leu"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MDL" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MNT> <http://www.w3.org/2004/02/skos/core#prefLabel> "Tugrik"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MNT" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MAD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Moroccan Dirham"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MAD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MZN> <http://www.w3.org/2004/02/skos/core#prefLabel> "Mozambique Metical"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MZN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/MMK> <http://www.w3.org/2004/02/skos/core#prefLabel> "Kyat"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "MMK" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/NAD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Namibia Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "NAD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/NPR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Nepalese Rupee"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "NPR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/NIO> <http://www.w3.org/2004/02/skos/core#prefLabel> "Cordoba Oro"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "NIO" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/NGN> <http://www.w3.org/2004/02/skos/core#prefLabel> "Naira"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "NGN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/OMR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Rial Omani"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "OMR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/PKR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Pakistan Rupee"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "PKR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/PAB> <http://www.w3.org/2004/02/skos/core#prefLabel> "Balboa"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "PAB" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/PGK> <http://www.w3.org/2004/02/skos/core#prefLabel> "Kina"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "PGK" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/PYG> <http://www.w3.org/2004/02/skos/core#prefLabel> "Guarani"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "PYG" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/PEN> <http://www.w3.org/2004/02/skos/core#prefLabel> "Nuevo Sol"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "PEN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/PHP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Philippine Peso"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "PHP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/PLN> <http://www.w3.org/2004/02/skos/core#prefLabel> "Zloty"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "PLN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/QAR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Qatari Rial"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "QAR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/RON> <http://www.w3.org/2004/02/skos/core#prefLabel> "Romanian Leu"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "RON" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/RUB> <http://www.w3.org/2004/02/skos/core#prefLabel> "Russian Ruble"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "RUB" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/RWF> <http://www.w3.org/2004/02/skos/core#prefLabel> "Rwanda Franc"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "RWF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SHP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Saint Helena Pound"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SHP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/WST> <http://www.w3.org/2004/02/skos/core#prefLabel> "Tala"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "WST" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/STD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Dobra"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "STD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SAR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Saudi Riyal"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SAR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/RSD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Serbian Dinar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "RSD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SCR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Seychelles Rupee"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SCR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SLL> <http://www.w3.org/2004/02/skos/core#prefLabel> "Leone"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SLL" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SGD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Singapore Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SGD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XSU> <http://www.w3.org/2004/02/skos/core#prefLabel> "Sucre"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XSU" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SBD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Solomon Islands Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SBD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SOS> <http://www.w3.org/2004/02/skos/core#prefLabel> "Somali Shilling"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SOS" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SSP> <http://www.w3.org/2004/02/skos/core#prefLabel> "South Sudanese Pound"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SSP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/LKR> <http://www.w3.org/2004/02/skos/core#prefLabel> "Sri Lanka Rupee"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "LKR" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SDG> <http://www.w3.org/2004/02/skos/core#prefLabel> "Sudanese Pound"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SDG" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SRD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Surinam Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SRD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SZL> <http://www.w3.org/2004/02/skos/core#prefLabel> "Lilangeni"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SZL" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SEK> <http://www.w3.org/2004/02/skos/core#prefLabel> "Swedish Krona"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SEK" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CHE> <http://www.w3.org/2004/02/skos/core#prefLabel> "WIR Euro"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CHE" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/CHW> <http://www.w3.org/2004/02/skos/core#prefLabel> "WIR Franc"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "CHW" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/SYP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Syrian Pound"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "SYP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/TWD> <http://www.w3.org/2004/02/skos/core#prefLabel> "New Taiwan Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "TWD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/TJS> <http://www.w3.org/2004/02/skos/core#prefLabel> "Somoni"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "TJS" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/TZS> <http://www.w3.org/2004/02/skos/core#prefLabel> "Tanzanian Shilling"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "TZS" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/THB> <http://www.w3.org/2004/02/skos/core#prefLabel> "Baht"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "THB" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/TOP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Pa?anga"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "TOP" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/TTD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Trinidad and Tobago Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "TTD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/TND> <http://www.w3.org/2004/02/skos/core#prefLabel> "Tunisian Dinar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "TND" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/TRY> <http://www.w3.org/2004/02/skos/core#prefLabel> "Turkish Lira"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "TRY" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/TMT> <http://www.w3.org/2004/02/skos/core#prefLabel> "Turkmenistan New Manat"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "TMT" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/UGX> <http://www.w3.org/2004/02/skos/core#prefLabel> "Uganda Shilling"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "UGX" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/UAH> <http://www.w3.org/2004/02/skos/core#prefLabel> "Hryvnia"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "UAH" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/AED> <http://www.w3.org/2004/02/skos/core#prefLabel> "UAE Dirham"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "AED" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/USN> <http://www.w3.org/2004/02/skos/core#prefLabel> "US Dollar (Next day)"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "USN" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/UYI> <http://www.w3.org/2004/02/skos/core#prefLabel> "Uruguay Peso en Unidades Indexadas (URUIURUI)"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "UYI" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/UYU> <http://www.w3.org/2004/02/skos/core#prefLabel> "Peso Uruguayo"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "UYU" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/UZS> <http://www.w3.org/2004/02/skos/core#prefLabel> "Uzbekistan Sum"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "UZS" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/VUV> <http://www.w3.org/2004/02/skos/core#prefLabel> "Vatu"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "VUV" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/VEF> <http://www.w3.org/2004/02/skos/core#prefLabel> "Bolivar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "VEF" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/VND> <http://www.w3.org/2004/02/skos/core#prefLabel> "Dong"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "VND" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/YER> <http://www.w3.org/2004/02/skos/core#prefLabel> "Yemeni Rial"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "YER" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/ZMW> <http://www.w3.org/2004/02/skos/core#prefLabel> "Zambian Kwacha"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "ZMW" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/ZWL> <http://www.w3.org/2004/02/skos/core#prefLabel> "Zimbabwe Dollar"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "ZWL" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XBA> <http://www.w3.org/2004/02/skos/core#prefLabel> "Bond Markets Unit European Composite Unit (EURCO)"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XBA" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XBB> <http://www.w3.org/2004/02/skos/core#prefLabel> "Bond Markets Unit European Monetary Unit (E.M.U.-6)"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XBB" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XBC> <http://www.w3.org/2004/02/skos/core#prefLabel> "Bond Markets Unit European Unit of Account 9 (E.U.A.-9)"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XBC" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XBD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Bond Markets Unit European Unit of Account 17 (E.U.A.-17)"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XBD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XTS> <http://www.w3.org/2004/02/skos/core#prefLabel> "Codes specifically reserved for testing purposes"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XTS" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XXX> <http://www.w3.org/2004/02/skos/core#prefLabel> "The codes assigned for transactions where no currency is involved"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XXX" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XAU> <http://www.w3.org/2004/02/skos/core#prefLabel> "Gold"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XAU" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XPD> <http://www.w3.org/2004/02/skos/core#prefLabel> "Palladium"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XPD" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XPT> <http://www.w3.org/2004/02/skos/core#prefLabel> "Platinum"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XPT" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://data.openbudgets.eu/codelist/currency/XAG> <http://www.w3.org/2004/02/skos/core#prefLabel> "Silver"@en ;
+	<http://www.w3.org/2004/02/skos/core#notation> "XAG" ;
+	a <http://www.w3.org/2004/02/skos/core#Concept> , <http://data.openbudgets.eu/ontology/Currency> ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <http://data.openbudgets.eu/resource/codelist/currency> ;
+	<http://www.w3.org/2004/02/skos/core#topConceptOf> <http://data.openbudgets.eu/resource/codelist/currency> .
+
+<http://ontologi.es/place/SS>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SSP> .
+<http://ontologi.es/place/MU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MUR> .
+<http://ontologi.es/place/GW>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XOF> .
+<http://ontologi.es/place/MZ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MZN> .
+<http://ontologi.es/place/UY>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/UYI> .
+<http://ontologi.es/place/UY>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/UYU> .
+<http://ontologi.es/place/PA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/PAB> .
+<http://ontologi.es/place/PA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/CN-91>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/HKD> .
+<http://ontologi.es/place/BD>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BDT> .
+<http://ontologi.es/place/DE>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/ZA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ZAR> .
+<http://ontologi.es/place/PF>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XPF> .
+<http://ontologi.es/place/BI>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BIF> .
+<http://ontologi.es/place/DJ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/DJF> .
+<http://ontologi.es/place/LI>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CHF> .
+<http://ontologi.es/place/TH>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/THB> .
+<http://ontologi.es/place/PK>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/PKR> .
+<http://ontologi.es/place/BN>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BND> .
+<http://ontologi.es/place/JM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/JMD> .
+<http://ontologi.es/place/TM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/TMT> .
+<http://ontologi.es/place/NO>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NOK> .
+<http://ontologi.es/place/VN>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/VND> .
+<http://ontologi.es/place/LS>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ZAR> .
+<http://ontologi.es/place/LS>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/LSL> .
+<http://ontologi.es/place/TR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/TRY> .
+<http://ontologi.es/place/SA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SAR> .
+<http://ontologi.es/place/MC>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/GE>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/GEL> .
+<http://ontologi.es/place/CH>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CHF> .
+<http://ontologi.es/place/CH>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CHE> .
+<http://ontologi.es/place/CH>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CHW> .
+<http://ontologi.es/place/GT-GU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/GTQ> .
+<http://ontologi.es/place/KG>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/KGS> .
+<http://ontologi.es/place/GB-JSY>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/GBP> .
+<http://ontologi.es/place/UG>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/UGX> .
+<http://ontologi.es/place/AL>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ALL> .
+<http://ontologi.es/place/CM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XAF> .
+<http://ontologi.es/place/MM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MMK> .
+<http://ontologi.es/place/AQ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NA> .
+<http://ontologi.es/place/CR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CRC> .
+<http://ontologi.es/place/ES>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/MR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MRO> .
+<http://ontologi.es/place/GT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/GTQ> .
+<http://ontologi.es/place/MW>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MWK> .
+<http://ontologi.es/place/GY>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/GYD> .
+<http://ontologi.es/place/SZ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SZL> .
+<http://ontologi.es/place/BF>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XOF> .
+<http://ontologi.es/place/HU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/HUF> .
+<http://ontologi.es/place/PT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/TV>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AUD> .
+<http://ontologi.es/place/PY>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/PYG> .
+<http://ontologi.es/place/BE-WLX>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/EC>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/UA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/UAH> .
+<http://ontologi.es/place/GD>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XCD> .
+<http://ontologi.es/place/AF>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AFN> .
+<http://ontologi.es/place/IE>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/SE>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SEK> .
+<http://ontologi.es/place/EH>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MAD> .
+<http://ontologi.es/place/MG>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MGA> .
+<http://ontologi.es/place/GI>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/GIP> .
+<http://ontologi.es/place/CL>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CLF> .
+<http://ontologi.es/place/CL>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CLP> .
+<http://ontologi.es/place/ML>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XOF> .
+<http://ontologi.es/place/GN>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/GNF> .
+<http://ontologi.es/place/OM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/OMR> .
+<http://ontologi.es/place/SO>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SOS> .
+<http://ontologi.es/place/ER>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ERN> .
+<http://ontologi.es/place/MQ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/AU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AUD> .
+<http://ontologi.es/place/IT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/MV>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MVR> .
+<http://ontologi.es/place/AZ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AZN> .
+<http://ontologi.es/place/KZ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/KZT> .
+<http://ontologi.es/place/UZ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/UZS> .
+<http://ontologi.es/place/NA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NAD> .
+<http://ontologi.es/place/NA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ZAR> .
+<http://ontologi.es/place/BE>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/TD>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XAF> .
+<http://ontologi.es/place/NF>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AUD> .
+<http://ontologi.es/place/PG>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/PGK> .
+<http://ontologi.es/place/BJ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XOF> .
+<http://ontologi.es/place/DK>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/DKK> .
+<http://ontologi.es/place/FR-GP>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/PL>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/PLN> .
+<http://ontologi.es/place/TN>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/TND> .
+<http://ontologi.es/place/NP>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NPR> .
+<http://ontologi.es/place/HR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/HRK> .
+<http://ontologi.es/place/FR-YT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/BT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BTN> .
+<http://ontologi.es/place/BT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/INR> .
+<http://ontologi.es/place/LT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/NU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NZD> .
+<http://ontologi.es/place/BY>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BYR> .
+<http://ontologi.es/place/RW>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/RWF> .
+<http://ontologi.es/place/DZ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/DZD> .
+<http://ontologi.es/place/LY>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/LYD> .
+<http://ontologi.es/place/NZ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NZD> .
+<http://ontologi.es/place/GA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XAF> .
+<http://ontologi.es/place/FR-RE>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/QA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/QAR> .
+<http://ontologi.es/place/SB>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SBD> .
+<http://ontologi.es/place/EE>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/GF>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/NG>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NGN> .
+<http://ontologi.es/place/LK>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/LKR> .
+<http://ontologi.es/place/TJ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/TJS> .
+<http://ontologi.es/place/HN>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/HNL> .
+<http://ontologi.es/place/JO>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/JOD> .
+<http://ontologi.es/place/ZM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ZMW> .
+<http://ontologi.es/place/TO>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/TOP> .
+<http://ontologi.es/place/FR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/PR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/RS>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/RSD> .
+<http://ontologi.es/place/GN-ML>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XOF> .
+<http://ontologi.es/place/LU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/VU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/VUV> .
+<http://ontologi.es/place/PW>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/BZ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BZD> .
+<http://ontologi.es/place/ZW>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ZWL> .
+<http://ontologi.es/place/AD>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/SC>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SCR> .
+<http://ontologi.es/place/ME>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/AI>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XCD> .
+<http://ontologi.es/place/KI>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AUD> .
+<http://ontologi.es/place/SH>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SHP> .
+<http://ontologi.es/place/US-PR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/GL>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/DKK> .
+<http://ontologi.es/place/CO>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/COP> .
+<http://ontologi.es/place/CO>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/COU> .
+<http://ontologi.es/place/SM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/GQ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XAF> .
+<http://ontologi.es/place/AS>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/SR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SRD> .
+<http://ontologi.es/place/MT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/GB-IOM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/GBP> .
+<http://ontologi.es/place/CY>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/MY>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MYR> .
+<http://ontologi.es/place/LC>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XCD> .
+<http://ontologi.es/place/PE>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/PEN> .
+<http://ontologi.es/place/BH>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BHD> .
+<http://ontologi.es/place/US-AS>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/TG>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XOF> .
+<http://ontologi.es/place/FJ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/FJD> .
+<http://ontologi.es/place/NI>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NIO> .
+<http://ontologi.es/place/HK>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/HKD> .
+<http://ontologi.es/place/BM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BMD> .
+<http://ontologi.es/place/FR-MQ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/TL>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/BR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BRL> .
+<http://ontologi.es/place/LR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/LRD> .
+<http://ontologi.es/place/YE>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/YER> .
+<http://ontologi.es/place/KH>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/KHR> .
+<http://ontologi.es/place/SG>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SGD> .
+<http://ontologi.es/place/AM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AMD> .
+<http://ontologi.es/place/IL>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ILS> .
+<http://ontologi.es/place/CN>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CNY> .
+<http://ontologi.es/place/SL>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SLL> .
+<http://ontologi.es/place/MN>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MNT> .
+<http://ontologi.es/place/GP>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/AR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ARS> .
+<http://ontologi.es/place/IQ>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/IQD> .
+<http://ontologi.es/place/ET>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ETB> .
+<http://ontologi.es/place/MS>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XCD> .
+<http://ontologi.es/place/GU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/AW>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AWG> .
+<http://ontologi.es/place/WS>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/WST> .
+<http://ontologi.es/place/LU-L>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/US-GA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/GEL> .
+<http://ontologi.es/place/CX>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AUD> .
+<http://ontologi.es/place/YT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/KW>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/KWD> .
+<http://ontologi.es/place/SV>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/SV>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/SVC> .
+<http://ontologi.es/place/MX>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MXV> .
+<http://ontologi.es/place/MX>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MXN> .
+<http://ontologi.es/place/BB>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BBD> .
+<http://ontologi.es/place/LB>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/LBP> .
+<http://ontologi.es/place/NC>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XPF> .
+<http://ontologi.es/place/BG>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/BGN> .
+<http://ontologi.es/place/FI>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/US-GU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/DM>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XCD> .
+<http://ontologi.es/place/TK>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NZD> .
+<http://ontologi.es/place/PN>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NZD> .
+<http://ontologi.es/place/JP>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/JPY> .
+<http://ontologi.es/place/RO>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/RON> .
+<http://ontologi.es/place/NR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AUD> .
+<http://ontologi.es/place/HT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/HTG> .
+<http://ontologi.es/place/HT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/USD> .
+<http://ontologi.es/place/BV>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/NOK> .
+<http://ontologi.es/place/LV>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/CA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CAD> .
+<http://ontologi.es/place/MA>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/MAD> .
+<http://ontologi.es/place/ID>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/IDR> .
+<http://ontologi.es/place/KE>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/KES> .
+<http://ontologi.es/place/EG>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EGP> .
+<http://ontologi.es/place/GH>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/GHS> .
+<http://ontologi.es/place/SI>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/AO>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/AOA> .
+<http://ontologi.es/place/IN>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/INR> .
+<http://ontologi.es/place/SN>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/XOF> .
+<http://ontologi.es/place/GR>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/AT>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/EUR> .
+<http://ontologi.es/place/IS>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/ISK> .
+<http://ontologi.es/place/CU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CUC> .
+<http://ontologi.es/place/CU>  <http://dbpedia.org/property/currency>  <http://data.openbudgets.eu/codelist/currency/CUP> .

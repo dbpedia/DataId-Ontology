@@ -2,18 +2,16 @@
 @prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
-@prefix wsdl: <http://www.w3.org/ns/wsdl-rdf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
-@prefix lvont: <http://lexvo.org/ontology#> .
+@prefix msr: <http://purl.org/ms-rights#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix dataid-ld: <http://dataid.dbpedia.org/ns/ld#> .
 
 <http://dataid.dbpedia.org/ns/ld#>
@@ -21,17 +19,30 @@
     vann:preferredNamespaceUri <http://dataid.dbpedia.org/ns/ld#> ;
     vann:preferredNamespacePrefix "dataid"^^xsd:string ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
-    owl:versionInfo "1.0.0" ; 
+    owl:versionInfo "2.0" ; 
+    dct:modified "2016-04-30" ;
     rdfs:comment "This is the Linked Data extension ontology for DataID <http://dataid.dbpedia.org/ns/core#>, describing Linked Data specific, additional properties and Classes (heavily depending on VOID)."@en ;
     rdfs:label "DataID - Linked Data"@en ;
+	dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+	dct:creator <http://wiki.dbpedia.org/Association/Persons/Freudenberg> ;
     owl:imports <http://dataid.dbpedia.org/ns/core#> .
+    
+<http://wiki.dbpedia.org/Association/Persons/Freudenberg>
+        a                        dataid:Agent ;
+        foaf:mbox                "freudenberg@informatik.uni-leipzig.de" ;
+        foaf:name                "Markus Freudenberg" .
 
 dataid-ld:Linkset
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
     rdfs:label "Linkset"@en ;
     rdfs:comment "Entity representing the set of links between two datasets."@en ;
-    rdfs:subClassOf void:Linkset, prov:Entity.
+    rdfs:subClassOf void:Linkset, prov:Entity,
+	[
+        a owl:Restriction ;
+        owl:allValuesFrom msr:License ;
+        owl:onProperty dct:license
+    ].
 
 dataid-ld:SparqlEndpoint
     a owl:Class ;

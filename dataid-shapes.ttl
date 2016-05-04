@@ -12,6 +12,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
 @prefix lvont: <http://lexvo.org/ontology#> .
+@prefix msr: <http://purl.org/ms-rights#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
@@ -80,7 +81,8 @@ shapes:Catalog a sh:Shape;
 	sh:property [
 		sh:predicate dct:license ;
 		sh:maxCount 1 ;
-		sh:class odrl:Policy
+		sh:class msr:License
+		#sh:classIn (odrl:Policy msr:License) --> not sure id rdfUnit catches the msr:License is skos:broader than odrl:Policy
 	] ;
 	sh:property [
 		sh:predicate dct:license ;
@@ -304,7 +306,8 @@ shapes:Dataset a sh:Shape;
 	sh:property [
 		sh:predicate dct:license ;
 		sh:minCount 1 ;
-		sh:class odrl:Policy ;
+		sh:class msr:License ;
+		#sh:classIn (odrl:Policy msr:License) --> not sure id rdfUnit catches the msr:License is skos:broader than odrl:Policy ;
 		sh:message "please add a license description to the dataset"@en
 	] ;
 	sh:property [
@@ -529,7 +532,8 @@ shapes:Distribution a sh:Shape;
 	] ;
 	sh:property [
 		sh:predicate dct:license ;
-		sh:class odrl:Policy ;
+		sh:class msr:License ;
+		#sh:classIn (odrl:Policy msr:License) --> not sure id rdfUnit catches the msr:License is skos:broader than odrl:Policy ;
 		sh:minCount 1
 	] ;
 	sh:property [
