@@ -1,0 +1,220 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
+@prefix acp: <http://dataid.dbpedia.org/ns/acp#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dlo: <http://aligned-project.eu/ontologies/dlo#> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+
+acp:
+    a owl:Ontology ;
+    vann:preferredNamespaceUri "http://dataid.dbpedia.org/ns/acp#" ;
+    vann:preferredNamespacePrefix "dataid-acp"^^xsd:string ;
+    owl:versionInfo "1.0.0" ; 
+    rdfs:comment "This mid-level extension to DataID provides detaild provenance information about (planned) activities related to datasets described by a DataID."@en ;
+    rdfs:label "DataID"@en ;
+    owl:imports dataid:, prov:, dlo:, org:.
+    
+############# classes ################
+
+dataid:Dataset rdfs:subClassOf dlo:DataEntity.
+
+dataid:Distribution rdfs:subClassOf dlo:DataEntity.
+
+dataid:AgentRole rdfs:subClassOf org:Role.
+
+acp:ActivityAssociation
+	a	owl:Class;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:label "activity association"@en ;
+    rdfs:comment """A qualification of the prov:wasAssociatedWith property, relating this association of an activity with an agent to the role of that agent or a plan related to the activity. 
+    Note: As a sub-class of prov:AgentInfluence, this class inherits multiple properties defined in the DataID ontoloy."""@en ;
+	rdfs:subClassOf		prov:Association.
+	
+acp:PlanResponsibility
+	a	owl:Class;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:label "plan responsibility"@en ;
+    rdfs:comment """A qualification of the dataid:associatedAgent property, relating a plan with an agent to the role of that agent and the subsequent acitions allowed. 
+    Note: The roles are refering to roles in regard to a plan, not roles related to a specific activity (which are covered by the ActivityAssociation class)."""@en ;
+	rdfs:subClassOf		prov:AgentInfluence .
+	
+acp:DataLifecyclePlan
+	a	owl:Class;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:label "data lifecycle plan"@en ;
+    rdfs:comment """A specific sort of plan only concerned with lifecycle specific activities of a dataset."""@en ;
+	rdfs:subClassOf		prov:Plan, 
+	[
+        a owl:Restriction ;
+        owl:allValuesFrom dlo:DataLifecycleProcess ;
+        owl:onProperty acp:planned
+    ]	.
+ 	
+acp:SupportingEntity
+	a	owl:Class;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:label "supporting entity"@en ;
+    rdfs:comment """Describes entities which are no DataEntities (like Documentation or Software), but have some influence on activities or plans related to DataEntities."""@en ;
+	rdfs:subClassOf		prov:Entity, dlo:DataArtifact .   
+ 	
+acp:Document
+	a	owl:Class;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:label "supporting document"@en ;
+    rdfs:comment """A document related to a dataset or activities which have influence on such a dataset."""@en ;
+	rdfs:subClassOf		acp:SupportingEntity, dctype:Text .  
+ 	
+acp:PhysicalObject
+	a	owl:Class;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:label "supporting physical object"@en ;
+    rdfs:comment """A physical object (like a tool or specimen) related to a dataset or activities which have influence on such a dataset."""@en ;
+	rdfs:subClassOf		acp:SupportingEntity, dctype:PhysicalObject.  
+ 	
+acp:Software
+	a	owl:Class;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:label "supporting software"@en ;
+    rdfs:comment """A software related to a dataset or activities which have influence on such a dataset."""@en ;
+	rdfs:subClassOf		acp:SupportingEntity, dctype:Software .  
+ 	
+acp:Service
+	a	owl:Class;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:label "supporting service"@en ;
+    rdfs:comment """A service related to a dataset or activities which have influence on such a dataset."""@en ;
+	rdfs:subClassOf		acp:SupportingEntity, dctype:Service .  
+ 	
+acp:StandardOrMethod
+	a	owl:Class;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:label "supporting standard"@en ;
+    rdfs:comment """A standard or established method related to a dataset or activities which have influence on such a dataset."""@en ;
+	rdfs:subClassOf		acp:SupportingEntity, dct:Standard.  
+	
+############## properties ################
+acp:augmentedBy
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:used ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Specifies entities which had some supportive role in the execution of an activity."@en ;
+    rdfs:domain 	prov:Activity ;
+    rdfs:label 		"augmented by"@en ;
+    rdfs:range  	acp:SupportingEntity .
+	
+acp:augments
+    a owl:ObjectProperty ;
+    owl:inverseOf acp:augmentedBy ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Specifies an activity in which's execution this entity which had some supportive role."@en ;
+    rdfs:label 		"augments"@en .
+    
+acp:willResultIn
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Describes the expected result of the planned activities."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"will result in"@en ;
+    rdfs:range  	prov:Entity .
+    
+acp:hasSubPlan
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasDerivedFrom ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Partitions the plan."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"has sub-plan"@en ;
+    rdfs:range  	prov:Plan .
+    
+acp:planned
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf [
+    	a owl:ObjectProperty;
+    	owl:inverseOf prov:wasStartedBy
+	];
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Points out the activities planned, which make up the plan."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"planned"@en ;
+    rdfs:range  	prov:Activity .
+    
+acp:planResponsibility
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid:underAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Points out agents responsible for this plan and the role they fill out."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"plan responsibility"@en ;
+    rdfs:range  	acp:PlanResponsibility .
+     
+acp:involved
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid:associatedAgent ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Points out agents somehow involved in a Plan."@en ;
+    rdfs:label 		"involved"@en ;
+    owl:propertyChainAxiom (
+	   acp:planResponsibility
+	   dataid:authorizedAgent
+	) .
+ 	
+acp:involvedIn
+    a owl:ObjectProperty ;
+    owl:inverseOf acp:involved ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Attributes a plan in which an agent was somehow involved in."@en ;
+    rdfs:label 		"involved in"@en .
+    
+acp:associatedWith
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:qualifiedAssociation ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Qualifies the prov:wasAssociatedWith property by pointing out the related Association."@en ;
+    rdfs:domain 	prov:Activity ;
+    rdfs:label 		"associated with"@en ;
+    rdfs:range  	acp:ActivityAssociation .
+   
+acp:isPartOfAction
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dct:isPartOf ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Associates an activity to an dataid:AuthorizedAction, thereby further defining the AuthorizedAction."@en ;
+    rdfs:domain 	prov:Activity ;
+    rdfs:label 		"is part of action"@en ;
+    rdfs:range  	dataid:AuthorizedAction .
+   
+acp:deputyAgent
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid:AuthorizedAgent ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Adds a substitute (deputy) agent to a responsibility, which steps in if the primary agent leaves the project or is otherwise absent."@en ;
+    rdfs:domain 	acp:PlanResponsibility ;
+    rdfs:label 		"deputy agent"@en ;
+    rdfs:range  	dataid:Agent .
+   
+acp:inception
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"States the (intended) starting date of the implementation of a plan."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"inception"@en ;
+    rdfs:range  	xsd:datetime .
+   
+acp:conclusion
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"States the (intended) date of the conclusion of a plan."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"conclusion"@en ;
+    rdfs:range  	xsd:datetime .

@@ -1,0 +1,215 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
+@prefix dataid-acp: <http://dataid.dbpedia.org/ns/acp#> .
+@prefix dmp: <http://dataid.dbpedia.org/ns/dmp#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dlo: <http://aligned-project.eu/ontologies/dlo#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix r3d: <http://www.re3data.org/schema/3-0#> .
+@prefix obeu: <http://data.openbudgets.eu/ontology/> .
+
+dmp:
+    a owl:Ontology ;
+    vann:preferredNamespaceUri "http://dataid.dbpedia.org/ns/dmp#" ;
+    vann:preferredNamespacePrefix "dataid-dmp"^^xsd:string ;
+    owl:versionInfo "1.0.0" ; 
+    rdfs:comment "This mid-level extension to DataID provides detaild provenance information about (planned) activities related to datasets described by a DataID."@en ;
+    rdfs:label "DataID"@en ;
+    owl:imports dataid:, dataid-acp:, prov:, dlo:, org: .
+    
+############# classes ################
+dmp:DataManagementPlan 
+	a owl:Class ;
+	rdfs:subClassOf prov:Plan ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:label "data management plan"@en ;
+    rdfs:comment """Top level plan for data managemant purposes. Is related to (research) project and presents aggregated values of BudgetItems."""@en . 
+    
+dmp:PreservationPlan
+	a owl:Class ;
+	rdfs:subClassOf prov:Plan ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:label "preservation plan"@en ;
+    rdfs:comment """This plan describes the preservation provisions made for one or more datasets. It points out one or more repositories the described dataset is stored at and defines a time interval for which the preservation plan has to be complied with."""@en .
+    
+dmp:Repository
+	a owl:Class ;
+	rdfs:subClassOf prov:Entity, r3d:Repository, dlo:Repository ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:label "repository"@en ;
+    rdfs:comment """The repository is used for describing the conditions of storage of datasets under the custody of an institution. Most properties are imported from the re3data.org schema."""@en .
+    
+dmp:PlanBudgetItem
+	a owl:Class ;
+	rdfs:subClassOf prov:Plan ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:label "preservation plan"@en ;
+    rdfs:comment """States the costs involved for the execution of a plan in regard to an Activity, Entity or Responsibility when involved in that plan."""@en .
+    
+############# properties ################
+dmp:proposedDmp
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Points out a Data Management Plan entity related to the DataID."@en ;
+    rdfs:domain 	dataid:DataId ;
+    rdfs:label 		"proposed data management plan"@en ;
+    rdfs:range  	dmp:DataManagementPlan .
+    
+dmp:projectIdentifier
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dct:identifier ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Identifies the (research-) project the DMP is pertaining to."@en ;
+    rdfs:domain 	dmp:DataManagementPlan ;
+    rdfs:label 		"project identifier"@en ;
+    rdfs:range  	dataid:Identifier .
+    
+dmp:projectName
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Provides the name of the project the DMP is pertaining to."@en ;
+    rdfs:domain 	dmp:DataManagementPlan ;
+    rdfs:label 		"project name"@en ;
+    rdfs:range  	rdfs:Literal .
+    
+dmp:approxCost
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Should in general aggregate all BudgetItems of this and all sub-plans."@en ;
+    rdfs:domain 	dmp:DataManagementPlan ;
+    rdfs:label 		"approximated costs"@en ;
+    rdfs:range  	xsd:decimal .
+        
+dmp:justification
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Free text (and reference link) stating why this plan has been adopted."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"justification"@en ;
+    rdfs:range  	dataid:SimpleStatement .
+    
+dmp:preservationPlan
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid-acp:hasSubPlan ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"A Data Management Plan might have multiple preservation plans (e.g. one for each dataset)."@en ;
+    rdfs:domain 	dmp:DataManagementPlan ;
+    rdfs:label 		"preservation plan"@en ;
+    rdfs:range  	dmp:PreservationPlan .
+    
+dmp:preservation
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"A Dataset has usually one preservation plan pointed out via this property."@en ;
+    rdfs:domain 	dataid:Dataset ;
+    rdfs:label 		"preservation"@en ;
+    rdfs:range  	dmp:PreservationPlan .
+    
+dmp:budgetItem
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Points out a cost centre in a plan. "@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"budget item"@en ;
+    rdfs:range  	dmp:PlanBudgetItem .
+        
+dmp:budgetPlan
+    a owl:ObjectProperty ;
+    owl:inverseOf dmp:budgetItem ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Points out the plan a budget item is attributed to. "@en ;
+    rdfs:label 		"budget plan"@en .
+    
+    
+dmp:item
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Points out an Entity, Activity or Responsibility responsible for a BudgetItem. "@en ;
+    rdfs:domain 	dmp:PlanBudgetItem ;
+    rdfs:label 		"item"@en .
+    
+dmp:isCoveredBy
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"The expected monetary source out of which the BudgetItem is covered in a plan."@en ;
+    rdfs:domain 	dmp:PlanBudgetItem ;
+    rdfs:label 		"is covered by"@en .
+    
+dmp:currency
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"The currency used for a BudgetItem."@en ;
+    rdfs:domain 	dmp:PlanBudgetItem ;
+    rdfs:label 		"currency"@en ;
+    rdfs:range  	obeu:Currency .
+    
+dmp:amount
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"The monetary amount for a BudgetItem."@en ;
+    rdfs:domain 	dmp:PlanBudgetItem ;
+    rdfs:label 		"amount"@en ;
+    rdfs:range  	xsd:decimal .
+    
+dmp:isProjection
+    a owl:DatatypeProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Points out if a BudgetItem is still a projection or has already materialized."@en ;
+    rdfs:domain 	dmp:PlanBudgetItem ;
+    rdfs:label 		"is projection"@en ;
+    rdfs:range  	xsd:decimal .
+        
+dmp:contrivedBy
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid-acp:involved ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"The agent(s) responsible for forging the plan."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"contrived by"@en ;
+    rdfs:range  	dataid:Agent .
+        
+dmp:granter
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid-acp:involved ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"An Agent which granted money for a project/plan."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"granter"@en ;
+    rdfs:range  	dataid:Agent .
+        
+dmp:organisation
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid-acp:involved ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"The umbrella-organisation under which a project/plan is conducted"@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"organisation"@en ;
+    rdfs:range  	dataid:Agent .
+        
+dmp:projectPi
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid-acp:involved ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"The principal investigator leading a plan or project."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"project PI"@en ;
+    rdfs:range  	dataid:Agent .
+        
+dmp:isStoredBy
+    a owl:ObjectProperty ;
+    owl:inverseOf	dlo:stores ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Points out the Repository storing this Distribution of a dataset."@en ;
+    rdfs:domain 	dataid:Distribution ;
+    rdfs:label 		"is stored by"@en ;
+    rdfs:range  	dmp:Repository .
