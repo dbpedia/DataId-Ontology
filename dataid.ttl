@@ -515,7 +515,7 @@ dataid:validFrom
     rdfs:comment 	"An Authorization is valid for a specific Agent from a certain point in time."@en ;
     rdfs:domain 	prov:AgentInfluence ;
     rdfs:label 		"valid from"@en ;
-    rdfs:range  	xsd:datetime .
+    rdfs:range  	xsd:dateTime .
     
 dataid:validUntil
     a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -523,7 +523,7 @@ dataid:validUntil
     rdfs:comment 	"An Authorization is valid for a specific Agent until a certain point in time."@en ;
     rdfs:domain 	prov:AgentInfluence ;
     rdfs:label 		"valid until"@en ;
-    rdfs:range  	xsd:datetime .
+    rdfs:range  	xsd:dateTime .
 
 dataid:isInheritable
     a owl:DatatypeProperty, owl:FunctionalProperty ;
