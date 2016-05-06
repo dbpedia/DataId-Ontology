@@ -250,19 +250,7 @@ dataid:Identifier
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "identifier"@en ;
 	rdfs:comment "Uniquly identifies any resource, given an identifier as literal and a correspondng aid/pid scheme (ORCID, ResearcherID etc.). "@en ;
-	rdfs:subClassOf datacite:Identifier,
-	[
-		a owl:Restriction ;
-		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onProperty litre:hasLiteralValue ;
-		owl:onDatatype rdfs:Literal
-    ] ,
-	[
-		a owl:Restriction ;
-		owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-		owl:onProperty datacite:usesIdentifierScheme ;
-		owl:onClass datacite:identifierScheme
-    ] .
+	rdfs:subClassOf datacite:Identifier.
 	    
 dataid:MediaType
 	a owl:Class;
@@ -501,6 +489,14 @@ dataid:authorizedAction
 	   dataid:authorityAgentRole
 	   dataid:allowsFor
 	) .
+	
+dataid:identifierScheme
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Points out which scheme of identifiers is used to uniquely identify resources in a dataset."@en ;
+    rdfs:label "identifier scheme"@en ;
+    rdfs:domain dataid:Dataset ;
+    rdfs:range datacite:IdentifierScheme .
 
 dataid:underAuthorization
     a owl:ObjectProperty ;
