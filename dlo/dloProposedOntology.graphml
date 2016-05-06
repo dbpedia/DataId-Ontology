@@ -248,7 +248,7 @@
     <node id="n11">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="53.673814134855434" width="189.26892723697154" x="390.29162487344263" y="566.1147364051758"/>
+          <y:Geometry height="53.673814134855434" width="189.26892723697154" x="390.29162487344263" y="549.6423155153202"/>
           <y:Fill color="#FFCC99" color2="#FFCC99" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFCC00" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="12" fontStyle="bold" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="77.34765625" x="55.96063549348577" y="4.0">prov:Activity</y:NodeLabel>

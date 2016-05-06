@@ -48,6 +48,12 @@ acp:PlanResponsibility
     rdfs:comment """A qualification of the dataid:associatedAgent property, relating a plan with an agent to the role of that agent and the subsequent acitions allowed. 
     Note: The roles are refering to roles in regard to a plan, not roles related to a specific activity (which are covered by the ActivityAssociation class)."""@en ;
 	rdfs:subClassOf		prov:AgentInfluence .
+		
+acp:Stage
+	a	owl:Class;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:label "stage"@en ;
+    rdfs:comment """Points out for which stage of a project this particular (sub-)plan is conceived."""@en .
 	
 acp:DataLifecyclePlan
 	a	owl:Class;
@@ -128,13 +134,29 @@ acp:willResultIn
     rdfs:label 		"will result in"@en ;
     rdfs:range  	prov:Entity .
     
+acp:sourceEntity
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Points out entities necessary to start a plan in the first place (e.g. a dataset)."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"source entity"@en ;
+    rdfs:range  	prov:Entity .
+    
 acp:hasSubPlan
     a owl:ObjectProperty ;
-    rdfs:subPropertyOf prov:wasDerivedFrom ;
+    rdfs:subPropertyOf dct:hasPart ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
     rdfs:comment 	"Partitions the plan."@en ;
     rdfs:domain 	prov:Plan ;
     rdfs:label 		"has sub-plan"@en ;
+    rdfs:range  	prov:Plan .
+    
+acp:followedBy
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Points to the plan enacted right after the completion of the current plan."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"followed by"@en ;
     rdfs:range  	prov:Plan .
     
 acp:planned
@@ -191,7 +213,6 @@ acp:isPartOfAction
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
     rdfs:comment 	"Associates an activity to an dataid:AuthorizedAction, thereby further defining the AuthorizedAction."@en ;
     rdfs:domain 	prov:Activity ;
-    rdfs:label 		"is part of action"@en ;
     rdfs:range  	dataid:AuthorizedAction .
    
 acp:deputyAgent
@@ -209,7 +230,7 @@ acp:inception
     rdfs:comment 	"States the (intended) starting date of the implementation of a plan."@en ;
     rdfs:domain 	prov:Plan ;
     rdfs:label 		"inception"@en ;
-    rdfs:range  	xsd:datetime .
+    rdfs:range  	xsd:dateTime .
    
 acp:conclusion
     a owl:DatatypeProperty ;
@@ -217,4 +238,12 @@ acp:conclusion
     rdfs:comment 	"States the (intended) date of the conclusion of a plan."@en ;
     rdfs:domain 	prov:Plan ;
     rdfs:label 		"conclusion"@en ;
-    rdfs:range  	xsd:datetime .
+    rdfs:range  	xsd:dateTime .
+   
+acp:stage
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/acp#> ;
+    rdfs:comment 	"Points out for which stage of a project a certain (sub-)plan is conceived."@en ;
+    rdfs:domain 	prov:Plan ;
+    rdfs:label 		"stage"@en ;
+    rdfs:range  	acp:Stage .

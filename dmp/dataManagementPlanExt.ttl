@@ -25,7 +25,7 @@ dmp:
     owl:versionInfo "1.0.0" ; 
     rdfs:comment "This mid-level extension to DataID provides detaild provenance information about (planned) activities related to datasets described by a DataID."@en ;
     rdfs:label "DataID"@en ;
-    owl:imports dataid:, dataid-acp:, prov:, dlo:, org: .
+    owl:imports dataid:, dataid-acp:, prov:, dlo:, org:, r3d: .
     
 ############# classes ################
 dmp:DataManagementPlan 
@@ -51,7 +51,7 @@ dmp:Repository
     
 dmp:PlanBudgetItem
 	a owl:Class ;
-	rdfs:subClassOf prov:Plan ;
+	rdfs:subClassOf prov:Entity ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
     rdfs:label "preservation plan"@en ;
     rdfs:comment """States the costs involved for the execution of a plan in regard to an Activity, Entity or Responsibility when involved in that plan."""@en .
@@ -107,13 +107,33 @@ dmp:preservationPlan
     rdfs:label 		"preservation plan"@en ;
     rdfs:range  	dmp:PreservationPlan .
     
-dmp:preservation
+dmp:preserves
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
-    rdfs:comment 	"A Dataset has usually one preservation plan pointed out via this property."@en ;
-    rdfs:domain 	dataid:Dataset ;
-    rdfs:label 		"preservation"@en ;
-    rdfs:range  	dmp:PreservationPlan .
+    rdfs:comment 	"The preservation plan was contrived for these datasets."@en ;
+    rdfs:domain 	dmp:PreservationPlan ;
+    rdfs:label 		"preserves"@en ;
+    rdfs:range  	dataid:Dataset .
+    
+dmp:preservation
+    a owl:ObjectProperty ;
+    owl:inverseOf	dmp:preserves ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"A Dataset has usually one preservation plan, pointed out via this property."@en ;
+    rdfs:label 		"preservation"@en .
+    
+dmp:repository
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+    rdfs:comment 	"Points out the repository used for a PreservationPlan."@en ;
+    rdfs:domain 	dmp:PreservationPlan ;
+    rdfs:label 		"preserves"@en ;
+    rdfs:range  	dmp:Repository ;
+    owl:propertyChainAxiom (
+	   dmp:preserves
+	   dcat:distribution
+	   dmp:isStoredBy
+	) .
     
 dmp:budgetItem
     a owl:ObjectProperty ;
@@ -169,42 +189,6 @@ dmp:isProjection
     rdfs:label 		"is projection"@en ;
     rdfs:range  	xsd:decimal .
         
-dmp:contrivedBy
-    a owl:ObjectProperty ;
-    rdfs:subPropertyOf dataid-acp:involved ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
-    rdfs:comment 	"The agent(s) responsible for forging the plan."@en ;
-    rdfs:domain 	prov:Plan ;
-    rdfs:label 		"contrived by"@en ;
-    rdfs:range  	dataid:Agent .
-        
-dmp:granter
-    a owl:ObjectProperty ;
-    rdfs:subPropertyOf dataid-acp:involved ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
-    rdfs:comment 	"An Agent which granted money for a project/plan."@en ;
-    rdfs:domain 	prov:Plan ;
-    rdfs:label 		"granter"@en ;
-    rdfs:range  	dataid:Agent .
-        
-dmp:organisation
-    a owl:ObjectProperty ;
-    rdfs:subPropertyOf dataid-acp:involved ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
-    rdfs:comment 	"The umbrella-organisation under which a project/plan is conducted"@en ;
-    rdfs:domain 	prov:Plan ;
-    rdfs:label 		"organisation"@en ;
-    rdfs:range  	dataid:Agent .
-        
-dmp:projectPi
-    a owl:ObjectProperty ;
-    rdfs:subPropertyOf dataid-acp:involved ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
-    rdfs:comment 	"The principal investigator leading a plan or project."@en ;
-    rdfs:domain 	prov:Plan ;
-    rdfs:label 		"project PI"@en ;
-    rdfs:range  	dataid:Agent .
-        
 dmp:isStoredBy
     a owl:ObjectProperty ;
     owl:inverseOf	dlo:stores ;
@@ -213,3 +197,43 @@ dmp:isStoredBy
     rdfs:domain 	dataid:Distribution ;
     rdfs:label 		"is stored by"@en ;
     rdfs:range  	dmp:Repository .
+
+dmp:usefulness 
+	a owl:DatatypeProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+	rdfs:label "usefulness"@en ;
+	rdfs:comment "Description of to whom the data could be useful, and whether it underpins a scientific publication."@en ;
+	rdfs:domain dataid:Dataset ;
+	rdfs:range rdfs:Literal .
+
+dmp:similarData 
+	a owl:DatatypeProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+   	rdfs:label "similar data"@en ;
+   	rdfs:comment "Information on the existence (or not) of similar data."@en ;
+   	rdfs:domain dataid:Dataset ;
+   	rdfs:range rdfs:Literal .
+
+dmp:reuseAndIntegration 
+	a owl:DatatypeProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+	rdfs:label "reuse and integration"@en ;
+	rdfs:comment "Information on the possibilities for integration and reuse of the dataset."@en ;
+	rdfs:domain dataid:Dataset ;
+	rdfs:range rdfs:Literal .
+
+dmp:growth 
+	a owl:DatatypeProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+	rdfs:label "growth"@en ;
+	rdfs:comment "Indication of what the datas approximated end volume is."@en ;
+	rdfs:domain dataid:Dataset ;
+	rdfs:range rdfs:Literal .
+
+dmp:openness 
+	a owl:DatatypeProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+	rdfs:label "openness"@en ;
+	rdfs:comment "Description of how data will be shared, including access procedures, embargo periods (if any), outlines of technical mechanisms for dissemination and definition of whether access will be widely open or restricted to specific groups. In case the dataset cannot be shared, the reasons for this should be mentioned (e.g. ethical, rules of personal data, intellectual property, commercial, privacy-related, security-related)."@en ;
+	rdfs:domain dataid:Dataset ;
+	rdfs:range rdfs:Literal .
