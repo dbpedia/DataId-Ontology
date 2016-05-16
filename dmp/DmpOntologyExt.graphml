@@ -29,11 +29,11 @@ dct:title : xsd:string
 dct:rights : xsd:string
 dct:description : xsd:string
 
-dmp:openness
-dmp:exploitation
-dmp:usefulness
-dmp:growth
-dmp:reuseAndIntegration
+dataid:openness
+dataid:exploitation
+dataid:usefulness
+dataid:growth
+dataid:reuseAndIntegration
 <y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
             </y:LabelModel>
