@@ -238,7 +238,7 @@ dataid:SimpleStatement
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Simple Statement"@en ;
 	rdfs:comment "Implements the Statement and Standard classes of Dublin Core, containing a textual statement and a reference pointer."@en ;
-	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard ,
+	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard , litre:Literal
 	[
         a owl:Restriction ;
         owl:allValuesFrom foaf:Document ;
@@ -250,7 +250,12 @@ dataid:Identifier
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "identifier"@en ;
 	rdfs:comment "Uniquly identifies any resource, given an identifier as literal and a correspondng aid/pid scheme (ORCID, ResearcherID etc.). "@en ;
-	rdfs:subClassOf datacite:Identifier.
+	rdfs:subClassOf datacite:Identifier, lite:Literal,
+	[
+        a owl:Restriction ;
+        owl:allValuesFrom foaf:Document ;
+        owl:onProperty dct:references
+    ].
 	    
 dataid:MediaType
 	a owl:Class;
@@ -400,6 +405,7 @@ dataid:typeName
     
 dataid:statement
 	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf litre:hasLiteralValue ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"An actual textual statment"@en ;
     rdfs:label "statement"@en ;
@@ -413,14 +419,6 @@ dataid:identifier
     rdfs:comment "An unique identifier which was created by a SchemaAgency for an agent or entity."@en ;
     rdfs:label "(additional) identifier"@en ;
     rdfs:range dataid:Identifier .
-
-dataid:identifierURL
-    a owl:ObjectProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"uri/url provided as, or in addition to an id"@en ;
-    rdfs:domain 	dataid:Identifier ;
-    rdfs:label 		"URL of a page pertaining to this identifier (usualy on a website of the SchemaAgency)."@en ;
-    rdfs:range  	foaf:Document .
 
 dataid:hasAccessLevel
     a owl:FunctionalProperty ;

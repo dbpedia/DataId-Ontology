@@ -471,14 +471,14 @@ foaf:homepage : foaf:Document<y:LabelModel>
     <node id="n18">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="124.14677413485526" width="198.36191135404945" x="169.25383916012737" y="740.8606153301121"/>
+          <y:Geometry height="124.14677413485526" width="192.60191135404946" x="169.25383916012737" y="740.8606153301121"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="86.0546875" x="56.15361192702471" y="4.0">dataid:Identifier</y:NodeLabel>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" modelName="custom" textColor="#000000" visible="true" width="188.08984375" x="2.0" y="30.701171875">subclassOf : datacite:Identifier
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="86.0546875" x="53.27361192702472" y="4.0">dataid:Identifier</y:NodeLabel>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" modelName="custom" textColor="#000000" visible="true" width="168.080078125" x="2.0" y="30.701171875">subclassOf : datacite:Identifier
 
-litre:hasLiteralValue : rdfs:Literal
-dataid:identifierURL : rdfs:Reource
+dataid:statement : rdfs:Literal
+dct:references : foaf:Document
 dct:issued : xsd:date<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
             </y:LabelModel>
@@ -1101,12 +1101,12 @@ dataid:authorityChain<y:LabelModel>
     <edge id="e26" source="n2" target="n18">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-16.122781058733608" sy="-62.08619440031769" tx="99.15326591260242" ty="-11.27035706215338">
+          <y:Path sx="-16.122781058733608" sy="-62.08619440031769" tx="96.27406996334979" ty="-11.27035706215338">
             <y:Point x="552.2565536926988" y="791.6636453353863"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="85.38671875" x="-141.4208396810971" y="-35.4780105510215">dataid:identifier<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="85.38671875" x="-145.57331162837517" y="-35.4780105510215">dataid:identifier<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1121,7 +1121,7 @@ dataid:authorityChain<y:LabelModel>
     <edge id="e27" source="n8" target="n18">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="71.84165732529138" sy="-38.59500230398737" tx="-99.16259232109525" ty="51.48297260648644"/>
+          <y:Path sx="71.84165732529138" sy="-38.59500230398737" tx="-96.28312555315293" ty="51.48297260648644"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="85.38671875" x="15.344976188665413" y="-9.350603120973915">dataid:identifier<y:LabelModel>
@@ -1139,10 +1139,10 @@ dataid:authorityChain<y:LabelModel>
     <edge id="e28" source="n18" target="n2">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="99.16403598595315" sy="43.956293423005604" tx="-99.16426822325633" ty="-34.468867336707376"/>
+          <y:Path sx="96.28452729711218" sy="43.956293423005604" tx="-99.16426822325633" ty="-34.468867336707376"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="60.689453125" x="20.413900731792296" y="-9.350609941173389">dct:creator<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="60.689453125" x="23.31679868101105" y="-9.350609941173389">dct:creator<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1268,7 +1268,7 @@ dataid:authorityChain<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="164.7578125" x="5.774933304780234" y="-6.241105387895004">datacite:usesIdentifierScheme<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="164.7578125" x="11.589020218842734" y="-6.241105387895004">datacite:usesIdentifierScheme<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
