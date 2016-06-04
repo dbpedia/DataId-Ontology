@@ -37,6 +37,14 @@ dataid:
         a                        dataid:Agent ;
         foaf:mbox                "freudenberg@informatik.uni-leipzig.de" ;
         foaf:name                "Markus Freudenberg" .
+        
+######## Single Axioms ########
+
+## to make use of dct:spatial together with geonames#Feature:
+<http://www.geonames.org/ontology#Feature>	rdfs:subClassOf	dct:Location .
+
+## to make use of dct:temporat together with time:Interval
+<http://www.w3.org/2006/time#Interval>		rdfs:subClassOf	dct:PeriodOfTime .
     
 ########### classes ###########
 dataid:Agent
@@ -120,6 +128,14 @@ dataid:Dataset
 	        a owl:Restriction ;
 	        owl:onProperty dcat:distribution ;
 	        owl:allValuesFrom dataid:Distribution 
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom <http://www.w3.org/2006/time#Interval> ;
+	        owl:onProperty dct:temporal
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom <http://www.geonames.org/ontology#Feature> ;
+	        owl:onProperty dct:spatial
 	    ].
 
 dataid:Distribution
