@@ -1,0 +1,250 @@
+### re3data.org controlled vocabularies ###
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix r3d: <http://www.re3data.org/schema/3-0#> .
+@prefix : <http://www.re3data.org/vocab/> .		#TODO define uri for vocabs
+
+@base	<http://www.re3data.org/vocab/> .
+
+:ControlledVocab
+	a	skos:ConceptScheme	;
+	rdfs:comment	"This concept scheme encompasses all controlled vocabularies of re3data.org"@en ;
+	skos:note	"This concept scheme encompasses all controlled vocabularies of re3data.org"@en ;
+	rdfs:label	"Controlled Vocabularies"@en	;
+	skos:prefLabel	"Controlled Vocabularies"@en	;
+	skos:hasTopConcept	r3d:RepoType	;
+	#TODO vann vocab integration, versioning!!!
+
+############# r3d:RepoType ################
+r3d:RepositoryType 
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"Repository Type vocabulary"@en ;
+	skos:prefLabel	"Repository Type vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+:Disciplinary
+	a	r3d:RepositoryType 	;
+	dct:title	"disciplinary"@en ;
+	rdfs:label "disciplinary"@en	;
+	skos:prefLabel "disciplinary"@en	;
+	skos:broader r3d:RepositoryType  ;
+	skos:note"TODO"@en .
+	
+:Governmental
+	a	r3d:RepositoryType 	;
+	rdfs:label "governmental"@en	;
+	skos:prefLabel "governmental"@en	;
+	skos:broader r3d:RepositoryType  ;
+	skos:note"TODO"@en .
+	
+:Institutional
+	a	r3d:RepositoryType 	;
+	rdfs:label "institutional"@en	;
+	skos:prefLabel "institutional"@en	;
+	skos:broader r3d:RepositoryType  ;
+	skos:note"TODO"@en .
+	
+:Multidisciplinary
+	a	r3d:RepositoryType 	;
+	rdfs:label "multidisciplinary"@en	;
+	skos:prefLabel "multidisciplinary"@en	;
+	skos:broader r3d:RepositoryType  ;
+	skos:note"TODO"@en .
+	
+:ProjectRelated
+	a	r3d:RepositoryType 	;
+	rdfs:label "project-related"@en	;
+	skos:prefLabel "project-related"@en	;
+	skos:broader r3d:RepositoryType  ;
+	skos:note"TODO"@en .
+	
+:OtherRepoTypes
+	a	r3d:RepositoryType 	;
+	rdfs:label "other repository types"@en	;
+	skos:prefLabel "other repository types"@en	;
+	skos:broader r3d:RepositoryType  ;
+	skos:note"TODO"@en .
+	
+############# r3d:ProviderType ################
+r3d:ProviderType
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"provider type vocabulary"@en ;
+	skos:prefLabel	"Repository Type vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+:DataProvider
+	a	r3d:ProviderType	;
+	rdfs:label "data provider"@en	;
+	skos:prefLabel "data provider"@en	;
+	skos:broader r3d:ProviderType ;
+	skos:note"TODO"@en .
+	
+:ServiceProvider
+	a	r3d:ProviderType	;
+	rdfs:label "service provider"@en	;
+	skos:prefLabel "service provider"@en	;
+	skos:broader r3d:ProviderType ;
+	skos:note"TODO"@en .
+	
+############# r3d:ResponsibilityType ################
+r3d:ResponsibilityType
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"institution responsibility type vocabulary"@en ;
+	skos:prefLabel	"institution responsibility type vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+:Funding
+	a	r3d:ResponsibilityType	;
+	rdfs:label "funding"@en	;
+	skos:prefLabel "funding"@en	;
+	skos:broader r3d:ResponsibilityType ;
+	skos:note"TODO"@en .
+	
+:General
+	a	r3d:ResponsibilityType	;
+	rdfs:label "general"@en	;
+	skos:prefLabel "general"@en	;
+	skos:broader r3d:ResponsibilityType ;
+	skos:note"TODO"@en .
+	
+:Main
+	a	r3d:ResponsibilityType	;
+	rdfs:label "main"@en	;
+	skos:prefLabel "main"@en	;
+	skos:broader r3d:ResponsibilityType ;
+	skos:note"TODO"@en .
+	
+:Sponsoring
+	a	r3d:ResponsibilityType	;
+	rdfs:label "sponsoring"@en	;
+	skos:prefLabel "sponsoring"@en	;
+	skos:broader r3d:ResponsibilityType ;
+	skos:note"TODO"@en .
+	
+:Technical
+	a	r3d:ResponsibilityType	;
+	rdfs:label "technical"@en	;
+	skos:prefLabel "technical"@en	;
+	skos:broader r3d:ResponsibilityType ;
+	skos:note"TODO"@en .
+	
+############# r3d:ContentType ################
+r3d:ContentType		#TODO need the mappings to the current DFG scheme
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"content type vocabulary"@en ;
+	skos:prefLabel	"content type vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+	#TODO add induviduals
+		
+############# r3d:ApiType ################
+r3d:ApiType	
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"API type vocabulary"@en ;
+	skos:prefLabel	"API type vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+	#TODO add induviduals
+		
+############# r3d:InstitutionType ################
+r3d:InstitutionType
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"institution type vocabulary"@en ;
+	skos:prefLabel	"institution type vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+	#TODO add induviduals
+		
+############# r3d:AidSystem ################
+r3d:AidSystem
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"AID system vocabulary"@en ;
+	skos:prefLabel	"AID system vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+	#TODO add induviduals
+		
+############# r3d:PidSystem ################
+r3d:PidSystem
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"PID system vocabulary"@en ;
+	skos:prefLabel	"PID system vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+	#TODO add induviduals
+		
+############# r3d:CitationReference ################
+r3d:CitationReference
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"Citation Reference vocabulary"@en ;
+	skos:prefLabel	"Citation Reference vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+	#TODO add induviduals
+		
+############# r3d:AccessType ################
+r3d:AccessType
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"Access Type vocabulary"@en ;
+	skos:prefLabel	"Access Type vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+	#TODO add induviduals
+		
+############# r3d:AccessRestriction ################
+r3d:AccessRestriction
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"Access Restriction vocabulary"@en ;
+	skos:prefLabel	"Access Restriction vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+	#TODO add induviduals
+		
+############# r3d:PolicyType ################
+r3d:PolicyType
+	a	owl:Class, skos:Concept	;
+	rdfs:subClassOf skos:Concept	;
+	rdfs:label	"Policy Type vocabulary"@en ;
+	skos:prefLabel	"Policy Type vocabulary"@en ;
+	skos:altLabel	"TODO"@de	;
+	skos:note	"TODO"@en	;
+	skos:topConceptOf	:ControlledVocab	.
+	
+	#TODO add induviduals

@@ -640,7 +640,7 @@ dataid:PublicAccess
 
 ## Both ConceptSchemes are just examples in how to use AgentRoles and AuthorizedActions in the context of hierarchies.
 ## These Schemes are used to describe responsibilities of agents in the context of DataIDs and their Datasets.
-## TopConcepts contain all actions (or roles) via the relations of skos:narrowerTransitive, skos:broaderTransitive.
+## TopConcepts contain all actions (or roles) via the relations of skos:broaderTransitive, skos:broaderTransitive.
 dataid:AuthorizedActionScheme
 	a skos:ConceptScheme ;
 	skos:hasTopConcept dataid:AllResponsibilities, dataid:AllEntitlements ;
@@ -661,7 +661,7 @@ dataid:ResponseToContact
 	rdfs:comment "The responsibility to respond to contact attempts by external agents. A contact point for the entity."@en ;
 	skos:prefLabel "response to contact attempt"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:AllResponsibilities ;
+	skos:broader dataid:AllResponsibilities ;
 	rdfs:label "response to contact attempt"@en .
 
 dataid:ResponseToLifeCycleEvent
@@ -670,7 +670,7 @@ dataid:ResponseToLifeCycleEvent
 	rdfs:comment "The responsibility to manage changes and react to bugs and issues that are reported"@en ;
 	skos:prefLabel "response to life-cycle event"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:AllResponsibilities ;
+	skos:broader dataid:AllResponsibilities ;
 	rdfs:label "response to life-cycle event"@en .
 
 dataid:PublishingDecision
@@ -679,7 +679,7 @@ dataid:PublishingDecision
 	rdfs:comment "The responsibility decide if the entity should be published"@en ;
 	skos:prefLabel "publishing decision"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:AllResponsibilities ;
+	skos:broader dataid:AllResponsibilities ;
 	rdfs:label "publishing decision"@en .
 
 dataid:UpdateDataId
@@ -688,7 +688,7 @@ dataid:UpdateDataId
 	rdfs:comment "The responsibility to update dataset metadata."@en ;
 	skos:prefLabel "update DataId"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:AllResponsibilities ;
+	skos:broader dataid:AllResponsibilities ;
 	rdfs:label "update DataId"@en .
 
 dataid:AgentSupervision
@@ -697,7 +697,7 @@ dataid:AgentSupervision
 	rdfs:comment "The responsibility to supervise other agents."@en ;
 	skos:prefLabel "agent supervision"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:AllResponsibilities ;
+	skos:broader dataid:AllResponsibilities ;
 	rdfs:label "agent supervision"@en .
 	
 dataid:AllEntitlements
@@ -714,7 +714,7 @@ dataid:ReadDataId
 	rdfs:comment "Entitled action to read the DataID dataset metadata"@en ;
 	skos:prefLabel "read DataID right"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:AllEntitlements ;
+	skos:broader dataid:AllEntitlements ;
 	rdfs:label "read DataID right"@en .
 
 dataid:ReadContent
@@ -723,7 +723,7 @@ dataid:ReadContent
 	rdfs:comment "Entitled action to read the content of an entity."@en ;
 	skos:prefLabel "read content right"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:ModifyContent ;
+	skos:broader dataid:ModifyContent ;
 	rdfs:label "read content right"@en .
 
 dataid:ModifyContent
@@ -732,7 +732,7 @@ dataid:ModifyContent
 	rdfs:comment "Entitled action to modify the content of an entity."@en ;
 	skos:prefLabel "modify content right"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:DeleteContent ;
+	skos:broader dataid:DeleteContent ;
 	rdfs:label "modify content right"@en .
 
 dataid:DeleteContent
@@ -741,7 +741,7 @@ dataid:DeleteContent
 	rdfs:comment "Entitled action to delete some content of an entity."@en ;
 	skos:prefLabel "delete content right"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:AllEntitlements ;
+	skos:broader dataid:AllEntitlements ;
 	rdfs:label "delete content right"@en .
 
 dataid:ModifyAuthorizedAgents
@@ -750,7 +750,7 @@ dataid:ModifyAuthorizedAgents
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	skos:prefLabel "modify authorized agents"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:AllEntitlements ;
+	skos:broader dataid:AllEntitlements ;
 	rdfs:label "modify authorized agents"@en .
 
 dataid:ModifyAccessLevel
@@ -759,7 +759,7 @@ dataid:ModifyAccessLevel
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	skos:prefLabel "modify entity access level"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:AllEntitlements ;
+	skos:broader dataid:AllEntitlements ;
 	rdfs:label "modify entity access level"@en .
 
 dataid:ModifyAgentRoles
@@ -768,7 +768,7 @@ dataid:ModifyAgentRoles
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	skos:prefLabel "modify agent roles"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:narrower dataid:AllEntitlements ;
+	skos:broader dataid:AllEntitlements ;
 	rdfs:label "modify agent roles"@en .
 
 dataid:AgentRoleScheme
@@ -803,7 +803,7 @@ dataid:Publisher
     rdfs:comment "Publisher of the dataset. An agent that makes the dataset accessible online on a server or repository without necessarily being involved in its creation."@en ;
     skos:prefLabel "publisher"@en ;
 	skos:inScheme dataid:AgentRoleScheme ;
-	skos:narrower dataid:Creator ;
+	skos:broader dataid:Creator ;
 	rdfs:label "publisher"@en .
 
 dataid:Maintainer
@@ -820,7 +820,7 @@ dataid:Maintainer
     rdfs:comment "Maintainer of the dataset. An agent that ensures the technical correctness, accessibility and up-to-dateness of a dataset."@en ;
     skos:prefLabel "maintainer"@en ;
 	skos:inScheme dataid:AgentRoleScheme ;
-	skos:narrower dataid:Creator ;
+	skos:broader dataid:Creator ;
 	rdfs:label "maintainer"@en .
 
 dataid:Contributor
@@ -831,7 +831,7 @@ dataid:Contributor
 	rdfs:comment "Contributor to the resource. An agent that was involved in creating or maintaining the resource but does not have the main part in this activity."@en ;
 	skos:prefLabel "contributor"@en ;
 	skos:inScheme dataid:AgentRoleScheme ;
-	skos:narrower dataid:Publisher ;
+	skos:broader dataid:Publisher ;
 	rdfs:label "contributor"@en .
 
 dataid:Contact
@@ -844,7 +844,7 @@ dataid:Contact
     rdfs:comment "Contact agent. An agent that can be contacted for general requests about the resource."@en ;
     skos:prefLabel "contact"@en ;
 	skos:inScheme dataid:AgentRoleScheme ;
-	skos:narrower dataid:Publisher, dataid:Maintainer ;
+	skos:broader dataid:Publisher, dataid:Maintainer ;
 	rdfs:label "contact"@en .
 
 dataid:Guest
@@ -855,7 +855,7 @@ dataid:Guest
     rdfs:comment "A visitor/anonymous agent has only read rights on public and semi-private documents"@en ;
     skos:prefLabel "guest"@en ;
 	skos:inScheme dataid:AgentRoleScheme ;
-	skos:narrower dataid:Contributor ;
+	skos:broader dataid:Contributor ;
 	rdfs:label "guest"@en .
 
 #defining the generic Agent for any Agent not specifically defined
