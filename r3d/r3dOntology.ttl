@@ -1,3 +1,7 @@
+############## Preamble ###################				TODO!
+### re3data.org controlled vocabularies ###
+### ...
+
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix r3d: <http://www.re3data.org/schema/3-0#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -251,6 +255,7 @@ r3d:contentType
 
 r3d:re3data
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	datacite:hasIdentifier	;
 	rdfs:isDefinedBy <http://www.re3data.org/schema/3-0> ;
 	rdfs:label "re3data identifier"@en ;
 	rdfs:comment "TODO"@en ;
@@ -259,14 +264,16 @@ r3d:re3data
 
 r3d:subject
 	a owl:ObjectProperty ;
+	#rdfs:subPropertyOf	skos:subject	;					#skos:subject is deprecated 
 	rdfs:isDefinedBy <http://www.re3data.org/schema/3-0> ;
 	rdfs:label "subject identifier"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Respository ;
-	rdfs:range r3dfg:DfgClassification .
+	rdfs:range r3common:ClassificationIdentifier .
 
 r3d:doi
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	datacite:hasIdentifier	;
 	rdfs:isDefinedBy <http://www.re3data.org/schema/3-0> ;
 	rdfs:label "DOI identifier"@en ;
 	rdfs:comment "TODO"@en ;
@@ -307,6 +314,7 @@ r3d:reposits
 
 r3d:institutionIdentifier
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	datacite:hasIdentifier	;
 	rdfs:isDefinedBy <http://www.re3data.org/schema/3-0> ;
 	rdfs:label "institution identifier"@en ;
 	rdfs:comment "TODO"@en ;
