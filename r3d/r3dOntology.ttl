@@ -29,18 +29,19 @@
     rdfs:label "re3data"@en ;
 	dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;#todo
 	dct:creator <http://wiki.dbpedia.org/Association/Persons/Freudenberg> ;	#todo
-	dct:publisher <http://www.re3data.org> ;
+	dct:publisher <http://re3data.org> ;
     owl:imports r3voc: .
     
 <http://wiki.dbpedia.org/Association/Persons/Freudenberg>
-        a                        foaf:Agent ;
-        foaf:mbox                "freudenberg@informatik.uni-leipzig.de" ;
-        foaf:name                "Markus Freudenberg" .
+    a                        foaf:Agent ;
+    foaf:mbox                "freudenberg@informatik.uni-leipzig.de" ;
+    foaf:name                "Markus Freudenberg" .
         
-<http://www.re3data.org>		#TODO change uri , mbox, name if necessary
-        a                        foaf:Agent ;
-        foaf:mbox                "someBeautifuleAddress@re3data.org" ;
-        foaf:name                "re3data.org" .
+<http://re3data.org>		#TODO change uri , mbox, name if necessary
+	a                        foaf:Agent ;
+	foaf:mbox                "someBeautifuleAddress@re3data.org" ;
+	foaf:homepage			 <http://www.re3data.org>	;
+	foaf:name                "re3data.org" .
         
 ############## Classes ###################
 r3d:Repository
@@ -231,7 +232,7 @@ r3d:repositoryType
 	rdfs:label "repository type"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Respository ;
-	rdfs:range r3d:RepositoryType .
+	rdfs:range r3voc:RepositoryType .
 
 r3d:providerType
 	a owl:ObjectProperty ;
@@ -239,7 +240,7 @@ r3d:providerType
 	rdfs:label "provider type"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Respository ;
-	rdfs:range r3d:ProviderType .
+	rdfs:range r3voc:ProviderType .
 
 r3d:repositoryLanguage
 	a owl:ObjectProperty ;
@@ -255,7 +256,7 @@ r3d:contentType
 	rdfs:label "content type"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Respository ;
-	rdfs:range r3d:ContentType .
+	rdfs:range r3voc:ContentType .
 
 r3d:re3data
 	a owl:ObjectProperty ;
@@ -271,7 +272,7 @@ r3d:subject
 	rdfs:label "subject identifier"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Respository ;
-	rdfs:range datacite:Identifier .
+	rdfs:range r3voc:DfgClassification .
 
 r3d:doi
 	a owl:ObjectProperty ;
@@ -335,7 +336,7 @@ r3d:institutionType
 	rdfs:label "institution type"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Institution ;
-	rdfs:range r3d:InstitutionType .
+	rdfs:range r3voc:InstitutionType .
 
 r3d:responsibilityType
 	a owl:ObjectProperty ;
@@ -343,7 +344,7 @@ r3d:responsibilityType
 	rdfs:label "responsibility type"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Responsibility ;
-	rdfs:range r3d:ResponsibilityType .
+	rdfs:range r3voc:ResponsibilityType .
 	
 r3d:country
 	a owl:ObjectProperty ;
@@ -359,7 +360,7 @@ r3d:apiType
 	rdfs:label "API type"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Api ;
-	rdfs:range r3d:ApiType .
+	rdfs:range r3voc:ApiType .
 	
 r3d:policyType
 	a owl:ObjectProperty ;
@@ -367,7 +368,7 @@ r3d:policyType
 	rdfs:label "policy type"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Policy ;
-	rdfs:range r3d:PolicyType .
+	rdfs:range r3voc:PolicyType .
 	
 r3d:accessRestriction
 	a owl:ObjectProperty ;
@@ -375,7 +376,7 @@ r3d:accessRestriction
 	rdfs:label "access restriction"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Access ;
-	rdfs:range r3d:AccessRestriction .
+	rdfs:range r3voc:AccessRestriction .
 	
 r3d:accessType
 	a owl:ObjectProperty ;
@@ -383,7 +384,7 @@ r3d:accessType
 	rdfs:label "access type"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:Access ;
-	rdfs:range r3d:AccessType .
+	rdfs:range r3voc:AccessType .
 	
 r3d:citationReference
 	a owl:ObjectProperty ;
@@ -391,7 +392,7 @@ r3d:citationReference
 	rdfs:label "citation reference"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:PublicationSupport ;
-	rdfs:range r3d:CitationReference .
+	rdfs:range r3voc:CitationReference .
 	
 r3d:pidSystem
 	a owl:ObjectProperty ;
@@ -399,7 +400,7 @@ r3d:pidSystem
 	rdfs:label "pid system"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:PublicationSupport ;
-	rdfs:range r3d:PidSystem .
+	rdfs:range r3voc:PidSystem .
 	
 r3d:aidSystem
 	a owl:ObjectProperty ;
@@ -407,7 +408,7 @@ r3d:aidSystem
 	rdfs:label "aid system"@en ;
 	rdfs:comment "TODO"@en ;
 	rdfs:domain r3d:PublicationSupport ;
-	rdfs:range r3d:AidSystem .
+	rdfs:range r3voc:AidSystem .
 	
 ############## Datatype Properties ###################
 	

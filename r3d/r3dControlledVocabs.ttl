@@ -4,247 +4,485 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix r3d: <http://www.re3data.org/schema/3-0#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix : <http://www.re3data.org/vocab/> .		#TODO define uri for vocabs
 
 @base	<http://www.re3data.org/vocab/> .
-
-:ControlledVocab
-	a	skos:ConceptScheme	;
-	rdfs:comment	"This concept scheme encompasses all controlled vocabularies of re3data.org"@en ;
-	skos:note	"This concept scheme encompasses all controlled vocabularies of re3data.org"@en ;
-	rdfs:label	"Controlled Vocabularies"@en	;
-	skos:prefLabel	"Controlled Vocabularies"@en	;
-	skos:hasTopConcept	r3d:RepoType	;
-	#TODO vann vocab integration, versioning!!!
+ 
+<http://www.re3data.org/vocab>
+    a owl:Ontology ;
+    vann:preferredNamespaceUri "http://www.re3data.org/vocab/" ;		#TODO
+    vann:preferredNamespacePrefix "r3voc" ;								#TODO
+    owl:versionInfo "1.0.0" ; 
+    dct:modified "2016-06-12" ;
+    rdfs:comment "This ontology contains multiple controlled vocabularies of the re3data.org domain and accompanying concepts."@en ;		#todo
+    rdfs:label "re3data controlled vocabularies"@en ;
+	dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;#todo
+	dct:publisher <http://re3data.org> .
+    
+    
+############### Publisher #################
+<http://re3data.org>		#TODO change uri , mbox, name if necessary
+	a                        foaf:Agent ;
+	foaf:mbox                "someBeautifuleAddress@re3data.org" ;
+	foaf:homepage			 <http://www.re3data.org>	;
+	foaf:name                "re3data.org" .
 
 ############# r3d:RepoType ################
-r3d:RepositoryType 
-	a	owl:Class, skos:Concept	;
-	rdfs:subClassOf skos:Concept	;
-	rdfs:label	"Repository Type vocabulary"@en ;
-	skos:prefLabel	"Repository Type vocabulary"@en ;
-	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+:RepositoryType 
+	a	owl:Class, skos:ConceptScheme	;
+	rdfs:subClassOf skos:Concept		;
+	dct:title		"Repository Type vocabulary"@en	;
+	rdfs:label		"repository type"@en	;
+	dct:description	"The type of the RDR."@en	;		#TODO copied from schema doc 3.0 
+	dct:modified	"12-07-2016"^^xsd:date	;	
+	dct:publisher	<http://re3data.org>	;
+	dct:hasVersion	<http://version/specification/you/can/look/up/on/the/web> ;	#TODO
+	skos:prefLabel	"repository type"@en	;
+	skos:altLabel	"TODO"@de	.
 	
 :Disciplinary
-	a	r3d:RepositoryType 	;
+	a	:RepositoryType 	;
 	dct:title	"disciplinary"@en ;
 	rdfs:label "disciplinary"@en	;
 	skos:prefLabel "disciplinary"@en	;
-	skos:broader r3d:RepositoryType  ;
-	skos:note"TODO"@en .
+	skos:inScheme	:RepositoryType 	;
+	skos:definition	"""This is a collection of research outputs with a common link to a
+particular subject discipline. Subject repositories are likely to cover one
+broad-based discipline, with contributors from many different
+institutions supported by a variety of funders; the repositories
+themselves are likely to be funded from one or more sources within the
+subject community. Although for some subject repositories the funding
+may be fragile, if they are of enough importance to the community
+then funding crises are usually weathered"""@en	;
+	skos:note	"TODO"@en .
 	
 :Governmental
-	a	r3d:RepositoryType 	;
+	a	:RepositoryType 	;
 	rdfs:label "governmental"@en	;
 	skos:prefLabel "governmental"@en	;
-	skos:broader r3d:RepositoryType  ;
-	skos:note"TODO"@en .
+	skos:inScheme	:RepositoryType 	;
+	skos:definition	"""This is a collection of outputs from projects and programmes related to
+governmental institutions. The repository is primarily supported by a
+federal agency. These repositories are likely closed for external
+contributions. """@en	;
+	skos:note	"TODO"@en .
 	
 :Institutional
-	a	r3d:RepositoryType 	;
+	a	:RepositoryType 	;
 	rdfs:label "institutional"@en	;
 	skos:prefLabel "institutional"@en	;
-	skos:broader r3d:RepositoryType  ;
-	skos:note"TODO"@en .
+	skos:inScheme	:RepositoryType 	;
+	skos:definition	""""This is a collection of research outputs with a common link to a
+particular institution, usually by authorship. These repositories are
+likely to cover more than one research discipline, to have funders in
+many if not all the Research Councils and support communities who
+have different approaches to research dissemination. Whether deposit
+of content is mandatory is a decision that will be made by each
+institution. The institutions may have many requirements for the
+content of the repository, from open access dissemination, through
+metrics, marketing to strategic planning. It is likely that many of these
+processes in the past were undertaken through collection of
+bibliographic information."""@en	;
+	skos:note	"TODO"@en .
 	
 :Multidisciplinary
-	a	r3d:RepositoryType 	;
+	a	:RepositoryType 	;
 	rdfs:label "multidisciplinary"@en	;
 	skos:prefLabel "multidisciplinary"@en	;
-	skos:broader r3d:RepositoryType  ;
-	skos:note"TODO"@en .
+	skos:inScheme	:RepositoryType 	;
+	skos:definition	"""This is a collection of research outputs serving multidisciplinary needs.
+These repositories cover several research disciplines. Contributors from
+many different institutions and communities are likely accepted."""@en	;
+	skos:note	"TODO"@en .
 	
 :ProjectRelated
-	a	r3d:RepositoryType 	;
+	a	:RepositoryType 	;
 	rdfs:label "project-related"@en	;
 	skos:prefLabel "project-related"@en	;
-	skos:broader r3d:RepositoryType  ;
-	skos:note"TODO"@en .
+	skos:inScheme	:RepositoryType 	;
+	skos:definition	"""This is a collection of research outputs with a specific focus on the
+research data resulting from particular research projects. All
+contributions must be linked to the particular project, mission, etc."""@en	;
+	skos:note	"TODO"@en .
 	
 :OtherRepoTypes
-	a	r3d:RepositoryType 	;
+	a	:RepositoryType 	;
 	rdfs:label "other repository types"@en	;
 	skos:prefLabel "other repository types"@en	;
-	skos:broader r3d:RepositoryType  ;
-	skos:note"TODO"@en .
+	skos:inScheme	:RepositoryType 	;
+	skos:definition	"A research data repository that is not one of the listed repository types, e.g. a funder repository."@en	;
+	skos:note	"TODO"@en .
 	
-############# r3d:ProviderType ################
-r3d:ProviderType
-	a	owl:Class, skos:Concept	;
+############# :ProviderType ################
+:ProviderType
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
-	rdfs:label	"provider type vocabulary"@en ;
-	skos:prefLabel	"Repository Type vocabulary"@en ;
+	dct:title		"Provider Type vocabulary"@en	;
+	dct:description	"The type of the RDR."@en	;		#TODO copied from schema doc 3.0 
+	dct:modified	"12-07-2016"^^xsd:date	;	
+	dct:publisher	<http://re3data.org>	;
+	dct:hasVersion	<http://version/specification/you/can/look/up/on/the/web> ;	#TODO
+	rdfs:label	"provider type"@en ;
+	skos:prefLabel	"provider type"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note	"TODO"@en	.
 	
 :DataProvider
-	a	r3d:ProviderType	;
+	a	:ProviderType	;
 	rdfs:label "data provider"@en	;
-	skos:prefLabel "data provider"@en	;
-	skos:broader r3d:ProviderType ;
-	skos:note"TODO"@en .
+	skos:prefLabel "dataProvider"@en	;
+	skos:inScheme	:ProviderType	;
+	skos:definition	"A research data repository is a data provider if it offers research data and its metadata (ideally exposing metadata via interfaces)."@en	;
+	skos:note	"TODO"@en .
 	
 :ServiceProvider
-	a	r3d:ProviderType	;
+	a	:ProviderType	;
 	rdfs:label "service provider"@en	;
-	skos:prefLabel "service provider"@en	;
-	skos:broader r3d:ProviderType ;
-	skos:note"TODO"@en .
+	skos:prefLabel "serviceProvider"@en	;
+	skos:inScheme	:ProviderType	;
+	skos:definition	"A research data repository is a service provider if it harvests the metadata of research data from data providers as a basis for building value-added services."@en	;
+	skos:note	"TODO"@en .
 	
-############# r3d:ResponsibilityType ################
-r3d:ResponsibilityType
-	a	owl:Class, skos:Concept	;
+############# :ResponsibilityType ################
+:ResponsibilityType
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
-	rdfs:label	"institution responsibility type vocabulary"@en ;
-	skos:prefLabel	"institution responsibility type vocabulary"@en ;
+	rdfs:label		"institution responsibility type vocabulary"@en ;
+	dct:title		"institution responsibility type vocabulary"@en ;
+	rdfs:label		"institution responsibility type"@en ;
+	dct:description	"The type of the RDR."@en	;		#TODO copied from schema doc 3.0 
+	dct:modified	"12-07-2016"^^xsd:date	;	
+	dct:publisher	<http://re3data.org>	;
+	dct:hasVersion	<http://version/specification/you/can/look/up/on/the/web> ;	#TODO
+	skos:prefLabel	"institution responsibility type"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note		"TODO"@en	.
 	
 :Funding
-	a	r3d:ResponsibilityType	;
+	a	:ResponsibilityType	;
 	rdfs:label "funding"@en	;
 	skos:prefLabel "funding"@en	;
-	skos:broader r3d:ResponsibilityType ;
-	skos:note"TODO"@en .
+	skos:inScheme	:ResponsibilityType	;
+	skos:definition	"Funding responsibility refers to the institution that funds / funded the setup or running of the research data repository."@en	;
+	skos:note	"TODO"@en .
 	
 :General
-	a	r3d:ResponsibilityType	;
+	a	:ResponsibilityType	;
 	rdfs:label "general"@en	;
 	skos:prefLabel "general"@en	;
-	skos:broader r3d:ResponsibilityType ;
-	skos:note"TODO"@en .
+	skos:inScheme	:ResponsibilityType	;
+	skos:definition	"General responsibility refers to the institution that is generally responsible for providing services and content of the research data repository"@en	;
+	skos:note	"TODO"@en .
 	
 :Main
-	a	r3d:ResponsibilityType	;
+	a	:ResponsibilityType	;
 	rdfs:label "main"@en	;
 	skos:prefLabel "main"@en	;
-	skos:broader r3d:ResponsibilityType ;
-	skos:note"TODO"@en .
+	skos:inScheme	:ResponsibilityType	;
+	skos:definition	"Main responsibility refers to the leading institution operating and maintaining the research data repository."@en	;
+	skos:note	"TODO"@en .
 	
 :Sponsoring
-	a	r3d:ResponsibilityType	;
+	a	:ResponsibilityType	;
 	rdfs:label "sponsoring"@en	;
 	skos:prefLabel "sponsoring"@en	;
-	skos:broader r3d:ResponsibilityType ;
-	skos:note"TODO"@en .
+	skos:inScheme	:ResponsibilityType	;
+	skos:definition	"Sponsoring responsibility (in contrast to funding responsibility) refers to financial support of a research data repository in return for e.g. advertising on the website."@en	;
+	skos:note	"TODO"@en .
 	
 :Technical
-	a	r3d:ResponsibilityType	;
+	a	:ResponsibilityType	;
 	rdfs:label "technical"@en	;
 	skos:prefLabel "technical"@en	;
-	skos:broader r3d:ResponsibilityType ;
-	skos:note"TODO"@en .
+	skos:inScheme	:ResponsibilityType	;
+	skos:definition	"General responsibility refers to the institution that is responsible for the technical matters of the research data repository, e.g. hosting."@en	;
+	skos:note	"TODO"@en .
 	
-############# r3d:ContentType ################
-r3d:ContentType		#TODO need the mappings to the current DFG scheme
-	a	owl:Class, skos:Concept	;
+:Commercial
+	a	:ResponsibilityType	;
+	rdfs:label "commercial"@en	;
+	skos:prefLabel "commercial"@en	;
+	skos:inScheme	:ResponsibilityType	;
+	skos:definition	"A commercial institution is an institution that distributes surplus revenues as profit or dividends."@en	;
+	skos:note	"TODO"@en .
+	
+:NonProfit
+	a	:ResponsibilityType	;
+	rdfs:label "non-profit"@en	;
+	skos:prefLabel "non-profit"@en	;
+	skos:inScheme	:ResponsibilityType	;
+	skos:definition	"The institution does not aim at economic profits but at non-profit (e.g. social, cultural and academic) goals of its members."@en	;
+	skos:note	"TODO"@en .
+	
+############# :ContentType ################
+:ContentType		#TODO need the mappings to the current DFG scheme
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
-	rdfs:label	"content type vocabulary"@en ;
-	skos:prefLabel	"content type vocabulary"@en ;
+	dct:title		"content type vocabulary"@en ;
+	rdfs:label		"content type"@en ;
+	dct:description	"The type of the RDR."@en	;		#TODO copied from schema doc 3.0 
+	dct:modified	"12-07-2016"^^xsd:date	;	
+	dct:publisher	<http://re3data.org>	;
+	dct:hasVersion	<http://version/specification/you/can/look/up/on/the/web> ;	#TODO
+	skos:prefLabel	"content type"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note		"TODO"@en	.
+	
+:StandardOfficeDocuments 
+	a	:ContentType	;
+	rdfs:label "Standard office documents"@en	;
+	skos:prefLabel "Standard office documents"@en	;
+	skos:inScheme	:ContentType	;
+	skos:note	"TODO"@en .
+		
+:NetworkbasedData 
+	a	:ContentType	;
+	rdfs:label "Networkbased data"@en	;
+	skos:prefLabel "Networkbased data"@en	;
+	skos:inScheme	:ContentType	;
+	skos:note	"TODO"@en .
 	
 	#TODO add induviduals
 		
-############# r3d:ApiType ################
-r3d:ApiType	
-	a	owl:Class, skos:Concept	;
+############# :ApiType ################
+:ApiType	
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
 	rdfs:label	"API type vocabulary"@en ;
 	skos:prefLabel	"API type vocabulary"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note	"TODO"@en	.
 	
 	#TODO add induviduals
 		
-############# r3d:InstitutionType ################
-r3d:InstitutionType
-	a	owl:Class, skos:Concept	;
+############# :InstitutionType ################
+:InstitutionType
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
 	rdfs:label	"institution type vocabulary"@en ;
 	skos:prefLabel	"institution type vocabulary"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note	"TODO"@en	.
 	
 	#TODO add induviduals
 		
-############# r3d:AidSystem ################
-r3d:AidSystem
-	a	owl:Class, skos:Concept	;
+############# :AidSystem ################
+:AidSystem
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
 	rdfs:label	"AID system vocabulary"@en ;
 	skos:prefLabel	"AID system vocabulary"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note	"TODO"@en	.
 	
 	#TODO add induviduals
 		
-############# r3d:PidSystem ################
-r3d:PidSystem
-	a	owl:Class, skos:Concept	;
+############# :PidSystem ################
+:PidSystem
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
 	rdfs:label	"PID system vocabulary"@en ;
 	skos:prefLabel	"PID system vocabulary"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note	"TODO"@en	.
 	
 	#TODO add induviduals
 		
-############# r3d:CitationReference ################
-r3d:CitationReference
-	a	owl:Class, skos:Concept	;
+############# :CitationReference ################
+:CitationReference
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
 	rdfs:label	"Citation Reference vocabulary"@en ;
 	skos:prefLabel	"Citation Reference vocabulary"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note	"TODO"@en	.
 	
 	#TODO add induviduals
 		
-############# r3d:AccessType ################
-r3d:AccessType
-	a	owl:Class, skos:Concept	;
+############# :AccessType ################
+:AccessType
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
 	rdfs:label	"Access Type vocabulary"@en ;
 	skos:prefLabel	"Access Type vocabulary"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note	"TODO"@en	.
 	
 	#TODO add induviduals
 		
-############# r3d:AccessRestriction ################
-r3d:AccessRestriction
-	a	owl:Class, skos:Concept	;
+############# :AccessRestriction ################
+:AccessRestriction
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
 	rdfs:label	"Access Restriction vocabulary"@en ;
 	skos:prefLabel	"Access Restriction vocabulary"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note	"TODO"@en	.
 	
 	#TODO add induviduals
 		
-############# r3d:PolicyType ################
-r3d:PolicyType
-	a	owl:Class, skos:Concept	;
+############# :PolicyType ################
+:PolicyType
+	a	owl:Class, skos:ConceptScheme	;
 	rdfs:subClassOf skos:Concept	;
 	rdfs:label	"Policy Type vocabulary"@en ;
 	skos:prefLabel	"Policy Type vocabulary"@en ;
 	skos:altLabel	"TODO"@de	;
-	skos:note	"TODO"@en	;
-	skos:topConceptOf	:ControlledVocab	.
+	skos:note	"TODO"@en	.
 	
 	#TODO add induviduals
+	
+######## ClassificationShemeSuperClass ##########
+:ClassificationScheme
+	a	owl:Class	;
+	rdfs:subClassOf	skos:ConceptScheme, datacite:ResourceIdentifierScheme	;
+	dct:title		"Classification Sheme"@en ;
+	rdfs:label		"classification sheme"@en ;
+	dct:description	"The top class of all concept/identifier schemes used with the r3d:subject property."@en	;	
+	dct:modified	"12-07-2016"^^xsd:date	;	
+	dct:publisher	<http://re3data.org>	;
+	dct:hasVersion	<http://version/specification/you/can/look/up/on/the/web> .	#TODO if any
+		
+############# :DfgClassification ################
+:DfgClassification
+	a				:ClassificationScheme	;
+	rdfs:subClassOf skos:Concept, datacite:ResourceIdentifier	;
+	dct:title		"Research classification scheme of the Deutsche Forschungsgemeinschaft (DFG)"@en ;
+	rdfs:label		"DFG classification scheme"@en ;
+	dct:description	"TODO"@en	;		
+	dct:modified	"12-07-2016"^^xsd:date	;	
+	dct:publisher	<http://todo.com/publisher>	;	#TODO
+	dct:creator		<http://re3data.org>	;
+	dct:hasVersion	<http://version/specification/you/can/look/up/on/the/web> ;	#TODO
+	foaf:homepage	<http://www.dfg.de/en/index.jsp>	;
+	foaf:page		<http://www.dfg.de/en/dfg_profile/statutory_bodies/review_boards/subject_areas/index.jsp>	;
+	skos:hasTopConcept	:HumanitiesAndSocialSciences, :LifeSciences, :NaturalSciences, :EngineeringSciences	;
+	skos:prefLabel	"DFG"@en	;
+	skos:altLabel	"TODO"@de	;
+	skos:note		"TODO"@en	.
+	
+:HumanitiesAndSocialSciences
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:topConceptOf	:DfgClassification	;
+	rdfs:label "Humanities and Social Sciences"@en	;
+	skos:prefLabel "Humanities and Social Sciences"@en	;
+	skos:notation	"1000000"^^:DfgClassificationNotation	;
+	skos:narrower	:Humanities	;
+	skos:note	"TODO"@en .	
+		
+:LifeSciences
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:topConceptOf	:DfgClassification	;
+	rdfs:label "Life Sciences"@en	;
+	skos:prefLabel "Life Sciences"@en	;
+	skos:notation	"2000000"^^:DfgClassificationNotation	;
+	skos:note	"TODO"@en .	
+		
+:NaturalSciences
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:topConceptOf	:DfgClassification	;
+	rdfs:label "Natural Sciences"@en	;
+	skos:prefLabel "Natural Sciences"@en	;
+	skos:notation	"3000000"^^:DfgClassificationNotation	;
+	skos:note	"TODO"@en .	
+		
+:EngineeringSciences
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:topConceptOf	:DfgClassification	;
+	rdfs:label "Engineering Sciences"@en	;
+	skos:prefLabel "Engineering Sciences"@en	;
+	skos:notation	"4000000"^^:DfgClassificationNotation	;
+	skos:note	"TODO"@en .
+		
+:Humanities
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:inScheme	:DfgClassification	;
+	rdfs:label "Humanities"@en	;
+	skos:prefLabel "Humanities"@en	;
+	skos:notation	"1100000"^^:DfgClassificationNotation	;
+	skos:broader	:HumanitiesAndSocialSciences	;
+	skos:narrower	:AncientCultures	;
+	skos:note	"TODO"@en .
+		
+:AncientCultures
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:inScheme	:DfgClassification	;
+	rdfs:label "Ancient Cultures"@en	;
+	skos:prefLabel "Ancient Cultures"@en	;
+	skos:notation	"1110100"^^:DfgClassificationNotation	;
+	skos:broader	:Humanities	;
+	skos:narrower	:Prehistory, :ClassicalPhilology, :AncientHistory, :ClassicalArchaeology, :EgyptologyAndAncientNearEasternStudies	;
+	skos:note	"TODO"@en .
+		
+:Prehistory
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:inScheme	:DfgClassification	;
+	rdfs:label 		"Prehistory"@en	;
+	skos:prefLabel 	"Prehistory"@en	;
+	skos:notation	"1110101"^^:DfgClassificationNotation	;
+	skos:broader	:AncientCultures	;
+	skos:note		"TODO"@en .
+		
+:ClassicalPhilology
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:inScheme	:DfgClassification	;
+	rdfs:label 		"Classical Philology"@en	;
+	skos:prefLabel 	"Classical Philology"@en	;
+	skos:notation	"1110102"^^:DfgClassificationNotation	;
+	skos:broader	:AncientCultures	;
+	skos:note		"TODO"@en .
+		
+:AncientHistory
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:inScheme	:DfgClassification	;
+	rdfs:label 		"Ancient History"@en	;
+	skos:prefLabel 	"Ancient History"@en	;
+	skos:notation	"1110103"^^:DfgClassificationNotation	;
+	skos:broader	:AncientCultures	;
+	skos:note		"TODO"@en .
+		
+:ClassicalArchaeology
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:inScheme	:DfgClassification	;
+	rdfs:label 		"Classical Archaeology"@en	;
+	skos:prefLabel 	"Classical Archaeology"@en	;
+	skos:notation	"1110104"^^:DfgClassificationNotation	;
+	skos:broader	:AncientCultures	;
+	skos:note		"TODO"@en .
+		
+:EgyptologyAndAncientNearEasternStudies
+	a	:DfgClassification	;
+	datacite:usesIdentifierScheme	:DfgClassification	;
+	skos:inScheme	:DfgClassification	;
+	rdfs:label 		"Egyptology and Ancient Near Eastern Studies"@en	;
+	skos:prefLabel 	"Egyptology and Ancient Near Eastern Studies"@en	;
+	skos:notation	"1110105"^^:DfgClassificationNotation	;
+	skos:broader	:AncientCultures	;
+	skos:note		"TODO"@en .
+	
+	#TODO add induviduals
+	
+	
+########## :DfgClassificationNotation ###########
+:DfgClassificationNotation
+	a rdfs:Datatype ;
+   	rdfs:label "DFG classification notation"@en ;
+   	rdfs:comment	"Datatype for the skos:notation property in the :DfgClassification scheme."@en	;
+	owl:onDatatype       xsd:string ;
+	owl:withRestrictions (  [ xsd:pattern "[0-9]{7}" ] ) .
