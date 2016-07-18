@@ -29,8 +29,8 @@ dataid:
     rdfs:comment "DBpedia Data ID is an ontology with the goal of extensively describing datasets via RDF files in a uniform way. Established vocabularies like DCAT, VoID, Prov-O are used for maximum compatibility."@en ;
     rdfs:label "DataID"@en ;
 	dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
-	dct:creator <http://wiki.dbpedia.org/Association/Persons/Freudenberg> ;
-    owl:imports dcat:, prov:, rdfs:, foaf:, void: , dct: .
+	dct:creator <http://wiki.dbpedia.org/Association/Persons/Freudenberg> .
+    #owl:imports dcat:, prov:, rdfs:, foaf:, void: , dct: .
     #owl:imports <http://www.w3.org/ns/dcat>, rdfs: , <http://www.w3.org/ns/prov-o-20130430> , foaf: ,void: , dct: .
     
 <http://wiki.dbpedia.org/Association/Persons/Freudenberg>
@@ -254,7 +254,7 @@ dataid:SimpleStatement
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Simple Statement"@en ;
 	rdfs:comment "Implements the Statement and Standard classes of Dublin Core, containing a textual statement and a reference pointer."@en ;
-	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard , litre:Literal
+	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard , litre:Literal, 
 	[
         a owl:Restriction ;
         owl:allValuesFrom foaf:Document ;
@@ -266,7 +266,7 @@ dataid:Identifier
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "identifier"@en ;
 	rdfs:comment "Uniquly identifies any resource, given an identifier as literal and a correspondng aid/pid scheme (ORCID, ResearcherID etc.). "@en ;
-	rdfs:subClassOf datacite:Identifier, lite:Literal,
+	rdfs:subClassOf datacite:Identifier, litre:Literal,
 	[
         a owl:Restriction ;
         owl:allValuesFrom foaf:Document ;
