@@ -425,7 +425,6 @@ dataid:statement
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"An actual textual statment"@en ;
     rdfs:label "statement"@en ;
-    rdfs:domain dataid:SimpleStatement ;
     rdfs:range rdfs:Literal.
 
 dataid:identifier
@@ -434,7 +433,7 @@ dataid:identifier
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "An unique identifier which was created by a SchemaAgency for an agent or entity."@en ;
     rdfs:label "(additional) identifier"@en ;
-    rdfs:range dataid:Identifier .
+    rdfs:range datacite:Identifier .
 
 dataid:hasAccessLevel
     a owl:FunctionalProperty ;
