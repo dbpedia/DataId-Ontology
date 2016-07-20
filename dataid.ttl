@@ -252,7 +252,7 @@ dataid:Identifier
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "identifier"@en ;
 	rdfs:comment "Uniquly identifies any resource, given an identifier as literal and a correspondng aid/pid scheme (ORCID, ResearcherID etc.). "@en ;
-	rdfs:subClassOf datacite:Identifier, litre:Literal,
+	rdfs:subClassOf datacite:Identifier,
 	[
         a owl:Restriction ;
         owl:allValuesFrom foaf:Document ;
