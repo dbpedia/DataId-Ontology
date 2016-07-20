@@ -234,20 +234,6 @@ dataid:EntitledAction
 	rdfs:comment """AgentRoles provide access and modification rights to an agent. Entitled actions should comprise actions pertaining to access/modification restrictions."""@en ;
 	rdfs:subClassOf dataid:AuthorizedAction ;
 	owl:disjointWith dataid:ResponsibleAction .
-
-dataid:AccessLevel
-	a owl:Class ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "Access level"@en ;
-	rdfs:comment "The level of openness of access to a particular groups of agents"@en ;
-	owl:subClassOf [
-		a owl:Class ;
-		owl:oneOf (
-			dataid:PrivateAccess
-			dataid:SemiPrivateAccess
-			dataid:PublicAccess
-		)
-	].
 	
 dataid:SimpleStatement
 	a owl:Class;
@@ -435,21 +421,6 @@ dataid:identifier
     rdfs:label "(additional) identifier"@en ;
     rdfs:range datacite:Identifier .
 
-dataid:hasAccessLevel
-    a owl:FunctionalProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "defines the access rights for DataId related entities"@en ;
-    rdfs:domain prov:Entity ;
-    rdfs:label "access level"@en ;
-    rdfs:range dataid:AccessLevel .
-
-dataid:authorizedFor
-	a owl:ObjectProperty ;
-    owl:inverseOf  dataid:underAuthorization ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Defines the scope of an dataid:Authorization. An Agent has the right to execute authorized actions in this scope (e.g. a single DataId and all it's datasets)."@en ;
-    rdfs:label "authorized for"@en .
-
 dataid:authorizedAgent
    	a owl:ObjectProperty ;
     rdfs:subPropertyOf prov:agent ;
@@ -474,14 +445,6 @@ dataid:authorityAgentRole
     rdfs:domain prov:AgentInfluence ;
     rdfs:label "authority agent role"@en ;
     rdfs:range dataid:AgentRole .
-
-dataid:validForAccessLevel
-    a owl:ObjectProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Limits rights and actions an Agent is allowed to take depending on the AccessLevel chosen for this Authorization."@en ;
-    rdfs:domain dataid:Authorization ;
-    rdfs:label "valid for access level"@en ;
-    rdfs:range dataid:AccessLevel .
 
 dataid:allowsFor
    	a owl:ObjectProperty ;
@@ -510,14 +473,6 @@ dataid:identifierScheme
     rdfs:label "identifier scheme"@en ;
     rdfs:domain dataid:Dataset ;
     rdfs:range datacite:IdentifierScheme .
-
-dataid:underAuthorization
-    a owl:ObjectProperty ;
-    rdfs:subPropertyOf prov:qualifiedAttribution ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Points out a dataid:Authorization with some degree of authority over this resource."@en ;
-    rdfs:label "under an authorization of"@en ;
-    rdfs:range dataid:Authorization .
 
 dataid:usefulness 
 	a owl:ObjectProperty ;
@@ -591,38 +546,35 @@ dataid:isInheritable
     rdfs:label 		"is inheritable"@en ;
     rdfs:range  	xsd:boolean .
 
+#The follwing section defines the spread of an Authorization of multiple entities.	
+dataid:authorizedFor
+	a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Defines the scope of an dataid:Authorization. An Agent has the right to execute authorized actions in this scope. The property chain axioms in its subproperties define how the scope of an dataid:Authorization is spread to other entities."@en ;
+    rdfs:label "authorized for"@en ;
+    rdfs:domain dataid:Authorization ;
+    rdfs:range  prov:Entity .
 
-#The follwing properties are only inferred by the the existence of property paths of foaf:primaryTopc, void:subset and dcat:distribution.
-dataid:authorityChain
-	a	owl:ObjectProperty ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "authority chain"@en ;
-	rdfs:comment """This property (with its sub-properties) describes how an dataid:Authorization is spread to other entities (lower level entities, like Dataset & Distribution). 
-		This inferred chain of authority can be overwritten by introducing other dataid:Authorization objects with the scope of lower level entities. See the example in Github for more information."""@en .
-	
-dataid:authoritySubChain1	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorityChain ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "authority chain axiom with subset"@en ;
-	rdfs:comment "Represents the authority link between the DataID and a Dataset (if connectd via a Subset)."@en ;
-    owl:propertyChainAxiom (
-	   foaf:primaryTopic	
-	   dataid:transitiveSubset
-	   dcat:distribution
-	) .
-	
-dataid:authoritySubChain2	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorityChain ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "authority chain axiom without subset"@en ;
-	rdfs:comment "Represents the authority link between the DataID and a Dataset (if connectd without a Subset)."@en ;
-    owl:propertyChainAxiom (
-	   foaf:primaryTopic	
-	   dcat:distribution
-	) .
-	
+dataid:underAuthorization
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:qualifiedAttribution ;
+    owl:inverseOf dataid:authorizedFor ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Points out a dataid:Authorization which grants some degree of authority over this resource."@en ;
+    rdfs:label "under an authorization of"@en ;
+    rdfs:domain	prov:Entity ;
+    rdfs:range dataid:Authorization .
+
+dataid:needsSpecialAuthorization
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid:underAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Points out a dataid:Authorization which grants some degree of authority over this resource to the exclusion of other dataid:Authorizations which are not specified with this property."@en ;
+    rdfs:label "needs special authorization"@en ;
+    rdfs:domain	prov:Entity ;
+    rdfs:range dataid:Authorization .
+
+#Defining void:subset as a transitive property allows for inferring dataid:authorizedFor over dataset hierarchies of multiple levels.
 dataid:transitiveSubset	
 	a	owl:ObjectProperty, owl:TransitiveProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
@@ -630,26 +582,78 @@ dataid:transitiveSubset
 	rdfs:comment "Represents the authority link between two Datsets (if connectd by void:subset)."@en .	
 	
 void:subset rdfs:subPropertyOf dataid:transitiveSubset.
+
+#The follwing properties are only inferred by the the existence of property paths of foaf:primaryTopc, void:subset dcat:distribution and dataid:authorizedFor.
+#They make up the super property dataid:authorizedFor and define how an Authorization is spread amongst different entities of DataID, Dataset and Distribution. 
+dataid:authoritySubChain1	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		foaf:primaryTopic	
+		dataid:transitiveSubset
+		dcat:distribution
+	) .
+	
+dataid:authoritySubChain2	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		foaf:primaryTopic	
+		dcat:distribution
+	) .
+	
+dataid:authoritySubChain3	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		dataid:transitiveSubset	
+		dcat:distribution
+	) .
+	
+dataid:authoritySubChain4	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		dataid:transitiveSubset	
+	) .
+	
+dataid:authoritySubChain5	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		foaf:primaryTopic	
+	) .
+	
+dataid:authoritySubChain6	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		dcat:distribution
+	) .
+	
+dataid:authoritySubChain7	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		foaf:primaryTopic	
+		dataid:transitiveSubset	
+	) .
 	
 ################### Instances ####################
-
-dataid:PrivateAccess
-	a dataid:AccessLevel ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "private"@en ;
-	rdfs:comment "Provides an agent with unrestricted access and all rights of a resource."@en .
-
-dataid:SemiPrivateAccess
-	a dataid:AccessLevel ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "semi-private"@en ;
-	rdfs:comment "Limits the rights an agent has on a resource to read and modify."@en .
-
-dataid:PublicAccess
-	a dataid:AccessLevel ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "public"@en;
-	rdfs:comment "Limits the rights an agent has on a resource to read rights."@en .
 
 ## Both ConceptSchemes are just examples in how to use AgentRoles and AuthorizedActions in the context of hierarchies.
 ## These Schemes are used to describe responsibilities of agents in the context of DataIDs and their Datasets.
@@ -766,14 +770,14 @@ dataid:ModifyAuthorizedAgents
 	skos:broader dataid:AllEntitlements ;
 	rdfs:label "modify authorized agents"@en .
 
-dataid:ModifyAccessLevel
+dataid:ModifyAuthorization
 	a dataid:EntitledAction ;
-	rdfs:comment "Entitled action to modify access level of an entity."@en ;
+	rdfs:comment "Entitled action to modify an authorization."@en ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	skos:prefLabel "modify entity access level"@en ;
+	skos:prefLabel "modify authorization"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
 	skos:broader dataid:AllEntitlements ;
-	rdfs:label "modify entity access level"@en .
+	rdfs:label "modify authorization"@en .
 
 dataid:ModifyAgentRoles
 	a dataid:EntitledAction ;
@@ -812,7 +816,7 @@ dataid:Publisher
 	dataid:allowsFor dataid:ResponseToContact;
 	dataid:allowsFor dataid:AgentSupervision;
 	dataid:allowsFor dataid:PublishingDecision;
-	dataid:allowsFor dataid:ModifyAccessLevel;
+	dataid:allowsFor dataid:ModifyAuthorization;
     rdfs:comment "Publisher of the dataset. An agent that makes the dataset accessible online on a server or repository without necessarily being involved in its creation."@en ;
     skos:prefLabel "publisher"@en ;
 	skos:inScheme dataid:AgentRoleScheme ;
@@ -875,6 +879,17 @@ dataid:Guest
 dataid:GuestAgent
     a dataid:Agent;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Use this agent as a stand in for any agent not specifically defined in a domain, granting public access to an entity."@en ;
+    rdfs:label "guest agent"@en ;
     foaf:mbox 		<mailto:address@alibi.com> ;
     foaf:homepage  <http://dataid.dbpedia.org>;
-    foaf:name   "Guest Actor".
+    foaf:name   "Guest Agent".
+    
+dataid:GuestAuthorization
+	a dataid:Authorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	dataid:isInheritable true ;
+	dataid:authorizedAgent dataid:GuestAgent ;
+	dataid:authorityAgentRole dataid:Guest ;
+	rdfs:label "guest authority"@en ;
+	rdfs:comment "This authorization can be used to point out that the content of an entity is public an can be read by anyone (see also dataid:Guest)."@en .
