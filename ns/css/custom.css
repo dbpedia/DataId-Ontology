@@ -1,0 +1,370 @@
+/*
+
+  Custom styles
+
+*/
+pre.Code,p.Code,li.Code,div.Code,span.Code {
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 0pt;
+    margin-left: 0in;
+    line-height: 15.0pt;
+    background: #E0E0E0;
+    font-size: 10.0pt;
+    font-family: "Courier New", monospace;
+    color: black;
+    overflow: auto;
+}
+
+.not-strong {
+    font-weight: normal;
+}
+
+.toc1 {
+    margin: 0in;
+    margin-left: 0in;
+}
+
+.toc2 {
+    margin: 0in;
+    margin-left: .25in;
+}
+
+.toc3 {
+    margin: 0in;
+    margin-left: .5in;
+}
+
+table.common {
+    border-width: 1px;
+    border-style: outset;
+    border-color: gray;
+    border-collapse: separate;
+    background-color: white;
+}
+table.common th {
+    border-width: 1px;
+    padding: 1px;
+    border-style: inset;
+    border-color: gray;
+    background-color: white;
+}
+table.common td {
+    border-width: 1px;
+    padding: 1px;
+    border-style: inset;
+    border-color: gray;
+    background-color: white;
+
+}
+
+
+/*
+
+  base.css
+
+*/
+
+/*
+   Copyright 1997-2003 W3C (MIT, ERCIM, Keio). All Rights Reserved.
+   The following software licensing rules apply:
+   http://www.w3.org/Consortium/Legal/copyright-software */
+
+/* $Id: custom.css,v 1.2 2015/12/01 06:50:49 denis Exp $ */
+
+body {
+    padding: 2em 1em 2em 70px;
+    margin: 0;
+    font-family: sans-serif;
+    color: black;
+    background: white;
+    background-position: top left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+:link { color: #00C; background: transparent }
+:visited { color: #609; background: transparent }
+a:active { color: #C00; background: transparent }
+
+a:link img, a:visited img { border-style: none } /* no border on img links */
+
+a img { color: white; }        /* trick to hide the border in Netscape 4 */
+@media all {                   /* hide the next rule from Netscape 4 */
+    a img { color: inherit; }    /* undo the color change above */
+}
+
+th, td { /* ns 4 */
+    font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 { text-align: left }
+/* background should be transparent, but WebTV has a bug */
+h1, h2 { color: #005A9C; background: white }
+h3 { color: black; background:#8080FF; }
+h1 { font: 170% sans-serif }
+h2 { font: 140% sans-serif }
+h3 { font: 120% sans-serif }
+h4 { font: bold 100% sans-serif }
+h5 { font: italic 100% sans-serif }
+h6 { font: small-caps 100% sans-serif }
+
+.hide { display: none }
+
+div.head { margin-bottom: 1em }
+div.head h1 { margin-top: 2em; clear: both }
+div.head table { margin-left: 2em; margin-top: 2em }
+
+p.copyright { font-size: small }
+p.copyright small { font-size: small }
+
+@media screen {  /* hide from IE3 */
+    a[href]:hover { background: #ffa }
+}
+
+pre { margin-left: 2em }
+/*
+p {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+*/
+dt, dd { margin-top: 0; margin-bottom: 0 } /* opera 3.50 */
+dt { font-weight: bold }
+
+pre, code { font-family: monospace } /* navigator 4 requires this */
+
+ul.toc, ol.toc {
+    list-style: disc;		/* Mac NS has problem with 'none' */
+    list-style: none;
+}
+
+@media aural {
+    h1, h2, h3 { stress: 20; richness: 90 }
+    .hide { speak: none }
+    p.copyright { volume: x-soft; speech-rate: x-fast }
+    dt { pause-before: 20% }
+    pre { speak-punctuation: code }
+}
+
+div.caption { font-size: 80%;
+    font-style: italic;
+    text-align: center; }
+
+div.example {
+    min-width: 750px;
+    width: 90%;
+    margin-top: 5px;
+    background-color: #F6D8CE;
+}
+
+div.description {
+    background-color: #F8E0EC;
+    font: italic 90% sans-serif;
+}
+
+
+/*
+
+  ezweb.css
+
+*/
+body {
+    padding: 2em 8% 4em 8%;
+    margin: 0;
+    font-family: sans-serif;
+    color: black;
+    background: white;
+    background-position: top left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+:link { color: #00C; background: transparent }
+:visited { color: #609; background: transparent }
+a:active { color: #C00; background: transparent }
+
+a:link img, a:visited img { border-style: none } /* no border on img links */
+
+a img { color: white; }        /* trick to hide the border in Netscape 4 */
+@media all {                   /* hide the next rule from Netscape 4 */
+    a img { color: inherit; }    /* undo the color change above */
+}
+
+th, td { /* ns 4 */
+    font-family: sans-serif;
+}
+
+h1, h2, h4, h5, h6,.toc { text-align: left; color: #3d506f; }
+h3 { text-align: left; color: black; }
+/* background should be transparent, but WebTV has a bug */
+/* h1, h2, h3 ,.toc { color: #660099; background: white } */
+h1 { font: 170% sans-serif; display: inline; }
+h2, .toc b { font: 140% sans-serif }
+h2 { margin-top: 1em; }
+h3 { font: bold 120% sans-serif }
+h4 { font: bold 100% sans-serif }
+h5 { font: italic 100% sans-serif }
+h6 { font: small-caps 100% sans-serif }
+
+.hide { display: none }
+
+div.head { margin-bottom: 1em }
+div.constraint, div.issue, div.note, div.notice     { margin-left: 2em; }
+div.exampleInner pre { margin-left: 1em; margin-top: 0em; margin-bottom: 0em}
+div.exampleOuter {border: 4px double gray; margin: 0em; padding: 0em}
+div.exampleInner { background-color: #FFE0FF;
+    border-top-width: 4px;
+    border-top-style: double;
+    border-top-color: #0000FF;
+    border-bottom-width: 4px;
+    border-bottom-style: double;
+    border-bottom-color: #0000FF;
+    padding: 4px; margin: 0em }
+div.exampleWrapper { margin: 4px }
+div.exampleHeader { font-weight: bold; margin: 4px}
+div.term { font: 100% sans-serif; color:#000000; font-weight: bold; line-height: 60%}
+div.list { font: 100% sans-serif; color:#000000; font-weight: normal; line-height: 60%}
+
+.optional {text-decoration: line-through; display: none;}
+
+.copyright,.legalnotice { font-size: small }
+.copyright small { font-size: small }
+
+@media screen {  /* hide from IE3 */
+    a[href]:hover { background: #ffa }
+}
+
+pre { margin-left: 2em }
+/*
+p {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+*/
+dt, dd { margin-top: 0; margin-bottom: 0 } /* opera 3.50 */
+dt { font-weight: normal }
+dt.fm {font-weight: normal; margin-top: 5px;}
+
+.ecma-block {   border: 1px solid black;  color: black;  background-color: #dfdfdf; }
+
+pre, code { font-family: monospace } /* navigator 4 requires this */
+
+ul.toc, ol.toc {
+    list-style: disc;		/* Mac NS has problem with 'none' */
+    list-style: none;
+}
+
+ol#toc, ol#toc ol { counter-reset: item }
+ol#toc li { display: block }
+ol#toc li:before { content: counters(item, ".") ". "; counter-increment: item }
+ol#appendix { list-style-type:upper-alpha; }
+
+ol.enumar      { list-style-type: decimal; }
+ol.enumla      { list-style-type: lower-alpha; }
+ol.enumlr      { list-style-type: lower-roman; }
+ol.enumua      { list-style-type: upper-alpha; }
+ol.enumur      { list-style-type: upper-roman; }
+
+@media aural {
+    h1, h2, h3 { stress: 20; richness: 90 }
+    .hide { speak: none }
+    p.copyright { volume: x-soft; speech-rate: x-fast }
+    dt { pause-before: 20% }
+    pre { speak-punctuation: code }
+}
+
+body {
+
+    background-size: 6% 75%;
+}
+
+.toc dl dt {
+    font-weight: normal;
+}
+
+img#ezweb {
+    float: right;
+    margin-right: 2em;
+}
+
+pre span.xml {
+    font-weight: bold;
+}
+
+pre span.curie {
+    font-weight: bold;
+    color: #84008a;
+}
+
+pre span.uri {
+    color: #4600ff;
+}
+
+div.specterm {
+    padding: 0 0 10px 20px;
+    border: 1px solid black;
+    background-color: #F5E6FA;
+}
+
+dl#ontologieslist {
+    margin-left: 2em;
+}
+
+dl#ontologieslist dt {
+    margin-top: 2em;
+}
+
+div#footer {
+    margin-top: 5em;
+    border-top: 1px #3d506f solid;
+    padding-top: 0.5em;
+    font-size: 0.65em;
+}
+
+div#footer img#mitc {
+    float: right;
+    margin-left: 0.5em;
+}
+
+pre.example script {
+    display:block;
+}
+.separated { border-collapse:collapse; }
+.separated thead tr th { border:1px solid black; padding: .2em; }
+.separated tbody tr td { border:1px solid black; text-align: center; }
+.separated tbody tr td.r { text-align: right; padding: .5em; }
+.grammar td { font-family: monospace; vertical-align: top; }
+.grammar-literal { color: gray;}
+.grammar_comment { color: #A52A2A; font-style: italic; }
+
+div.example-title {
+    min-width: 7.5em;
+    color: #0000FF;
+}
+div.example-title span {
+    text-transform: uppercase;
+}
+aside.example, div.example, div.illegal-example {
+    padding: 0.5em;
+    margin: 1em 0;
+    position: relative;
+    clear: both;
+}
+div.illegal-example { color: red }
+div.illegal-example p { color: black }
+aside.example, div.example {
+    padding: .5em;
+    border-left-width: .5em;
+    border-left-style: solid;
+    border-color: #0000FF;
+    background: #F5E6FA;
+}
+
+aside.example div.example {
+    border-left-width: .1em;
+    border-color: #999;
+    background: #fff;
+}
+aside.example div.example div.example-title {
+    color: #999;
+}
+

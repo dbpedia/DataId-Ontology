@@ -2,139 +2,97 @@
 @prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix wsdl: <http://www.w3.org/ns/wsdl-rdf#> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
 @prefix lvont: <http://lexvo.org/ontology#> .
+@prefix msr: <http://purl.org/ms-rights#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spdx: <http://spdx.org/rdf/terms/#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
 
-<http://dataid.dbpedia.org/ns/core#>
+@base <http://dataid.dbpedia.org/ns/core#> .
+
+dataid:
     a owl:Ontology ;
-    vann:preferredNamespaceUri <http://dataid.dbpedia.org/ns/core#> ;
-    vann:preferredNamespacePrefix "dataid"^^xsd:string ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    owl:versionInfo "1.0.0" ; 
-    rdfs:comment "DBpedia Data ID is an ontology with the goal of describing LOD datasets via RDF files in a uniform way. Established vocabularies like DCAT, VoID, Prov-O and SPARQL Service Description are used for maximum compatibility."@en ;
+    vann:preferredNamespaceUri "http://dataid.dbpedia.org/ns/core#" ;
+    vann:preferredNamespacePrefix "dataid" ;
+    owl:versionInfo "2.0.0" ; 
+    dct:modified "2016-07-21" ;
+    rdfs:comment """The DataID core ontology is the central part of the DataID multi-layered metadata system. Its goal is to extensively describes datasets and their different manifestations in a uniform way, 
+    as well as relations to agents like persons or organisations, in regard to their rights and responsibilities. Established vocabularies like DCAT, VoID, Prov-O are used for maximum compatibility.
+     We introduced a multilayer concept of supporting ontologies extending DataID core to fit different use case scenarios (for Linked Data, providing statistical data about datasets etc.).
+     By describing datasets including content, authors, licenses and provenance via RDF, thereby making data accessible to others, is the basic idea of Linked Open Data and is your contribution to a universal data give and take."""@en ;
     rdfs:label "DataID"@en ;
-    owl:imports <http://vocab.deri.ie/void>, <http://www.w3.org/ns/dcat>, <http://www.w3.org/ns/prov> .
+	dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+	dct:creator <http://wiki.dbpedia.org/Association/Persons/Freudenberg> .
+    #owl:imports dcat:, prov:, rdfs:, foaf:, void: , dct: .
+    #owl:imports <http://www.w3.org/ns/dcat>, rdfs: , <http://www.w3.org/ns/prov-o-20130430> , foaf: ,void: , dct: .
+    
+<http://wiki.dbpedia.org/Association/Persons/Freudenberg>
+        a                        dataid:Agent ;
+        foaf:mbox                "freudenberg@informatik.uni-leipzig.de" ;
+        foaf:homepage			<http://wiki.dbpedia.org/Association/Persons/Freudenberg> ;
+        foaf:name                "Markus Freudenberg" .
+        
+######## Single Axioms ########
 
-dataid:Agent
-    a owl:Class ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Any type of agent without a specific function."@en ;
-    rdfs:label "Agent"@en ;
-    owl:equivalentClass [
-        a owl:Class;
-        owl:disjointUnionOf
-        (   [
-                a owl:Restriction ;
-                owl:onProperty foaf:mbox ;
-                owl:minCardinality "1"^^xsd:nonNegativeInteger
-            ]
-            [
-                a owl:Restriction ;
-                owl:onProperty foaf:homepage ;
-                owl:minCardinality "1"^^xsd:nonNegativeInteger
-            ]
-        )
-    ];
-    rdfs:subClassOf prov:Agent, dct:Agent, [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty foaf:account
-    ],[
-        a owl:Restriction ;
-        owl:onProperty foaf:name ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger
-    ] .
+## to make use of dct:spatial together with geonames#Feature:
+<http://www.geonames.org/ontology#Feature>	rdfs:subClassOf	dct:Location .
+
+## to make use of dct:temporat together with time:Interval
+<http://www.w3.org/2006/time#Interval>		rdfs:subClassOf	dct:PeriodOfTime .
+    
+########### classes ##########
     
 dataid:DataId
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "DataId"@en ;
-	rdfs:comment "A description of one or more datasets. The DataID itself."@en ;
-	dct:description """DataID is a way of describing Linked-Open-Data (LOD) datasets including content, authors, licenses and provenance via RDF files.
-Making your data accessible to others is the basic idea of LOD and is your contribution to a universal data give and take.
-To create DataIDs alongside datasets is the best way of announcing a new dataset and its updates to a global community by placing 
-it in the LOD cloud.
-Validating and delivering metadata files in a uniform way, as well as providing the ability to query 
-for datasets are main objectives of the DBpedia/DataID project.
-To learn more including how to draft an new DataID, please visit http://dataid.dbpedia.org."""@en ;
+	rdfs:comment "A description of one or more datasets. Acts as a dcat:CatalogRecord / void:DatasetDescription."@en ;
+	dct:description """DataID is a multi-layerd meta-data system, which, in its core, describes datasets and their different manifestations, 
+		as well as relations to agents like persons or organisations, in regard to their rights and responsibilities. 
+		Depending on context, type of data and use-case, this core ontology can be augmented by multiple existing extensions 
+		(e.g. Linked Data, repository descriptions etc.). By describing datasets including content, authors, licenses and provenance via RDF,
+		thereby making data accessible to others, is the basic idea of Linked Open Data and is your contribution to a universal data give and take.
+		To create DataIDs alongside datasets is the best way of announcing a new dataset and its updates to a global community by placing 
+		it in the LOD cloud. You can create your own DataID files for any type of data at http://dataid.dbpedia.org.
+		Validating and delivering metadata files in a uniform way, as well as providing the ability to query for datasets, 
+		are main objectives of the DBpedia/DataID project."""@en ;
 
-	rdfs:subClassOf void:DatasetDescription, dcat:CatalogRecord, prov:Entity, 
+	rdfs:subClassOf void:DatasetDescription, dcat:CatalogRecord, prov:Entity,
 		[
 	        a owl:Restriction ;
-	        owl:onProperty foaf:primaryTopic ;
-	        owl:allValuesFrom dataid:Dataset
-	    ],[ 
-            a owl:Class ;
-            owl:unionOf ( [ rdf:type owl:Restriction ;
-                owl:onProperty dataid:hasAccessLevel ;
-                owl:cardinality "1"^^xsd:nonNegativeInteger
-            ]
-            [ rdf:type owl:Restriction ;
-                owl:onProperty dataid:hasEntityContext ;
-                owl:minCardinality "1"^^xsd:nonNegativeInteger
-            ] )
-        ], [
-	        a owl:Restriction ;
-	        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onProperty dct:hasVersion
-	    ], [
-	        a owl:Restriction ;
-	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:date ;
-	        owl:onProperty dct:issued
-	    ] ,[
-	        a owl:Restriction ;
-	        owl:allValuesFrom dataid:DataId ;
-	        owl:onProperty dataid:latestVersion
-	    ] ,[
+	        owl:allValuesFrom dataid:Dataset ;
+	        owl:onProperty foaf:primaryTopic
+	    ],[
 	        a owl:Restriction ;
 	        owl:allValuesFrom dataid:DataId ;
 	        owl:onProperty dataid:nextVersion
-	    ] ,[
+	    ],[
 	        a owl:Restriction ;
 	        owl:allValuesFrom dataid:DataId ;
 	        owl:onProperty dataid:previousVersion
-	    ] ,[
+	    ],[
 	        a owl:Restriction ;
-	        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	        owl:onDataRange xsd:date ;
-	        owl:onProperty dct:modified
-	    ], [
-			a owl:Restriction ;
-			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			owl:onClass dataid:Dataset ;
-			owl:onProperty dataid:nextVersion
-	     ], [
-			a owl:Restriction ;
-			owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-			owl:onProperty dataid:version
-	     ], [
-			#recommanded
-			a owl:Restriction ;
-			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			owl:onClass dataid:Dataset ;
-			owl:onProperty dataid:latestVersion
-	     ], [
-			#recommanded
-			a owl:Restriction ;
-			owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			owl:onClass dataid:Dataset ;
-			owl:onProperty dataid:previousVersion
-	     ],[
+	        owl:allValuesFrom dataid:DataId ;
+	        owl:onProperty dataid:latestVersion
+	    ],[
 	        a owl:Restriction ;
-	        owl:onProperty dataid:associatedAgent ;
-	        owl:cardinality "1"^^xsd:nonNegativeInteger
-	    ] .
+	        owl:allValuesFrom msr:License ;
+	        owl:onProperty dct:license
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom lvont:Language ;
+	        owl:onProperty dct:language
+	    ].	    
 
 dataid:Dataset
     a owl:Class ;
@@ -143,499 +101,245 @@ dataid:Dataset
     rdfs:comment """A collection of data, available for access in one or more formats. Dataset resources describe the concept of the dataset, not it's manifestation (the data itself), which can be acquired as Distribution.
     Datasets are prov:Entities and can be generated by prov:Activities."""@en ;
     rdfs:subClassOf void:Dataset, dcat:Dataset, prov:Entity,
-    [
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Dataset ;
-        owl:onProperty dataid:latestVersion
-    ],[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Dataset ;
-        owl:onProperty dataid:nextVersion
-    ] ,[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Dataset ;
-        owl:onProperty dataid:previousVersion
-    ],[
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:version
-     ],[
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:vocabulary
-    ],[ 
-            a owl:Class ;
-            owl:unionOf ( [ rdf:type owl:Restriction ;
-                owl:onProperty dataid:hasAccessLevel ;
-                owl:cardinality "1"^^xsd:nonNegativeInteger
-            ]
-            [ rdf:type owl:Restriction ;
-                owl:onProperty dataid:hasEntityContext ;
-                owl:minCardinality "1"^^xsd:nonNegativeInteger
-            ] )
-    ],[
-    	#recommanded
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty rdfs:label
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:entities
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:classes
-    ], [
-    	#recommanded
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dct:description
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:distinctObjects
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dct:rights
-    ], [
-        a owl:Restriction ;
-        owl:onProperty dct:title ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dct:accrualPeriodicity
-    ], [
-        a owl:Restriction ;
-        owl:allValuesFrom lvont:Language ;
-        owl:onProperty dct:language
-    ] ,[
-    	#recommanded
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass lvont:Language ;
-        owl:onProperty dct:language
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:nextVersion
-    ], [
-    	#recommanded
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:rootResource
-    ], [
-        a owl:Restriction ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass odrl:Policy ;
-        owl:onProperty dct:license
-    ], [
-        a owl:Restriction ;
-        owl:allValuesFrom odrl:Policy ;
-        owl:onProperty dct:license
-    ],[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Distribution ;
-        owl:onProperty dcat:distribution
-    ], [
-        a owl:Restriction ;
-        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dcat:keyword
-    ], [
-        a owl:Restriction ;
-        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:associatedAgent
-    ], [
-    	#recommanded
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:triples
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:documents
-    ], [ 
-		rdf:type owl:Restriction ;
-		owl:onProperty void:subset ;
-	 	owl:allValuesFrom dataid:Dataset
- 	], [ 
-		rdf:type owl:Class ;
-		owl:unionOf ( [ rdf:type owl:Restriction ;
+    	[
+	        a owl:Restriction ;
+	        owl:allValuesFrom dataid:DataId ;
+	        owl:onProperty foaf:isPrimaryTopicOf
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom dataid:Dataset ;
+	        owl:onProperty dataid:nextVersion
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom dataid:Dataset ;
+	        owl:onProperty dataid:previousVersion
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom dataid:Dataset ;
+	        owl:onProperty dataid:latestVersion
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom msr:License ;
+	        owl:onProperty dct:license
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom lvont:Language ;
+	        owl:onProperty dct:language
+	    ],[ 
+			a owl:Restriction ;
+			owl:onProperty dct:isPartOf ;
+		 	owl:allValuesFrom dataid:Dataset
+	 	],[ 
+			a owl:Restriction ;
 			owl:onProperty void:subset ;
-		 	owl:minCardinality "1"^^xsd:nonNegativeInteger
-		]
-     	[ rdf:type owl:Restriction ;
-         	owl:onProperty dcat:distribution ;
-         	owl:minCardinality "1"^^xsd:nonNegativeInteger
-       	] )
-    ], [
-        a owl:Restriction ;
-        owl:onProperty dcat:landingPage ;
-        owl:minCardinality "1"^^xsd:nonNegativeInteger
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
-        owl:onProperty dct:issued
-    ], [
-    	#recommanded
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:latestVersion
-    ], [
-    	#recommanded
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:previousVersion
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:properties
-    ], [
-    	#recommanded
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
-        owl:onProperty dct:modified
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:distinctSubjects
-    ] .
+		 	owl:allValuesFrom dataid:Dataset
+	 	],[
+	        a owl:Restriction ;
+	        owl:onProperty dcat:distribution ;
+	        owl:allValuesFrom dataid:Distribution 
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom <http://www.w3.org/2006/time#Interval> ;
+	        owl:onProperty dct:temporal
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom <http://www.geonames.org/ontology#Feature> ;
+	        owl:onProperty dct:spatial
+	    ].
 
 dataid:Distribution
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "A way to access a dataset, like a dump file, an endpoint, an API etc."@en ;
     rdfs:label "Distribution"@en ;
-    owl:equivalentClass [
-        a owl:Class;
-        owl:disjointUnionOf
-         ([
-            a owl:Restriction ;
-            owl:onProperty dcat:accessURL ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger
-          ]
-        [
-            a owl:Restriction ;
-            owl:onProperty dcat:downloadURL ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger
-        ]
-        )
-    ];
-    rdfs:subClassOf dcat:Distribution, prov:Entity,[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Distribution ;
-        owl:onProperty dataid:latestVersion
-    ],[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Distribution ;
-        owl:onProperty dataid:nextVersion
-    ] ,[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Distribution ;
-        owl:onProperty dataid:previousVersion
-    ], [
-        a owl:Class ;
-        owl:unionOf ( [ rdf:type owl:Restriction ;
-            owl:onProperty dataid:hasAccessLevel ;
-            owl:cardinality "1"^^xsd:nonNegativeInteger
-        ]
-        [ rdf:type owl:Restriction ;
-            owl:onProperty dataid:hasEntityContext ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger
-        ] )
-    ],[
-         a owl:Restriction ;
-         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dataid:version
-    ], [
-        a owl:Restriction ;
-        owl:onProperty dct:title ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger
-    ], [
-       a owl:Restriction ;
-       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-       owl:onProperty dct:rights
-    ], [
-       a owl:Restriction ;
-       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-       owl:onClass odrl:Policy ;
-       owl:onProperty dct:license
-    ], [
-        a owl:Restriction ;
-        owl:allValuesFrom odrl:Policy ;
-        owl:onProperty dct:license
-    ], [
-        a owl:Restriction ;
-        owl:onProperty dct:format ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dcat:accessURL
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty rdfs:label
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dcat:mediaType
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dcat:byteSize      #xsd:decimal!
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dct:description
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:graphName
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
-        owl:onProperty dct:issued
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
-        owl:onProperty dct:modified
-    ] .
-
-dataid:SparqlEndpoint
-    a owl:Class ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A specific distribution, which is accessible via an access url and can be queried with the SPARQL language."@en ;
-    rdfs:label "Sparql Endpoint"@en ;
-    rdfs:subClassOf dataid:Distribution, sd:Service, [
-         a owl:Restriction ;
-         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dcat:accessURL
-     ].
+    rdfs:subClassOf dcat:Distribution, prov:Entity,
+    	[
+	        a owl:Restriction ;
+	        owl:allValuesFrom dataid:Distribution ;
+	        owl:onProperty dataid:nextVersion
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom dataid:Distribution ;
+	        owl:onProperty dataid:previousVersion
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom dataid:Distribution ;
+	        owl:onProperty dataid:latestVersion
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom msr:License ;
+	        owl:onProperty dct:license
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom lvont:Language ;
+	        owl:onProperty dct:language
+	    ],[
+	        a owl:Restriction ;
+	        owl:allValuesFrom spdx:Checksum ;
+	        owl:onProperty dcat:checksum
+	    ].
 
 dataid:ServiceEndpoint
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "A specific distribution, which is accessible via an access url and provides data as a web service in a certain format."@en ;
     rdfs:label "Service Endpoint"@en ;
-    rdfs:subClassOf dataid:Distribution, wsdl:Service, [
-         a owl:Restriction ;
-         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dcat:accessURL
-     ].
+    rdfs:subClassOf dataid:Distribution, wsdl:Service.
 
 dataid:SingleFile
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "A single data dump file representing your dataset."@en ;
-    rdfs:label "single dump file"@en ;
-    rdfs:subClassOf dataid:Distribution, [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:checksum
-    ],
-    [
-         a owl:Restriction ;
-         owl:cardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dcat:downloadURL
-    ].
+    rdfs:label "Single File"@en ;
+    rdfs:subClassOf dataid:Distribution.
 
 dataid:Directory
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "A dedicated directory holding multiple files of the same dataset."@en ;
-    rdfs:label "dataset files in one directory"@en ;
-    rdfs:subClassOf dataid:Distribution, [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:checksum
-    ],
-    [
-         a owl:Restriction ;
-         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dcat:accessURL
-    ].
+    rdfs:label "Directory"@en ;
+    rdfs:subClassOf dataid:Distribution.
 
 dataid:FileCollection
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Multiple files of a distribution constituting one dataset."@en ;
-    rdfs:label "dataset files in differnt paths of a distribution"@en ;
-    rdfs:subClassOf dataid:Distribution, [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:checksum
-    ],
-    [
-         a owl:Restriction ;
-         owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dcat:downloadURL
-    ].
-
-dataid:Linkset
+    rdfs:comment "Multiple files of a distribution constituting one dataset (dataset files on different paths possible)."@en ;
+    rdfs:label "File Collection"@en ;
+    rdfs:subClassOf dataid:Distribution.
+    
+dataid:Agent
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "Linkset"@en ;
-    rdfs:comment "Entity representing the set of links between two datasets."@en ;
-    rdfs:subClassOf void:Linkset, prov:Entity,[
+    rdfs:comment "Any type of agent without a specific function."@en ;
+    rdfs:label "Agent"@en ;
+    rdfs:subClassOf prov:Agent, foaf:Agent, dct:Agent.
+
+dataid:Authorization
+	a owl:Class ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "Authorization"@en ;
+	rdfs:comment """This concept defines a scope of Entities and links it to an Agent who has certain rights for those entities (defined by the AgentRole/AuthorizedAction). The scope consists of all Entities directly linked to the dataid:Authorization, as well as transitively dependent Entities."""@en ;
+	rdfs:subClassOf prov:Attribution .
+
+dataid:AgentRole
+	a owl:Class ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "Agent Role"@en ;
+	rdfs:comment """Instances of this class define an array of rights and responsibilities an agent, assigned with this role for a given scope of entities, has to address or can execute."""@en ;
+	rdfs:subClassOf prov:Role, skos:Concept .
+
+dataid:AuthorizedAction
+	a owl:Class ;
+	rdfs:subClassOf skos:Concept ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "Authorized Action"@en ;
+    rdfs:comment """AgentRoles provide agents with the ability to execute certain actions as well as demand certain responsibilities, which are defines by the instances of this concept."""@en .
+
+dataid:ResponsibleAction
+	a owl:Class ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "Responsible Action"@en ;
+	rdfs:comment """AgentRoles provide access rights as well as responsibilities an agent has to attend to in order to fulfill this role. Responsible actions should describe actions pertaining to responsibilities an agent is supposed to do."""@en ;
+	rdfs:subClassOf dataid:AuthorizedAction ;
+	owl:disjointWith dataid:EntitledAction .
+
+dataid:EntitledAction
+	a owl:Class ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "Entitled Action"@en ;
+	rdfs:comment """AgentRoles provide access and modification rights to an agent. Entitled actions should comprise actions pertaining to access/modification restrictions."""@en ;
+	rdfs:subClassOf dataid:AuthorizedAction ;
+	owl:disjointWith dataid:ResponsibleAction .
+	
+dataid:SimpleStatement
+	a owl:Class;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "Simple Statement"@en ;
+	rdfs:comment "Implements the Statement and Standard classes of Dublin Core, containing a textual statement and a reference pointer."@en ;
+	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard , litre:Literal, 
+	[
         a owl:Restriction ;
-        owl:allValuesFrom dataid:Linkset ;
-        owl:onProperty dataid:latestVersion
-    ],[
+        owl:allValuesFrom foaf:Document ;
+        owl:onProperty dct:references
+    ].
+
+dataid:Identifier
+	a owl:Class ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "Identifier"@en ;
+	rdfs:comment "Uniquely identifies any resource, given an identifier as literal and a corresponding aid/pid scheme (ORCID, ResearcherID etc.). "@en ;
+	rdfs:subClassOf datacite:Identifier,
+	[
         a owl:Restriction ;
-        owl:allValuesFrom dataid:Linkset ;
-        owl:onProperty dataid:nextVersion
-    ] ,[
-        a owl:Restriction ;
-        owl:allValuesFrom dataid:Linkset ;
-        owl:onProperty dataid:previousVersion
-    ],[
-         a owl:Restriction ;
-         owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-         owl:onProperty dataid:version
-     ],[
-        a owl:Class ;
-        owl:unionOf ( [ rdf:type owl:Restriction ;
-            owl:onProperty dataid:hasAccessLevel ;
-            owl:cardinality "1"^^xsd:nonNegativeInteger
-        ]
-        [ rdf:type owl:Restriction ;
-            owl:onProperty dataid:hasEntityContext ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger
-        ] )
-    ],[
-        a owl:Restriction ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dct:hasVersion
-    ],[
-        a owl:Restriction ;
-        owl:onClass void:Dataset ;
-        owl:onProperty void:objectsTarget ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ], [
-        a owl:Restriction ;
-        owl:onClass void:Dataset ;
-        owl:onProperty void:subjectsTarget ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:triples
-    ], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty void:exampleResource
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Linkset ;
-        owl:onProperty dataid:previousVersion
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onDataRange xsd:date ;
-        owl:onProperty dct:modified
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Linkset ;
-        owl:onProperty dataid:latestVersion
-    ], [
-        a owl:Restriction ;
-        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass dataid:Linkset ;
-        owl:onProperty dataid:nextVersion
-    ] .
+        owl:allValuesFrom foaf:Document ;
+        owl:onProperty dct:references
+    ].
+	    
+dataid:MediaType
+	a owl:Class;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "Media Type"@en ;
+	rdfs:comment "Extends the dct:MediaType class of Dublin Core by implementing the Iana media type description and adding a pointer to inner media types to deal with (multiple) compressions of a serialized file."@en ;
+	rdfs:subClassOf dct:MediaType.
+		
+		
+########## properties #########
 
 dataid:isDistributionOf
 	a	owl:ObjectProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "Is distribution of"@en ;
+	rdfs:label "is distribution of"@en ;
 	rdfs:comment "Inverse property of dcat:distribution, linking a Distribution to a Dataset"@en ;
 	owl:inverseOf	dcat:distribution;
 	rdfs:domain		dataid:Distribution;
 	rdfs:range		dataid:Dataset.
 
-dataid:isInheritable
+dataid:uncompressedByteSize
 	a	owl:DatatypeProperty ;
+	rdfs:subPropertyOf dcat:byteSize ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "is inheritable"@en ;
-	rdfs:comment "The property of certain authority entity context to be able to be inherited"@en ;
-	rdfs:domain		dataid:AuthorityEntityContext ;
-    rdfs:range      xsd:boolean.
+	rdfs:label "uncompressed byte size"@en ;
+	rdfs:comment "Records the byte size of the uncompressed content of an archive file."@en ;
+	rdfs:domain		dataid:Distribution ;
+    rdfs:range      xsd:integer.
 
-dataid:similarData
+dataid:similarDataset
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf dct:relation ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"points to other dataset containing related data"@en ;
+    rdfs:comment 	"Points to other dataset containing related data."@en ;
     rdfs:domain 	dataid:Dataset ;
-    rdfs:label 		"similar data"@en ;
-    rdfs:range  	dataid:Dataset .
+    rdfs:label 		"similar dataset"@en ;
+    rdfs:range  	dcat:Dataset .
 
 dataid:preview
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"provides the uri of a short preview of the data provided by a distribution (do not link to the download or accessURL with this property)"@en ;
+    rdfs:comment 	"Provides the url of a short preview of the data provided by a distribution, helpful when conveying type and format of the data provided."@en ;
     rdfs:domain 	dataid:Distribution ;
-    rdfs:label 		"data preview"@en ;
+    rdfs:label 		"preview"@en ;
     rdfs:range  	foaf:Document .
-
-dataid:version
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"provides a version string for any entity"@en ;
-    rdfs:domain 	prov:Entity ;
-    rdfs:label 		"version"@en ;
-    rdfs:range  	xsd:string .
-
+    
 dataid:associatedAgent
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasAttributedTo ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "some agent generally connected to the dataset, their function to be specified by their rdf:type"@en ;
+    rdfs:comment "An agent which is generally connected to the dataset, their exact function in regard to the dataset has to be specified by the dataid:Authorization/dataid:AgentRole."@en ;
     rdfs:domain prov:Entity ;
     rdfs:label "associated agent"@en ;
-    rdfs:range dataid:Agent .
-
-dataid:checksum
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Checksum of a file to check for correctness"@en ;
-    rdfs:domain [
-    	a owl:Class;
-    	owl:unionOf(dataid:SingleFile dataid:Directory)
-    ] ;
-    rdfs:label "checksum"@en ;
-    rdfs:range dataid:crc32, dataid:md5 .
-
-dataid:containsLinks
-    a owl:ObjectProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Set of links to another dataset contained in this dataset"@en ;
-    rdfs:domain dataid:Dataset ;
-    rdfs:label "contains links"@en ;
-    rdfs:range dataid:Linkset .
-
-dataid:graphName
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "The name of the graph of this distribution in a SPARQL endpoint"@en ;
-    rdfs:domain dataid:Distribution ;
-    rdfs:label "Graph name"@en ;
-    rdfs:range xsd:string .
+    rdfs:range dataid:Agent ;
+    owl:propertyChainAxiom (
+	   dataid:underAuthorization
+	   dataid:authorizedAgent
+	) .
 
 dataid:softwareRquirement
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "software needed to access the data in this distribution"@en ;
+    rdfs:comment "Software needed to access the data in this distribution or otherwise relevant for consuming the data."@en ;
     rdfs:domain dataid:Distribution ;
     rdfs:label "software requirement"@en ;
-    rdfs:range foaf:Document .
+    rdfs:range dataid:SimpleStatement .
 
 dataid:accessProcedure
 	a owl:DatatypeProperty ;
@@ -643,12 +347,12 @@ dataid:accessProcedure
 	rdfs:comment "Describes the steps which have to be taken to gain access to the described data at the location of a distribution (e.g. register an account to gain dct:accessRights)."@en ;
     rdfs:domain dataid:Distribution ;
     rdfs:label "access procedure"@en ;
-    rdfs:range xsd:string .
+    rdfs:range dataid:SimpleStatement .
 
 dataid:nextVersion
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Next version of a DataIdPart"@en ;
+    rdfs:comment "Next version of a DataID/Dataset/Distribution."@en ;
     rdfs:domain prov:Entity ;
     rdfs:label "next version"@en ;
     rdfs:range prov:Entity .
@@ -656,7 +360,7 @@ dataid:nextVersion
 dataid:previousVersion
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "previous version of a DataIdPart"@en ;
+    rdfs:comment "Previous version of a DataID/Dataset/Distribution."@en ;
     rdfs:domain prov:Entity ;
     rdfs:label "previous version"@en ;
     rdfs:range prov:Entity .
@@ -664,374 +368,460 @@ dataid:previousVersion
 dataid:latestVersion
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Latest version of a DataIdPart"@en ;
+    rdfs:comment "Latest version of a DataID/Dataset/Distribution."@en ;
     rdfs:domain prov:Entity ;
-    rdfs:label "latest linkset version"@en ;
+    rdfs:label "latest version"@en ;
     rdfs:range prov:Entity .
 
-dataid:AuthorityEntityContext
-	a owl:Class ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "Authority entity context"@en ;
-	rdfs:comment """This concept defines a scope of Entities and links it to an Agent which has certain rights for those entities (defined by the AgentRole). This scope consists of all Entities directly linked to the context, as well as transitively dependend Entities"""@en ;
-
-	rdfs:subClassOf [
-        a owl:Restriction ;
-        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:authorizedFor
-	], [
-        a owl:Restriction ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:authorityAgentRole
-	], [
-        a owl:Restriction ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:authorizedAgent
-	], [
-        a owl:Restriction ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:isInheritable
-	], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:validFrom
-	], [
-        a owl:Restriction ;
-        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:validUntil
-	].
-
-dataid:AgentRole
-	a owl:Class ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "Agent role"@en ;
-	rdfs:comment """Instances of this class define an array of rights and responsibilities an agent, assigned with this role for a given scope of entities, has to address or can execute."""@en ;
-	rdfs:subClassOf [
-        a owl:Restriction ;
-        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:allowsFor
-    ];
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:oneOf (
-			dataid:Guest
-			dataid:Creator
-			dataid:Contributor
-			dataid:Maintainer
-			dataid:Publisher
-			dataid:Contact
-		)
-	] .
-
-dataid:AuthorizedAction
-	a owl:Class ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "Authorized action"@en ;
-    rdfs:comment """AgentRoles provide agents with the ability to execute certain actions as well as demand certain responsibilities, which are defines by the instances of this concept."""@en ;
-	owl:equivalentClass [
-		a		owl:Class;
-		owl:unionOf(dataid:ResponsibleAction dataid:EntitledAction)
-	].
-
-dataid:ResponsibleAction
-	a owl:Class ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "responsible actions"@en ;
-	rdfs:comment """AgentRoles provide access rights as well as responsibilities an agent has to attend to in order to fullfill this role. Responsible actions should describe actions pertaining to responsibilities an agent is supposed to do."""@en ;
-	rdfs:subClassOf dataid:AuthorizedAction;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:oneOf (
-			dataid:ResponseToContact
-			dataid:AgentSupervision
-			dataid:UpdateDataId
-			dataid:PublishingDecision
-			dataid:ResponseToLifeCycleEvent
-		)
-	] .
-
-
-dataid:EntitledAction
-	a owl:Class ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "Entitled action"@en ;
-	rdfs:comment """AgentRoles provide access and modification rights to an agent. Entitled actions should comprise actions pertaining to access/modification restrictions."""@en ;
-	rdfs:subClassOf dataid:AuthorizedAction;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:oneOf (
-			dataid:ReadContent
-			dataid:ModifyContent
-			dataid:DeleteContent
-			dataid:ModifyAuthorizedAgents
-			dataid:ModifyAccessLevel
-			dataid:ModifyAgentRoles
-		)
-	] .
-
-dataid:AccessLevel
-	a owl:Class ;
+dataid:innerMediaType a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf dcat:mediaType;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "Access level"@en ;
-	rdfs:comment "The level of openness of access to particular groups of agents"@en ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:oneOf (
-			dataid:PrivateAccess
-			dataid:SemiPrivateAccess
-			dataid:PublicAccess
-            dataid:NoAccess
-		)
-	].
-
-dataid:AgentIdentifier
-	a owl:Class ;
+    rdfs:comment "Points out the MediaType of the (compressed) file inside another file (relevant for archive files)."@en ;
+    rdfs:domain dataid:MediaType ;
+    rdfs:label "inner media type"@en ;
+    rdfs:range dataid:MediaType .
+    
+dataid:typeTemplate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "agent identifier"@en ;
-	rdfs:comment "Uniquly identifies an agent given a identifier and a correspondng aid/pid system (ORCID, ResearcherID etc.)."@en ;
-	rdfs:subClassOf [
-        a owl:Restriction ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:aid
-	],[
-		a owl:Restriction ;
-        owl:cardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onProperty dataid:aidSystem
-	].
+	rdfs:comment "The template (or mime type string) of a media Type."@en ;
+    rdfs:domain dataid:MediaType ;
+    rdfs:label "media type template"@en ;
+    rdfs:range rdfs:Literal .
+    
+dataid:typeReference
+	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:comment "Refers to a standard associated with this mime type."@en ;
+    rdfs:domain dataid:MediaType ;
+    rdfs:label "media type reference"@en ;
+    rdfs:range rdfs:Resource .
+    
+dataid:typeExtension
+	a owl:DatatypeProperty;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:comment "Lists file extensions commonly used with this mime type."@en ;
+    rdfs:domain dataid:MediaType ;
+    rdfs:label "media type file extension"@en ;
+    rdfs:range rdfs:Literal .
+	    
+dataid:typeName
+	a owl:DatatypeProperty;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:comment "Names the media types described."@en ;
+    rdfs:domain dataid:MediaType ;
+    rdfs:label "media type name"@en ;
+    rdfs:range rdfs:Literal .
+    
+dataid:statement
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf litre:hasLiteralValue ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment 	"An actual textual statement (or string)."@en ;
+    rdfs:label "statement"@en ;
+    rdfs:range rdfs:Literal.
 
-dataid:agentId
+dataid:identifier
     a owl:InverseFunctionalProperty ;
+    rdfs:subPropertyOf datacite:hasIdentifier, foaf:isPrimaryTopicOf ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:subPropertyOf  foaf:isPrimaryTopicOf;
-    rdfs:comment "provides an unique identifier for this agent"@en ;
-    rdfs:domain dataid:Agent ;
-    rdfs:label "agent id"@en ;
-    rdfs:range dataid:AgentIdentifier .
-
-dataid:aid
-    a owl:DatatypeProperty, owl:FunctionalProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"the id of an agent as string"@en ;
-    rdfs:domain 	prov:Entity ;
-    rdfs:label 		"aid"@en ;
-    rdfs:range  	xsd:string .
-
-dataid:aidSystem
-    a owl:DatatypeProperty, owl:FunctionalProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"the aid/pid system used for this identifier (ORCID, ResearcherID etc.)"@en ;
-    rdfs:domain 	prov:Entity ;
-    rdfs:label 		"aid system"@en ;
-    rdfs:range  	xsd:string .
-
-dataid:aidURI
-    a owl:DatatypeProperty, owl:FunctionalProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"uri/url provided as, or in addition to an id"@en ;
-    rdfs:domain 	prov:Entity ;
-    rdfs:label 		"aid uri"@en ;
-    rdfs:range  	foaf:Document .
-
-dataid:hasAccessLevel
-    a owl:ObjectProperty, owl:FunctionalProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "defines the access rights for DataId related entities"@en ;
-    rdfs:domain prov:Entity ;
-    rdfs:label "access level"@en ;
-    rdfs:range dataid:AccessLevel .
-
-dataid:authorizedFor
-	a owl:ObjectProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Defines the scope of an authority-context. An Agent has the right to execute authorized actions in this scope (e.g. a single DataId and all it's members)."@en ;
-    rdfs:domain dataid:AuthorityEntityContext ;
-    rdfs:label "authorized for"@en ;
-    rdfs:range prov:Entity .
+    rdfs:comment "An unique identifier for an agent or entity (for other, non DataID related identifiers)."@en ;
+    rdfs:label "identifier"@en ;
+    rdfs:range datacite:Identifier .
 
 dataid:authorizedAgent
    	a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:agent ;
    	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Provides an agent the ability to execute authorized actions in a certain scope (e.g. to modify the metadata of a dataset)"@en ;
-    rdfs:domain dataid:AuthorityEntityContext ;
+    rdfs:comment "Points out an Agent which holds the rights granted by a dataid:Authorization (e.g. to modify the metadata of a dataset)."@en ;
+    rdfs:domain prov:AgentInfluence ;
     rdfs:label "authorized agent"@en ;
     rdfs:range dataid:Agent .
 
+dataid:hasAuthorization
+   	a owl:ObjectProperty ;
+   	owl:inverseOf dataid:authorizedAgent ;
+   	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Provides an dataid:Agent with the dataid:Authorization for a given scope of entities (e.g. Dataset, Distribution etc.), granting rights to certain actions."@en ;
+    rdfs:label "has authorization"@en .
+    
 dataid:authorityAgentRole
    	a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:hadRole ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Adds a role an agent can administer in the scope provided by the AuthorityEntityContext, thereby allowing for certain actions an agent can execute."@en ;
-    rdfs:domain dataid:AuthorityEntityContext ;
+    rdfs:comment "Provides a role an agent fills out in the scope provided by the dataid:Authorization, thereby allowing for certain actions an agent can execute."@en ;
+    rdfs:domain prov:AgentInfluence ;
     rdfs:label "authority agent role"@en ;
     rdfs:range dataid:AgentRole .
-
-dataid:validForAccessLevel
-    a owl:ObjectProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Limits rights and actions an Agent is allwed to take depending on the AccessLevel chosen for this AuthorityEntityContext."@en ;
-    rdfs:domain dataid:AuthorityEntityContext ;
-    rdfs:label "valid for access level"@en ;
-    rdfs:range dataid:AccessLevel .
 
 dataid:allowsFor
    	a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "AgentRoles allows an agent to execute certain actions."@en ;
+    rdfs:comment "An dataid:AgentRole allows an agent to execute certain actions."@en ;
     rdfs:domain dataid:AgentRole ;
-    rdfs:label "allowes for"@en ;
+    rdfs:label "allows for"@en ;
     rdfs:range dataid:AuthorizedAction .
 
-dataid:hasEntityContext
+dataid:authorizedAction
+   	a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Points out actions, agents are allowed to execute under a given dataid:Authorization."@en ;
+    rdfs:domain prov:AgentInfluence ;
+    rdfs:label "authorized action"@en ;
+    rdfs:range dataid:AuthorizedAction ;
+    owl:propertyChainAxiom (
+	   dataid:authorityAgentRole
+	   dataid:allowsFor
+	) .
+	
+dataid:identifierScheme
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Points out a dataid:AuthorityEntityContext pertaining to this resource."@en ;
-    owl:inverseOf  dataid:authorizedFor ;
-    rdfs:label "has authority-entity-context"@en .
+    rdfs:comment "Points out which scheme of identifiers is used to uniquely identify resources inside a dataid:Dataset."@en ;
+    rdfs:label "identifier scheme"@en ;
+    rdfs:domain dataid:Dataset ;
+    rdfs:range datacite:IdentifierScheme .
+
+dataid:usefulness 
+	a owl:ObjectProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+	rdfs:label "usefulness"@en ;
+	rdfs:comment "Description of to whom the data could be useful, and whether it underpins a scientific publication."@en ;
+	rdfs:domain dataid:Dataset ;
+	rdfs:range dataid:SimpleStatement .
+
+dataid:similarData 
+	a owl:ObjectProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+   	rdfs:label "similar data"@en ;
+   	rdfs:comment "Information on the existence (or not) of similar data (see also dataid:similarDataset)."@en ;
+   	rdfs:domain dataid:Dataset ;
+   	rdfs:range dataid:SimpleStatement .
+
+dataid:reuseAndIntegration 
+	a owl:ObjectProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+	rdfs:label "reuse and integration"@en ;
+	rdfs:comment "Information on the possibilities for integration and reuse of the dataset."@en ;
+	rdfs:domain dataid:Dataset ;
+	rdfs:range dataid:SimpleStatement .
+
+dataid:growth 
+	a owl:ObjectProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+	rdfs:label "growth"@en ;
+	rdfs:comment "Indication of what size the approximated end volume of the data is."@en ;
+	rdfs:domain dataid:Dataset ;
+	rdfs:range dataid:SimpleStatement .
+
+dataid:openness 
+	a owl:ObjectProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+	rdfs:label "openness"@en ;
+	rdfs:comment """General description of how data will be shared. 
+	For example: embargo periods (if any), outlines of technical mechanisms for dissemination or a definition of whether access will be widely open or restricted to specific groups. 
+	In case the dataset cannot be shared, the reasons for this should be mentioned (e.g. ethical, rules of personal data, intellectual property, commercial, privacy-related, security-related)."""@en ;
+	rdfs:domain dataid:Dataset ;
+	rdfs:range dataid:SimpleStatement .
+
+dataid:dataDescription
+	a owl:ObjectProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
+	rdfs:label "data description"@en ;
+	rdfs:comment "Provides a general description of the data represented by this dataset."@en ;
+	rdfs:domain dataid:Dataset ;
+	rdfs:range dataid:SimpleStatement .
 
 dataid:validFrom
-    a owl:DatatypeProperty ;
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"An AuthorityEntityContext is valid for a specific Agent from a certain point in time."@en ;
-    rdfs:domain 	dataid:AuthorityEntityContext ;
+    rdfs:comment 	"The influence an agent has over an Entity is valid from a certain point in time."@en ;
+    rdfs:domain 	prov:AgentInfluence ;
     rdfs:label 		"valid from"@en ;
-    rdfs:range  	xsd:date .
-
+    rdfs:range  	xsd:datetime .
+    
 dataid:validUntil
-    a owl:DatatypeProperty ;
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"An AuthorityEntityContext is valid for a specific Agent until a certain point in time."@en ;
-    rdfs:domain 	dataid:AuthorityEntityContext ;
+    rdfs:comment 	"The influence an agent has over an Entity is valid until a certain point in time."@en ;
+    rdfs:domain 	prov:AgentInfluence ;
     rdfs:label 		"valid until"@en ;
-    rdfs:range  	xsd:date .
-
+    rdfs:range  	xsd:datetime .
 
 dataid:isInheritable
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"Defines that a context keeps intact for the next version of a DataID (if set to 'true')."@en ;
-    rdfs:domain 	dataid:AuthorityEntityContext ;
-    rdfs:label 		"is inheritable"@en ;
-    rdfs:range  	xsd:boolean .
-
-################### DataTypes ####################
-dataid:crc32
-    a rdfs:Datatype ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A crc32 checksum"@en ;
-    rdfs:label "crc32 checksum"@en .
-
-dataid:md5
-    a rdfs:Datatype ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A md5 checksum"@en ;
-    rdfs:label "md5 checksum"@en .
-
-################### Instances ####################
-dataid:PrivateAccess
-	a dataid:AccessLevel ;
+	a	owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "private"@en ;
-	rdfs:comment "Provides an agent with unrestricted access and all rights of a resource."@en .
+	rdfs:label "is inheritable"@en ;
+	rdfs:comment "Indicated whether this dataid:Authorization will be valid after an update to the DataID or a scope element as well (by default this property should be 'true')."@en ;
+	rdfs:domain		dataid:Authorization ;
+    rdfs:range      xsd:boolean.
 
-dataid:SemiPrivateAccess
-	a dataid:AccessLevel ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "semi-private"@en ;
-	rdfs:comment "Limits the rights an agent has on a resource to read and modify."@en .
-
-dataid:PublicAccess
-	a dataid:AccessLevel ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "public"@en;
-	rdfs:comment "Limits the rights an agent has on a resource to read rights."@en .
-
-dataid:NoAccess
-    a dataid:AccessLevel ;
+#The follwing section defines the spread of an Authorization of multiple entities.	
+dataid:authorizedFor
+	a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "no access"@en;
-    rdfs:comment "Disallows access to a resource for an agent."@en .
+    rdfs:comment "Defines the scope of an dataid:Authorization. An Agent has the right to execute authorized actions in this scope. The property chain axioms in its subproperties define how the scope of an dataid:Authorization is spread to other entities."@en ;
+    rdfs:label "authorized for"@en ;
+    rdfs:domain dataid:Authorization ;
+    rdfs:range  prov:Entity .
 
+dataid:underAuthorization
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:qualifiedAttribution ;
+    owl:inverseOf dataid:authorizedFor ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Points out a dataid:Authorization which grants some degree of authority over this resource."@en ;
+    rdfs:label "under authorization"@en ;
+    rdfs:domain	prov:Entity ;
+    rdfs:range dataid:Authorization .
+
+dataid:needsSpecialAuthorization
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid:underAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Points out a dataid:Authorization which grants some degree of authority over this resource to the exclusion of other dataid:Authorizations which are not specified with this property."@en ;
+    rdfs:label "needs special authorization"@en ;
+    rdfs:domain	prov:Entity ;
+    rdfs:range dataid:Authorization .
+
+#Defining void:subset as a transitive property allows for inferring dataid:authorizedFor over dataset hierarchies of multiple levels.
+dataid:transitiveSubset	
+	a	owl:ObjectProperty, owl:TransitiveProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "transitive super property of void:subset"@en ;
+	rdfs:comment "Represents the authority link between two Datasets (if connected by void:subset)."@en .	
+	
+void:subset rdfs:subPropertyOf dataid:transitiveSubset.
+
+#The follwing properties are only inferred by the the existence of property paths of foaf:primaryTopc, void:subset dcat:distribution and dataid:authorizedFor.
+#They make up the super property dataid:authorizedFor and define how an Authorization is spread amongst different entities of DataID, Dataset and Distribution. 
+dataid:authoritySubChain1	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities."@en ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		foaf:primaryTopic	
+		dataid:transitiveSubset
+		dcat:distribution
+	) .
+	
+dataid:authoritySubChain2	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities."@en ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		foaf:primaryTopic	
+		dcat:distribution
+	) .
+	
+dataid:authoritySubChain3	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities."@en ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		dataid:transitiveSubset	
+		dcat:distribution
+	) .
+	
+dataid:authoritySubChain4	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities."@en ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		dataid:transitiveSubset	
+	) .
+	
+dataid:authoritySubChain5	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities."@en ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		foaf:primaryTopic	
+	) .
+	
+dataid:authoritySubChain6	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities."@en ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		dcat:distribution
+	) .
+	
+dataid:authoritySubChain7	
+	a	owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedFor ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities."@en ;
+    owl:propertyChainAxiom (
+		dataid:authorizedFor
+		foaf:primaryTopic	
+		dataid:transitiveSubset	
+	) .
+	
+################### Individuals ####################
+
+## Both ConceptSchemes are just examples in how to use AgentRoles and AuthorizedActions in the context of hierarchies.
+## These Schemes are used to describe responsibilities of agents in the context of DataIDs and their Datasets.
+## TopConcepts contain all actions (or roles) via the relations of skos:narrowerTransitive, skos:broaderTransitive.
+dataid:AuthorizedActionScheme
+	a owl:NamedIndividual, skos:ConceptScheme;
+	skos:hasTopConcept dataid:AllResponsibilities, dataid:AllEntitlements ;
+	rdfs:label "authorized action scheme"@en;
+	rdfs:comment "Description of the authorized action hierarchy."@en .
+	
+dataid:AllResponsibilities
+	a owl:NamedIndividual, dataid:ResponsibleAction ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:comment "Encompasses all responsibilities."@en ;
+	skos:prefLabel "all responsibilities"@en ;
+	skos:topConceptOf dataid:AuthorizedActionScheme ;
+	rdfs:label "all responsibilities"@en .
+	
 dataid:ResponseToContact
-	a dataid:ResponsibleAction ;
+	a owl:NamedIndividual, dataid:ResponsibleAction ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:comment "The responsibility to respond to contact attempts by external agents. A contact point for the entity."@en ;
+	skos:prefLabel "response to contact attempt"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:AllResponsibilities ;
 	rdfs:label "response to contact attempt"@en .
 
 dataid:ResponseToLifeCycleEvent
-	a dataid:ResponsibleAction ;
+	a owl:NamedIndividual, dataid:ResponsibleAction ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:comment "The responsibility to manage changes and react to bugs and issues that are reported"@en ;
+	skos:prefLabel "response to life-cycle event"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:AllResponsibilities ;
 	rdfs:label "response to life-cycle event"@en .
 
 dataid:PublishingDecision
-	a dataid:ResponsibleAction ;
+	a owl:NamedIndividual, dataid:ResponsibleAction ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:comment "The responsibility decide if the entity should be published"@en ;
+	skos:prefLabel "publishing decision"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:AllResponsibilities ;
 	rdfs:label "publishing decision"@en .
 
 dataid:UpdateDataId
-	a dataid:ResponsibleAction ;
+	a owl:NamedIndividual, dataid:ResponsibleAction ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:comment "The responsibility to update dataset metadata."@en ;
+	skos:prefLabel "update DataId"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:AllResponsibilities ;
 	rdfs:label "update DataId"@en .
 
 dataid:AgentSupervision
-	a dataid:ResponsibleAction ;
+	a owl:NamedIndividual, dataid:ResponsibleAction ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:comment "The responsibility to supervise other agents."@en ;
+	skos:prefLabel "agent supervision"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:AllResponsibilities ;
 	rdfs:label "agent supervision"@en .
+	
+dataid:AllEntitlements
+	a owl:NamedIndividual, dataid:ResponsibleAction ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:comment "Encompasses all entitlements."@en ;
+	skos:prefLabel "all entitlements"@en ;
+	skos:topConceptOf dataid:AuthorizedActionScheme ;
+	rdfs:label "all entitlements"@en .
 
 dataid:ReadDataId
-	a dataid:EntitledAction;
+	a owl:NamedIndividual, dataid:EntitledAction;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:comment "Entitled action to read the DataID dataset metadata"@en ;
+	skos:prefLabel "read DataID right"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:AllEntitlements ;
 	rdfs:label "read DataID right"@en .
 
 dataid:ReadContent
-	a dataid:EntitledAction;
+	a owl:NamedIndividual, dataid:EntitledAction;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:comment "Entitled action to read the content of an entity."@en ;
+	skos:prefLabel "read content right"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:ModifyContent ;
 	rdfs:label "read content right"@en .
 
 dataid:ModifyContent
-	a dataid:EntitledAction;
+	a owl:NamedIndividual, dataid:EntitledAction;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:comment "Entitled action to modify the content of an entity."@en ;
+	skos:prefLabel "modify content right"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:DeleteContent ;
 	rdfs:label "modify content right"@en .
 
 dataid:DeleteContent
-	a dataid:EntitledAction;
+	a owl:NamedIndividual, dataid:EntitledAction;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:comment "Entitled action to delete some content of an entity."@en ;
+	skos:prefLabel "delete content right"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:AllEntitlements ;
 	rdfs:label "delete content right"@en .
 
 dataid:ModifyAuthorizedAgents
-	a dataid:EntitledAction ;
+	a owl:NamedIndividual, dataid:EntitledAction ;
 	rdfs:comment "Entitled action to modify which agents are authorized on certain entities."@en ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	skos:prefLabel "modify authorized agents"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:AllEntitlements ;
 	rdfs:label "modify authorized agents"@en .
 
-dataid:ModifyAccessLevel
-	a dataid:EntitledAction ;
-	rdfs:comment "Entitled action to modify access level of an entity."@en ;
+dataid:ModifyAuthorization
+	a owl:NamedIndividual, dataid:EntitledAction ;
+	rdfs:comment "Entitled action to modify an authorization."@en ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "modify entity access level"@en .
+	skos:prefLabel "modify authorization"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:AllEntitlements ;
+	rdfs:label "modify authorization"@en .
 
 dataid:ModifyAgentRoles
-	a dataid:EntitledAction ;
+	a owl:NamedIndividual, dataid:EntitledAction ;
 	rdfs:comment "Entitled action to modify the role of agents on certain entities."@en ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	skos:prefLabel "modify agent roles"@en ;
+	skos:inScheme dataid:AuthorizedActionScheme ;
+	skos:broader dataid:AllEntitlements ;
 	rdfs:label "modify agent roles"@en .
 
-dataid:Guest
-	a dataid:AgentRole;
-	dataid:allowsFor dataid:ReadDataId;
-	dataid:allowsFor dataid:ReadContent;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A visitor/anonymous agent has only read rights on public and semi-private documents"@en ;
-	rdfs:label "guest"@en .
+dataid:AgentRoleScheme
+	a owl:NamedIndividual, skos:ConceptScheme ;
+	skos:hasTopConcept dataid:Creator ;
+	rdfs:label "agent role scheme"@en;
+	rdfs:comment "Description of the agent role hierarchy."@en .
 
 dataid:Creator
-	a dataid:AgentRole;
+	a owl:NamedIndividual, dataid:AgentRole;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	dataid:allowsFor dataid:AllResponsibilities, dataid:AllEntitlements ;
+    rdfs:comment "Creator of the resource. An agent that is credited with a main part in the initial creation of the resource."@en ;
+    skos:prefLabel "creator"@en ;
+	skos:topConceptOf dataid:AgentRoleScheme ;
+	rdfs:label "creator"@en .
+
+dataid:Publisher
+	a owl:NamedIndividual, dataid:AgentRole;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	dataid:allowsFor dataid:ReadDataId;
 	dataid:allowsFor dataid:UpdateDataId;
@@ -1043,13 +833,15 @@ dataid:Creator
 	dataid:allowsFor dataid:ResponseToContact;
 	dataid:allowsFor dataid:AgentSupervision;
 	dataid:allowsFor dataid:PublishingDecision;
-	dataid:allowsFor dataid:ModifyAccessLevel;
-	dataid:allowsFor dataid:ModifyAgentRoles;
-    rdfs:comment "Creator of the resource. An agent that is credited with a main part in the initial creation of the resource."@en ;
-	rdfs:label "creator"@en .
+	dataid:allowsFor dataid:ModifyAuthorization;
+    rdfs:comment "Publisher of the dataset. An agent that makes the dataset accessible online on a server or repository without necessarily being involved in its creation."@en ;
+    skos:prefLabel "publisher"@en ;
+	skos:inScheme dataid:AgentRoleScheme ;
+	skos:broader dataid:Creator ;
+	rdfs:label "publisher"@en .
 
 dataid:Maintainer
-	a dataid:AgentRole;
+	a owl:NamedIndividual, dataid:AgentRole;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	dataid:allowsFor dataid:ReadDataId;
 	dataid:allowsFor dataid:UpdateDataId;
@@ -1060,46 +852,61 @@ dataid:Maintainer
 	dataid:allowsFor dataid:ResponseToLifeCycleEvent;
 	dataid:allowsFor dataid:ResponseToContact;
     rdfs:comment "Maintainer of the dataset. An agent that ensures the technical correctness, accessibility and up-to-dateness of a dataset."@en ;
+    skos:prefLabel "maintainer"@en ;
+	skos:inScheme dataid:AgentRoleScheme ;
+	skos:broader dataid:Creator ;
 	rdfs:label "maintainer"@en .
 
 dataid:Contributor
-	a dataid:AgentRole;
+	a owl:NamedIndividual, dataid:AgentRole;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	dataid:allowsFor dataid:ReadDataId;
 	dataid:allowsFor dataid:ReadContent;
 	rdfs:comment "Contributor to the resource. An agent that was involved in creating or maintaining the resource but does not have the main part in this activity."@en ;
+	skos:prefLabel "contributor"@en ;
+	skos:inScheme dataid:AgentRoleScheme ;
+	skos:broader dataid:Publisher ;
 	rdfs:label "contributor"@en .
 
 dataid:Contact
-	a dataid:AgentRole;
+	a owl:NamedIndividual, dataid:AgentRole;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	dataid:allowsFor dataid:ReadDataId;
 	dataid:allowsFor dataid:ModifyContent;
 	dataid:allowsFor dataid:ReadContent;
 	dataid:allowsFor dataid:ResponseToContact;
     rdfs:comment "Contact agent. An agent that can be contacted for general requests about the resource."@en ;
+    skos:prefLabel "contact"@en ;
+	skos:inScheme dataid:AgentRoleScheme ;
+	skos:broader dataid:Publisher, dataid:Maintainer ;
 	rdfs:label "contact"@en .
 
-dataid:Publisher
-	a dataid:AgentRole;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+dataid:Guest
+	a owl:NamedIndividual, dataid:AgentRole;
 	dataid:allowsFor dataid:ReadDataId;
-	dataid:allowsFor dataid:UpdateDataId;
-	dataid:allowsFor dataid:ModifyContent;
-	dataid:allowsFor dataid:DeleteContent;
 	dataid:allowsFor dataid:ReadContent;
-	dataid:allowsFor dataid:ModifyAuthorizedAgents;
-	dataid:allowsFor dataid:ResponseToLifeCycleEvent;
-	dataid:allowsFor dataid:ResponseToContact;
-	dataid:allowsFor dataid:AgentSupervision;
-	dataid:allowsFor dataid:PublishingDecision;
-	dataid:allowsFor dataid:ModifyAccessLevel;
-    rdfs:comment "Publisher of the dataset. An agent that makes the dataset accessible online on a server or repository without necessarily being involved in its creation."@en ;
-	rdfs:label "publisher"@en .
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "A visitor/anonymous agent has only read rights on public and semi-private documents"@en ;
+    skos:prefLabel "guest"@en ;
+	skos:inScheme dataid:AgentRoleScheme ;
+	skos:broader dataid:Contributor ;
+	rdfs:label "guest"@en .
 
 #defining the generic Agent for any Agent not specifically defined
 dataid:GuestAgent
-    a dataid:Agent;
+    a owl:NamedIndividual, dataid:Agent;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "Use this agent as a stand in for any agent not specifically defined in a domain, granting public access to an entity."@en ;
+    rdfs:label "guest agent"@en ;
+    foaf:mbox 		<mailto:address@alibi.com> ;
     foaf:homepage  <http://dataid.dbpedia.org>;
-    foaf:name   "Guest Actor".
+    foaf:name   "Guest Agent".
+    
+dataid:GuestAuthorization
+	a owl:NamedIndividual, dataid:Authorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	dataid:isInheritable true ;
+	dataid:authorizedAgent dataid:GuestAgent ;
+	dataid:authorityAgentRole dataid:Guest ;
+	rdfs:label "guest authority"@en ;
+	rdfs:comment "This authorization can be used to point out that the content of an entity is public an can be read by anyone (see also dataid:Guest)."@en .
