@@ -6,7 +6,7 @@
    xmlns:foaf="http://xmlns.com/foaf/0.1/"
    xmlns:litre="http://www.essepuntato.it/2010/06/literalreification/"
    xmlns:lvont="http://lexvo.org/ontology#"
-   xmlns:msr="http://purl.org/ms-rights#"
+   xmlns:odrl="http://www.w3.org/ns/odrl/2/"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:prov="http://www.w3.org/ns/prov#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -30,6 +30,7 @@
      By describing datasets including content, authors, licenses and provenance via RDF, thereby making data accessible to others, is the basic idea of Linked Open Data and is your contribution to a universal data give and take.</rdfs:comment>
     <rdfs:label xml:lang="en">DataID</rdfs:label>
     <owl:versionInfo>2.0.0</owl:versionInfo>
+    <foaf:depiction rdf:resource="https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataIdOntology.png"/>
   </owl:Ontology>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Agent">
     <rdfs:comment xml:lang="en">Any type of agent without a specific function.</rdfs:comment>
@@ -173,7 +174,7 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="http://purl.org/ms-rights#License"/>
+        <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/odrl/2/Policy"/>
         <owl:onProperty rdf:resource="http://purl.org/dc/terms/license"/>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -200,7 +201,7 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="http://purl.org/ms-rights#License"/>
+        <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/odrl/2/Policy"/>
         <owl:onProperty rdf:resource="http://purl.org/dc/terms/license"/>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -300,7 +301,7 @@
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="http://purl.org/ms-rights#License"/>
+        <owl:allValuesFrom rdf:resource="http://www.w3.org/ns/odrl/2/Policy"/>
         <owl:onProperty rdf:resource="http://purl.org/dc/terms/license"/>
       </owl:Restriction>
     </rdfs:subClassOf>

@@ -11,8 +11,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
 @prefix lvont: <http://lexvo.org/ontology#> .
-@prefix msr: <http://purl.org/ms-rights#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spdx: <http://spdx.org/rdf/terms/#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
@@ -31,16 +31,17 @@ dataid:
      We introduced a multilayer concept of supporting ontologies extending DataID core to fit different use case scenarios (for Linked Data, providing statistical data about datasets etc.).
      By describing datasets including content, authors, licenses and provenance via RDF, thereby making data accessible to others, is the basic idea of Linked Open Data and is your contribution to a universal data give and take."""@en ;
     rdfs:label "DataID"@en ;
+    foaf:depiction 	<https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataIdOntology.png> ;
 	dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
 	dct:creator <http://wiki.dbpedia.org/Association/Persons/Freudenberg> .
     #owl:imports dcat:, prov:, rdfs:, foaf:, void: , dct: .
     #owl:imports <http://www.w3.org/ns/dcat>, rdfs: , <http://www.w3.org/ns/prov-o-20130430> , foaf: ,void: , dct: .
     
 <http://wiki.dbpedia.org/Association/Persons/Freudenberg>
-        a                        dataid:Agent ;
-        foaf:mbox                "freudenberg@informatik.uni-leipzig.de" ;
-        foaf:homepage			<http://wiki.dbpedia.org/Association/Persons/Freudenberg> ;
-        foaf:name                "Markus Freudenberg" .
+    a                        dataid:Agent ;
+    foaf:mbox                "freudenberg@informatik.uni-leipzig.de" ;
+    foaf:homepage			<http://wiki.dbpedia.org/Association/Persons/Freudenberg> ;
+    foaf:name                "Markus Freudenberg" .
         
 ######## Single Axioms ########
 
@@ -86,7 +87,7 @@ dataid:DataId
 	        owl:onProperty dataid:latestVersion
 	    ],[
 	        a owl:Restriction ;
-	        owl:allValuesFrom msr:License ;
+	        owl:allValuesFrom odrl:Policy;
 	        owl:onProperty dct:license
 	    ],[
 	        a owl:Restriction ;
@@ -119,7 +120,7 @@ dataid:Dataset
 	        owl:onProperty dataid:latestVersion
 	    ],[
 	        a owl:Restriction ;
-	        owl:allValuesFrom msr:License ;
+	        owl:allValuesFrom odrl:Policy ;
 	        owl:onProperty dct:license
 	    ],[
 	        a owl:Restriction ;
@@ -167,7 +168,7 @@ dataid:Distribution
 	        owl:onProperty dataid:latestVersion
 	    ],[
 	        a owl:Restriction ;
-	        owl:allValuesFrom msr:License ;
+	        owl:allValuesFrom odrl:Policy ;
 	        owl:onProperty dct:license
 	    ],[
 	        a owl:Restriction ;
