@@ -11,8 +11,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
 @prefix lvont: <http://lexvo.org/ontology#> .
-@prefix msr: <http://purl.org/ms-rights#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spdx: <http://spdx.org/rdf/terms/#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
@@ -87,7 +87,7 @@ dataid:DataId
 	        owl:onProperty dataid:latestVersion
 	    ],[
 	        a owl:Restriction ;
-	        owl:allValuesFrom msr:License ;
+	        owl:allValuesFrom odrl:Policy;
 	        owl:onProperty dct:license
 	    ],[
 	        a owl:Restriction ;
@@ -120,7 +120,7 @@ dataid:Dataset
 	        owl:onProperty dataid:latestVersion
 	    ],[
 	        a owl:Restriction ;
-	        owl:allValuesFrom msr:License ;
+	        owl:allValuesFrom odrl:Policy ;
 	        owl:onProperty dct:license
 	    ],[
 	        a owl:Restriction ;
@@ -168,7 +168,7 @@ dataid:Distribution
 	        owl:onProperty dataid:latestVersion
 	    ],[
 	        a owl:Restriction ;
-	        owl:allValuesFrom msr:License ;
+	        owl:allValuesFrom odrl:Policy ;
 	        owl:onProperty dct:license
 	    ],[
 	        a owl:Restriction ;
