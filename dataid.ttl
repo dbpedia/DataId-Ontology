@@ -211,7 +211,7 @@ dataid:FileCollection
 dataid:Agent
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Any type of agent without a specific function."@en ;
+    rdfs:comment "Agents represent entities like persons or organisations."@en ;
     rdfs:label "Agent"@en ;
     rdfs:subClassOf prov:Agent, foaf:Agent, dct:Agent.
 
@@ -219,14 +219,17 @@ dataid:Authorization
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Authorization"@en ;
-	rdfs:comment """This concept defines a scope of Entities and links it to an Agent who has certain rights for those entities (defined by the AgentRole/AuthorizedAction). The scope consists of all Entities directly linked to the dataid:Authorization, as well as transitively dependent Entities."""@en ;
+	rdfs:comment """This concept is a mediator between a set of entities (or scope) defines by the property dataid:authorizedFor,
+	a set of AgentRoles defining rights and responsibilities and an Agent fulfilling the AgentRoles in regard to the collection of entities.
+	This subclass of prov:Attribution qualifies the relation (prov:wasAttributedTo) between prov:Entity and prov:Agent with the AgentRoles 
+	and AuthorizedActions of the DataID-domain."""@en ;
 	rdfs:subClassOf prov:Attribution .
 
 dataid:AgentRole
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Agent Role"@en ;
-	rdfs:comment """Instances of this class define an array of rights and responsibilities an agent, assigned with this role for a given scope of entities, has to address or can execute."""@en ;
+	rdfs:comment """Agent roles are defined by a set of rights and responsibilities (see AuthorizedAction) an agent, assigned with this role, has to address or can execute."""@en ;
 	rdfs:subClassOf prov:Role, skos:Concept .
 
 dataid:AuthorizedAction
@@ -234,7 +237,8 @@ dataid:AuthorizedAction
 	rdfs:subClassOf skos:Concept ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Authorized Action"@en ;
-    rdfs:comment """AgentRoles provide agents with the ability to execute certain actions as well as demand certain responsibilities, which are defines by the instances of this concept."""@en .
+    rdfs:comment """Authorized actions may constiute either of activities an Agent can execute in regard to a collection of prov:Entities or of 
+    responsibilities an Agent should act upon (e.g. make certain decisions if necessary or act upon certain events)."""@en .
 
 dataid:ResponsibleAction
 	a owl:Class ;
