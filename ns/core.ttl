@@ -10,7 +10,6 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix wsdl: <http://www.w3.org/ns/wsdl-rdf#> .
 @prefix lvont: <http://lexvo.org/ontology#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
@@ -175,7 +174,7 @@ dataid:ServiceEndpoint
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "A specific distribution, which is accessible via an access url and provides data as a web service in a certain format."@en ;
     rdfs:label "Service Endpoint"@en ;
-    rdfs:subClassOf dataid:Distribution, wsdl:Service.
+    rdfs:subClassOf dataid:Distribution. 
 
 dataid:SingleFile
     a owl:Class ;
@@ -301,6 +300,15 @@ dataid:isDistributionOf
 	rdfs:domain		dataid:Distribution;
 	rdfs:range		dataid:Dataset.
 
+dataid:inCatalog
+	a	owl:ObjectProperty ;
+	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+	rdfs:label "in catalog"@en ;
+	rdfs:comment "The inverse property of dcat:record, pointing back to the dcat:Catalog."@en ;
+	owl:inverseOf	dcat:record;
+	rdfs:domain		dataid:DataId;
+	rdfs:range		dcat:Catalog.
+	
 dataid:uncompressedByteSize
 	a	owl:DatatypeProperty ;
 	rdfs:subPropertyOf dcat:byteSize ;

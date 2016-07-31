@@ -1075,10 +1075,10 @@ dataid:latestVersion<y:LabelModel>
     <edge id="e21" source="n15" target="n6">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-11.199044322975283" sy="-65.2590575158464" tx="0.0" ty="0.0"/>
+          <y:Path sx="-52.5686443229753" sy="-65.2590575158464" tx="-41.36960000000002" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="64.029296875" x="-32.01464909992512" y="-32.40284595025946">dcat:record<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="64.029296875" x="-32.014648803904635" y="-32.40284595025946">dcat:record<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1419,6 +1419,25 @@ dataid:needsSpecialAuthorization<y:LabelModel>
             </y:LabelModel>
             <y:ModelParameter>
               <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="10.0" distanceToCenter="false" position="center" ratio="0.27145477763026166" segment="0"/>
+            </y:ModelParameter>
+            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e41" source="n6" target="n15">
+      <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="58.216066139720056" sy="0.0" tx="47.01702181674477" ty="-28.03986039056406"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="90.73046875" x="-45.36523716552733" y="13.695054440365539">dataid:inCatalog<y:LabelModel>
+              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="10.0" distanceToCenter="false" position="center" ratio="0.5" segment="1"/>
             </y:ModelParameter>
             <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
           </y:EdgeLabel>

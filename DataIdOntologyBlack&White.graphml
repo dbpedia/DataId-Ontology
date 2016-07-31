@@ -49,7 +49,7 @@ dataid:usefulness: dataid:SS<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -81,7 +81,7 @@ dataid:softwareRquirement: dataid:SS<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -106,7 +106,7 @@ foaf:account : foaf:OnlineAccount<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -127,7 +127,7 @@ foaf:account : foaf:OnlineAccount<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -148,7 +148,7 @@ foaf:account : foaf:OnlineAccount<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -169,7 +169,7 @@ foaf:account : foaf:OnlineAccount<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -195,7 +195,7 @@ dct:modified : xsd:date<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -216,7 +216,7 @@ dct:modified : xsd:date<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -238,7 +238,7 @@ dct:modified : xsd:date<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -262,7 +262,7 @@ dataid:validUnitl : xsd:date<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -290,7 +290,7 @@ dataid:Publisher<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -310,7 +310,7 @@ dataid:Publisher<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -337,7 +337,7 @@ dataid:ModifyAgentRoles<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -363,7 +363,7 @@ dataid:AgentSupervision<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -384,7 +384,7 @@ dataid:AgentSupervision<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -409,7 +409,7 @@ foaf:homepage : foaf:Document<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -433,7 +433,7 @@ dct:issued : xsd:date<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -454,7 +454,7 @@ dct:issued : xsd:date<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -505,7 +505,7 @@ Martin Brümmer<y:LabelModel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -531,7 +531,7 @@ dataid:typeExtension : rdfs:Literal
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -552,7 +552,7 @@ dataid:typeExtension : rdfs:Literal
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -573,7 +573,7 @@ dataid:typeExtension : rdfs:Literal
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -594,7 +594,7 @@ dataid:typeExtension : rdfs:Literal
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -615,7 +615,7 @@ dataid:typeExtension : rdfs:Literal
             </y:ModelParameter>
           </y:NodeLabel>
           <y:StyleProperties>
-            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="false"/>
           </y:StyleProperties>
         </y:GenericNode>
       </data>
@@ -1005,10 +1005,10 @@ dataid:latestVersion<y:LabelModel>
     <edge id="e16" source="n1" target="n0">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-121.84069478859385" sy="32.39999999999992" tx="107.52740989147753" ty="0.0"/>
+          <y:Path sx="-121.84069478859385" sy="23.977670231071727" tx="107.52740989147753" ty="-8.422329768928194"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="110.728515625" x="-226.97597081994422" y="-9.350583235415684">dataid:distributionOf<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="110.728515625" x="-226.97597081994422" y="-9.350610758250127">dataid:distributionOf<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1075,7 +1075,7 @@ dataid:latestVersion<y:LabelModel>
     <edge id="e21" source="n15" target="n6">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-11.199044322975283" sy="-65.2590575158464" tx="0.0" ty="0.0"/>
+          <y:Path sx="-50.19904432297528" sy="-65.2590575158464" tx="-39.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="64.029296875" x="-32.01464909992512" y="-32.40284595025946">dcat:record<y:LabelModel>
@@ -1390,10 +1390,10 @@ dataid:needsSpecialAuthorization<y:LabelModel>
       <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="-20.0" tx="-64.61124999999993" ty="12.39999999999992"/>
+          <y:Path sx="0.0" sy="-28.422329768928194" tx="-64.61124999999993" ty="3.977670231071727"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="88.046875" x="127.59806482458703" y="-9.350583235415684">dcat:distribution<y:LabelModel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="88.046875" x="127.59806482458703" y="-9.350580240671945">dcat:distribution<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1419,6 +1419,25 @@ dataid:needsSpecialAuthorization<y:LabelModel>
             </y:LabelModel>
             <y:ModelParameter>
               <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="10.0" distanceToCenter="false" position="center" ratio="0.27145477763026166" segment="0"/>
+            </y:ModelParameter>
+            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
+          </y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e41" source="n6" target="n15">
+      <data key="d9"><![CDATA[ewfwefadqwdqwd]]></data>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="53.006146139720045" sy="0.0" tx="41.80710181674476" ty="-31.057140390563973"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="90.73046875" x="-45.365234375" y="13.683885006771789">dataid:inCatalog<y:LabelModel>
+              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="10.0" distanceToCenter="false" position="center" ratio="0.5" segment="1"/>
             </y:ModelParameter>
             <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
           </y:EdgeLabel>
