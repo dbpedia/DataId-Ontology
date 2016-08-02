@@ -316,12 +316,6 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
         <owl:onProperty rdf:resource="http://purl.org/dc/terms/language"/>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="http://spdx.org/rdf/terms/#Checksum"/>
-        <owl:onProperty rdf:resource="http://www.w3.org/ns/dcat#checksum"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#EntitledAction">
     <rdfs:comment xml:lang="en">EntitledActions describe actions an Agent is allowed to perform when holding a certain AgentRole. &#xD;
@@ -760,6 +754,13 @@ The property chain axioms in its subproperties define how the scope of an dataid
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">authorized for</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#checksum">
+    <rdfs:comment xml:lang="en">The Checksum value allows the contents of a file to be authenticated, since it shifts even with small changes to the file.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
+    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">checksum</rdfs:label>
+    <rdfs:range rdf:resource="http://spdx.org/rdf/terms/#Checksum"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#dataDescription">
     <rdfs:comment xml:lang="en">Provides a general description of the data represented by this dataset.</rdfs:comment>

@@ -163,10 +163,6 @@ dataid:Distribution
 	        a owl:Restriction ;
 	        owl:allValuesFrom lvont:Language ;
 	        owl:onProperty dct:language
-	    ],[
-	        a owl:Restriction ;
-	        owl:allValuesFrom spdx:Checksum ;
-	        owl:onProperty dcat:checksum
 	    ].
 
 dataid:ServiceEndpoint
@@ -355,6 +351,14 @@ dataid:softwareRquirement
     rdfs:domain dataid:Distribution ;
     rdfs:label "software requirement"@en ;
     rdfs:range dataid:SimpleStatement .
+    
+dataid:checksum
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment "The Checksum value allows the contents of a file to be authenticated, since it shifts even with small changes to the file."@en ;
+    rdfs:domain dataid:Distribution	;
+    rdfs:label "checksum"@en ;
+    rdfs:range spdx:Checksum .
 
 dataid:nextVersion
     a owl:ObjectProperty ;
