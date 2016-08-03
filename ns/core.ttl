@@ -15,7 +15,6 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix spdx: <http://spdx.org/rdf/terms/#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
-@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
 
 @base <http://dataid.dbpedia.org/ns/core#> .
 
@@ -249,7 +248,7 @@ dataid:SimpleStatement
 	rdfs:label "Simple Statement"@en ;
 	rdfs:comment """A SimpleStatement either a primitive literal containing unstructured text (see dataid:statement), or a web reference to a statment (using dct:references).
 	This class implements several classes of Dublin Core which are not further specified within DC."""@en ;
-	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard , litre:Literal, 
+	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard , 
 	[
         a owl:Restriction ;
         owl:allValuesFrom foaf:Document ;
@@ -355,7 +354,7 @@ dataid:softwareRquirement
 dataid:checksum
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "The Checksum value allows the contents of a file to be authenticated, since it shifts even with small changes to the file."@en ;
+    rdfs:comment """The checksum property provides a mechanism that can be used to verify that the content of a file has not changed."""@en ;
     rdfs:domain dataid:Distribution	;
     rdfs:label "checksum"@en ;
     rdfs:range spdx:Checksum .
@@ -384,7 +383,8 @@ dataid:latestVersion
     rdfs:label "latest version"@en ;
     rdfs:range prov:Entity .
 
-dataid:innerMediaType a owl:ObjectProperty, owl:FunctionalProperty ;
+dataid:innerMediaType 
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf dcat:mediaType;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Points out the MediaType of the (compressed) file inside another file (relevant for archive files)."@en ;
@@ -426,14 +426,13 @@ dataid:typeName
     
 dataid:statement
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf litre:hasLiteralValue ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"An actual textual statement (or string)."@en ;
     rdfs:label "statement"@en ;
     rdfs:range rdfs:Literal.
 
 dataid:identifier
-    a owl:InverseFunctionalProperty ;
+    a owl:ObjectProperty, owl:InverseFunctionalProperty ;
     rdfs:subPropertyOf datacite:hasIdentifier, foaf:isPrimaryTopicOf ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "An unique identifier for an Agent or Entity (for other, non DataID related identifiers)."@en ;
@@ -925,7 +924,7 @@ dataid:GuestAuthorization
 	
 	
         
-######## Single Axioms ########
+######## External Axioms ########
 
 ## to make use of dct:spatial together with geonames#Feature:
 <http://www.geonames.org/ontology#Feature>	rdfs:subClassOf	dct:Location .
