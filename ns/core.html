@@ -115,7 +115,7 @@
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Agent</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Agents are general entities representing persons, legal persons or organisations.</p>
+        <div class="comment"><p>Agents are real or legal persons, groups of persons, programs, organisations etc.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -137,8 +137,8 @@
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#AgentRole</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Agent roles are defined by a set of rights and responsibilities (see AuthorizedAction)
-            an agent, assigned with this role, has to address or can execute.</p>
+        <div class="comment"><p>AgentRoles are defined by a set of rights and responsibilities (see AuthorizedAction) an
+            Agent, assigned with this Role, has to address or can execute.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -173,13 +173,13 @@
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Authorization</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>This concept is a mediator between a set of entities (or scope) defines by the property
-            dataid:authorizedFor,
-            a set of AgentRoles defining rights and responsibilities and Agents, fulfilling the AgentRoles, in regard to
-            the collection of entities.
-            This subclass of prov:Attribution qualifies the relation prov:wasAttributedTo between prov:Entity and
-            prov:Agent with the AgentRoles
-            and AuthorizedActions of the DataID-domain.</p>
+        <div class="comment"><p>This concept is a mediator between a set of Entities (or scope) defines by the property
+            dataid:authorizedFor, a set of AgentRoles
+            defining rights and responsibilities (dataid:authorityAgentRole) and Agents (dataid:associatedAgent),
+            fulfilling the AgentRoles,
+            in regard to the collection of Entities. This subclass of prov:Attribution qualifies the relation
+            prov:wasAttributedTo between prov:Entity
+            and prov:Agent with the AgentRoles and AuthorizedActions of the DataID-domain.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -207,10 +207,10 @@
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#AuthorizedAction</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Authorized actions may constiute either of activities an Agent can execute in regard to
-            a collection of prov:Entities or of
-            responsibilities an Agent should act upon (e.g. make certain decisions if necessary or act upon certain
-            events).</p>
+        <div class="comment"><p>AuthorizedActions may be comprised either of activities an Agent can execute in regard
+            to a collection of Entities (dataid:EntitledAction),
+            or of responsibilities an Agent should act upon (dataid:ResponsibleAction) (e.g. make certain decisions if
+            necessary or act upon certain events).</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -233,10 +233,10 @@
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#DataId</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>A DataId Induvidual serves as a root Entity for every DataID document describing one or
+        <div class="comment"><p>A DataId instance serves as a root entity for every DataID document describing one or
             more datasets. As a subclass of dcat:CatalogRecord / void:DatasetDescription it describes not a dataset
             itself but provides metadata about its entry in a dcat:Catalog and/or its relations to repositories or other
-            data collections .</p>
+            data collections.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -276,11 +276,10 @@
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Dataset</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>A collection of data, available for access in one or more formats. Dataset resources
-            describe the
-            concept of the dataset, not it's manifestation (the data itself), which can be acquired as a
-            dataid:Distribution.
-            Datasets are prov:Entities and can be generated by prov:Activities.</p>
+        <div class="comment"><p>A collection of data, available for access in one or more formats.
+            Dataset resources describe the concept of the dataset, not it's manifestation (the data itself), which can
+            be acquired
+            as a Distribution. Datasets are Entities and can be generated by prov:Activities.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -353,8 +352,8 @@
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Directory</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>A dedicated directory holding (multiple) files of the same dataset, which, when put
-            together, make up the whole dataset.</p>
+        <div class="comment"><p>A dedicated directory holding (multiple) files of the same Dataset, which, when put
+            together, make up the whole Dataset.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -369,7 +368,7 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Distribution</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>Distributions describe a single manifestation of the pertaining Dataset (for example;
-            its data format/serialization or a service endpoint including the procedure required to acces the data).</p>
+            its data format/serialization or a ServiceEndpoint including the procedure required to access the data).</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -425,8 +424,7 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#EntitledAction</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>EntitledActions describe actions an Agent is allowed to perform when holding a certain
-            AgentRole.
-            These actions may address restricted matters like access, modification rights and others.</p>
+            AgentRole. These Actions may address restricted matters like access, modification rights and others.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -458,8 +456,8 @@
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#FileCollection</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Multiple files constituting one (complete) dataset (files in different locations are
-            possible).</p>
+        <div class="comment"><p>Multiple files constituting one (complete) Dataset (files in different directories or
+            servers are allowed, as opposed to Directory).</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -473,9 +471,9 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Identifier</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>Uniquely identifies any resource, given an identifier as literal (see dataid:statement)
-            and a corresponding aid/pid scheme
-            (ORCID, ResearcherID etc. pointed out via datacite:usesIdentifierScheme). Optionally it can point out a
-            reference document on the web (about this identifier) using dct:references.</p>
+            and a corresponding identifier scheme (e.g. a aid/pid scheme like: ORCID, ResearcherID etc.
+            pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web
+            (about this Identifier) using dct:references.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -492,10 +490,10 @@
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#MediaType</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Extends the dct:MediaType class of Dublin Core, providing the Iana media type
+        <div class="comment"><p>Extends the dct:MediaTypeOrExtend class of Dublin Core, providing the IANA media type
             description (or mime type) and common file extensions used.
-            A pointer to an inner media types can describe (multiple) layers of compressions and all internal media
-            types.</p>
+            A pointer to an inner media (dataid:innerMediaType) can describe (multiple) layers of compressions and all
+            internal media types.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -524,8 +522,8 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ResponsibleAction</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>AgentRoles provide rights as well as responsibilities an agent has to attend to in order
-            to fulfill this role.
-            Responsible actions should describe actions pertaining to responsibilities an agent is supposed to do when
+            to fulfill this Role.
+            ResponsibleActions should describe actions pertaining to responsibilities an agent is supposed to do when
             holding a specific AgentRole.</p>
         </div>
         <dl class="description">
@@ -558,7 +556,7 @@
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ServiceEndpoint</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>A specific distribution, which is accessible via an access url and provides data as a
+        <div class="comment"><p>A specific Distribution, which is accessible via an access url and provides data as a
             web service in a certain format.</p>
         </div>
         <dl class="description">
@@ -573,9 +571,11 @@
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#SimpleStatement</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>A SimpleStatement either a primitive literal containing unstructured text (see
-            dataid:statement), or a web reference to a statment (using dct:references).
-            This class implements several classes of Dublin Core which are not further specified within DC.</p>
+        <div class="comment"><p>A SimpleStatement is intended as a tool for conveying a statement, definition or point
+            of view about a certain topic. Using either a simple literal (using dataid:statement)
+            to provide a quotation, or by a referencing a web resource providing or representing the statement in any
+            given medium (picture, text, video etc.). This class implements several classes of
+            Dublin Core which are not further specified within DC.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -614,7 +614,7 @@
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#SingleFile</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>A single data dump file representing the whole dataset, in a certain
+        <div class="comment"><p>A single data dump file representing the whole Dataset, in a certain
             format/serialization.</p>
         </div>
         <dl class="description">
@@ -716,7 +716,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#allowsFor</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>An dataid:AgentRole allows an agent to execute certain AuthorizedActions.</p>
+        <div class="comment"><p>An AgentRole allows an Agent to execute certain AuthorizedActions.</p>
         </div>
         <div class="description">
             <dl>
@@ -738,8 +738,8 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#associatedAgent</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>An agent which is generally connected to the dataset, their exact function in regard to
-            the Entity has to be specified by the qualification dataid:Authorization.</p>
+        <div class="comment"><p>An Agent which is generally connected to the Dataset, their exact function in regard to
+            the Entity has to be specified by the qualification of an Authorization.</p>
         </div>
         <div class="description">
             <dl>
@@ -768,8 +768,8 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authorityAgentRole</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Provides a role an Agent fills out in the scope provided by the dataid:Authorization,
-            thereby allowing for certain AuthorizedActions an agent can execute.</p>
+        <div class="comment"><p>Provides a AgentRole an Agent fills out in the scope provided by the Authorization,
+            thereby allowing for certain AuthorizedActions an Agent can execute.</p>
         </div>
         <div class="description">
             <dl>
@@ -793,7 +793,7 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authoritySubChain1</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>This sub-property of dataid:authorizedFor provides a property chain axiom, extending the
-            reach of dataid:authorizedFor to other entities.</p>
+            reach of dataid:authorizedFor to other Entities.</p>
         </div>
         <div class="description">
             <dl>
@@ -818,7 +818,7 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authoritySubChain2</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>This sub-property of dataid:authorizedFor provides a property chain axiom, extending the
-            reach of dataid:authorizedFor to other entities.</p>
+            reach of dataid:authorizedFor to other Entities.</p>
         </div>
         <div class="description">
             <dl>
@@ -841,7 +841,7 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authoritySubChain3</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>This sub-property of dataid:authorizedFor provides a property chain axiom, extending the
-            reach of dataid:authorizedFor to other entities.</p>
+            reach of dataid:authorizedFor to other Entities.</p>
         </div>
         <div class="description">
             <dl>
@@ -865,7 +865,7 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authoritySubChain4</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>This sub-property of dataid:authorizedFor provides a property chain axiom, extending the
-            reach of dataid:authorizedFor to other entities.</p>
+            reach of dataid:authorizedFor to other Entities.</p>
         </div>
         <div class="description">
             <dl>
@@ -887,7 +887,7 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authoritySubChain5</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>This sub-property of dataid:authorizedFor provides a property chain axiom, extending the
-            reach of dataid:authorizedFor to other entities.</p>
+            reach of dataid:authorizedFor to other Entities.</p>
         </div>
         <div class="description">
             <dl>
@@ -909,7 +909,7 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authoritySubChain6</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>This sub-property of dataid:authorizedFor provides a property chain axiom, extending the
-            reach of dataid:authorizedFor to other entities.</p>
+            reach of dataid:authorizedFor to other Entities.</p>
         </div>
         <div class="description">
             <dl>
@@ -931,7 +931,7 @@
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authoritySubChain7</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>This sub-property of dataid:authorizedFor provides a property chain axiom, extending the
-            reach of dataid:authorizedFor to other entities.</p>
+            reach of dataid:authorizedFor to other Entities.</p>
         </div>
         <div class="description">
             <dl>
@@ -953,8 +953,8 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authorizedAction</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Points out AuthorizedActions, Agents are allowed to execute under a given
-            dataid:Authorization (and its chosen AgentRoles).</p>
+        <div class="comment"><p>Points out AuthorizedActions, Agents are allowed to execute under a given Authorization
+            (and its chosen AgentRoles).</p>
         </div>
         <div class="description">
             <dl>
@@ -981,8 +981,8 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authorizedAgent</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Points out an Agent which holds the rights granted by a dataid:Authorization (e.g. to
-            modify the metadata of a Dataset).</p>
+        <div class="comment"><p>Points out an Agent which holds the rights granted by an Authorization (e.g. to modify
+            the metadata of a Dataset).</p>
         </div>
         <div class="description">
             <dl>
@@ -1009,9 +1009,9 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#authorizedFor</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Defines the scope of a dataid:Authorization. An Agent has the right to execute
+        <div class="comment"><p>Defines the scope of an Authorization. An Agent has the right to execute
             AuthorizedActions for all Entities of this scope.
-            The property chain axioms in its subproperties define how the scope of an dataid:Authorization is spread to
+            The property chain axioms in its sub-properties define how the scope of an Authorization is extended to
             other Entities.</p>
         </div>
         <div class="description">
@@ -1050,8 +1050,8 @@
                 href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#checksum</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The checksum property provides a mechanism that can be used to verify that the content
-            of a file has not changed.</p>
+        <div class="comment"><p>The checksum value allows the contents of a file to be authenticated, since it shifts
+            even with small changes to the file.</p>
         </div>
         <div class="description">
             <dl>
@@ -1070,7 +1070,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#dataDescription</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Provides a general description of the data represented by this dataset.</p>
+        <div class="comment"><p>Provides a general description of the data represented by this Dataset.</p>
         </div>
         <div class="description">
             <dl>
@@ -1089,7 +1089,7 @@
                 href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#growth</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Indication of what size the approximated end volume of the data is.</p>
+        <div class="comment"><p>Indication of what size the approximated end volume of the Dataset is.</p>
         </div>
         <div class="description">
             <dl>
@@ -1109,8 +1109,8 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#hasAuthorization</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Provides an dataid:Agent with the dataid:Authorization for a given scope of Entities
-            (e.g. Dataset, Distribution etc.), granting rights to certain AuthorizedActions.</p>
+        <div class="comment"><p>Provides an Agent with the Authorization for a given scope of Entities (e.g. Dataset,
+            Distribution etc.), granting rights to execute certain AuthorizedActions.</p>
         </div>
         <div class="description">
             <dl>
@@ -1168,7 +1168,8 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#inCatalog</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The inverse property of dcat:record, pointing back to the dcat:Catalog.</p>
+        <div class="comment"><p>The inverse property of dcat:record, pointing back to the dcat:Catalog in which this
+            DataId is recorded.</p>
         </div>
         <div class="description">
             <dl>
@@ -1214,7 +1215,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#isDistributionOf</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Inverse property of dcat:distribution, linking a Distribution to a Dataset</p>
+        <div class="comment"><p>Inverse property of dcat:distribution, linking a Distribution to a Dataset.</p>
         </div>
         <div class="description">
             <dl>
@@ -1237,7 +1238,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#latestVersion</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Latest version of a DataID/Dataset/Distribution.</p>
+        <div class="comment"><p>Latest version of a DataId/Dataset/Distribution.</p>
         </div>
         <div class="description">
             <dl>
@@ -1256,8 +1257,8 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Points out a dataid:Authorization which grants some degree of authority over this
-            resource to the exclusion of other dataid:Authorizations which are not specified with this property.</p>
+        <div class="comment"><p>Points out an Authorization which grants some degree of authority over this resource to
+            the exclusion of other Authorizations which are not specified with this property.</p>
         </div>
         <div class="description">
             <dl>
@@ -1280,7 +1281,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#nextVersion</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Next version of a DataID/Dataset/Distribution.</p>
+        <div class="comment"><p>Next version of a DataId/Dataset/Distribution.</p>
         </div>
         <div class="description">
             <dl>
@@ -1298,10 +1299,10 @@
                 href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#openness</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>General description of how data will be shared.
-            For example: embargo periods (if any), outlines of technical mechanisms for dissemination or a definition of
-            whether access will be widely open or restricted to specific groups.
-            In case the dataset cannot be shared, the reasons for this should be mentioned (e.g. ethical, rules of
+        <div class="comment"><p>General description of how data will be shared. For example: embargo periods (if any),
+            outlines of technical mechanisms for dissemination or a definition of
+            whether access will be widely open or restricted to specific groups. In case the Dataset cannot be shared,
+            the reasons for this should be mentioned (e.g. ethical, rules of
             personal data, intellectual property, commercial, privacy-related, security-related).</p>
         </div>
         <div class="description">
@@ -1321,8 +1322,8 @@
                 href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#preview</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Provides the url of a short preview of the data provided by a distribution, helpful when
-            conveying type and format of the data provided.</p>
+        <div class="comment"><p>Provides the url of a short preview of the data provided by a Distribution, helpful when
+            conveying type and format of the data provided as an example.</p>
         </div>
         <div class="description">
             <dl>
@@ -1341,7 +1342,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#previousVersion</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Previous version of a DataID/Dataset/Distribution.</p>
+        <div class="comment"><p>Previous version of a DataId/Dataset/Distribution.</p>
         </div>
         <div class="description">
             <dl>
@@ -1360,7 +1361,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#reuseAndIntegration</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Information on the possibilities for integration and reuse of the dataset.</p>
+        <div class="comment"><p>Information on the possibilities for integration and reuse of the Dataset.</p>
         </div>
         <div class="description">
             <dl>
@@ -1401,7 +1402,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#similarDataset</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Points to other dataset containing related data.</p>
+        <div class="comment"><p>Points to other Datasets containing related data.</p>
         </div>
         <div class="description">
             <dl>
@@ -1454,7 +1455,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#typeReference</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Refers to a standard document of the mime type described.</p>
+        <div class="comment"><p>Refers to a standard document of the MediaType described.</p>
         </div>
         <div class="description">
             <dl>
@@ -1472,8 +1473,8 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#underAuthorization</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Points out a dataid:Authorization which grants some degree of authority over this
-            resource (inverse property of dataid:authorizedFor).</p>
+        <div class="comment"><p>Points out an Authorization which grants some degree of authority over this resource
+            (inverse property of dataid:authorizedFor).</p>
         </div>
         <div class="description">
             <dl>
@@ -1501,8 +1502,8 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#usefulness</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Description of to whom the data could be useful, and whether it underpins a scientific
-            publication.</p>
+        <div class="comment"><p>Description of to whom the Dataset could be useful, and whether it underpins a
+            scientific publication.</p>
         </div>
         <div class="description">
             <dl>
@@ -1537,8 +1538,8 @@
                 href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#isInheritable</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Indicated whether this dataid:Authorization will be valid after an update to the DataID
-            or a scope element (by default this property should be 'true').</p>
+        <div class="comment"><p>Indicated whether this Authorization will be valid after an update to the DataID or a
+            scope element.</p>
         </div>
         <div class="description"><p><strong>has characteristics:</strong> functional</p>
             <dl>
@@ -1556,7 +1557,7 @@
                 href="#dataproperties">Data Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#statement</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>An actual textual statement (or string).</p>
+        <div class="comment"><p>An actual textual statement or literal (string).</p>
         </div>
         <div class="description">
             <dl>
@@ -1572,7 +1573,7 @@
                 href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#typeExtension</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Lists file extensions commonly used with this mime type.</p>
+        <div class="comment"><p>Lists file extensions commonly used with this MediaType.</p>
         </div>
         <div class="description">
             <dl>
@@ -1649,7 +1650,7 @@
                 href="#dataproperties">Data Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#validFrom</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The influence an agent has over an Entity is valid from a certain point in time.</p>
+        <div class="comment"><p>The influence an Agent has over an Entity is valid from a certain point in time.</p>
         </div>
         <div class="description"><p><strong>has characteristics:</strong> functional</p>
             <dl>
@@ -1668,7 +1669,7 @@
                 href="#dataproperties">Data Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#validUntil</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The influence an agent has over an Entity is valid until a certain point in time.</p>
+        <div class="comment"><p>The influence an Agent has over an Entity is valid until a certain point in time.</p>
         </div>
         <div class="description"><p><strong>has characteristics:</strong> functional</p>
             <dl>
@@ -1728,7 +1729,9 @@
         <h3>AgentRoleScheme<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#AgentRoleScheme</p>
-        <div class="comment"><p>Description of the agent role hierarchy.</p>
+        <div class="comment"><p>The AgentRole scheme (hierarchy) provided by DataID core, depicting Roles commonly used
+            in the context of a file or document management system. This scheme should be replaced in other use
+            cases.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -1742,7 +1745,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#AgentSupervision</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The responsibility to supervise other agents.</p>
+        <div class="comment"><p>The responsibility (ResponsibleAction) to supervise other Agents.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -1756,7 +1759,8 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#AllEntitlements</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Encompasses all entitlements.</p>
+        <div class="comment"><p>Represents all entitlements (EntitledActions). Top concept of the AuthorizedActionScheme
+            hierarchy.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -1770,7 +1774,8 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#AllResponsibilities</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Encompasses all responsibilities.</p>
+        <div class="comment"><p>Encompasses all responsibilities (ResponsibleActions). Top concept of the
+            AuthorizedActionScheme hierarchy.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -1783,7 +1788,7 @@
         <h3>AuthorizedActionScheme<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme</p>
-        <div class="comment"><p>Description of the authorized action hierarchy.</p>
+        <div class="comment"><p>Description of the AuthorizedAction hierarchy.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -1796,7 +1801,7 @@
                 href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Contact</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Contact agent. An agent that can be contacted for general requests about the
+        <div class="comment"><p>Contact agent. An Agent that can be contacted for general requests about the
             resource.</p>
         </div>
         <dl class="description">
@@ -1829,7 +1834,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Contributor</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Contributor to the resource. An agent that was involved in creating or maintaining the
+        <div class="comment"><p>Contributor to the resource. An Agent that was involved in creating or maintaining the
             resource but does not have the main part in this activity.</p>
         </div>
         <dl class="description">
@@ -1853,7 +1858,7 @@
                 href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Creator</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Creator of the resource. An agent that is credited with a main part in the initial
+        <div class="comment"><p>Creator of the resource. An AgentRole that is credited with a main part in the initial
             creation of the resource.</p>
         </div>
         <dl class="description">
@@ -1878,7 +1883,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#DeleteContent</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Entitled action to delete some content of an entity.</p>
+        <div class="comment"><p>EntitledAction to delete some content of an entity.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -1891,7 +1896,7 @@
                 href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Guest</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>A visitor/anonymous agent has only read rights on public and semi-private documents</p>
+        <div class="comment"><p>A visitor or anonymous Agent has only read rights on public documents</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -1914,8 +1919,8 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#GuestAgent</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Use this agent as a stand in for any agent not specifically defined in a domain,
-            granting public access to an entity.</p>
+        <div class="comment"><p>Use this Agent as a stand in for any Agent not specifically defined in a domain,
+            granting public access to an Entity.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -1930,7 +1935,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#GuestAuthorization</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>This authorization can be used to point out that the content of an entity is public an
+        <div class="comment"><p>This Authorization can be used to point out that the content of an entity is public an
             can be read by anyone (see also dataid:Guest).</p>
         </div>
         <dl class="description">
@@ -1958,8 +1963,8 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Maintainer</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Maintainer of the dataset. An agent that ensures the technical correctness,
-            accessibility and up-to-dateness of a dataset.</p>
+        <div class="comment"><p>Maintainer of the Dataset. An Agent that ensures the technical correctness,
+            accessibility and up-to-dateness of a Dataset.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -2007,7 +2012,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ModifyAgentRoles</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Entitled action to modify the role of agents on certain entities.</p>
+        <div class="comment"><p>EntitledAction to modify the role of Agents on certain Entities.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -2021,7 +2026,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ModifyAuthorization</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Entitled action to modify an authorization.</p>
+        <div class="comment"><p>EntitledAction to modify an Authorization.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -2035,7 +2040,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Entitled action to modify which agents are authorized on certain entities.</p>
+        <div class="comment"><p>EntitledAction to modify which Agents are authorized on certain Entities.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -2049,7 +2054,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ModifyContent</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Entitled action to modify the content of an entity.</p>
+        <div class="comment"><p>EntitledAction to modify the content of an Entity.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -2062,7 +2067,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Publisher</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Publisher of the dataset. An agent that makes the dataset accessible online on a server
+        <div class="comment"><p>Publisher of the Dataset. An Agent that makes the Dataset accessible online on a server
             or repository without necessarily being involved in its creation.</p>
         </div>
         <dl class="description">
@@ -2123,7 +2128,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#PublishingDecision</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The responsibility decide if the entity should be published</p>
+        <div class="comment"><p>The responsibility (ResponsibleAction) to decide if an Entity should be published.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -2137,7 +2142,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ReadContent</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Entitled action to read the content of an entity.</p>
+        <div class="comment"><p>EntitledAction to read the content of an Entity.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -2150,7 +2155,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ReadDataId</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Entitled action to read the DataID dataset metadata</p>
+        <div class="comment"><p>EntitledAction to read the DataID dataset metadata.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -2164,8 +2169,8 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ResponseToContact</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The responsibility to respond to contact attempts by external agents. A contact point
-            for the entity.</p>
+        <div class="comment"><p>The responsibility (ResponsibleAction) to respond to contact attempts by external
+            Agents. A contact point for the Entity.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -2179,7 +2184,8 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The responsibility to manage changes and react to bugs and issues that are reported</p>
+        <div class="comment"><p>The responsibility (ResponsibleAction) to manage changes and react to bugs and issues
+            that are reported concerning a Dataset.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
@@ -2193,7 +2199,7 @@
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#UpdateDataId</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The responsibility to update dataset metadata.</p>
+        <div class="comment"><p>The responsibility (ResponsibleAction) to update dataset metadata.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>

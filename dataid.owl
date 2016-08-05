@@ -41,7 +41,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <foaf:depiction rdf:resource="https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataIdOntology.png"/>
   </owl:Ontology>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Agent">
-    <rdfs:comment xml:lang="en">Agents are general entities representing persons, legal persons or organisations.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Agents are real or legal persons, groups of persons, programs, organisations etc.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Agent</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Agent"/>
@@ -49,7 +49,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#AgentRole">
-    <rdfs:comment xml:lang="en">Agent roles are defined by a set of rights and responsibilities (see AuthorizedAction) an agent, assigned with this role, has to address or can execute.</rdfs:comment>
+    <rdfs:comment xml:lang="en">AgentRoles are defined by a set of rights and responsibilities (see AuthorizedAction) an Agent, assigned with this Role, has to address or can execute.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Agent Role</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
@@ -57,13 +57,13 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:Class>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#AgentRoleScheme">
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-    <rdfs:comment xml:lang="en">Description of the agent role hierarchy.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The AgentRole scheme (hierarchy) provided by DataID core, depicting Roles commonly used in the context of a file or document management system. This scheme should be replaced in other use cases.</rdfs:comment>
     <rdfs:label xml:lang="en">agent role scheme</rdfs:label>
     <skos:hasTopConcept rdf:resource="http://dataid.dbpedia.org/ns/core#Creator"/>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#AgentSupervision">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#ResponsibleAction"/>
-    <rdfs:comment xml:lang="en">The responsibility to supervise other agents.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The responsibility (ResponsibleAction) to supervise other Agents.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">agent supervision</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllResponsibilities"/>
@@ -72,7 +72,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#AllEntitlements">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#ResponsibleAction"/>
-    <rdfs:comment xml:lang="en">Encompasses all entitlements.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Represents all entitlements (EntitledActions). Top concept of the AuthorizedActionScheme hierarchy.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">all entitlements</rdfs:label>
     <skos:prefLabel xml:lang="en">all entitlements</skos:prefLabel>
@@ -80,31 +80,31 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#AllResponsibilities">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#ResponsibleAction"/>
-    <rdfs:comment xml:lang="en">Encompasses all responsibilities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Encompasses all responsibilities (ResponsibleActions). Top concept of the AuthorizedActionScheme hierarchy.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">all responsibilities</rdfs:label>
     <skos:prefLabel xml:lang="en">all responsibilities</skos:prefLabel>
     <skos:topConceptOf rdf:resource="http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme"/>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Authorization">
-    <rdfs:comment xml:lang="en">This concept is a mediator between a set of entities (or scope) defines by the property dataid:authorizedFor,&#xD;
-	a set of AgentRoles defining rights and responsibilities and Agents, fulfilling the AgentRoles, in regard to the collection of entities.&#xD;
-	This subclass of prov:Attribution qualifies the relation prov:wasAttributedTo between prov:Entity and prov:Agent with the AgentRoles &#xD;
-	and AuthorizedActions of the DataID-domain.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This concept is a mediator between a set of Entities (or scope) defines by the property dataid:authorizedFor, a set of AgentRoles &#xD;
+  defining rights and responsibilities (dataid:authorityAgentRole) and Agents (dataid:associatedAgent), fulfilling the AgentRoles, &#xD;
+  in regard to the collection of Entities. This subclass of prov:Attribution qualifies the relation prov:wasAttributedTo between prov:Entity &#xD;
+  and prov:Agent with the AgentRoles and AuthorizedActions of the DataID-domain.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorization</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#AuthorizedAction">
-    <rdfs:comment xml:lang="en">Authorized actions may constiute either of activities an Agent can execute in regard to a collection of prov:Entities or of &#xD;
-    responsibilities an Agent should act upon (e.g. make certain decisions if necessary or act upon certain events).</rdfs:comment>
+    <rdfs:comment xml:lang="en">AuthorizedActions may be comprised either of activities an Agent can execute in regard to a collection of Entities (dataid:EntitledAction), &#xD;
+    or of responsibilities an Agent should act upon (dataid:ResponsibleAction) (e.g. make certain decisions if necessary or act upon certain events).</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorized Action</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
   </owl:Class>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme">
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-    <rdfs:comment xml:lang="en">Description of the authorized action hierarchy.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Description of the AuthorizedAction hierarchy.</rdfs:comment>
     <rdfs:label xml:lang="en">authorized action scheme</rdfs:label>
     <skos:hasTopConcept rdf:resource="http://dataid.dbpedia.org/ns/core#AllEntitlements"/>
     <skos:hasTopConcept rdf:resource="http://dataid.dbpedia.org/ns/core#AllResponsibilities"/>
@@ -115,7 +115,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ReadDataId"/>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ResponseToContact"/>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
-    <rdfs:comment xml:lang="en">Contact agent. An agent that can be contacted for general requests about the resource.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Contact agent. An Agent that can be contacted for general requests about the resource.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">contact</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#Maintainer"/>
@@ -127,7 +127,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ReadContent"/>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ReadDataId"/>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
-    <rdfs:comment xml:lang="en">Contributor to the resource. An agent that was involved in creating or maintaining the resource but does not have the main part in this activity.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Contributor to the resource. An Agent that was involved in creating or maintaining the resource but does not have the main part in this activity.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">contributor</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#Publisher"/>
@@ -138,14 +138,14 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#AllEntitlements"/>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#AllResponsibilities"/>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
-    <rdfs:comment xml:lang="en">Creator of the resource. An agent that is credited with a main part in the initial creation of the resource.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Creator of the resource. An AgentRole that is credited with a main part in the initial creation of the resource.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">creator</rdfs:label>
     <skos:prefLabel xml:lang="en">creator</skos:prefLabel>
     <skos:topConceptOf rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRoleScheme"/>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#DataId">
-    <rdfs:comment xml:lang="en">A DataId Induvidual serves as a root Entity for every DataID document describing one or more datasets. As a subclass of dcat:CatalogRecord / void:DatasetDescription it describes not a dataset itself but provides metadata about its entry in a dcat:Catalog and/or its relations to repositories or other data collections .</rdfs:comment>
+    <rdfs:comment xml:lang="en">A DataId instance serves as a root entity for every DataID document describing one or more datasets. As a subclass of dcat:CatalogRecord / void:DatasetDescription it describes not a dataset itself but provides metadata about its entry in a dcat:Catalog and/or its relations to repositories or other data collections.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">DataId</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://rdfs.org/ns/void#DatasetDescription"/>
@@ -189,9 +189,9 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Dataset">
-    <rdfs:comment xml:lang="en">A collection of data, available for access in one or more formats. Dataset resources describe the &#xD;
-    concept of the dataset, not it's manifestation (the data itself), which can be acquired as a dataid:Distribution.&#xD;
-    Datasets are prov:Entities and can be generated by prov:Activities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A collection of data, available for access in one or more formats. &#xD;
+    Dataset resources describe the concept of the dataset, not it's manifestation (the data itself), which can be acquired &#xD;
+    as a Distribution. Datasets are Entities and can be generated by prov:Activities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Dataset</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://rdfs.org/ns/void#Dataset"/>
@@ -266,7 +266,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:Class>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#DeleteContent">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#EntitledAction"/>
-    <rdfs:comment xml:lang="en">Entitled action to delete some content of an entity.</rdfs:comment>
+    <rdfs:comment xml:lang="en">EntitledAction to delete some content of an entity.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">delete content right</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllEntitlements"/>
@@ -274,13 +274,13 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <skos:prefLabel xml:lang="en">delete content right</skos:prefLabel>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Directory">
-    <rdfs:comment xml:lang="en">A dedicated directory holding (multiple) files of the same dataset, which, when put together, make up the whole dataset.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A dedicated directory holding (multiple) files of the same Dataset, which, when put together, make up the whole Dataset.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Directory</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Distribution">
-    <rdfs:comment xml:lang="en">Distributions describe a single manifestation of the pertaining Dataset (for example; its data format/serialization or a service endpoint including the procedure required to acces the data).</rdfs:comment>
+    <rdfs:comment xml:lang="en">Distributions describe a single manifestation of the pertaining Dataset (for example; its data format/serialization or a ServiceEndpoint including the procedure required to access the data).</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Distribution</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
@@ -317,15 +317,14 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#EntitledAction">
-    <rdfs:comment xml:lang="en">EntitledActions describe actions an Agent is allowed to perform when holding a certain AgentRole. &#xD;
-	These actions may address restricted matters like access, modification rights and others.</rdfs:comment>
+    <rdfs:comment xml:lang="en">EntitledActions describe actions an Agent is allowed to perform when holding a certain AgentRole. These Actions may address restricted matters like access, modification rights and others.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Entitled Action</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://dataid.dbpedia.org/ns/core#AuthorizedAction"/>
     <owl:disjointWith rdf:resource="http://dataid.dbpedia.org/ns/core#ResponsibleAction"/>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#FileCollection">
-    <rdfs:comment xml:lang="en">Multiple files constituting one (complete) dataset (files in different locations are possible).</rdfs:comment>
+    <rdfs:comment xml:lang="en">Multiple files constituting one (complete) Dataset (files in different directories or servers are allowed, as opposed to Directory).</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">File Collection</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
@@ -334,7 +333,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ReadContent"/>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ReadDataId"/>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
-    <rdfs:comment xml:lang="en">A visitor/anonymous agent has only read rights on public and semi-private documents</rdfs:comment>
+    <rdfs:comment xml:lang="en">A visitor or anonymous Agent has only read rights on public documents</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">guest</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#Contributor"/>
@@ -343,7 +342,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#GuestAgent">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#Agent"/>
-    <rdfs:comment xml:lang="en">Use this agent as a stand in for any agent not specifically defined in a domain, granting public access to an entity.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Use this Agent as a stand in for any Agent not specifically defined in a domain, granting public access to an Entity.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">guest agent</rdfs:label>
     <foaf:homepage rdf:resource="http://dataid.dbpedia.org"/>
@@ -355,13 +354,13 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <dataid:authorizedAgent rdf:resource="http://dataid.dbpedia.org/ns/core#GuestAgent"/>
     <dataid:isInheritable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</dataid:isInheritable>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#Authorization"/>
-    <rdfs:comment xml:lang="en">This authorization can be used to point out that the content of an entity is public an can be read by anyone (see also dataid:Guest).</rdfs:comment>
+    <rdfs:comment xml:lang="en">This Authorization can be used to point out that the content of an entity is public an can be read by anyone (see also dataid:Guest).</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">guest authority</rdfs:label>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Identifier">
-    <rdfs:comment xml:lang="en">Uniquely identifies any resource, given an identifier as literal (see dataid:statement) and a corresponding aid/pid scheme &#xD;
-(ORCID, ResearcherID etc. pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web (about this identifier) using dct:references.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Uniquely identifies any resource, given an identifier as literal (see dataid:statement) and a corresponding identifier scheme (e.g. a aid/pid scheme like: ORCID, ResearcherID etc. &#xD;
+  pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web (about this Identifier) using dct:references.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Identifier</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
@@ -382,7 +381,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent"/>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#UpdateDataId"/>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
-    <rdfs:comment xml:lang="en">Maintainer of the dataset. An agent that ensures the technical correctness, accessibility and up-to-dateness of a dataset.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Maintainer of the Dataset. An Agent that ensures the technical correctness, accessibility and up-to-dateness of a Dataset.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">maintainer</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#Creator"/>
@@ -390,15 +389,15 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <skos:prefLabel xml:lang="en">maintainer</skos:prefLabel>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#MediaType">
-    <rdfs:comment xml:lang="en">Extends the dct:MediaType class of Dublin Core, providing the Iana media type description (or mime type) and common file extensions used. &#xD;
-A pointer to an inner media types can describe (multiple) layers of compressions and all internal media types.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Extends the dct:MediaTypeOrExtend class of Dublin Core, providing the IANA media type description (or mime type) and common file extensions used. &#xD;
+  A pointer to an inner media (dataid:innerMediaType) can describe (multiple) layers of compressions and all internal media types.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Media Type</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/MediaType"/>
   </owl:Class>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ModifyAgentRoles">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#EntitledAction"/>
-    <rdfs:comment xml:lang="en">Entitled action to modify the role of agents on certain entities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">EntitledAction to modify the role of Agents on certain Entities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">modify agent roles</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllEntitlements"/>
@@ -407,7 +406,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ModifyAuthorization">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#EntitledAction"/>
-    <rdfs:comment xml:lang="en">Entitled action to modify an authorization.</rdfs:comment>
+    <rdfs:comment xml:lang="en">EntitledAction to modify an Authorization.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">modify authorization</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllEntitlements"/>
@@ -416,7 +415,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#EntitledAction"/>
-    <rdfs:comment xml:lang="en">Entitled action to modify which agents are authorized on certain entities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">EntitledAction to modify which Agents are authorized on certain Entities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">modify authorized agents</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllEntitlements"/>
@@ -425,7 +424,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ModifyContent">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#EntitledAction"/>
-    <rdfs:comment xml:lang="en">Entitled action to modify the content of an entity.</rdfs:comment>
+    <rdfs:comment xml:lang="en">EntitledAction to modify the content of an Entity.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">modify content right</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#DeleteContent"/>
@@ -445,7 +444,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent"/>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#UpdateDataId"/>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
-    <rdfs:comment xml:lang="en">Publisher of the dataset. An agent that makes the dataset accessible online on a server or repository without necessarily being involved in its creation.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Publisher of the Dataset. An Agent that makes the Dataset accessible online on a server or repository without necessarily being involved in its creation.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">publisher</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#Creator"/>
@@ -454,7 +453,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#PublishingDecision">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#ResponsibleAction"/>
-    <rdfs:comment xml:lang="en">The responsibility decide if the entity should be published</rdfs:comment>
+    <rdfs:comment xml:lang="en">The responsibility (ResponsibleAction) to decide if an Entity should be published.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">publishing decision</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllResponsibilities"/>
@@ -463,7 +462,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ReadContent">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#EntitledAction"/>
-    <rdfs:comment xml:lang="en">Entitled action to read the content of an entity.</rdfs:comment>
+    <rdfs:comment xml:lang="en">EntitledAction to read the content of an Entity.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">read content right</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#ModifyContent"/>
@@ -472,7 +471,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ReadDataId">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#EntitledAction"/>
-    <rdfs:comment xml:lang="en">Entitled action to read the DataID dataset metadata</rdfs:comment>
+    <rdfs:comment xml:lang="en">EntitledAction to read the DataID dataset metadata.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">read DataID right</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllEntitlements"/>
@@ -481,7 +480,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ResponseToContact">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#ResponsibleAction"/>
-    <rdfs:comment xml:lang="en">The responsibility to respond to contact attempts by external agents. A contact point for the entity.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The responsibility (ResponsibleAction) to respond to contact attempts by external Agents. A contact point for the Entity.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">response to contact attempt</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllResponsibilities"/>
@@ -490,7 +489,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#ResponsibleAction"/>
-    <rdfs:comment xml:lang="en">The responsibility to manage changes and react to bugs and issues that are reported</rdfs:comment>
+    <rdfs:comment xml:lang="en">The responsibility (ResponsibleAction) to manage changes and react to bugs and issues that are reported concerning a Dataset.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">response to life-cycle event</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllResponsibilities"/>
@@ -498,22 +497,23 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     <skos:prefLabel xml:lang="en">response to life-cycle event</skos:prefLabel>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#ResponsibleAction">
-    <rdfs:comment xml:lang="en">AgentRoles provide rights as well as responsibilities an agent has to attend to in order to fulfill this role. &#xD;
-	Responsible actions should describe actions pertaining to responsibilities an agent is supposed to do when holding a specific AgentRole.</rdfs:comment>
+    <rdfs:comment xml:lang="en">AgentRoles provide rights as well as responsibilities an agent has to attend to in order to fulfill this Role. &#xD;
+  ResponsibleActions should describe actions pertaining to responsibilities an agent is supposed to do when holding a specific AgentRole.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Responsible Action</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://dataid.dbpedia.org/ns/core#AuthorizedAction"/>
     <owl:disjointWith rdf:resource="http://dataid.dbpedia.org/ns/core#EntitledAction"/>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#ServiceEndpoint">
-    <rdfs:comment xml:lang="en">A specific distribution, which is accessible via an access url and provides data as a web service in a certain format.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A specific Distribution, which is accessible via an access url and provides data as a web service in a certain format.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Service Endpoint</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#SimpleStatement">
-    <rdfs:comment xml:lang="en">A SimpleStatement either a primitive literal containing unstructured text (see dataid:statement), or a web reference to a statment (using dct:references).&#xD;
-	This class implements several classes of Dublin Core which are not further specified within DC.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A SimpleStatement is intended as a tool for conveying a statement, definition or point of view about a certain topic. Using either a simple literal (using dataid:statement) &#xD;
+  to provide a quotation, or by a referencing a web resource providing or representing the statement in any given medium (picture, text, video etc.). This class implements several classes of &#xD;
+  Dublin Core which are not further specified within DC.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Simple Statement</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/ProvenanceStatement"/>
@@ -527,14 +527,14 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#SingleFile">
-    <rdfs:comment xml:lang="en">A single data dump file representing the whole dataset, in a certain format/serialization.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A single data dump file representing the whole Dataset, in a certain format/serialization.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Single File</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
   </owl:Class>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#UpdateDataId">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#ResponsibleAction"/>
-    <rdfs:comment xml:lang="en">The responsibility to update dataset metadata.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The responsibility (ResponsibleAction) to update dataset metadata.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">update DataId</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllResponsibilities"/>
@@ -549,14 +549,14 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#SimpleStatement"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#allowsFor">
-    <rdfs:comment xml:lang="en">An dataid:AgentRole allows an agent to execute certain AuthorizedActions.</rdfs:comment>
+    <rdfs:comment xml:lang="en">An AgentRole allows an Agent to execute certain AuthorizedActions.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">allows for</rdfs:label>
     <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#AuthorizedAction"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#associatedAgent">
-    <rdfs:comment xml:lang="en">An agent which is generally connected to the dataset, their exact function in regard to the Entity has to be specified by the qualification dataid:Authorization.</rdfs:comment>
+    <rdfs:comment xml:lang="en">An Agent which is generally connected to the Dataset, their exact function in regard to the Entity has to be specified by the qualification of an Authorization.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">associated agent</rdfs:label>
@@ -575,7 +575,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorityAgentRole">
-    <rdfs:comment xml:lang="en">Provides a role an Agent fills out in the scope provided by the dataid:Authorization, thereby allowing for certain AuthorizedActions an agent can execute.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Provides a AgentRole an Agent fills out in the scope provided by the Authorization, thereby allowing for certain AuthorizedActions an Agent can execute.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#AgentInfluence"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">authority agent role</rdfs:label>
@@ -583,7 +583,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#hadRole"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authoritySubChain1">
-    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
     <owl:propertyChainAxiom>
@@ -609,7 +609,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authoritySubChain2">
-    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
     <owl:propertyChainAxiom>
@@ -630,7 +630,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authoritySubChain3">
-    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
     <owl:propertyChainAxiom>
@@ -651,7 +651,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authoritySubChain4">
-    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
     <owl:propertyChainAxiom>
@@ -667,7 +667,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authoritySubChain5">
-    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
     <owl:propertyChainAxiom>
@@ -683,7 +683,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authoritySubChain6">
-    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
     <owl:propertyChainAxiom>
@@ -699,7 +699,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authoritySubChain7">
-    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other entities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
     <owl:propertyChainAxiom>
@@ -720,7 +720,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizedAction">
-    <rdfs:comment xml:lang="en">Points out AuthorizedActions, Agents are allowed to execute under a given dataid:Authorization (and its chosen AgentRoles).</rdfs:comment>
+    <rdfs:comment xml:lang="en">Points out AuthorizedActions, Agents are allowed to execute under a given Authorization (and its chosen AgentRoles).</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#AgentInfluence"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">authorized action</rdfs:label>
@@ -738,7 +738,7 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     </owl:propertyChainAxiom>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizedAgent">
-    <rdfs:comment xml:lang="en">Points out an Agent which holds the rights granted by a dataid:Authorization (e.g. to modify the metadata of a Dataset).</rdfs:comment>
+    <rdfs:comment xml:lang="en">Points out an Agent which holds the rights granted by an Authorization (e.g. to modify the metadata of a Dataset).</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#AgentInfluence"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">authorized agent</rdfs:label>
@@ -746,36 +746,36 @@ A pointer to an inner media types can describe (multiple) layers of compressions
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#agent"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizedFor">
-    <rdfs:comment xml:lang="en">Defines the scope of a dataid:Authorization. An Agent has the right to execute AuthorizedActions for all Entities of this scope. &#xD;
-The property chain axioms in its subproperties define how the scope of an dataid:Authorization is spread to other Entities.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Defines the scope of an Authorization. An Agent has the right to execute AuthorizedActions for all Entities of this scope. &#xD;
+    The property chain axioms in its sub-properties define how the scope of an Authorization is extended to other Entities.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Authorization"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">authorized for</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#checksum">
-    <rdfs:comment xml:lang="en">The checksum property provides a mechanism that can be used to verify that the content of a file has not changed.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The checksum value allows the contents of a file to be authenticated, since it shifts even with small changes to the file.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">checksum</rdfs:label>
     <rdfs:range rdf:resource="http://spdx.org/rdf/terms/#Checksum"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#dataDescription">
-    <rdfs:comment xml:lang="en">Provides a general description of the data represented by this dataset.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Provides a general description of the data represented by this Dataset.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Dataset"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/dmp#"/>
     <rdfs:label xml:lang="en">data description</rdfs:label>
     <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#SimpleStatement"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#growth">
-    <rdfs:comment xml:lang="en">Indication of what size the approximated end volume of the data is.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Indication of what size the approximated end volume of the Dataset is.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Dataset"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/dmp#"/>
     <rdfs:label xml:lang="en">growth</rdfs:label>
     <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#SimpleStatement"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#hasAuthorization">
-    <rdfs:comment xml:lang="en">Provides an dataid:Agent with the dataid:Authorization for a given scope of Entities (e.g. Dataset, Distribution etc.), granting rights to certain AuthorizedActions.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Provides an Agent with the Authorization for a given scope of Entities (e.g. Dataset, Distribution etc.), granting rights to execute certain AuthorizedActions.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">has authorization</rdfs:label>
     <owl:inverseOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedAgent"/>
@@ -797,7 +797,7 @@ The property chain axioms in its subproperties define how the scope of an dataid
     <rdfs:range rdf:resource="http://purl.org/spar/datacite/IdentifierScheme"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#inCatalog">
-    <rdfs:comment xml:lang="en">The inverse property of dcat:record, pointing back to the dcat:Catalog.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The inverse property of dcat:record, pointing back to the dcat:Catalog in which this DataId is recorded.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#DataId"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">in catalog</rdfs:label>
@@ -814,7 +814,7 @@ The property chain axioms in its subproperties define how the scope of an dataid
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/dcat#mediaType"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#isDistributionOf">
-    <rdfs:comment xml:lang="en">Inverse property of dcat:distribution, linking a Distribution to a Dataset</rdfs:comment>
+    <rdfs:comment xml:lang="en">Inverse property of dcat:distribution, linking a Distribution to a Dataset.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">is distribution of</rdfs:label>
@@ -823,21 +823,21 @@ The property chain axioms in its subproperties define how the scope of an dataid
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="http://dataid.dbpedia.org/ns/core#isInheritable">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:comment xml:lang="en">Indicated whether this dataid:Authorization will be valid after an update to the DataID or a scope element (by default this property should be 'true').</rdfs:comment>
+    <rdfs:comment xml:lang="en">Indicated whether this Authorization will be valid after an update to the DataID or a scope element.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Authorization"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">is inheritable</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
   </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#latestVersion">
-    <rdfs:comment xml:lang="en">Latest version of a DataID/Dataset/Distribution.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Latest version of a DataId/Dataset/Distribution.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">latest version</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization">
-    <rdfs:comment xml:lang="en">Points out a dataid:Authorization which grants some degree of authority over this resource to the exclusion of other dataid:Authorizations which are not specified with this property.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Points out an Authorization which grants some degree of authority over this resource to the exclusion of other Authorizations which are not specified with this property.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">needs special authorization</rdfs:label>
@@ -845,37 +845,37 @@ The property chain axioms in its subproperties define how the scope of an dataid
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#underAuthorization"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#nextVersion">
-    <rdfs:comment xml:lang="en">Next version of a DataID/Dataset/Distribution.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Next version of a DataId/Dataset/Distribution.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">next version</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#openness">
-    <rdfs:comment xml:lang="en">General description of how data will be shared. &#xD;
-	For example: embargo periods (if any), outlines of technical mechanisms for dissemination or a definition of whether access will be widely open or restricted to specific groups. &#xD;
-	In case the dataset cannot be shared, the reasons for this should be mentioned (e.g. ethical, rules of personal data, intellectual property, commercial, privacy-related, security-related).</rdfs:comment>
+    <rdfs:comment xml:lang="en">General description of how data will be shared. For example: embargo periods (if any), outlines of technical mechanisms for dissemination or a definition of &#xD;
+  whether access will be widely open or restricted to specific groups. In case the Dataset cannot be shared, the reasons for this should be mentioned (e.g. ethical, rules of &#xD;
+  personal data, intellectual property, commercial, privacy-related, security-related).</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Dataset"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/dmp#"/>
     <rdfs:label xml:lang="en">openness</rdfs:label>
     <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#SimpleStatement"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#preview">
-    <rdfs:comment xml:lang="en">Provides the url of a short preview of the data provided by a distribution, helpful when conveying type and format of the data provided.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Provides the url of a short preview of the data provided by a Distribution, helpful when conveying type and format of the data provided as an example.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">preview</rdfs:label>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#previousVersion">
-    <rdfs:comment xml:lang="en">Previous version of a DataID/Dataset/Distribution.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Previous version of a DataId/Dataset/Distribution.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">previous version</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#reuseAndIntegration">
-    <rdfs:comment xml:lang="en">Information on the possibilities for integration and reuse of the dataset.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Information on the possibilities for integration and reuse of the Dataset.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Dataset"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/dmp#"/>
     <rdfs:label xml:lang="en">reuse and integration</rdfs:label>
@@ -889,7 +889,7 @@ The property chain axioms in its subproperties define how the scope of an dataid
     <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#SimpleStatement"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#similarDataset">
-    <rdfs:comment xml:lang="en">Points to other dataset containing related data.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Points to other Datasets containing related data.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Dataset"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">similar dataset</rdfs:label>
@@ -904,7 +904,7 @@ The property chain axioms in its subproperties define how the scope of an dataid
     <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#SimpleStatement"/>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="http://dataid.dbpedia.org/ns/core#statement">
-    <rdfs:comment xml:lang="en">An actual textual statement (or string).</rdfs:comment>
+    <rdfs:comment xml:lang="en">An actual textual statement or literal (string).</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">statement</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
@@ -916,7 +916,7 @@ The property chain axioms in its subproperties define how the scope of an dataid
     <rdfs:label xml:lang="en">transitive super property of void:subset</rdfs:label>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="http://dataid.dbpedia.org/ns/core#typeExtension">
-    <rdfs:comment xml:lang="en">Lists file extensions commonly used with this mime type.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Lists file extensions commonly used with this MediaType.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#MediaType"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">media type file extension</rdfs:label>
@@ -930,7 +930,7 @@ The property chain axioms in its subproperties define how the scope of an dataid
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
   </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#typeReference">
-    <rdfs:comment xml:lang="en">Refers to a standard document of the mime type described.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Refers to a standard document of the MediaType described.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#MediaType"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">media type reference</rdfs:label>
@@ -953,7 +953,7 @@ The property chain axioms in its subproperties define how the scope of an dataid
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/dcat#byteSize"/>
   </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#underAuthorization">
-    <rdfs:comment xml:lang="en">Points out a dataid:Authorization which grants some degree of authority over this resource (inverse property of dataid:authorizedFor).</rdfs:comment>
+    <rdfs:comment xml:lang="en">Points out an Authorization which grants some degree of authority over this resource (inverse property of dataid:authorizedFor).</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">under authorization</rdfs:label>
@@ -962,7 +962,7 @@ The property chain axioms in its subproperties define how the scope of an dataid
     <owl:inverseOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#usefulness">
-    <rdfs:comment xml:lang="en">Description of to whom the data could be useful, and whether it underpins a scientific publication.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Description of to whom the Dataset could be useful, and whether it underpins a scientific publication.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Dataset"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/dmp#"/>
     <rdfs:label xml:lang="en">usefulness</rdfs:label>
@@ -970,7 +970,7 @@ The property chain axioms in its subproperties define how the scope of an dataid
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="http://dataid.dbpedia.org/ns/core#validFrom">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:comment xml:lang="en">The influence an agent has over an Entity is valid from a certain point in time.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The influence an Agent has over an Entity is valid from a certain point in time.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#AgentInfluence"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">valid from</rdfs:label>
@@ -978,7 +978,7 @@ The property chain axioms in its subproperties define how the scope of an dataid
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="http://dataid.dbpedia.org/ns/core#validUntil">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <rdfs:comment xml:lang="en">The influence an agent has over an Entity is valid until a certain point in time.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The influence an Agent has over an Entity is valid until a certain point in time.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#AgentInfluence"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">valid until</rdfs:label>
