@@ -12,11 +12,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
 @prefix lvont: <http://lexvo.org/ontology#> .
-@prefix msr: <http://purl.org/ms-rights#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spdx: <http://spdx.org/rdf/terms/#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
-@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
 @prefix sh:	<http://www.w3.org/ns/shacl#> .
 @prefix shapes: <http://dataid.dbpedia.org/ns/core/shapes#> .
 
@@ -39,41 +38,24 @@ shapes:Catalog a sh:Shape;
 		sh:class dataid:Dataset
 	] ;
 	sh:property [
-		sh:predicate dct:description ;
-		sh:minCount 1 ;
-		sh:datatype rdfs:Literal ;
-		sh:message "Please add an description to the catlalog."@en
-	] ;
-	sh:property [
 		sh:predicate dct:title ;
 		sh:minCount 1 ;
 		sh:datatype rdfs:Literal ;
+		sh:severity sh:Warning ;
 		sh:message "Please add a title to the caltalog."@en
 	] ;
 	sh:property [
 		sh:predicate dcat:record ;
 		sh:minCount 1 ;
 		sh:class dataid:DataId ;
-		sh:message "Each ctalog has to have at least one record (a DataID)."@en
-	] ;
-	sh:property [
-		sh:predicate dct:publisher ;
-		sh:minCount 1 ;
-		sh:maxCount 1 ;
-		sh:class dataid:Agent ;
-		sh:message "Please specify publisher for the catalog."@en
-	] ;
-	sh:property [
-		sh:predicate dct:creator ;
-		sh:maxCount 1 ;
-		sh:class dataid:Agent
+		sh:message "Each ctalog has to have at least one record (a DataId)."@en
 	] ;
 	sh:property [
 		sh:predicate dct:isPartOf ;
 		sh:maxCount 1 ;
 		sh:class dcat:Catalog
 	] ;
-	sh:property [  #max count for license?
+	sh:property [
 		sh:predicate dct:rights ;
 		sh:maxCount 1 ;
 		sh:class dataid:SimpleStatement
@@ -81,8 +63,7 @@ shapes:Catalog a sh:Shape;
 	sh:property [
 		sh:predicate dct:license ;
 		sh:maxCount 1 ;
-		sh:class msr:License
-		#sh:classIn (odrl:Policy msr:License) --> not sure id rdfUnit catches the msr:License is skos:broader than odrl:Policy
+		sh:class odrl:Policy 
 	] ;
 	sh:property [
 		sh:predicate dct:license ;
@@ -127,12 +108,6 @@ shapes:Catalog a sh:Shape;
 		sh:class skos:ConceptScheme
 	] ;
 	sh:property [
-		sh:predicate dcat:themeTaxonomy ;
-		sh:severity sh:Warning ;
-		sh:minCount 1 ;
-		sh:message "Providing a taxonomy (dcat:themeTaxonomy) is recommended for class dcat:Catalog."@en
-	] ;
-	sh:property [
 		sh:predicate foaf:homepage ;
 		sh:severity sh:Warning ;
 		sh:minCount 1 ;
@@ -166,18 +141,14 @@ shapes:DataId a sh:Shape;
 		sh:datatype xsd:datetime ;
 		sh:minCount 1 ;
 		sh:maxCount 1  ;
-		sh:message "Please provide a release date (dc:issued) for every DataID."@en
+		sh:message "Please provide exactly one release date (dc:issued) for every DataID."@en
 	] ;
 	sh:property [
 		sh:predicate dct:modified ;
 		sh:datatype xsd:datetime ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
-		sh:message "Please provide a modification date (dc:modified) for every DataID."@en
-	] ;
-	sh:property [
-		sh:predicate dct:title ;
-		sh:datatype rdfs:Literal 
+		sh:message "Please provide exactly one modification date (dc:modified) for every DataID."@en
 	] ;
 	sh:property [
 		sh:predicate dct:title ;
@@ -246,25 +217,8 @@ shapes:DataId a sh:Shape;
 		sh:message "Property dc:language has to reference an instance of type lvont:Language."@en
 	] ;
 	sh:property [
-		sh:predicate dataid:hasAccessLevel ;
-		sh:maxCount 1
-	] ;
-	sh:constraint [
-		sh:or (
-			[
-				sh:property [
-					sh:predicate dataid:hasAccessLevel ;
-					sh:minCount 1 
-				]
-			]
-			[
-				sh:property [
-					sh:predicate dataid:underAuthorization ;
-					sh:minCount 1 ;
-				]
-			]
-		) ;
-		sh:message "Every DataID has to provide either the property dataid:hasAccessLevel or dataid:underAuthorization."@en
+		sh:predicate dataid:underAuthorization ;
+		sh:minCount 1 ;
 	].
 	
 ### dataid:Dataset
@@ -278,6 +232,8 @@ shapes:Dataset a sh:Shape;
 	sh:property [
 		sh:predicate dct:description ;
 		sh:datatype rdfs:Literal ;
+		sh:severity sh:Warning  ;
+		sh:message "Providing a description is highly recommended."@en ;
 		sh:minCount 1 
 	] ;
 	sh:property [
@@ -295,19 +251,20 @@ shapes:Dataset a sh:Shape;
 		sh:predicate dct:modified ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
+		sh:message "Please provide exactly one modification date (dc:modified) for every Dataset."@en ;
 		sh:datatype xsd:dateTime
 	] ;
 	sh:property [
 		sh:predicate dct:issued ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
+		sh:message "Please provide exactly one release date (dc:issued) for every Dataset."@en ;
 		sh:datatype xsd:dateTime
 	] ;
 	sh:property [
 		sh:predicate dct:license ;
 		sh:minCount 1 ;
-		sh:class msr:License ;
-		#sh:classIn (odrl:Policy msr:License) --> not sure id rdfUnit catches the msr:License is skos:broader than odrl:Policy ;
+		sh:class odrl:Policy ;
 		sh:message "please add a license description to the dataset"@en
 	] ;
 	sh:property [
@@ -323,7 +280,7 @@ shapes:Dataset a sh:Shape;
 	sh:property [
 		sh:predicate dataid:associatedAgent ;
 		sh:minCount 1 ;
-		sh:message "at least one dataid:associatedAgent is necessary for dataid:Datset, should include the dct:publisher"@en
+		sh:message "At least one dataid:associatedAgent is necessary for dataid:Datset, should include the dct:publisher"@en
 	] ;
 	sh:property [
 		sh:predicate dataid:previousVersion ;
@@ -344,7 +301,7 @@ shapes:Dataset a sh:Shape;
 		sh:predicate dataid:latestVersion ;
 		sh:minCount 1 ;
 		sh:severity sh:Warning  ;
-		sh:message "Pointing to the latest version of a DataID is recommended."@en
+		sh:message "Pointing to the latest version of a Dataset is recommended."@en
 	] ;
 	sh:property [
 		sh:predicate dataid:nextVersion ;
@@ -459,24 +416,8 @@ shapes:Dataset a sh:Shape;
 		)
 	] ;
 	sh:property [
-		sh:predicate dataid:hasAccessLevel ;
-		sh:maxCount 1 
-	] ;
-	sh:constraint [
-		sh:or (
-			[
-				sh:property [
-					sh:predicate dataid:hasAccessLevel ;
-					sh:minCount 1 
-				]
-			]
-			[
-				sh:property [
-					sh:predicate dataid:underAuthorization ;
-					sh:minCount 1 ;
-				]
-			]
-		)
+		sh:predicate dataid:underAuthorization ;
+		sh:minCount 1 
 	].
 	
 ### dataid:Dataset additional checks for the existence of properties if we deal with a root dataset (directly linked datasets with foaf:primaryTopc)
@@ -532,20 +473,21 @@ shapes:Distribution a sh:Shape;
 	] ;
 	sh:property [
 		sh:predicate dct:license ;
-		sh:class msr:License ;
-		#sh:classIn (odrl:Policy msr:License) --> not sure id rdfUnit catches the msr:License is skos:broader than odrl:Policy ;
+		sh:class odrl:Policy ;
 		sh:minCount 1
 	] ;
 	sh:property [
 		sh:predicate dct:modified ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
+		sh:message "Please provide exactly one modification date (dc:modified) for every Distribution."@en ;
 		sh:datatype xsd:dateTime
 	] ;
 	sh:property [
 		sh:predicate dct:issued ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
+		sh:message "Please provide exactly one release date (dc:issued) for every Distribution."@en ;
 		sh:datatype xsd:dateTime
 	] ;
 	sh:property [
@@ -576,12 +518,6 @@ shapes:Distribution a sh:Shape;
 	sh:property [
 		sh:predicate dataid:accessProcedure ;
 		sh:maxCount 1 
-	] ;
-	sh:property [
-		sh:predicate dataid:accessProcedure ;
-		sh:severity sh:Warning ;
-		sh:minCount 1 ;
-		sh:message "dataid:accessProcedure is recommnded for dataid:Distribution"@en
 	] ;
 	sh:property [
 		sh:predicate dataid:previousVersion ;
@@ -640,24 +576,8 @@ shapes:Distribution a sh:Shape;
 		sh:maxCount 1 
 	] ;
 	sh:property [
-		sh:predicate dataid:hasAccessLevel ;
-		sh:maxCount 1 
-	] ;
-	sh:constraint [
-		sh:or (
-			[
-				sh:property [
-					sh:predicate dataid:hasAccessLevel ;
-					sh:minCount 1 
-				]
-			]
-			[
-				sh:property [
-					sh:predicate dataid:underAuthorization ;
-					sh:minCount 1 ;
-				]
-			]
-		)
+		sh:predicate dataid:underAuthorization ;
+		sh:minCount 1 ;
 	].
 	
 ### dataid:ServiceEndpoint
@@ -670,6 +590,12 @@ shapes:ServiceEndpoint a sh:Shape;
 	sh:property [
 		sh:predicate dcat:downloadURL ;
 		sh:maxCount 0
+	] ;
+	sh:property [
+		sh:predicate dataid:accessProcedure ;
+		sh:severity sh:Warning ;
+		sh:minCount 1 ;
+		sh:message "dataid:accessProcedure is recommnded for dataid:ServiceEndpoint"@en
 	] ;
 	sh:property [
 		sh:predicate dataid:accessProcedure ;
@@ -696,6 +622,7 @@ shapes:SingleFile a sh:Shape;
 	sh:property [
 		sh:predicate dcat:checksum ;
 		sh:minCount 1 ;
+		sh:class spdx:Checksum ;
 		sh:severity sh:Warning
 	] .
 		
@@ -715,7 +642,7 @@ shapes:Directory a sh:Shape;
 		sh:minCount 1 ;
 		sh:severity sh:Warning
 	] ;
-	sh:property [ #checksum over all files in directory
+	sh:property [ #checksum over all files in directory - needs specified method of combinig 
 		sh:predicate dcat:checksum ;
 		sh:minCount 1 ;
 		sh:severity sh:Warning
@@ -743,7 +670,7 @@ shapes:FileCollection a sh:Shape;
 		sh:minCount 1 ;
 		sh:severity sh:Warning
 	] ;
-	sh:property [ #checksum over all files in the collection
+	sh:property [ #checksum over all files in the collection - needs specified method of combinig 
 		sh:predicate dcat:checksum ;
 		sh:minCount 1 ;
 		sh:severity sh:Warning
@@ -761,12 +688,7 @@ shapes:Authorization a sh:Shape;
 		sh:minCount 1 
 	] ;
 	sh:property [
-		sh:predicate dataid:validForAccessLevel ;
-		sh:minCount 1 
-	] ;
-	sh:property [
 		sh:predicate dataid:authorizedAgent ;
-		sh:maxCount 1 ;
 		sh:minCount 1 
 	] ;
 	sh:property [
@@ -806,27 +728,12 @@ shapes:AuthorizedAction a sh:Shape;
 		sh:datatype rdfs:Literal
 	] .
 	
-### dataid:AccessLevel
-shapes:AccessLevel a sh:Shape;
-	sh:scopeClass dataid:AccessLevel ;
-	sh:property [
-		sh:predicate dct:title ;
-		sh:minCount 1 ;
-		sh:datatype rdfs:Literal
-	] .
-	
 ### dataid:SimpleStatement
 shapes:SimpleStatement a sh:Shape;
 	sh:scopeClass dataid:SimpleStatement ;
 	sh:property [
 		sh:predicate dataid:statement ;
-		sh:minCount 1 ;
-		sh:maxCount 1
-	] ;
-	sh:property [
-		sh:predicate dct:references ;
-		sh:minCount 1 ;
-		sh:severity sh:Warning
+		sh:minCount 1 
 	] .
 	
 ### dataid:Agent
@@ -847,12 +754,6 @@ shapes:Agent a sh:Shape;
 		sh:maxCount 1 
 	] ;
 	sh:property [
-		sh:predicate dataid:identifier ;
-		sh:minCount 1 ;
-		sh:severity sh:Warning ;
-		sh:message "Using a persistent identifier (like ORCID, ResearcherID...) for an agent is recommended."@en
-	] ;
-	sh:property [
 		sh:predicate foaf:homepage ;
 		sh:minCount 1 ;
 		sh:severity sh:Warning;
@@ -863,7 +764,7 @@ shapes:Agent a sh:Shape;
 shapes:Identifier a sh:Shape;
 	sh:scopeClass dataid:Identifier ;
 	sh:property [
-		sh:predicate litre:hasLiteralValue ;
+		sh:predicate dct:identifier ;
 		sh:minCount 1 ;
 		sh:maxCount 1 ;
 		sh:datatype rdfs:Literal
@@ -882,7 +783,7 @@ shapes:Identifier a sh:Shape;
 	sh:property [
 		sh:predicate dct:issued ;
 		sh:maxCount 1 ;
-		sh:datatype xsd:dateTime
+		sh:datatype xsd:date
 	] ;
 	sh:property [
 		sh:predicate dataid:identifierURL ;

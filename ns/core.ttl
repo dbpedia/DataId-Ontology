@@ -203,7 +203,7 @@ dataid:Authorization
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Authorization"@en ;
-	rdfs:comment """This concept is a mediator between a set of Entities (or scope) defines by the property dataid:authorizedFor, a set of AgentRoles 
+	rdfs:comment """This concept is a mediator between a set of Entities (or scope) defined by the property dataid:authorizedFor, a set of AgentRoles 
   defining rights and responsibilities (dataid:authorityAgentRole) and Agents (dataid:associatedAgent), fulfilling the AgentRoles, 
   in regard to the collection of Entities. This subclass of prov:Attribution qualifies the relation prov:wasAttributedTo between prov:Entity 
   and prov:Agent with the AgentRoles and AuthorizedActions of the DataID-domain."""@en ;
@@ -343,7 +343,7 @@ dataid:associatedAgent
 	   dataid:authorizedAgent
 	) .
 
-dataid:softwareRquirement
+dataid:softwareRequirement
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Software needed to access the data provided via this Distribution or otherwise relevant for consuming the data."@en ;
@@ -504,7 +504,7 @@ dataid:similarData
 	a owl:ObjectProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
    	rdfs:label "similar data"@en ;
-   	rdfs:comment "Information on the existence (or not) of similar data (see also dataid:similarDataset)."@en ;
+   	rdfs:comment "Information on the existence (or nonexistence) of similar data (see also dataid:similarDataset)."@en ;
    	rdfs:domain dataid:Dataset ;
    	rdfs:range dataid:SimpleStatement .
 
@@ -538,7 +538,7 @@ dataid:dataDescription
 	a owl:ObjectProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
 	rdfs:label "data description"@en ;
-	rdfs:comment "Provides a general description of the data represented by this Dataset."@en ;
+	rdfs:comment "Provides a detailed description of the data represented by this Dataset."@en ;
 	rdfs:domain dataid:Dataset ;
 	rdfs:range dataid:SimpleStatement .
 

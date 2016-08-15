@@ -1,15 +1,16 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vann="http://purl.org/vocab/vann/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>DataID</title><title>DataID</title>
-    <link rel="stylesheet" type="text/css" href="https://www.w3.org/StyleSheets/TR/W3C-Member-SUBM">
-    <link href="css/owl.css" rel="stylesheet" type="text/css">
-    <link href="css/primer.css" rel="stylesheet" type="text/css">
-    <link href="css/rec.css" rel="stylesheet" type="text/css">
-    <link href="css/extra.css" rel="stylesheet" type="text/css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.scrollTo.min.js"></script>
-    <script src="js/marked.min.js"></script>
+    <link href="http://localhost:8080/lode\owl.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/lode\Primer.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/lode\rec.css" rel="stylesheet" type="text/css">
+    <link href="http://localhost:8080/lode\extra.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="http://localhost:8080/lode\favicon.ico">
+    <script src="http://localhost:8080/lode\jquery.js"></script>
+    <script src="http://localhost:8080/lode\jquery.scrollTo.js"></script>
+    <script src="http://localhost:8080/lode\marked.min.js"></script>
     <script>
         $(document).ready(
                 function () {
@@ -173,7 +174,7 @@
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Authorization</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>This concept is a mediator between a set of Entities (or scope) defines by the property
+        <div class="comment"><p>This concept is a mediator between a set of Entities (or scope) defined by the property
             dataid:authorizedFor, a set of AgentRoles
             defining rights and responsibilities (dataid:authorityAgentRole) and Agents (dataid:associatedAgent),
             fulfilling the AgentRoles,
@@ -411,7 +412,7 @@
                     title="object property" class="type-op">op</sup>, <a href="#d4e1693"
                                                                          title="http://dataid.dbpedia.org/ns/core#preview">preview</a><sup
                     title="object property" class="type-op">op</sup>, <a href="#d4e1772"
-                                                                         title="http://dataid.dbpedia.org/ns/core#softwareRquirement">softwareRquirement</a><sup
+                                                                         title="http://dataid.dbpedia.org/ns/core#softwareRequirement">softwareRequirement</a><sup
                     title="object property" class="type-op">op</sup>, <a href="#d4e1877"
                                                                          title="http://dataid.dbpedia.org/ns/core#uncompressedByteSize">uncompressedByteSize</a><sup
                     title="data property" class="type-dp">dp</sup></dd>
@@ -602,7 +603,7 @@
                     title="object property" class="type-op">op</sup>, <a href="#d4e1739"
                                                                          title="http://dataid.dbpedia.org/ns/core#similarData">similarData</a><sup
                     title="object property" class="type-op">op</sup>, <a href="#d4e1772"
-                                                                         title="http://dataid.dbpedia.org/ns/core#softwareRquirement">softwareRquirement</a><sup
+                                                                         title="http://dataid.dbpedia.org/ns/core#softwareRequirement">softwareRequirement</a><sup
                     title="object property" class="type-op">op</sup>, <a href="#d4e1916"
                                                                          title="http://dataid.dbpedia.org/ns/core#usefulness">usefulness</a><sup
                     title="object property" class="type-op">op</sup></dd>
@@ -682,7 +683,7 @@
         <li><a href="#d4e1754" title="http://dataid.dbpedia.org/ns/core#similarDataset"><span>similarDataset</span></a>
         </li>
         <li><a href="#d4e1772"
-               title="http://dataid.dbpedia.org/ns/core#softwareRquirement"><span>softwareRquirement</span></a></li>
+               title="http://dataid.dbpedia.org/ns/core#softwareRequirement"><span>softwareRequirement</span></a></li>
         <li><a href="#d4e1800" title="http://dataid.dbpedia.org/ns/core#transitiveSubset"><span>transitiveSubset</span></a>
         </li>
         <li><a href="#d4e1844" title="http://dataid.dbpedia.org/ns/core#typeReference"><span>typeReference</span></a>
@@ -1070,7 +1071,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#dataDescription</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Provides a general description of the data represented by this Dataset.</p>
+        <div class="comment"><p>Provides a detailed description of the data represented by this Dataset.</p>
         </div>
         <div class="description">
             <dl>
@@ -1381,7 +1382,7 @@
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#similarData</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Information on the existence (or not) of similar data (see also
+        <div class="comment"><p>Information on the existence (or nonexistence) of similar data (see also
             dataid:similarDataset).</p>
         </div>
         <div class="description">
@@ -1419,11 +1420,11 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1772" class="entity"><a name="http://dataid.dbpedia.org/ns/core#softwareRquirement"></a><a
-            name="softwareRquirement"></a>
-        <h3>softwareRquirement<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
+    <div id="d4e1772" class="entity"><a name="http://dataid.dbpedia.org/ns/core#softwareRequirement"></a><a
+            name="softwareRequirement"></a>
+        <h3>softwareRequirement<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
-        <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#softwareRquirement</p>
+        <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#softwareRequirement</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>Software needed to access the data provided via this Distribution or otherwise relevant
             for consuming the data.</p>

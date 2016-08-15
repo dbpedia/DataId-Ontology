@@ -87,7 +87,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <skos:topConceptOf rdf:resource="http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme"/>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Authorization">
-    <rdfs:comment xml:lang="en">This concept is a mediator between a set of Entities (or scope) defines by the property dataid:authorizedFor, a set of AgentRoles &#xD;
+    <rdfs:comment xml:lang="en">This concept is a mediator between a set of Entities (or scope) defined by the property dataid:authorizedFor, a set of AgentRoles &#xD;
   defining rights and responsibilities (dataid:authorityAgentRole) and Agents (dataid:associatedAgent), fulfilling the AgentRoles, &#xD;
   in regard to the collection of Entities. This subclass of prov:Attribution qualifies the relation prov:wasAttributedTo between prov:Entity &#xD;
   and prov:Agent with the AgentRoles and AuthorizedActions of the DataID-domain.</rdfs:comment>
@@ -761,7 +761,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:range rdf:resource="http://spdx.org/rdf/terms/#Checksum"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#dataDescription">
-    <rdfs:comment xml:lang="en">Provides a general description of the data represented by this Dataset.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Provides a detailed description of the data represented by this Dataset.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Dataset"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/dmp#"/>
     <rdfs:label xml:lang="en">data description</rdfs:label>
@@ -882,7 +882,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#SimpleStatement"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#similarData">
-    <rdfs:comment xml:lang="en">Information on the existence (or not) of similar data (see also dataid:similarDataset).</rdfs:comment>
+    <rdfs:comment xml:lang="en">Information on the existence (or nonexistence) of similar data (see also dataid:similarDataset).</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Dataset"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/dmp#"/>
     <rdfs:label xml:lang="en">similar data</rdfs:label>
@@ -896,7 +896,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:range rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/relation"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#softwareRquirement">
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#softwareRequirement">
     <rdfs:comment xml:lang="en">Software needed to access the data provided via this Distribution or otherwise relevant for consuming the data.</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
