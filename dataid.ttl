@@ -21,7 +21,7 @@
 
 dataid:
     a owl:Ontology ;
-    #owl:imports dcat:, prov: ;
+    owl:imports dcat:, prov: ;
     vann:preferredNamespaceUri "http://dataid.dbpedia.org/ns/core#" ;
     vann:preferredNamespacePrefix "dataid" ;
     owl:versionInfo "2.0.0" ; 
@@ -41,7 +41,7 @@ are main objectives of the DBpedia/DataID project."""@en ;
     foaf:depiction 	<https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataIdOntology.png> ;
     foaf:homepage 	<http://wiki.dbpedia.org/projects/dbpedia-dataid> ;
     foaf:page 	<https://github.com/dbpedia/DataId-Ontology> ;
-	#dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+	dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
 	dct:creator <http://wiki.dbpedia.org/Association/Persons/Freudenberg> ;
 	dct:contributor <http://aksw.org/MartinBruemmer.html> .
     
@@ -576,7 +576,7 @@ dataid:authorizedEntity
 	a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment """This property defines the scope of an Authorization. An Agent has the right to execute AuthorizedActions for all Entities of this scope. 
-    Combined with its sub-properties it defines how the scope of an Authorization is extended to other Entities."""@en ;
+    Together with its sub-properties it defines how the scope of an Authorization is extended to other Entities."""@en ;
     rdfs:label "authorized entity"@en .
     
 dataid:authorizedFor
@@ -601,14 +601,14 @@ dataid:authorizationPath
 	   dataid:transitivePathProperty
 	) .
 
-#We declare the following properties as sub properties of dataid:transitivePathProperty to define how an Authorization is 'spread' amongst different Entities of DataID, Dataset and Distribution.     
 dataid:transitivePathProperty
 	a owl:ObjectProperty, owl:TransitiveProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment """This transitative super-property of properties void:subset, foaf:primaryTopic 
     and dcat:distribution was introduced for convenience and is not to be instanciated."""@en ;
     rdfs:label "transitative path property"@en .
-    
+
+#We declare the following properties as sub properties of dataid:transitivePathProperty to define how an Authorization is 'spread' amongst different Entities of DataID, Dataset and Distribution.     
 void:subset rdfs:subPropertyOf 			dataid:transitiveAuthorization.
 foaf:primaryTopic rdfs:subPropertyOf 	dataid:transitiveAuthorization.
 dcat:distribution rdfs:subPropertyOf 	dataid:transitiveAuthorization.

@@ -20,6 +20,7 @@
   <owl:Ontology rdf:about="http://dataid.dbpedia.org/ns/core#">
     <dct:contributor rdf:resource="http://aksw.org/MartinBruemmer.html"/>
     <dct:creator rdf:resource="http://wiki.dbpedia.org/Association/Persons/Freudenberg"/>
+    <dct:license rdf:resource="http://purl.org/NET/rdflicense/cc-by4.0"/>
     <dct:modified>2016-07-21</dct:modified>
     <vann:preferredNamespacePrefix>dataid</vann:preferredNamespacePrefix>
     <vann:preferredNamespaceUri>http://dataid.dbpedia.org/ns/core#</vann:preferredNamespaceUri>
@@ -35,6 +36,8 @@ universal data give and take. You can create your own DataID files for any type 
 Validating and delivering metadata files in a uniform way, as well as providing the ability to query for datasets, &#xD;
 are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:label xml:lang="en">DataID</rdfs:label>
+    <owl:imports rdf:resource="http://www.w3.org/ns/dcat#"/>
+    <owl:imports rdf:resource="http://www.w3.org/ns/prov#"/>
     <owl:versionInfo>2.0.0</owl:versionInfo>
     <foaf:depiction rdf:resource="https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataIdOntology.png"/>
     <foaf:homepage rdf:resource="http://wiki.dbpedia.org/projects/dbpedia-dataid"/>
@@ -630,7 +633,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizedEntity">
     <rdfs:comment xml:lang="en">This property defines the scope of an Authorization. An Agent has the right to execute AuthorizedActions for all Entities of this scope. &#xD;
-    Combined with its sub-properties it defines how the scope of an Authorization is extended to other Entities.</rdfs:comment>
+    Together with its sub-properties it defines how the scope of an Authorization is extended to other Entities.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">authorized entity</rdfs:label>
   </owl:ObjectProperty>
