@@ -21,6 +21,7 @@
 
 dataid:
     a owl:Ontology ;
+    #owl:imports dcat:, prov: ;
     vann:preferredNamespaceUri "http://dataid.dbpedia.org/ns/core#" ;
     vann:preferredNamespacePrefix "dataid" ;
     owl:versionInfo "2.0.0" ; 
@@ -40,10 +41,9 @@ are main objectives of the DBpedia/DataID project."""@en ;
     foaf:depiction 	<https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataIdOntology.png> ;
     foaf:homepage 	<http://wiki.dbpedia.org/projects/dbpedia-dataid> ;
     foaf:page 	<https://github.com/dbpedia/DataId-Ontology> ;
-	dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+	#dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
 	dct:creator <http://wiki.dbpedia.org/Association/Persons/Freudenberg> ;
-	dct:contributor <http://aksw.org/MartinBruemmer.html> ;
-    owl:imports dcat:, prov: .
+	dct:contributor <http://aksw.org/MartinBruemmer.html> .
     
 <http://wiki.dbpedia.org/Association/Persons/Freudenberg>
     a                        dataid:Agent ;
@@ -553,7 +553,7 @@ dataid:validFrom
     rdfs:comment 	"The influence an Agent has over an Entity is valid from a certain point in time."@en ;
     rdfs:domain 	prov:AgentInfluence ;
     rdfs:label 		"valid from"@en ;
-    rdfs:range  	xsd:datetime .
+    rdfs:range  	xsd:dateTime .
     
 dataid:validUntil
     a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -561,7 +561,7 @@ dataid:validUntil
     rdfs:comment 	"The influence an Agent has over an Entity is valid until a certain point in time."@en ;
     rdfs:domain 	prov:AgentInfluence ;
     rdfs:label 		"valid until"@en ;
-    rdfs:range  	xsd:datetime .
+    rdfs:range  	xsd:dateTime .
 
 dataid:isInheritable
 	a	owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -572,21 +572,53 @@ dataid:isInheritable
     rdfs:range      xsd:boolean.
 
 #The follwing section defines the spread of an Authorization of multiple entities.	
-dataid:authorizedFor
+dataid:authorizedEntity
 	a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """Defines the scope of an Authorization. An Agent has the right to execute AuthorizedActions for all Entities of this scope. 
-    The property chain axioms in its sub-properties define how the scope of an Authorization is extended to other Entities."""@en ;
+    rdfs:comment """This property defines the scope of an Authorization. An Agent has the right to execute AuthorizedActions for all Entities of this scope. 
+    Combined with its sub-properties it defines how the scope of an Authorization is extended to other Entities."""@en ;
+    rdfs:label "authorized entity"@en .
+    
+dataid:authorizedFor
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedEntity;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """Points out the Entities which are under the direct influence of an Authorization. 
+    An Agent has the right to execute AuthorizedActions (as defined by the pertaining AgentRole) for these Entities."""@en ;
     rdfs:label "authorized for"@en ;
     rdfs:domain dataid:Authorization ;
     rdfs:range  prov:Entity .
 
+dataid:authorizationPath
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf dataid:authorizedEntity;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """This property-chain property combines dataid:authorizedFor with any sequence of the properties void:subset, foaf:primaryTopic 
+    and dcat:distribution for the inference of new instances of dataid:authorizedEntity."""@en ;
+    rdfs:label "authorization path"@en ;
+    owl:propertyChainAxiom (
+	   dataid:authorizedFor
+	   dataid:transitivePathProperty
+	) .
+
+#We declare the following properties as sub properties of dataid:transitivePathProperty to define how an Authorization is 'spread' amongst different Entities of DataID, Dataset and Distribution.     
+dataid:transitivePathProperty
+	a owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """This transitative super-property of properties void:subset, foaf:primaryTopic 
+    and dcat:distribution was introduced for convenience and is not to be instanciated."""@en ;
+    rdfs:label "transitative path property"@en .
+    
+void:subset rdfs:subPropertyOf 			dataid:transitiveAuthorization.
+foaf:primaryTopic rdfs:subPropertyOf 	dataid:transitiveAuthorization.
+dcat:distribution rdfs:subPropertyOf 	dataid:transitiveAuthorization.
+	
 dataid:underAuthorization
     a owl:ObjectProperty ;
     rdfs:subPropertyOf prov:qualifiedAttribution ;
-    owl:inverseOf dataid:authorizedFor ;
+    owl:inverseOf dataid:authorizedEntity ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Points out an Authorization which grants some degree of authority over this resource (inverse property of dataid:authorizedFor)."@en ;
+    rdfs:comment "Points out an Authorization which grants some degree of authority over this resource (inverse property of dataid:authorizedEntity)."@en ;
     rdfs:label "under authorization"@en ;
     rdfs:domain	prov:Entity ;
     rdfs:range dataid:Authorization .
@@ -599,93 +631,7 @@ dataid:needsSpecialAuthorization
     rdfs:label "needs special authorization"@en ;
     rdfs:domain	prov:Entity ;
     rdfs:range dataid:Authorization .
-
-#Defining void:subset as a transitive property allows for inferring dataid:authorizedFor over dataset hierarchies of multiple levels.
-dataid:transitiveSubset	
-	a	owl:ObjectProperty, owl:TransitiveProperty ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:label "transitive super property of void:subset"@en ;
-	rdfs:comment "Transitive super property of void:subset. This property is used to infer dataid:authorizedFor statements transitively over dataset hierarchies of arbitrary depth."@en .	
-	
-void:subset rdfs:subPropertyOf dataid:transitiveSubset.
-
-#The follwing properties are only inferred by the the existence of property paths of foaf:primaryTopc, void:subset dcat:distribution and dataid:authorizedFor.
-#They make up the super property dataid:authorizedFor and define how an Authorization is spread amongst different entities of DataID, Dataset and Distribution. 
-dataid:authoritySubChain1	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorizedFor ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities."@en ;
-    owl:propertyChainAxiom (
-		dataid:authorizedFor
-		foaf:primaryTopic	
-		dataid:transitiveSubset
-		dcat:distribution
-	) .
-	
-dataid:authoritySubChain2	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorizedFor ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities."@en ;
-    owl:propertyChainAxiom (
-		dataid:authorizedFor
-		foaf:primaryTopic	
-		dcat:distribution
-	) .
-	
-dataid:authoritySubChain3	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorizedFor ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities."@en ;
-    owl:propertyChainAxiom (
-		dataid:authorizedFor
-		dataid:transitiveSubset	
-		dcat:distribution
-	) .
-	
-dataid:authoritySubChain4	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorizedFor ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities."@en ;
-    owl:propertyChainAxiom (
-		dataid:authorizedFor
-		dataid:transitiveSubset	
-	) .
-	
-dataid:authoritySubChain5	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorizedFor ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities."@en ;
-    owl:propertyChainAxiom (
-		dataid:authorizedFor
-		foaf:primaryTopic	
-	) .
-	
-dataid:authoritySubChain6	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorizedFor ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities."@en ;
-    owl:propertyChainAxiom (
-		dataid:authorizedFor
-		dcat:distribution
-	) .
-	
-dataid:authoritySubChain7	
-	a	owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorizedFor ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "This sub-property of dataid:authorizedFor provides a property chain axiom, extending the reach of dataid:authorizedFor to other Entities."@en ;
-    owl:propertyChainAxiom (
-		dataid:authorizedFor
-		foaf:primaryTopic	
-		dataid:transitiveSubset	
-	) .
-	
+    
 ################### Individuals ####################
 
 ## Both ConceptSchemes are just examples in how to use AgentRoles and AuthorizedActions in the context of hierarchies.
@@ -936,3 +882,6 @@ dataid:GuestAuthorization
 
 ## to make use of dct:temporat together with time:Interval
 <http://www.w3.org/2006/time#Interval>		rdfs:subClassOf	dct:PeriodOfTime .
+
+## to make use of dct:license in connection with odrl:Policy
+odrl:Policy	rdfs:subClassOf	dct:LicenseDocument .
