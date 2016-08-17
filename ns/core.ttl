@@ -15,6 +15,7 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix spdx: <http://spdx.org/rdf/terms/#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix lit: <http://www.essepuntato.it/2010/06/literalreification/> .
 
 @base <http://dataid.dbpedia.org/ns/core#> .
 
@@ -37,15 +38,18 @@ Validating and delivering metadata files in a uniform way, as well as providing 
 are main objectives of the DBpedia/DataID project."""@en ;
     rdfs:label "DataID"@en ;
     foaf:depiction 	<https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataIdOntology.png> ;
+    foaf:homepage 	<http://wiki.dbpedia.org/projects/dbpedia-dataid> ;
+    foaf:page 	<https://github.com/dbpedia/DataId-Ontology> ;
 	dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
 	dct:creator <http://wiki.dbpedia.org/Association/Persons/Freudenberg> ;
-    owl:imports dcat:, prov:, void: .
-    #owl:imports <http://www.w3.org/ns/dcat>, rdfs: , <http://www.w3.org/ns/prov-o-20130430> , foaf: ,void: , dct: .
+	dct:contributor <http://aksw.org/MartinBruemmer.html> ;
+    owl:imports dcat:, prov: .
     
 <http://wiki.dbpedia.org/Association/Persons/Freudenberg>
     a                        dataid:Agent ;
     foaf:mbox                "freudenberg@informatik.uni-leipzig.de" ;
     foaf:homepage			<http://wiki.dbpedia.org/Association/Persons/Freudenberg> ;
+    foaf:homepage			<http://aksw.org/MarkusFreudenberg.html> ;
     foaf:name                "Markus Freudenberg" .
     
 ########### classes ##########
@@ -245,10 +249,10 @@ dataid:SimpleStatement
 	a owl:Class;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Simple Statement"@en ;
-	rdfs:comment """A SimpleStatement is intended as a tool for conveying a statement, definition or point of view about a certain topic. Using either a simple literal (using dataid:statement) 
+	rdfs:comment """A SimpleStatement is intended as a tool for conveying a statement, definition or point of view about a certain topic. Using either a simple literal (using dataid:literal) 
   to provide a quotation, or by a referencing a web resource providing or representing the statement in any given medium (picture, text, video etc.). This class implements several classes of 
   Dublin Core which are not further specified within DC."""@en ;
-	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard , 
+	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard, lit:Literal,
 	[
         a owl:Restriction ;
         owl:allValuesFrom foaf:Document ;
@@ -259,9 +263,9 @@ dataid:Identifier
 	a owl:Class ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Identifier"@en ;
-	rdfs:comment """Uniquely identifies any resource, given an identifier as literal (see dataid:statement) and a corresponding identifier scheme (e.g. a aid/pid scheme like: ORCID, ResearcherID etc. 
+	rdfs:comment """Uniquely identifies any resource, given an identifier as literal (see dataid:literal) and a corresponding identifier scheme (e.g. a aid/pid scheme like: ORCID, ResearcherID etc. 
   pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web (about this Identifier) using dct:references."""@en ;
-	rdfs:subClassOf datacite:Identifier,
+	rdfs:subClassOf datacite:Identifier, lit:Literal,
 	[
         a owl:Restriction ;
         owl:allValuesFrom foaf:Document ;
@@ -424,8 +428,9 @@ dataid:typeName
     rdfs:label "media type name"@en ;
     rdfs:range rdfs:Literal .
     
-dataid:statement
+dataid:literal
 	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf lit:hasLiteralValue;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment 	"An actual textual statement or literal (string)."@en ;
     rdfs:label "statement"@en ;

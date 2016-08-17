@@ -423,7 +423,7 @@ foaf:homepage : foaf:Document<y:LabelModel>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="86.0546875" x="53.27361192702472" y="4.0">dataid:Identifier</y:NodeLabel>
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Droid Sans" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="77.505859375" modelName="custom" textColor="#000000" visible="true" width="168.080078125" x="2.0" y="30.701171875">subclassOf : datacite:Identifier
 
-dct:identifier : rdfs:Literal
+dataid:literal : rdfs:Literal
 dct:references : foaf:Document
 dct:issued : xsd:date<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>

@@ -4,6 +4,7 @@
    xmlns:dcat="http://www.w3.org/ns/dcat#"
    xmlns:dct="http://purl.org/dc/terms/"
    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:lit="http://www.essepuntato.it/2010/06/literalreification/"
    xmlns:lvont="http://lexvo.org/ontology#"
    xmlns:odrl="http://www.w3.org/ns/odrl/2/"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -17,6 +18,7 @@
    xmlns:xml="http://www.w3.org/XML/1998/namespace"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <owl:Ontology rdf:about="http://dataid.dbpedia.org/ns/core#">
+    <dct:contributor rdf:resource="http://aksw.org/MartinBruemmer.html"/>
     <dct:creator rdf:resource="http://wiki.dbpedia.org/Association/Persons/Freudenberg"/>
     <dct:license rdf:resource="http://purl.org/NET/rdflicense/cc-by4.0"/>
     <dct:modified>2016-07-21</dct:modified>
@@ -34,11 +36,12 @@ universal data give and take. You can create your own DataID files for any type 
 Validating and delivering metadata files in a uniform way, as well as providing the ability to query for datasets, &#xD;
 are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:label xml:lang="en">DataID</rdfs:label>
-    <owl:imports rdf:resource="http://rdfs.org/ns/void#"/>
     <owl:imports rdf:resource="http://www.w3.org/ns/dcat#"/>
     <owl:imports rdf:resource="http://www.w3.org/ns/prov#"/>
     <owl:versionInfo>2.0.0</owl:versionInfo>
     <foaf:depiction rdf:resource="https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataIdOntology.png"/>
+    <foaf:homepage rdf:resource="http://wiki.dbpedia.org/projects/dbpedia-dataid"/>
+    <foaf:page rdf:resource="https://github.com/dbpedia/DataId-Ontology"/>
   </owl:Ontology>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Agent">
     <rdfs:comment xml:lang="en">Agents are real or legal persons, groups of persons, programs, organisations etc.</rdfs:comment>
@@ -359,11 +362,12 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:label xml:lang="en">guest authority</rdfs:label>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Identifier">
-    <rdfs:comment xml:lang="en">Uniquely identifies any resource, given an identifier as literal (see dataid:statement) and a corresponding identifier scheme (e.g. a aid/pid scheme like: ORCID, ResearcherID etc. &#xD;
+    <rdfs:comment xml:lang="en">Uniquely identifies any resource, given an identifier as literal (see dataid:literal) and a corresponding identifier scheme (e.g. a aid/pid scheme like: ORCID, ResearcherID etc. &#xD;
   pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web (about this Identifier) using dct:references.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Identifier</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+    <rdfs:subClassOf rdf:resource="http://www.essepuntato.it/2010/06/literalreification/Literal"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:allValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
@@ -511,7 +515,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://dataid.dbpedia.org/ns/core#Distribution"/>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#SimpleStatement">
-    <rdfs:comment xml:lang="en">A SimpleStatement is intended as a tool for conveying a statement, definition or point of view about a certain topic. Using either a simple literal (using dataid:statement) &#xD;
+    <rdfs:comment xml:lang="en">A SimpleStatement is intended as a tool for conveying a statement, definition or point of view about a certain topic. Using either a simple literal (using dataid:literal) &#xD;
   to provide a quotation, or by a referencing a web resource providing or representing the statement in any given medium (picture, text, video etc.). This class implements several classes of &#xD;
   Dublin Core which are not further specified within DC.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
@@ -519,6 +523,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/ProvenanceStatement"/>
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Standard"/>
+    <rdfs:subClassOf rdf:resource="http://www.essepuntato.it/2010/06/literalreification/Literal"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:allValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
@@ -836,6 +841,13 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:label xml:lang="en">latest version</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
   </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://dataid.dbpedia.org/ns/core#literal">
+    <rdfs:comment xml:lang="en">An actual textual statement or literal (string).</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">statement</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue"/>
+  </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization">
     <rdfs:comment xml:lang="en">Points out an Authorization which grants some degree of authority over this resource to the exclusion of other Authorizations which are not specified with this property.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
@@ -903,12 +915,6 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:label xml:lang="en">software requirement</rdfs:label>
     <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#SimpleStatement"/>
   </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="http://dataid.dbpedia.org/ns/core#statement">
-    <rdfs:comment xml:lang="en">An actual textual statement or literal (string).</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
-    <rdfs:label xml:lang="en">statement</rdfs:label>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-  </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#transitiveSubset">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
     <rdfs:comment xml:lang="en">Transitive super property of void:subset. This property is used to infer dataid:authorizedFor statements transitively over dataset hierarchies of arbitrary depth.</rdfs:comment>
@@ -988,6 +994,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveSubset"/>
   </rdf:Description>
   <dataid:Agent rdf:about="http://wiki.dbpedia.org/Association/Persons/Freudenberg">
+    <foaf:homepage rdf:resource="http://aksw.org/MarkusFreudenberg.html"/>
     <foaf:homepage rdf:resource="http://wiki.dbpedia.org/Association/Persons/Freudenberg"/>
     <foaf:mbox>freudenberg@informatik.uni-leipzig.de</foaf:mbox>
     <foaf:name>Markus Freudenberg</foaf:name>
