@@ -597,7 +597,7 @@ dataid:authorizationPath
 	rdfs:subPropertyOf dataid:authorizationScope;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment """This property combines dataid:authorizedFor with any sequence of the properties void:subset, foaf:primaryTopic 
-    and dcat:distribution with the use of an OWL property-chain axiom. It is used to infer new instances of dataid:authorizationScope and shall not be instatiated."""@en ;
+    and dcat:distribution with the use of an OWL property-chain axiom. It is used to infer new instances of dataid:authorizationScope and shall not be instantiated."""@en ;
     rdfs:label "authorization path"@en ;
     owl:propertyChainAxiom (
 	   dataid:authorizedFor
@@ -607,10 +607,9 @@ dataid:authorizationPath
 dataid:transitiveAuthorization
 	a owl:ObjectProperty, owl:TransitiveProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """This transitative super-property of void:subset, foaf:primaryTopic 
-    and dcat:distribution was introduced for convenience, and acts as a transitive extension 
-    of an Authorization by the path of these properties. It shall not to be instanciated."""@en ;
-    rdfs:label "transitative path property"@en .
+    rdfs:comment """This transitive super-property of void:subset, foaf:primaryTopic
+                    and dcat:distribution was introduced for convenience, and acts as a transitive extension
+                    of an Authorization by the path of these properties. It shall not to be instantiated."""@en .
 
 #We declare the following properties as sub properties of dataid:transitiveAuthorization to define how an Authorization is 'spread' amongst different Entities of DataID, Dataset and Distribution.     
 void:subset rdfs:subPropertyOf 			dataid:transitiveAuthorization.

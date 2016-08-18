@@ -589,7 +589,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationPath">
     <rdfs:comment xml:lang="en">This property combines dataid:authorizedFor with any sequence of the properties void:subset, foaf:primaryTopic &#xD;
-    and dcat:distribution with the use of an OWL property-chain axiom. It is used to infer new instances of dataid:authorizationScope and shall not be instatiated.</rdfs:comment>
+    and dcat:distribution with the use of an OWL property-chain axiom. It is used to infer new instances of dataid:authorizationScope and shall not be instantiated.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">authorization path</rdfs:label>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
@@ -808,11 +808,10 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#transitiveAuthorization">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-    <rdfs:comment xml:lang="en">This transitative super-property of void:subset, foaf:primaryTopic &#xD;
-    and dcat:distribution was introduced for convenience, and acts as a transitive extension &#xD;
-    of an Authorization by the path of these properties. It shall not to be instanciated.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This transitive super-property of void:subset, foaf:primaryTopic&#xD;
+                    and dcat:distribution was introduced for convenience, and acts as a transitive extension&#xD;
+                    of an Authorization by the path of these properties. It shall not to be instantiated.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
-    <rdfs:label xml:lang="en">transitative path property</rdfs:label>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="http://dataid.dbpedia.org/ns/core#typeExtension">
     <rdfs:comment xml:lang="en">Lists file extensions commonly used with this MediaType.</rdfs:comment>
