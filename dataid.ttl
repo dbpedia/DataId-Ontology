@@ -28,8 +28,8 @@ dataid:
     dct:modified "2016-07-21" ;
     rdfs:comment """The DataID core ontology is the central part of the DataID multi-layered metadata system. 
 Its goal is to extensively describes datasets and their different manifestations in a uniform way, 
-as well as relations to agents like persons or organisations, in regard to their rights and responsibilities. 
-Established vocabularies like DCAT, VoID, Prov-O are used for maximum compatibility.
+as well as relations with agents such as persons or organisations, in regard to their rights and responsibilities. 
+Established vocabularies such as DCAT, VoID, Prov-O are used for maximum compatibility.
 We introduced a multilayer concept of supporting ontologies extending DataID core to fit different 
 use case scenarios (for Linked Data, providing statistical data about datasets etc.).
 By describing datasets including content, authors, licenses and provenance via RDF, thereby making data 
@@ -143,7 +143,7 @@ dataid:Dataset
 dataid:Distribution
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Distributions describe a single manifestation of the pertaining Dataset (for example; its data format/serialization or a ServiceEndpoint including the procedure required to access the data)."@en ;
+    rdfs:comment "Distributions describe a single manifestation of the pertaining Dataset (for example; its data format/serialisation or a ServiceEndpoint including the procedure required to access the data)."@en ;
     rdfs:label "Distribution"@en ;
     rdfs:subClassOf dcat:Distribution, prov:Entity,
     	[
@@ -171,14 +171,14 @@ dataid:Distribution
 dataid:ServiceEndpoint
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A specific Distribution, which is accessible via an access url and provides data as a web service in a certain format."@en ;
+    rdfs:comment "A specific Distribution, which is accessible via an access URL and provides data as a web service in a certain format."@en ;
     rdfs:label "Service Endpoint"@en ;
     rdfs:subClassOf dataid:Distribution. 
 
 dataid:SingleFile
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A single data dump file representing the whole Dataset, in a certain format/serialization."@en ;
+    rdfs:comment "A single data dump file representing the whole Dataset, in a certain format/serialisation."@en ;
     rdfs:label "Single File"@en ;
     rdfs:subClassOf dataid:Distribution.
 
@@ -232,7 +232,7 @@ dataid:ResponsibleAction
 	a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Responsible Action"@en ;
-	rdfs:comment """AgentRoles provide rights as well as responsibilities an agent has to attend to in order to fulfill this Role. 
+	rdfs:comment """AgentRoles provide rights as well as responsibilities an agent has to attend to in order to fulfil this Role. 
   ResponsibleActions should describe actions pertaining to responsibilities an agent is supposed to do when holding a specific AgentRole."""@en ;
 	rdfs:subClassOf dataid:AuthorizedAction ;
 	owl:disjointWith dataid:EntitledAction .
@@ -250,8 +250,8 @@ dataid:SimpleStatement
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Simple Statement"@en ;
 	rdfs:comment """A SimpleStatement is intended as a tool for conveying a statement, definition or point of view about a certain topic. Using either a simple literal (using dataid:literal) 
-  to provide a quotation, or by a referencing a web resource providing or representing the statement in any given medium (picture, text, video etc.). This class implements several classes of 
-  Dublin Core which are not further specified within DC."""@en ;
+  to provide a quotation or by a referencing a web resource providing or representing the statement in any given medium (picture, text, video etc.). This class implements several classes of 
+  Dublin Core which is not further specified within DC."""@en ;
 	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard, lit:Literal,
 	[
         a owl:Restriction ;
@@ -263,7 +263,7 @@ dataid:Identifier
 	a owl:Class ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Identifier"@en ;
-	rdfs:comment """Uniquely identifies any resource, given an identifier as literal (see dataid:literal) and a corresponding identifier scheme (e.g. a aid/pid scheme like: ORCID, ResearcherID etc. 
+	rdfs:comment """Uniquely identifies any resource, given an identifier as literal (see dataid:literal) and a corresponding identifier scheme (e.g. a aid/pid scheme such as ORCID, ResearcherID etc. 
   pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web (about this Identifier) using dct:references."""@en ;
 	rdfs:subClassOf datacite:Identifier, lit:Literal,
 	[
@@ -329,7 +329,7 @@ dataid:similarDataset
 dataid:preview
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment 	"Provides the url of a short preview of the data provided by a Distribution, helpful when conveying type and format of the data provided as an example."@en ;
+    rdfs:comment 	"Provides the URL of a short preview of the data provided by a Distribution, helpful when conveying type and format of the data provided as an example."@en ;
     rdfs:domain 	dataid:Distribution ;
     rdfs:label 		"preview"@en ;
     rdfs:range  	foaf:Document .
@@ -358,7 +358,7 @@ dataid:softwareRequirement
 dataid:checksum
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """The checksum value allows the contents of a file to be authenticated, since it shifts even with small changes to the file."""@en ;
+    rdfs:comment """The checksum value allows the contents of a file to be authenticated since it shifts even with small changes to the file."""@en ;
     rdfs:domain dataid:Distribution	;
     rdfs:label "checksum"@en ;
     rdfs:range spdx:Checksum .
@@ -533,7 +533,7 @@ dataid:openness
 	a owl:ObjectProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
 	rdfs:label "openness"@en ;
-	rdfs:comment """General description of how data will be shared. For example: embargo periods (if any), outlines of technical mechanisms for dissemination or a definition of 
+	rdfs:comment """General description of how data will be shared. For example embargo periods (if any), outlines of technical mechanisms for dissemination or a definition of 
   whether access will be widely open or restricted to specific groups. In case the Dataset cannot be shared, the reasons for this should be mentioned (e.g. ethical, rules of 
   personal data, intellectual property, commercial, privacy-related, security-related)."""@en ;
 	rdfs:domain dataid:Dataset ;
@@ -576,7 +576,7 @@ dataid:authorizationScope
 	a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment """This property defines the scope of an Authorization. An Agent has the right to execute AuthorizedActions for all Entities of this scope.
-    Together with its sub-properties (dataid:authorizedFor, dataid:authorizationPath) it defines how the scope of an Authorization is extended to other Entities. 
+    Together with its sub-properties (dataid:authorizedFor, dataid:authorizationPath), it defines how the scope of an Authorization is extended to other Entities. 
     Since this property can be inferred by its sub-properties, it may not be instantiated in a DataID document."""@en ;
     rdfs:label "authorized entity"@en .
     
@@ -609,7 +609,7 @@ dataid:transitiveAuthorization
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment """This transitive super-property of void:subset, foaf:primaryTopic
                     and dcat:distribution was introduced for convenience, and acts as a transitive extension
-                    of an Authorization by the path of these properties. It shall not to be instantiated."""@en .
+                    of an Authorization by the path of these properties. It shall not be instantiated."""@en .
 
 #We declare the following properties as sub properties of dataid:transitiveAuthorization to define how an Authorization is 'spread' amongst different Entities of DataID, Dataset and Distribution.     
 void:subset rdfs:subPropertyOf 			dataid:transitiveAuthorization.
@@ -649,7 +649,7 @@ dataid:AuthorizedActionScheme
 dataid:AllResponsibilities
 	a owl:NamedIndividual, dataid:ResponsibleAction ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:comment "Encompasses all responsibilities (ResponsibleActions). Top concept of the AuthorizedActionScheme hierarchy."@en ;
+	rdfs:comment "Encompasses all responsibilities (ResponsibleActions). The top concept of the AuthorizedActionScheme hierarchy."@en ;
 	skos:prefLabel "all responsibilities"@en ;
 	skos:topConceptOf dataid:AuthorizedActionScheme ;
 	rdfs:label "all responsibilities"@en .
@@ -702,7 +702,7 @@ dataid:AgentSupervision
 dataid:AllEntitlements
 	a owl:NamedIndividual, dataid:ResponsibleAction ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:comment "Represents all entitlements (EntitledActions). Top concept of the AuthorizedActionScheme hierarchy."@en ;
+	rdfs:comment "Represents all entitlements (EntitledActions). The top concept of the AuthorizedActionScheme hierarchy."@en ;
 	skos:prefLabel "all entitlements"@en ;
 	skos:topConceptOf dataid:AuthorizedActionScheme ;
 	rdfs:label "all entitlements"@en .
@@ -780,7 +780,7 @@ dataid:Creator
 	a owl:NamedIndividual, dataid:AgentRole;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	dataid:allowsFor dataid:AllResponsibilities, dataid:AllEntitlements ;
-    rdfs:comment "Creator of the resource. An AgentRole that is credited with a main part in the initial creation of the resource."@en ;
+    rdfs:comment "Creator of the resource. An AgentRole that is credited with the main part in the initial creation of the resource."@en ;
     skos:prefLabel "creator"@en ;
 	skos:topConceptOf dataid:AgentRoleScheme ;
 	rdfs:label "creator"@en .
@@ -874,7 +874,7 @@ dataid:GuestAuthorization
 	dataid:authorizedAgent dataid:GuestAgent ;
 	dataid:authorityAgentRole dataid:Guest ;
 	rdfs:label "guest authority"@en ;
-	rdfs:comment "This Authorization can be used to point out that the content of an entity is public an can be read by anyone (see also dataid:Guest)."@en .
+	rdfs:comment "This Authorization can be used to point out that the content of an entity is public and can be read by anyone (see also dataid:Guest)."@en .
 	
 	
         
