@@ -21,7 +21,7 @@
 
 dataid:
     a owl:Ontology ;
-    owl:imports dcat:, prov: ;
+    #owl:imports dcat:, prov: ;
     vann:preferredNamespaceUri "http://dataid.dbpedia.org/ns/core#" ;
     vann:preferredNamespacePrefix "dataid" ;
     owl:versionInfo "2.0.0" ; 
@@ -612,9 +612,105 @@ dataid:transitiveAuthorization
                     of an Authorization by the path of these properties. It shall not be instantiated."""@en .
 
 #We declare the following properties as sub properties of dataid:transitiveAuthorization to define how an Authorization is 'spread' amongst different Entities of DataID, Dataset and Distribution.     
-void:subset rdfs:subPropertyOf 			dataid:transitiveAuthorization.
-foaf:primaryTopic rdfs:subPropertyOf 	dataid:transitiveAuthorization.
-dcat:distribution rdfs:subPropertyOf 	dataid:transitiveAuthorization.
+
+dataid:authorizationChain1
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """"""@en ;
+    rdfs:label ""@en ;
+    owl:propertyChainAxiom (
+	   foaf:primaryTopic
+	   dcat:distribution
+	) .
+	
+dataid:authorizationChain2
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """"""@en ;
+    rdfs:label ""@en ;
+    owl:propertyChainAxiom (
+	   foaf:primaryTopic
+	   void:subset
+	) .
+	
+dataid:authorizationChain3
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """"""@en ;
+    rdfs:label ""@en ;
+    owl:propertyChainAxiom (
+	   void:subset
+	   dcat:distribution
+	) .
+	
+dataid:authorizationChain4
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """"""@en ;
+    rdfs:label ""@en ;
+    owl:propertyChainAxiom (
+	   void:subset
+	   void:subset
+	) .
+	
+dataid:authorizationChain5
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """"""@en ;
+    rdfs:label ""@en ;
+    owl:propertyChainAxiom (
+	   void:subset
+	   void:subset
+	   dcat:distribution
+	) .
+	
+dataid:authorizationChain6
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """"""@en ;
+    rdfs:label ""@en ;
+    owl:propertyChainAxiom (
+	   foaf:primaryTopic
+	   void:subset
+	   dcat:distribution
+	) .
+		
+dataid:authorizationChain7
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """"""@en ;
+    rdfs:label ""@en ;
+    owl:propertyChainAxiom (
+    	dataid:authorizedFor
+	    foaf:primaryTopic
+	) .	
+dataid:authorizationChain8
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """"""@en ;
+    rdfs:label ""@en ;
+    owl:propertyChainAxiom (
+	   dataid:authorizedFor
+	   void:subset
+	) .	
+dataid:authorizationChain9
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:comment """"""@en ;
+    rdfs:label ""@en ;
+    owl:propertyChainAxiom (
+	   dataid:authorizedFor
+	   dcat:distribution
+	) .
 	
 dataid:underAuthorization
     a owl:ObjectProperty ;
@@ -875,16 +971,3 @@ dataid:GuestAuthorization
 	dataid:authorityAgentRole dataid:Guest ;
 	rdfs:label "guest authority"@en ;
 	rdfs:comment "This Authorization can be used to point out that the content of an entity is public and can be read by anyone (see also dataid:Guest)."@en .
-	
-	
-        
-######## External Axioms ########
-
-## to make use of dct:spatial together with geonames#Feature:
-<http://www.geonames.org/ontology#Feature>	rdfs:subClassOf	dct:Location .
-
-## to make use of dct:temporat together with time:Interval
-<http://www.w3.org/2006/time#Interval>		rdfs:subClassOf	dct:PeriodOfTime .
-
-## to make use of dct:license in connection with odrl:Policy
-odrl:Policy	rdfs:subClassOf	dct:LicenseDocument .
