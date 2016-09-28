@@ -587,18 +587,154 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:range rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#hadRole"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationPath">
-    <rdfs:comment xml:lang="en">This property combines dataid:authorizedFor with any sequence of the properties void:subset, foaf:primaryTopic &#xD;
-    and dcat:distribution with the use of an OWL property-chain axiom. It is used to infer new instances of dataid:authorizationScope and shall not be instantiated.</rdfs:comment>
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationChain1">
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
-    <rdfs:label xml:lang="en">authorization path</rdfs:label>
-    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
+    <rdfs:label xml:lang="en">authorization chain property 1</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
+    <owl:propertyChainAxiom>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://xmlns.com/foaf/0.1/primaryTopic"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://www.w3.org/ns/dcat#distribution"/>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:propertyChainAxiom>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationChain2">
+    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">authorization chain property 2</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
+    <owl:propertyChainAxiom>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://xmlns.com/foaf/0.1/primaryTopic"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdfs.org/ns/void#subset"/>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:propertyChainAxiom>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationChain3">
+    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">authorization chain property 3</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
+    <owl:propertyChainAxiom>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://rdfs.org/ns/void#subset"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://www.w3.org/ns/dcat#distribution"/>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:propertyChainAxiom>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationChain4">
+    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">authorization chain property 4</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
+    <owl:propertyChainAxiom>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://rdfs.org/ns/void#subset"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdfs.org/ns/void#subset"/>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:propertyChainAxiom>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationChain5">
+    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">authorization chain property 5</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
+    <owl:propertyChainAxiom>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://rdfs.org/ns/void#subset"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdfs.org/ns/void#subset"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://www.w3.org/ns/dcat#distribution"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:propertyChainAxiom>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationChain6">
+    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">authorization chain property 6</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
+    <owl:propertyChainAxiom>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://xmlns.com/foaf/0.1/primaryTopic"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdfs.org/ns/void#subset"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://www.w3.org/ns/dcat#distribution"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:propertyChainAxiom>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationChain7">
+    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">authorization chain property 7</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
         <rdf:first rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
         <rdf:rest>
           <rdf:Description>
-            <rdf:first rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
+            <rdf:first rdf:resource="http://xmlns.com/foaf/0.1/primaryTopic"/>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:propertyChainAxiom>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationChain8">
+    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">authorization chain property 8</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
+    <owl:propertyChainAxiom>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://rdfs.org/ns/void#subset"/>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:propertyChainAxiom>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationChain9">
+    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">authorization chain property 9</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
+    <owl:propertyChainAxiom>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://dataid.dbpedia.org/ns/core#authorizedFor"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://www.w3.org/ns/dcat#distribution"/>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
           </rdf:Description>
         </rdf:rest>
@@ -607,7 +743,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#authorizationScope">
     <rdfs:comment xml:lang="en">This property defines the scope of an Authorization. An Agent has the right to execute AuthorizedActions for all Entities of this scope.&#xD;
-    Together with its sub-properties (dataid:authorizedFor, dataid:authorizationPath), it defines how the scope of an Authorization is extended to other Entities. &#xD;
+    Together with its sub-properties (dataid:authorizedFor, dataid:transitiveAuthorization), it defines how the scope of an Authorization is extended to other Entities. &#xD;
     Since this property can be inferred by its sub-properties, it may not be instantiated in a DataID document.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">authorized entity</rdfs:label>
@@ -808,10 +944,12 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#transitiveAuthorization">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-    <rdfs:comment xml:lang="en">This transitive super-property of void:subset, foaf:primaryTopic&#xD;
-                    and dcat:distribution was introduced for convenience, and acts as a transitive extension&#xD;
-                    of an Authorization by the path of these properties. It shall not be instantiated.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This super-property of all dataid:authorizationChain properties and acts as a transitive extension&#xD;
+                    of an Authorization following the path of void:subset, foaf:primaryTopic and dcat:distribution. &#xD;
+                    It was introduced for convenience and is not to be instantiated in a DataID document.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
+    <rdfs:label xml:lang="en">transitive authorization</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="http://dataid.dbpedia.org/ns/core#typeExtension">
     <rdfs:comment xml:lang="en">Lists file extensions commonly used with this MediaType.</rdfs:comment>
@@ -882,28 +1020,10 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:label xml:lang="en">valid until</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
   </owl:DatatypeProperty>
-  <rdf:Description rdf:about="http://rdfs.org/ns/void#subset">
-    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
-  </rdf:Description>
   <dataid:Agent rdf:about="http://wiki.dbpedia.org/Association/Persons/Freudenberg">
     <foaf:homepage rdf:resource="http://aksw.org/MarkusFreudenberg.html"/>
     <foaf:homepage rdf:resource="http://wiki.dbpedia.org/Association/Persons/Freudenberg"/>
     <foaf:mbox>freudenberg@informatik.uni-leipzig.de</foaf:mbox>
     <foaf:name>Markus Freudenberg</foaf:name>
   </dataid:Agent>
-  <rdf:Description rdf:about="http://www.geonames.org/ontology#Feature">
-    <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Location"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2006/time#Interval">
-    <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/PeriodOfTime"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/ns/dcat#distribution">
-    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/ns/odrl/2/Policy">
-    <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/LicenseDocument"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/primaryTopic">
-    <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#transitiveAuthorization"/>
-  </rdf:Description>
 </rdf:RDF>

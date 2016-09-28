@@ -21,7 +21,7 @@
 
 dataid:
     a owl:Ontology ;
-    #owl:imports dcat:, prov: ;
+    owl:imports dcat:, prov: ;
     vann:preferredNamespaceUri "http://dataid.dbpedia.org/ns/core#" ;
     vann:preferredNamespacePrefix "dataid" ;
     owl:versionInfo "2.0.0" ; 
@@ -576,7 +576,7 @@ dataid:authorizationScope
 	a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment """This property defines the scope of an Authorization. An Agent has the right to execute AuthorizedActions for all Entities of this scope.
-    Together with its sub-properties (dataid:authorizedFor, dataid:authorizationPath), it defines how the scope of an Authorization is extended to other Entities. 
+    Together with its sub-properties (dataid:authorizedFor, dataid:transitiveAuthorization), it defines how the scope of an Authorization is extended to other Entities. 
     Since this property can be inferred by its sub-properties, it may not be instantiated in a DataID document."""@en ;
     rdfs:label "authorized entity"@en .
     
@@ -591,126 +591,6 @@ dataid:authorizedFor
     rdfs:label "authorized for"@en ;
     rdfs:domain dataid:Authorization ;
     rdfs:range  prov:Entity .
-
-dataid:authorizationPath
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf dataid:authorizationScope;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """This property combines dataid:authorizedFor with any sequence of the properties void:subset, foaf:primaryTopic 
-    and dcat:distribution with the use of an OWL property-chain axiom. It is used to infer new instances of dataid:authorizationScope and shall not be instantiated."""@en ;
-    rdfs:label "authorization path"@en ;
-    owl:propertyChainAxiom (
-	   dataid:authorizedFor
-	   dataid:transitiveAuthorization
-	) .
-
-dataid:transitiveAuthorization
-	a owl:ObjectProperty, owl:TransitiveProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """This transitive super-property of void:subset, foaf:primaryTopic
-                    and dcat:distribution was introduced for convenience, and acts as a transitive extension
-                    of an Authorization by the path of these properties. It shall not be instantiated."""@en .
-
-#We declare the following properties as sub properties of dataid:transitiveAuthorization to define how an Authorization is 'spread' amongst different Entities of DataID, Dataset and Distribution.     
-
-dataid:authorizationChain1
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """"""@en ;
-    rdfs:label ""@en ;
-    owl:propertyChainAxiom (
-	   foaf:primaryTopic
-	   dcat:distribution
-	) .
-	
-dataid:authorizationChain2
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """"""@en ;
-    rdfs:label ""@en ;
-    owl:propertyChainAxiom (
-	   foaf:primaryTopic
-	   void:subset
-	) .
-	
-dataid:authorizationChain3
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """"""@en ;
-    rdfs:label ""@en ;
-    owl:propertyChainAxiom (
-	   void:subset
-	   dcat:distribution
-	) .
-	
-dataid:authorizationChain4
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """"""@en ;
-    rdfs:label ""@en ;
-    owl:propertyChainAxiom (
-	   void:subset
-	   void:subset
-	) .
-	
-dataid:authorizationChain5
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """"""@en ;
-    rdfs:label ""@en ;
-    owl:propertyChainAxiom (
-	   void:subset
-	   void:subset
-	   dcat:distribution
-	) .
-	
-dataid:authorizationChain6
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """"""@en ;
-    rdfs:label ""@en ;
-    owl:propertyChainAxiom (
-	   foaf:primaryTopic
-	   void:subset
-	   dcat:distribution
-	) .
-		
-dataid:authorizationChain7
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """"""@en ;
-    rdfs:label ""@en ;
-    owl:propertyChainAxiom (
-    	dataid:authorizedFor
-	    foaf:primaryTopic
-	) .	
-dataid:authorizationChain8
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """"""@en ;
-    rdfs:label ""@en ;
-    owl:propertyChainAxiom (
-	   dataid:authorizedFor
-	   void:subset
-	) .	
-dataid:authorizationChain9
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment """"""@en ;
-    rdfs:label ""@en ;
-    owl:propertyChainAxiom (
-	   dataid:authorizedFor
-	   dcat:distribution
-	) .
 	
 dataid:underAuthorization
     a owl:ObjectProperty ;
@@ -730,6 +610,108 @@ dataid:needsSpecialAuthorization
     rdfs:label "needs special authorization"@en ;
     rdfs:domain	prov:Entity ;
     rdfs:range dataid:Authorization .
+
+
+dataid:transitiveAuthorization
+	a owl:ObjectProperty, owl:TransitiveProperty ;
+	rdfs:subPropertyOf dataid:authorizationScope;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "transitive authorization"@en ;
+    rdfs:comment """This super-property of all dataid:authorizationChain properties and acts as a transitive extension
+                    of an Authorization following the path of void:subset, foaf:primaryTopic and dcat:distribution. 
+                    It was introduced for convenience and is not to be instantiated in a DataID document."""@en .
+                
+#The following 9 properties are necessary to 'simulate' making foaf:primaryTopic, void:subset and dcat:distribution a rdfs:subPropertyOf dataid:transitiveAuthorization, as not to hijack the pertaining ontologies.    
+#With the help of these properties we can spread dataid:authorizationScope over multiple instances along the three above mentioned properties.
+dataid:authorizationChain1
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "authorization chain property 1"@en ;
+    owl:propertyChainAxiom (
+	   foaf:primaryTopic
+	   dcat:distribution
+	) .
+	
+dataid:authorizationChain2
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "authorization chain property 2"@en ;
+    owl:propertyChainAxiom (
+	   foaf:primaryTopic
+	   void:subset
+	) .
+	
+dataid:authorizationChain3
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "authorization chain property 3"@en ;
+    owl:propertyChainAxiom (
+	   void:subset
+	   dcat:distribution
+	) .
+	
+dataid:authorizationChain4
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "authorization chain property 4"@en ;
+    owl:propertyChainAxiom (
+	   void:subset
+	   void:subset
+	) .
+	
+dataid:authorizationChain5
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "authorization chain property 5"@en ;
+    owl:propertyChainAxiom (
+	   void:subset
+	   void:subset
+	   dcat:distribution
+	) .
+	
+dataid:authorizationChain6
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "authorization chain property 6"@en ;
+    owl:propertyChainAxiom (
+	   foaf:primaryTopic
+	   void:subset
+	   dcat:distribution
+	) .
+		
+dataid:authorizationChain7
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "authorization chain property 7"@en ;
+    owl:propertyChainAxiom (
+    	dataid:authorizedFor
+	    foaf:primaryTopic
+	) .	
+dataid:authorizationChain8
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "authorization chain property 8"@en ;
+    owl:propertyChainAxiom (
+	   dataid:authorizedFor
+	   void:subset
+	) .	
+dataid:authorizationChain9
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
+    rdfs:label "authorization chain property 9"@en ;
+    owl:propertyChainAxiom (
+	   dataid:authorizedFor
+	   dcat:distribution
+	) .
     
 ################### Individuals ####################
 
