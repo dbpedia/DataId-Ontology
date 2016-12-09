@@ -9,7 +9,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> . 
-@prefix msr: <http://purl.org/ms-rights#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix dataid-ld: <http://dataid.dbpedia.org/ns/ld#> .
@@ -32,16 +32,39 @@
         foaf:mbox                "freudenberg@informatik.uni-leipzig.de" ;
         foaf:name                "Markus Freudenberg" .
 
+dataid-ld:LinkedDataDataset
+    a owl:Class ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
+    rdfs:label "Linked Data Dataset"@en ;
+    rdfs:comment "A Dataset specific for "@en ;
+    rdfs:subClassOf dataid:Dataset, sd:Dataset.
+    
 dataid-ld:Linkset
     a owl:Class ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
     rdfs:label "Linkset"@en ;
     rdfs:comment "Entity representing the set of links between two datasets."@en ;
-    rdfs:subClassOf void:Linkset, prov:Entity,
-	[
+    rdfs:subClassOf void:Linkset, dataid:DatasetRelationship, sd:Dataset, prov:Entity,  #prov:Entity ???
+    [
         a owl:Restriction ;
-        owl:allValuesFrom msr:License ;
+        owl:allValuesFrom dataid-ld:Linkset ;
+        owl:onProperty dataid:nextVersion
+    ],[
+        a owl:Restriction ;
+        owl:allValuesFrom dataid-ld:Linkset ;
+        owl:onProperty dataid:previousVersion
+    ],[
+        a owl:Restriction ;
+        owl:allValuesFrom dataid-ld:Linkset ;
+        owl:onProperty dataid:latestVersion
+    ],[
+        a owl:Restriction ;
+        owl:allValuesFrom odrl:Policy ;
         owl:onProperty dct:license
+    ],[
+        a owl:Restriction ;
+        owl:hasValue   dataid:LinksetRole;
+        owl:onProperty dataid:datasetRelationRole
     ].
 
 dataid-ld:SparqlEndpoint
@@ -53,16 +76,11 @@ dataid-ld:SparqlEndpoint
 
 dataid-ld:containsLinks
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf dataid:qualifiedDatasetRelation ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
     rdfs:comment "Set of links to another dataset contained in this dataset"@en ;
-    rdfs:domain dataid:Dataset ;
+    rdfs:domain dataid-ld:LinkedDataDataset ;
     rdfs:label "contains links"@en ;
     rdfs:range dataid-ld:Linkset .
-
-dataid-ld:graphName
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/ld#> ;
-    rdfs:comment "The name of the graph of this distribution in a SPARQL endpoint"@en ;
-    rdfs:domain dataid:Distribution ;
-    rdfs:label "Graph name"@en ;
-    rdfs:range xsd:string .
+    
+# single axioms: extending definitions of DataID core
