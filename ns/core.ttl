@@ -229,7 +229,7 @@ dataid:FileCollection
 dataid:DatasetRelationship
 	a owl:Class;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Portrays a generic relation between two ore more datasets."@en ;
+    rdfs:comment "Portrays a generic relation between two or more datasets."@en ;
     rdfs:label "Dataset Relationship"@en ;
     rdfs:subClassOf prov:EntityInfluence.
     
@@ -655,12 +655,13 @@ dataid:isInheritable
 
 #The follwing properties are used to defines the scope of an Authorization over multiple entities.	
 dataid:authorizationScope
-	a owl:ObjectProperty ;
+	a owl:ObjectProperty, owl:TransitiveProperty;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment """This property defines the scope of an Authorization. An Agent has the right to execute AuthorizedActions for all Entities of this scope.
-    Together with its sub-properties (dataid:authorizedFor, dataid:transitiveAuthorization), it defines how the scope of an Authorization is extended to other Entities. 
+    Together with its sub-properties (dataid:authorizedFor, dataid:authorizationChainX), it defines how the scope of an Authorization is extended to other Entities. 
     Since this property can be inferred by its sub-properties it shall not be instantiated in a DataID document."""@en ;
-    rdfs:label "authorized entity"@en .
+    rdfs:label "authorization scope"@en ;
+    rdfs:range  prov:Entity .
     
 dataid:authorizedFor
 	a owl:ObjectProperty ;
@@ -669,7 +670,7 @@ dataid:authorizedFor
     rdfs:comment """Points out the Entities which are under the direct influence of an Authorization. 
     An Agent has the right to execute AuthorizedActions (as defined by the pertaining AgentRole) for these Entities.
     This property shall be used to point out the initial entities for which an Authorization is valid. Inference via 
-    dataid:transitiveAuthorization may extend the scope of this Authorization further over multiple Entities along the hirarical structure of a DataID."""@en ;
+    authorizationChain properties may extend the scope of this Authorization further over multiple Entities along the hirarical structure of a DataID."""@en ;
     rdfs:label "authorized for"@en ;
     rdfs:domain dataid:Authorization ;
     rdfs:range  prov:Entity .
@@ -677,7 +678,6 @@ dataid:authorizedFor
 dataid:underAuthorization
     a owl:ObjectProperty ;
     rdfs:subPropertyOf prov:qualifiedAttribution ;
-    owl:inverseOf dataid:authorizationScope ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:comment "Points out an Authorization which grants some degree of authority over this resource (inverse property of dataid:authorizationScope)."@en ;
     rdfs:label "under authorization"@en ;
@@ -693,22 +693,15 @@ dataid:needsSpecialAuthorization
     rdfs:domain	prov:Entity ;
     rdfs:range dataid:Authorization .
 
-
-dataid:transitiveAuthorization
-	a owl:ObjectProperty, owl:TransitiveProperty ;
-	rdfs:subPropertyOf dataid:authorizationScope;
-    rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "transitive authorization"@en ;
-    rdfs:comment """This super-property of all dataid:authorizationChain properties and acts as a transitive extension
-                    of an Authorization following the path of void:subset, foaf:primaryTopic and dcat:distribution. 
-                    It was introduced for inferencing and is not to be instantiated in a DataID document."""@en .
                 
-#The following 9 properties are necessary to 'simulate' making foaf:primaryTopic, void:subset and dcat:distribution a rdfs:subPropertyOf dataid:transitiveAuthorization, as not to hijack the pertaining ontologies.    
+#The following 9 properties are necessary to 'simulate' making foaf:primaryTopic, void:subset and dcat:distribution a rdfs:subPropertyOf dataid:authorizationScope, as not to hijack the pertaining ontologies.    
 dataid:authorizationChain1
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+	rdfs:subPropertyOf	dataid:authorizationScope ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+	rdfs:label "Authorization Chain 1 property"@en;
+    rdfs:comment "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+    rdfs:range  prov:Entity ;
     owl:propertyChainAxiom (
 	   foaf:primaryTopic
 	   dcat:distribution
@@ -716,9 +709,11 @@ dataid:authorizationChain1
 	
 dataid:authorizationChain2
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+	rdfs:subPropertyOf	dataid:authorizationScope ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+	rdfs:label "Authorization Chain 2 property"@en;
+    rdfs:comment "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+    rdfs:range  prov:Entity ;
     owl:propertyChainAxiom (
 	   foaf:primaryTopic
 	   void:subset
@@ -726,9 +721,11 @@ dataid:authorizationChain2
 	
 dataid:authorizationChain3
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+	rdfs:subPropertyOf	dataid:authorizationScope ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+	rdfs:label "Authorization Chain 3 property"@en;
+    rdfs:comment "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+    rdfs:range  prov:Entity ;
     owl:propertyChainAxiom (
 	   void:subset
 	   dcat:distribution
@@ -736,9 +733,11 @@ dataid:authorizationChain3
 	
 dataid:authorizationChain4
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+	rdfs:subPropertyOf	dataid:authorizationScope ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+	rdfs:label "Authorization Chain 4 property"@en;
+    rdfs:comment "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+    rdfs:range  prov:Entity ;
     owl:propertyChainAxiom (
 	   void:subset
 	   void:subset
@@ -746,9 +745,11 @@ dataid:authorizationChain4
 	
 dataid:authorizationChain5
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+	rdfs:subPropertyOf	dataid:authorizationScope ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+	rdfs:label "Authorization Chain 5 property"@en;
+    rdfs:comment "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+    rdfs:range  prov:Entity ;
     owl:propertyChainAxiom (
 	   void:subset
 	   void:subset
@@ -757,9 +758,11 @@ dataid:authorizationChain5
 	
 dataid:authorizationChain6
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+	rdfs:subPropertyOf	dataid:authorizationScope ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+	rdfs:label "Authorization Chain 6 property"@en;
+    rdfs:comment "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+    rdfs:range  prov:Entity ;
     owl:propertyChainAxiom (
 	   foaf:primaryTopic
 	   void:subset
@@ -768,27 +771,33 @@ dataid:authorizationChain6
 		
 dataid:authorizationChain7
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+	rdfs:subPropertyOf	dataid:authorizationScope ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+	rdfs:label "Authorization Chain 7 property"@en;
+    rdfs:comment "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+    rdfs:range  prov:Entity ;
     owl:propertyChainAxiom (
     	dataid:authorizedFor
 	    foaf:primaryTopic
 	) .	
 dataid:authorizationChain8
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+	rdfs:subPropertyOf	dataid:authorizationScope ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+	rdfs:label "Authorization Chain 8 property"@en;
+    rdfs:comment "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+    rdfs:range  prov:Entity ;
     owl:propertyChainAxiom (
 	   dataid:authorizedFor
 	   void:subset
 	) .	
 dataid:authorizationChain9
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf	dataid:transitiveAuthorization ;
+	rdfs:subPropertyOf	dataid:authorizationScope ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+	rdfs:label "Authorization Chain 9 property"@en;
+    rdfs:comment "With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution."@en ;
+    rdfs:range  prov:Entity ;
     owl:propertyChainAxiom (
 	   dataid:authorizedFor
 	   dcat:distribution
