@@ -21,7 +21,7 @@
 
 dataid:
     a owl:Ontology ;
-    owl:imports dcat:, prov: ;
+    owl:imports dcat:, prov: ; #, foaf:, datacite: ;
     vann:preferredNamespaceUri "http://dataid.dbpedia.org/ns/core#" ;
     vann:preferredNamespacePrefix "dataid" ;
     owl:versionInfo "2.0.0" ; 
@@ -293,10 +293,8 @@ dataid:SimpleStatement
 	a owl:Class;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Simple Statement"@en ;
-	rdfs:comment """A SimpleStatement is intended as a tool for conveying a statement, definition or point of view about a certain topic. Using either a simple literal (using dataid:literal) 
-  to provide a quotation or by a referencing a web resource providing or representing the statement in any given medium (picture, text, video etc.). This class implements several classes of 
-  Dublin Core which is not further specified within DC."""@en ;
-	rdfs:subClassOf dct:ProvenanceStatement, dct:RightsStatement, dct:Standard, lit:Literal,
+	rdfs:comment """A SimpleStatement is intended as a tool for conveying a statement, definition or point of view about a certain topic. Using either a simple literal (using dataid:literal) to provide a quotation or by a referencing a web resource providing or representing the statement in any given medium (picture, text, video etc.). This class implements several classes of Dublin Core which is not further specified within DC."""@en ;
+	rdfs:subClassOf prov:Entity, dct:ProvenanceStatement, dct:RightsStatement, dct:Standard, lit:Literal,
 	[
         a owl:Restriction ;
         owl:allValuesFrom foaf:Document ;
@@ -307,8 +305,7 @@ dataid:Identifier
 	a owl:Class ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	rdfs:label "Identifier"@en ;
-	rdfs:comment """Uniquely identifies any resource, given an identifier as literal (see dataid:literal) and a corresponding identifier scheme (e.g. a aid/pid scheme such as ORCID, ResearcherID etc. 
-  pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web (about this Identifier) using dct:references."""@en ;
+	rdfs:comment """Uniquely identifies any resource, given an identifier as literal (see dataid:literal) and a corresponding identifier scheme (e.g. a aid/pid scheme such as ORCID, ResearcherID etc. pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web (about this Identifier) using dct:references."""@en ;
 	rdfs:subClassOf datacite:Identifier, lit:Literal,
 	[
         a owl:Restriction ;
@@ -615,9 +612,7 @@ dataid:openness
 	a owl:ObjectProperty ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/dmp#> ;
 	rdfs:label "openness"@en ;
-	rdfs:comment """General description of how data will be shared. For example embargo periods (if any), outlines of technical mechanisms for dissemination or a definition of 
-  whether access will be widely open or restricted to specific groups. In case the Dataset cannot be shared, the reasons for this should be mentioned (e.g. ethical, rules of 
-  personal data, intellectual property, commercial, privacy-related, security-related)."""@en ;
+	rdfs:comment """General description of how data will be shared. For example embargo periods (if any), outlines of technical mechanisms for dissemination or a definition of whether access will be widely open or restricted to specific groups. In case the Dataset cannot be shared, the reasons for this should be mentioned (e.g. ethical, rules of personal data, intellectual property, commercial, privacy-related, security-related)."""@en ;
 	rdfs:domain dataid:Dataset ;
 	rdfs:range dataid:SimpleStatement .
 
@@ -1061,16 +1056,16 @@ dataid:SourceRole
 	a owl:NamedIndividual, dataid:DatasetRelationRole;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Source Role"@en ;
-    rdfs:comment "This role specifies a dataid:DatasetRelationship where one dataset is created by transforming/collectiong data from another dataset."@en .
+    rdfs:comment "This role specifies a dataid:DatasetRelationship where the origin dataset is created by transforming/collecting data from the target dataset."@en .
 
 dataid:CopyRole
 	a owl:NamedIndividual, dataid:DatasetRelationRole;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Copy Role"@en ;
-    rdfs:comment "This role specifies a dataid:DatasetRelationship where one dataset is an exeact copy of a second dataset (e.g. when republished under a different domain)."@en .
+    rdfs:comment "This role specifies a dataid:DatasetRelationship where the origin dataset is an exact copy of the target dataset (e.g. when republished under a different domain)."@en .
     
 dataid:SimilarityRole
 	a owl:NamedIndividual, dataid:DatasetRelationRole;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
     rdfs:label "Similarity Role"@en ;
-    rdfs:comment "This role specifies a dataid:DatasetRelationship where one dataset has a significant similarity to another dataset (without any assertion as to dimension of similarity)."@en .
+    rdfs:comment "This role specifies a dataid:DatasetRelationship where the origin dataset has a significant similarity to the target dataset (without any assertion as to dimension of similarity)."@en .
