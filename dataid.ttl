@@ -236,7 +236,7 @@ dataid:DatasetRelationship
 dataid:DatasetRelationRole
 	a owl:Class;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "Provides the role of a dataid:DatasetRelationship (e.g. Linkset, Source, Derivat, Similarity etc.)."@en ;
+    rdfs:comment "Provides the role of a dataid:DatasetRelationship (e.g. Linkset, Source, Derivate, Similarity etc.)."@en ;
     rdfs:label "Dataset Relation Role"@en ;
     rdfs:subClassOf prov:Role.
     
@@ -1046,11 +1046,11 @@ dataid:GenericRelation
     rdfs:label "Generic Relation"@en ;
     rdfs:comment "This role specifies a dataid:DatasetRelationship between two datasets which have a relation of a unknown quality."@en .
     
-dataid:DerivatRole
+dataid:DerivateRole
 	a owl:NamedIndividual, dataid:DatasetRelationRole;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:label "Derivat Role"@en ;
-    rdfs:comment "This role specifies a dataid:DatasetRelationship where one dataset points out a second dataset, which is a derivat of the first."@en .
+    rdfs:label "Derivate Role"@en ;
+    rdfs:comment "This role specifies a dataid:DatasetRelationship where one dataset points out a second dataset, which is a derivate of the first."@en .
 	
 dataid:SourceRole
 	a owl:NamedIndividual, dataid:DatasetRelationRole;
