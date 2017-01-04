@@ -21,7 +21,7 @@
 
 dataid:
     a owl:Ontology ;
-    owl:imports dcat:, prov: ; #, foaf:, datacite: ;
+    owl:imports dcat:, prov:, foaf:, void: ;
     vann:preferredNamespaceUri "http://dataid.dbpedia.org/ns/core#" ;
     vann:preferredNamespacePrefix "dataid" ;
     owl:versionInfo "2.0.0" ; 
@@ -195,7 +195,7 @@ dataid:Distribution
 	    ],[
 	        a owl:Restriction ;
 	        owl:allValuesFrom dataid:SimpleStatement ;
-	        owl:onProperty dct:rights
+	        owl:onProperty dct:rights 
 	    ].
 
 dataid:ServiceEndpoint
