@@ -36,8 +36,10 @@ universal data give and take. You can create your own DataID files for any type 
 Validating and delivering metadata files in a uniform way, as well as providing the ability to query for datasets, &#xD;
 are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:label xml:lang="en">DataID</rdfs:label>
+    <owl:imports rdf:resource="http://rdfs.org/ns/void#"/>
     <owl:imports rdf:resource="http://www.w3.org/ns/dcat#"/>
     <owl:imports rdf:resource="http://www.w3.org/ns/prov#"/>
+    <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
     <owl:versionInfo>2.0.0</owl:versionInfo>
     <foaf:depiction rdf:resource="https://raw.githubusercontent.com/dbpedia/DataId-Ontology/master/DataIdOntology.png"/>
     <foaf:homepage rdf:resource="http://wiki.dbpedia.org/projects/dbpedia-dataid"/>
@@ -118,7 +120,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ReadDataId"/>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ResponseToContact"/>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
-    <rdfs:comment xml:lang="en">Contact agent. An Agent that can be contacted for general requests about the resource.</rdfs:comment>
+    <rdfs:comment xml:lang="en">An Agent that can be contacted for general requests about the resource.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">contact</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#Maintainer"/>
@@ -130,7 +132,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ReadContent"/>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ReadDataId"/>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
-    <rdfs:comment xml:lang="en">Contributor to the resource. An Agent that was involved in creating or maintaining the resource but does not have the main part in this activity.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Contributor to the resource. An Agent that was involved in creating or maintaining the resource but did not have the main part in this activity.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">contributor</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#Publisher"/>
@@ -139,7 +141,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#CopyRole">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#DatasetRelationRole"/>
-    <rdfs:comment xml:lang="en">This role specifies a dataid:DatasetRelationship where one dataset is an exeact copy of a second dataset (e.g. when republished under a different domain).</rdfs:comment>
+    <rdfs:comment xml:lang="en">This role specifies a dataid:DatasetRelationship where the origin dataset is an exact copy of the target dataset (e.g. when republished under a different domain).</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Copy Role</rdfs:label>
   </owl:NamedIndividual>
@@ -288,7 +290,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#DatasetRelationRole">
-    <rdfs:comment xml:lang="en">Provides the role of a dataid:DatasetRelationship (e.g. Linkset, Source, Derivat, Similarity etc.).</rdfs:comment>
+    <rdfs:comment xml:lang="en">Provides the role of a dataid:DatasetRelationship (e.g. Linkset, Source, Derivate, Similarity etc.).</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Dataset Relation Role</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Role"/>
@@ -308,11 +310,11 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <skos:inScheme rdf:resource="http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme"/>
     <skos:prefLabel xml:lang="en">delete content right</skos:prefLabel>
   </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#DerivatRole">
+  <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#DerivateRole">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#DatasetRelationRole"/>
-    <rdfs:comment xml:lang="en">This role specifies a dataid:DatasetRelationship where one dataset points out a second dataset, which is a derivat of the first.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This role specifies a dataid:DatasetRelationship where one dataset points out a second dataset, which is a derivate of the first.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
-    <rdfs:label xml:lang="en">Derivat Role</rdfs:label>
+    <rdfs:label xml:lang="en">Derivate Role</rdfs:label>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Directory">
     <rdfs:comment xml:lang="en">A dedicated file system directory holding (multiple) files of the same Dataset, which, when put together, make up the whole Dataset.</rdfs:comment>
@@ -387,7 +389,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ReadContent"/>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ReadDataId"/>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
-    <rdfs:comment xml:lang="en">A visitor or anonymous Agent has only read rights on public documents</rdfs:comment>
+    <rdfs:comment xml:lang="en">A visitor or anonymous Agent which only has the right to read public documents.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">guest</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#Contributor"/>
@@ -413,8 +415,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:label xml:lang="en">guest authority</rdfs:label>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#Identifier">
-    <rdfs:comment xml:lang="en">Uniquely identifies any resource, given an identifier as literal (see dataid:literal) and a corresponding identifier scheme (e.g. a aid/pid scheme such as ORCID, ResearcherID etc. &#xD;
-  pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web (about this Identifier) using dct:references.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Uniquely identifies any resource, given an identifier as literal (see dataid:literal) and a corresponding identifier scheme (e.g. a aid/pid scheme such as ORCID, ResearcherID etc. pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web (about this Identifier) using dct:references.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Identifier</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
@@ -468,15 +469,6 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <skos:inScheme rdf:resource="http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme"/>
     <skos:prefLabel xml:lang="en">modify authorization</skos:prefLabel>
   </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents">
-    <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#EntitledAction"/>
-    <rdfs:comment xml:lang="en">EntitledAction to modify which Agents are authorized on certain Entities.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
-    <rdfs:label xml:lang="en">modify authorized agents</rdfs:label>
-    <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllEntitlements"/>
-    <skos:inScheme rdf:resource="http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme"/>
-    <skos:prefLabel xml:lang="en">modify authorized agents</skos:prefLabel>
-  </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ModifyContent">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#EntitledAction"/>
     <rdfs:comment xml:lang="en">EntitledAction to modify the content of an Entity.</rdfs:comment>
@@ -499,7 +491,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent"/>
     <dataid:allowsFor rdf:resource="http://dataid.dbpedia.org/ns/core#UpdateDataId"/>
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#AgentRole"/>
-    <rdfs:comment xml:lang="en">Publisher of the Dataset. An Agent that makes the Dataset accessible online on a server or repository without necessarily being involved in its creation.</rdfs:comment>
+    <rdfs:comment xml:lang="en">An Agent that makes the Dataset accessible online on a server or repository without necessarily being involved in its creation and decides on all dissemination related tasks as well (e.g. data portal entries).</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">publisher</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#Creator"/>
@@ -508,7 +500,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#PublishingDecision">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#ResponsibleAction"/>
-    <rdfs:comment xml:lang="en">The responsibility (ResponsibleAction) to decide if an Entity should be published.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The final decision if an Entity (or a version of it) should be published.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">publishing decision</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllResponsibilities"/>
@@ -544,7 +536,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#ResponsibleAction"/>
-    <rdfs:comment xml:lang="en">The responsibility (ResponsibleAction) to manage changes and react to bugs and issues that are reported concerning a Dataset.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The responsibility to manage changes and react to any event related to the lifecycle of a Dataset (e.g. issue tracker entries, unavailable download URL, etc.)</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">response to life-cycle event</rdfs:label>
     <skos:broader rdf:resource="http://dataid.dbpedia.org/ns/core#AllResponsibilities"/>
@@ -567,20 +559,19 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:Class>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#SimilarityRole">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#DatasetRelationRole"/>
-    <rdfs:comment xml:lang="en">This role specifies a dataid:DatasetRelationship where one dataset has a significant similarity to another dataset (without any assertion as to dimension of similarity).</rdfs:comment>
+    <rdfs:comment xml:lang="en">This role specifies a dataid:DatasetRelationship where the origin dataset has a significant similarity to the target dataset (without any assertion as to dimension of similarity).</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Similarity Role</rdfs:label>
   </owl:NamedIndividual>
   <owl:Class rdf:about="http://dataid.dbpedia.org/ns/core#SimpleStatement">
-    <rdfs:comment xml:lang="en">A SimpleStatement is intended as a tool for conveying a statement, definition or point of view about a certain topic. Using either a simple literal (using dataid:literal) &#xD;
-  to provide a quotation or by a referencing a web resource providing or representing the statement in any given medium (picture, text, video etc.). This class implements several classes of &#xD;
-  Dublin Core which is not further specified within DC.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A SimpleStatement is intended as a tool for conveying a statement, definition or point of view about a certain topic. Using either a simple literal (using dataid:literal) to provide a quotation or by a referencing a web resource providing or representing the statement in any given medium (picture, text, video etc.). This class implements several classes of Dublin Core which is not further specified within DC.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Simple Statement</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/ProvenanceStatement"/>
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Standard"/>
     <rdfs:subClassOf rdf:resource="http://www.essepuntato.it/2010/06/literalreification/Literal"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:allValuesFrom rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
@@ -596,7 +587,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
   </owl:Class>
   <owl:NamedIndividual rdf:about="http://dataid.dbpedia.org/ns/core#SourceRole">
     <rdf:type rdf:resource="http://dataid.dbpedia.org/ns/core#DatasetRelationRole"/>
-    <rdfs:comment xml:lang="en">This role specifies a dataid:DatasetRelationship where one dataset is created by transforming/collectiong data from another dataset.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This role specifies a dataid:DatasetRelationship where the origin dataset is created by transforming/collecting data from the target dataset.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Source Role</rdfs:label>
   </owl:NamedIndividual>
@@ -668,6 +659,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:comment xml:lang="en">With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorization Chain 1 property</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
@@ -685,6 +677,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:comment xml:lang="en">With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorization Chain 2 property</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
@@ -702,6 +695,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:comment xml:lang="en">With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorization Chain 3 property</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
@@ -719,6 +713,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:comment xml:lang="en">With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorization Chain 4 property</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
@@ -736,6 +731,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:comment xml:lang="en">With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorization Chain 5 property</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
@@ -758,6 +754,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:comment xml:lang="en">With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorization Chain 6 property</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
@@ -780,6 +777,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:comment xml:lang="en">With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorization Chain 7 property</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
@@ -797,6 +795,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:comment xml:lang="en">With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorization Chain 8 property</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
@@ -814,6 +813,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <rdfs:comment xml:lang="en">With the help of this property we can extend the reach dataid:authorizationScope over multiple instances of dataid:Dataset and dataid:Distribution.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/core#"/>
     <rdfs:label xml:lang="en">Authorization Chain 9 property</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subPropertyOf rdf:resource="http://dataid.dbpedia.org/ns/core#authorizationScope"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
@@ -986,9 +986,7 @@ are main objectives of the DBpedia/DataID project.</rdfs:comment>
     <owl:inverseOf rdf:resource="http://dataid.dbpedia.org/ns/core#previousVersion"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://dataid.dbpedia.org/ns/core#openness">
-    <rdfs:comment xml:lang="en">General description of how data will be shared. For example embargo periods (if any), outlines of technical mechanisms for dissemination or a definition of &#xD;
-  whether access will be widely open or restricted to specific groups. In case the Dataset cannot be shared, the reasons for this should be mentioned (e.g. ethical, rules of &#xD;
-  personal data, intellectual property, commercial, privacy-related, security-related).</rdfs:comment>
+    <rdfs:comment xml:lang="en">General description of how data will be shared. For example embargo periods (if any), outlines of technical mechanisms for dissemination or a definition of whether access will be widely open or restricted to specific groups. In case the Dataset cannot be shared, the reasons for this should be mentioned (e.g. ethical, rules of personal data, intellectual property, commercial, privacy-related, security-related).</rdfs:comment>
     <rdfs:domain rdf:resource="http://dataid.dbpedia.org/ns/core#Dataset"/>
     <rdfs:isDefinedBy rdf:resource="http://dataid.dbpedia.org/ns/dmp#"/>
     <rdfs:label xml:lang="en">openness</rdfs:label>

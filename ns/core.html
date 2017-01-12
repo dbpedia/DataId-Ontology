@@ -13,16 +13,16 @@
     <script src="js/marked.min.js"></script>
     <script>
         $(document).ready(
-                function () {
-                    jQuery(".markdown").each(function (el) {
-                        jQuery(this).after(marked(jQuery(this).text())).remove()
-                    });
-                    var list = $('a[name="http://vmdbpedia.informatik.uni-leipzig.de/temporary/dataid.owl"]');
-                    if (list.size() != 0) {
-                        var element = list.first();
-                        $.scrollTo(element);
-                    }
+            function () {
+                jQuery(".markdown").each(function (el) {
+                    jQuery(this).after(marked(jQuery(this).text())).remove()
                 });
+                var list = $('a[name="http://vmdbpedia.informatik.uni-leipzig.de/temporary/dataid.owl"]');
+                if (list.size() != 0) {
+                    var element = list.first();
+                    $.scrollTo(element);
+                }
+            });
     </script>
 </head>
 <body>
@@ -46,11 +46,17 @@
     </dl>
     <dl>
         <dt>Imported Ontologies:</dt>
+        <dd><a href="http://rdfs.org/ns/void#">http://rdfs.org/ns/void#</a> (<a
+                href="http://www.essepuntato.it/lode/owlapi/http://rdfs.org/ns/void#">visualise it with LODE</a>)
+        </dd>
         <dd><a href="http://www.w3.org/ns/dcat#">http://www.w3.org/ns/dcat#</a> (<a
                 href="http://www.essepuntato.it/lode/owlapi/http://www.w3.org/ns/dcat#">visualise it with LODE</a>)
         </dd>
         <dd><a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a> (<a
                 href="http://www.essepuntato.it/lode/owlapi/http://www.w3.org/ns/prov#">visualise it with LODE</a>)
+        </dd>
+        <dd><a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a> (<a
+                href="http://www.essepuntato.it/lode/owlapi/http://xmlns.com/foaf/0.1/">visualise it with LODE</a>)
         </dd>
     </dl>
     <dl>
@@ -97,36 +103,36 @@
         style="max-width:100%;"></a></div>
 <div id="classes"><h2>Classes</h2>
     <ul class="hlist">
-        <li><a href="#d4e42" title="http://dataid.dbpedia.org/ns/core#Agent"><span>Agent</span></a></li>
-        <li><a href="#d4e60" title="http://dataid.dbpedia.org/ns/core#AgentRole"><span>AgentRole</span></a></li>
-        <li><a href="#d4e148" title="http://dataid.dbpedia.org/ns/core#Authorization"><span>Authorization</span></a>
+        <li><a href="#d4e46" title="http://dataid.dbpedia.org/ns/core#Agent"><span>Agent</span></a></li>
+        <li><a href="#d4e64" title="http://dataid.dbpedia.org/ns/core#AgentRole"><span>AgentRole</span></a></li>
+        <li><a href="#d4e152" title="http://dataid.dbpedia.org/ns/core#Authorization"><span>Authorization</span></a>
         </li>
-        <li><a href="#d4e161"
+        <li><a href="#d4e165"
                title="http://dataid.dbpedia.org/ns/core#AuthorizedAction"><span>AuthorizedAction</span></a></li>
-        <li><a href="#d4e283" title="http://dataid.dbpedia.org/ns/core#DataId"><span>DataId</span></a></li>
-        <li><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset"><span>Dataset</span></a></li>
-        <li><a href="#d4e512"
+        <li><a href="#d4e287" title="http://dataid.dbpedia.org/ns/core#DataId"><span>DataId</span></a></li>
+        <li><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset"><span>Dataset</span></a></li>
+        <li><a href="#d4e516"
                title="http://dataid.dbpedia.org/ns/core#DatasetRelationRole"><span>DatasetRelationRole</span></a></li>
-        <li><a href="#d4e526"
+        <li><a href="#d4e530"
                title="http://dataid.dbpedia.org/ns/core#DatasetRelationship"><span>DatasetRelationship</span></a></li>
-        <li><a href="#d4e573" title="http://dataid.dbpedia.org/ns/core#Directory"><span>Directory</span></a></li>
-        <li><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution"><span>Distribution</span></a></li>
-        <li><a href="#d4e662" title="http://dataid.dbpedia.org/ns/core#EntitledAction"><span>EntitledAction</span></a>
+        <li><a href="#d4e577" title="http://dataid.dbpedia.org/ns/core#Directory"><span>Directory</span></a></li>
+        <li><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution"><span>Distribution</span></a></li>
+        <li><a href="#d4e666" title="http://dataid.dbpedia.org/ns/core#EntitledAction"><span>EntitledAction</span></a>
         </li>
-        <li><a href="#d4e678" title="http://dataid.dbpedia.org/ns/core#FileCollection"><span>FileCollection</span></a>
+        <li><a href="#d4e682" title="http://dataid.dbpedia.org/ns/core#FileCollection"><span>FileCollection</span></a>
         </li>
-        <li><a href="#d4e771" title="http://dataid.dbpedia.org/ns/core#Identifier"><span>Identifier</span></a></li>
-        <li><a href="#d4e836" title="http://dataid.dbpedia.org/ns/core#MediaType"><span>MediaType</span></a></li>
-        <li><a href="#d4e1085"
+        <li><a href="#d4e775" title="http://dataid.dbpedia.org/ns/core#Identifier"><span>Identifier</span></a></li>
+        <li><a href="#d4e840" title="http://dataid.dbpedia.org/ns/core#MediaType"><span>MediaType</span></a></li>
+        <li><a href="#d4e1067"
                title="http://dataid.dbpedia.org/ns/core#ResponsibleAction"><span>ResponsibleAction</span></a></li>
-        <li><a href="#d4e1100"
+        <li><a href="#d4e1083"
                title="http://dataid.dbpedia.org/ns/core#ServiceEndpoint"><span>ServiceEndpoint</span></a></li>
-        <li><a href="#d4e1126"
+        <li><a href="#d4e1109"
                title="http://dataid.dbpedia.org/ns/core#SimpleStatement"><span>SimpleStatement</span></a></li>
-        <li><a href="#d4e1156" title="http://dataid.dbpedia.org/ns/core#SingleFile"><span>SingleFile</span></a></li>
-        <li><a href="#d4e1183" title="http://dataid.dbpedia.org/ns/core#Superset"><span>Superset</span></a></li>
+        <li><a href="#d4e1141" title="http://dataid.dbpedia.org/ns/core#SingleFile"><span>SingleFile</span></a></li>
+        <li><a href="#d4e1167" title="http://dataid.dbpedia.org/ns/core#Superset"><span>Superset</span></a></li>
     </ul>
-    <div id="d4e42" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Agent"></a><a name="Agent"></a>
+    <div id="d4e46" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Agent"></a><a name="Agent"></a>
         <h3>Agent<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Agent</p>
@@ -139,16 +145,16 @@
             <dd><a href="http://www.w3.org/ns/prov#Agent" title="http://www.w3.org/ns/prov#Agent">prov:Agent</a></dd>
             <dd><a href="http://xmlns.com/foaf/0.1/Agent" title="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></dd>
             <dt>is in range of</dt>
-            <dd><a href="#d4e1258" title="http://dataid.dbpedia.org/ns/core#associatedAgent">associatedAgent</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1658"
+            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#associatedAgent">associatedAgent</a><sup
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1670"
                                                                          title="http://dataid.dbpedia.org/ns/core#authorizedAgent">authorizedAgent</a><sup
                     title="object property" class="type-op">op</sup></dd>
             <dt>has members</dt>
-            <dd><a href="#d4e729" title="http://dataid.dbpedia.org/ns/core#GuestAgent">GuestAgent</a><sup
+            <dd><a href="#d4e733" title="http://dataid.dbpedia.org/ns/core#GuestAgent">GuestAgent</a><sup
                     title="named individual" class="type-ni">ni</sup></dd>
         </dl>
     </div>
-    <div id="d4e60" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AgentRole"></a><a name="AgentRole"></a>
+    <div id="d4e64" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AgentRole"></a><a name="AgentRole"></a>
         <h3>AgentRole<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#AgentRole</p>
@@ -162,28 +168,28 @@
                    title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
             <dd><a href="http://www.w3.org/ns/prov#Role" title="http://www.w3.org/ns/prov#Role">prov:Role</a></dd>
             <dt>is in domain of</dt>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
                     title="object property" class="type-op">op</sup></dd>
             <dt>is in range of</dt>
-            <dd><a href="#d4e1294"
+            <dd><a href="#d4e1279"
                    title="http://dataid.dbpedia.org/ns/core#authorityAgentRole">authorityAgentRole</a><sup
                     title="object property" class="type-op">op</sup></dd>
             <dt>has members</dt>
-            <dd><a href="#d4e189" title="http://dataid.dbpedia.org/ns/core#Contact">Contact</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e222"
+            <dd><a href="#d4e193" title="http://dataid.dbpedia.org/ns/core#Contact">Contact</a><sup
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e226"
                                                                           title="http://dataid.dbpedia.org/ns/core#Contributor">Contributor</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e260"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e264"
                                                                           title="http://dataid.dbpedia.org/ns/core#Creator">Creator</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e704"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e708"
                                                                           title="http://dataid.dbpedia.org/ns/core#Guest">Guest</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e798"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e802"
                                                                           title="http://dataid.dbpedia.org/ns/core#Maintainer">Maintainer</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e934"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e916"
                                                                           title="http://dataid.dbpedia.org/ns/core#Publisher">Publisher</a><sup
                     title="named individual" class="type-ni">ni</sup></dd>
         </dl>
     </div>
-    <div id="d4e148" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Authorization"></a><a
+    <div id="d4e152" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Authorization"></a><a
             name="Authorization"></a>
         <h3>Authorization<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
@@ -202,22 +208,22 @@
             <dd><a href="http://www.w3.org/ns/prov#Attribution" title="http://www.w3.org/ns/prov#Attribution">prov:Attribution</a>
             </dd>
             <dt>is in domain of</dt>
-            <dd><a href="#d4e1677" title="http://dataid.dbpedia.org/ns/core#authorizedFor">authorizedFor</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1863"
+            <dd><a href="#d4e1688" title="http://dataid.dbpedia.org/ns/core#authorizedFor">authorizedFor</a><sup
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1875"
                                                                          title="http://dataid.dbpedia.org/ns/core#isInheritable">isInheritable</a><sup
                     title="data property" class="type-dp">dp</sup></dd>
             <dt>is in range of</dt>
-            <dd><a href="#d4e1912" title="http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization">needsSpecialAuthorization</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2213"
+            <dd><a href="#d4e1924" title="http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization">needsSpecialAuthorization</a><sup
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2225"
                                                                          title="http://dataid.dbpedia.org/ns/core#underAuthorization">underAuthorization</a><sup
                     title="object property" class="type-op">op</sup></dd>
             <dt>has members</dt>
-            <dd><a href="#d4e750"
+            <dd><a href="#d4e754"
                    title="http://dataid.dbpedia.org/ns/core#GuestAuthorization">GuestAuthorization</a><sup
                     title="named individual" class="type-ni">ni</sup></dd>
         </dl>
     </div>
-    <div id="d4e161" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AuthorizedAction"></a><a
+    <div id="d4e165" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AuthorizedAction"></a><a
             name="AuthorizedAction"></a>
         <h3>AuthorizedAction<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
@@ -233,18 +239,18 @@
             <dd><a href="http://www.w3.org/2004/02/skos/core#Concept"
                    title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
             <dt>has sub-classes</dt>
-            <dd><a href="#d4e662" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
-                    title="class" class="type-c">c</sup>, <a href="#d4e1085"
+            <dd><a href="#d4e666" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
+                    title="class" class="type-c">c</sup>, <a href="#d4e1067"
                                                              title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dt>is in range of</dt>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1624"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1636"
                                                                          title="http://dataid.dbpedia.org/ns/core#authorizedAction">authorizedAction</a><sup
                     title="object property" class="type-op">op</sup></dd>
         </dl>
     </div>
-    <div id="d4e283" class="entity"><a name="http://dataid.dbpedia.org/ns/core#DataId"></a><a name="DataId"></a>
+    <div id="d4e287" class="entity"><a name="http://dataid.dbpedia.org/ns/core#DataId"></a><a name="DataId"></a>
         <h3>DataId<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#DataId</p>
@@ -263,18 +269,18 @@
             </dd>
             <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a></dd>
             <dd><a href="http://xmlns.com/foaf/0.1/primaryTopic" title="http://xmlns.com/foaf/0.1/primaryTopic">foaf:primaryTopic</a>
-                <span class="logic">only</span> <a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup
+                <span class="logic">only</span> <a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup
                         title="class" class="type-c">c</sup></dd>
-            <dd><a href="#d4e1930" title="http://dataid.dbpedia.org/ns/core#nextVersion">nextVersion</a><sup
-                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e283"
+            <dd><a href="#d4e1942" title="http://dataid.dbpedia.org/ns/core#nextVersion">nextVersion</a><sup
+                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e287"
                                                                                                         title="http://dataid.dbpedia.org/ns/core#DataId">DataId</a><sup
                     title="class" class="type-c">c</sup></dd>
-            <dd><a href="#d4e1974" title="http://dataid.dbpedia.org/ns/core#previousVersion">previousVersion</a><sup
-                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e283"
+            <dd><a href="#d4e1985" title="http://dataid.dbpedia.org/ns/core#previousVersion">previousVersion</a><sup
+                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e287"
                                                                                                         title="http://dataid.dbpedia.org/ns/core#DataId">DataId</a><sup
                     title="class" class="type-c">c</sup></dd>
-            <dd><a href="#d4e1882" title="http://dataid.dbpedia.org/ns/core#latestVersion">latestVersion</a><sup
-                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e283"
+            <dd><a href="#d4e1893" title="http://dataid.dbpedia.org/ns/core#latestVersion">latestVersion</a><sup
+                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e287"
                                                                                                         title="http://dataid.dbpedia.org/ns/core#DataId">DataId</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dd><a href="http://purl.org/dc/terms/license" title="http://purl.org/dc/terms/license">dct:license</a>
@@ -284,15 +290,15 @@
                 <span class="logic">only</span> <a href="http://lexvo.org/ontology#Language"
                                                    title="http://lexvo.org/ontology#Language">lvont:Language</a></dd>
             <dd><a href="http://purl.org/dc/terms/rights" title="http://purl.org/dc/terms/rights">dct:rights</a> <span
-                    class="logic">only</span> <a href="#d4e1126"
+                    class="logic">only</span> <a href="#d4e1109"
                                                  title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dt>is in domain of</dt>
-            <dd><a href="#d4e1807" title="http://dataid.dbpedia.org/ns/core#inCatalog">inCatalog</a><sup
+            <dd><a href="#d4e1819" title="http://dataid.dbpedia.org/ns/core#inCatalog">inCatalog</a><sup
                     title="object property" class="type-op">op</sup></dd>
         </dl>
     </div>
-    <div id="d4e372" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Dataset"></a><a name="Dataset"></a>
+    <div id="d4e376" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Dataset"></a><a name="Dataset"></a>
         <h3>Dataset<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Dataset</p>
@@ -308,12 +314,12 @@
             <dd><a href="http://www.w3.org/ns/dcat#Dataset" title="http://www.w3.org/ns/dcat#Dataset">dcat:Dataset</a>
             </dd>
             <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a></dd>
-            <dd><a href="#d4e1974" title="http://dataid.dbpedia.org/ns/core#previousVersion">previousVersion</a><sup
-                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e372"
+            <dd><a href="#d4e1985" title="http://dataid.dbpedia.org/ns/core#previousVersion">previousVersion</a><sup
+                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e376"
                                                                                                         title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup
                     title="class" class="type-c">c</sup></dd>
-            <dd><a href="#d4e1882" title="http://dataid.dbpedia.org/ns/core#latestVersion">latestVersion</a><sup
-                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e372"
+            <dd><a href="#d4e1893" title="http://dataid.dbpedia.org/ns/core#latestVersion">latestVersion</a><sup
+                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e376"
                                                                                                         title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dd><a href="http://purl.org/dc/terms/license" title="http://purl.org/dc/terms/license">dct:license</a>
@@ -323,13 +329,13 @@
                 <span class="logic">only</span> <a href="http://lexvo.org/ontology#Language"
                                                    title="http://lexvo.org/ontology#Language">lvont:Language</a></dd>
             <dd><a href="http://purl.org/dc/terms/isPartOf" title="http://purl.org/dc/terms/isPartOf">dct:isPartOf</a>
-                <span class="logic">only</span> <a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup
+                <span class="logic">only</span> <a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup
                         title="class" class="type-c">c</sup></dd>
             <dd><a href="http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">void:subset</a> <span
-                    class="logic">only</span> <a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup
+                    class="logic">only</span> <a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dd><a href="http://www.w3.org/ns/dcat#distribution" title="http://www.w3.org/ns/dcat#distribution">dcat:distribution</a>
-                <span class="logic">only</span> <a href="#d4e586"
+                <span class="logic">only</span> <a href="#d4e590"
                                                    title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                         title="class" class="type-c">c</sup></dd>
             <dd><a href="http://purl.org/dc/terms/temporal" title="http://purl.org/dc/terms/temporal">dct:temporal</a>
@@ -340,77 +346,77 @@
                                                    title="http://www.geonames.org/ontology#Feature">ontology:Feature</a>
             </dd>
             <dd><a href="http://purl.org/dc/terms/rights" title="http://purl.org/dc/terms/rights">dct:rights</a> <span
-                    class="logic">only</span> <a href="#d4e1126"
+                    class="logic">only</span> <a href="#d4e1109"
                                                  title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dd><a href="http://xmlns.com/foaf/0.1/isPrimaryTopicOf" title="http://xmlns.com/foaf/0.1/isPrimaryTopicOf">foaf:isPrimaryTopicOf</a>
-                <span class="logic">only</span> <a href="#d4e283" title="http://dataid.dbpedia.org/ns/core#DataId">DataId</a><sup
+                <span class="logic">only</span> <a href="#d4e287" title="http://dataid.dbpedia.org/ns/core#DataId">DataId</a><sup
                         title="class" class="type-c">c</sup></dd>
-            <dd><a href="#d4e1930" title="http://dataid.dbpedia.org/ns/core#nextVersion">nextVersion</a><sup
-                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e372"
+            <dd><a href="#d4e1942" title="http://dataid.dbpedia.org/ns/core#nextVersion">nextVersion</a><sup
+                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e376"
                                                                                                         title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dt>has sub-classes</dt>
-            <dd><a href="#d4e1183" title="http://dataid.dbpedia.org/ns/core#Superset">Superset</a><sup title="class"
+            <dd><a href="#d4e1167" title="http://dataid.dbpedia.org/ns/core#Superset">Superset</a><sup title="class"
                                                                                                        class="type-c">c</sup>
             </dd>
             <dt>is in domain of</dt>
-            <dd><a href="#d4e1710" title="http://dataid.dbpedia.org/ns/core#dataDescription">dataDescription</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1743"
+            <dd><a href="#d4e1722" title="http://dataid.dbpedia.org/ns/core#dataDescription">dataDescription</a><sup
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1755"
                                                                          title="http://dataid.dbpedia.org/ns/core#growth">growth</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1792"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1804"
                                                                          title="http://dataid.dbpedia.org/ns/core#identifierScheme">identifierScheme</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1943"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1955"
                                                                          title="http://dataid.dbpedia.org/ns/core#openness">openness</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1992"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2004"
                                                                          title="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation">qualifiedDatasetRelation</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2045"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2057"
                                                                          title="http://dataid.dbpedia.org/ns/core#relatedDataset">relatedDataset</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2085"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2097"
                                                                          title="http://dataid.dbpedia.org/ns/core#reuseAndIntegration">reuseAndIntegration</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2101"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2112"
                                                                          title="http://dataid.dbpedia.org/ns/core#similarData">similarData</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2231"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2243"
                                                                          title="http://dataid.dbpedia.org/ns/core#usefulness">usefulness</a><sup
                     title="object property" class="type-op">op</sup></dd>
             <dt>is in range of</dt>
-            <dd><a href="#d4e1845" title="http://dataid.dbpedia.org/ns/core#isDistributionOf">isDistributionOf</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2027"
+            <dd><a href="#d4e1857" title="http://dataid.dbpedia.org/ns/core#isDistributionOf">isDistributionOf</a><sup
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2039"
                                                                          title="http://dataid.dbpedia.org/ns/core#qualifiedRelationTo">qualifiedRelationTo</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2045"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2057"
                                                                          title="http://dataid.dbpedia.org/ns/core#relatedDataset">relatedDataset</a><sup
                     title="object property" class="type-op">op</sup></dd>
         </dl>
     </div>
-    <div id="d4e512" class="entity"><a name="http://dataid.dbpedia.org/ns/core#DatasetRelationRole"></a><a
+    <div id="d4e516" class="entity"><a name="http://dataid.dbpedia.org/ns/core#DatasetRelationRole"></a><a
             name="DatasetRelationRole"></a>
         <h3>DatasetRelationRole<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#DatasetRelationRole</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Provides the role of a dataid:DatasetRelationship (e.g. Linkset, Source, Derivat,
+        <div class="comment"><p>Provides the role of a dataid:DatasetRelationship (e.g. Linkset, Source, Derivate,
             Similarity etc.).</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
             <dd><a href="http://www.w3.org/ns/prov#Role" title="http://www.w3.org/ns/prov#Role">prov:Role</a></dd>
             <dt>is in range of</dt>
-            <dd><a href="#d4e1725" title="http://dataid.dbpedia.org/ns/core#datasetRelationRole">datasetRelationRole</a><sup
+            <dd><a href="#d4e1737" title="http://dataid.dbpedia.org/ns/core#datasetRelationRole">datasetRelationRole</a><sup
                     title="object property" class="type-op">op</sup></dd>
             <dt>has members</dt>
-            <dd><a href="#d4e247" title="http://dataid.dbpedia.org/ns/core#CopyRole">CopyRole</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e560"
-                                                                          title="http://dataid.dbpedia.org/ns/core#DerivatRole">DerivatRole</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e691"
+            <dd><a href="#d4e251" title="http://dataid.dbpedia.org/ns/core#CopyRole">CopyRole</a><sup
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e564"
+                                                                          title="http://dataid.dbpedia.org/ns/core#DerivateRole">DerivateRole</a><sup
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e695"
                                                                           title="http://dataid.dbpedia.org/ns/core#GenericRelation">GenericRelation</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1113"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1096"
                                                                           title="http://dataid.dbpedia.org/ns/core#SimilarityRole">SimilarityRole</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1169"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1154"
                                                                           title="http://dataid.dbpedia.org/ns/core#SourceRole">SourceRole</a><sup
                     title="named individual" class="type-ni">ni</sup></dd>
         </dl>
     </div>
-    <div id="d4e526" class="entity"><a name="http://dataid.dbpedia.org/ns/core#DatasetRelationship"></a><a
+    <div id="d4e530" class="entity"><a name="http://dataid.dbpedia.org/ns/core#DatasetRelationship"></a><a
             name="DatasetRelationship"></a>
         <h3>DatasetRelationship<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
@@ -423,16 +429,16 @@
             <dd><a href="http://www.w3.org/ns/prov#EntityInfluence" title="http://www.w3.org/ns/prov#EntityInfluence">prov:EntityInfluence</a>
             </dd>
             <dt>is in domain of</dt>
-            <dd><a href="#d4e1725" title="http://dataid.dbpedia.org/ns/core#datasetRelationRole">datasetRelationRole</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2027"
+            <dd><a href="#d4e1737" title="http://dataid.dbpedia.org/ns/core#datasetRelationRole">datasetRelationRole</a><sup
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2039"
                                                                          title="http://dataid.dbpedia.org/ns/core#qualifiedRelationTo">qualifiedRelationTo</a><sup
                     title="object property" class="type-op">op</sup></dd>
             <dt>is in range of</dt>
-            <dd><a href="#d4e1992" title="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation">qualifiedDatasetRelation</a><sup
+            <dd><a href="#d4e2004" title="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation">qualifiedDatasetRelation</a><sup
                     title="object property" class="type-op">op</sup></dd>
         </dl>
     </div>
-    <div id="d4e573" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Directory"></a><a name="Directory"></a>
+    <div id="d4e577" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Directory"></a><a name="Directory"></a>
         <h3>Directory<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Directory</p>
@@ -442,11 +448,11 @@
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
-            <dd><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
+            <dd><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e586" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Distribution"></a><a
+    <div id="d4e590" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Distribution"></a><a
             name="Distribution"></a>
         <h3>Distribution<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
@@ -462,16 +468,16 @@
             <dd><a href="http://www.w3.org/ns/dcat#Distribution" title="http://www.w3.org/ns/dcat#Distribution">dcat:Distribution</a>
             </dd>
             <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a></dd>
-            <dd><a href="#d4e1930" title="http://dataid.dbpedia.org/ns/core#nextVersion">nextVersion</a><sup
-                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e586"
+            <dd><a href="#d4e1942" title="http://dataid.dbpedia.org/ns/core#nextVersion">nextVersion</a><sup
+                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e590"
                                                                                                         title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                     title="class" class="type-c">c</sup></dd>
-            <dd><a href="#d4e1974" title="http://dataid.dbpedia.org/ns/core#previousVersion">previousVersion</a><sup
-                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e586"
+            <dd><a href="#d4e1985" title="http://dataid.dbpedia.org/ns/core#previousVersion">previousVersion</a><sup
+                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e590"
                                                                                                         title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                     title="class" class="type-c">c</sup></dd>
-            <dd><a href="#d4e1882" title="http://dataid.dbpedia.org/ns/core#latestVersion">latestVersion</a><sup
-                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e586"
+            <dd><a href="#d4e1893" title="http://dataid.dbpedia.org/ns/core#latestVersion">latestVersion</a><sup
+                    title="object property" class="type-op">op</sup> <span class="logic">only</span> <a href="#d4e590"
                                                                                                         title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dd><a href="http://purl.org/dc/terms/license" title="http://purl.org/dc/terms/license">dct:license</a>
@@ -481,34 +487,34 @@
                 <span class="logic">only</span> <a href="http://lexvo.org/ontology#Language"
                                                    title="http://lexvo.org/ontology#Language">lvont:Language</a></dd>
             <dd><a href="http://purl.org/dc/terms/rights" title="http://purl.org/dc/terms/rights">dct:rights</a> <span
-                    class="logic">only</span> <a href="#d4e1126"
+                    class="logic">only</span> <a href="#d4e1109"
                                                  title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dt>has sub-classes</dt>
-            <dd><a href="#d4e573" title="http://dataid.dbpedia.org/ns/core#Directory">Directory</a><sup title="class"
+            <dd><a href="#d4e577" title="http://dataid.dbpedia.org/ns/core#Directory">Directory</a><sup title="class"
                                                                                                         class="type-c">c</sup>,
-                <a href="#d4e678" title="http://dataid.dbpedia.org/ns/core#FileCollection">FileCollection</a><sup
-                        title="class" class="type-c">c</sup>, <a href="#d4e1100"
+                <a href="#d4e682" title="http://dataid.dbpedia.org/ns/core#FileCollection">FileCollection</a><sup
+                        title="class" class="type-c">c</sup>, <a href="#d4e1083"
                                                                  title="http://dataid.dbpedia.org/ns/core#ServiceEndpoint">ServiceEndpoint</a><sup
-                        title="class" class="type-c">c</sup>, <a href="#d4e1156"
+                        title="class" class="type-c">c</sup>, <a href="#d4e1141"
                                                                  title="http://dataid.dbpedia.org/ns/core#SingleFile">SingleFile</a><sup
                         title="class" class="type-c">c</sup></dd>
             <dt>is in domain of</dt>
-            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#accessProcedure">accessProcedure</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1695"
+            <dd><a href="#d4e1213" title="http://dataid.dbpedia.org/ns/core#accessProcedure">accessProcedure</a><sup
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1707"
                                                                          title="http://dataid.dbpedia.org/ns/core#checksum">checksum</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1845"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1857"
                                                                          title="http://dataid.dbpedia.org/ns/core#isDistributionOf">isDistributionOf</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1958"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1970"
                                                                          title="http://dataid.dbpedia.org/ns/core#preview">preview</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2116"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2128"
                                                                          title="http://dataid.dbpedia.org/ns/core#softwareRequirement">softwareRequirement</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2195"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2206"
                                                                          title="http://dataid.dbpedia.org/ns/core#uncompressedByteSize">uncompressedByteSize</a><sup
                     title="data property" class="type-dp">dp</sup></dd>
         </dl>
     </div>
-    <div id="d4e662" class="entity"><a name="http://dataid.dbpedia.org/ns/core#EntitledAction"></a><a
+    <div id="d4e666" class="entity"><a name="http://dataid.dbpedia.org/ns/core#EntitledAction"></a><a
             name="EntitledAction"></a>
         <h3>EntitledAction<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
@@ -519,29 +525,27 @@
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
-            <dd><a href="#d4e161" title="http://dataid.dbpedia.org/ns/core#AuthorizedAction">AuthorizedAction</a><sup
+            <dd><a href="#d4e165" title="http://dataid.dbpedia.org/ns/core#AuthorizedAction">AuthorizedAction</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dt>has members</dt>
-            <dd><a href="#d4e539" title="http://dataid.dbpedia.org/ns/core#DeleteContent">DeleteContent</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e849"
+            <dd><a href="#d4e543" title="http://dataid.dbpedia.org/ns/core#DeleteContent">DeleteContent</a><sup
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e853"
                                                                           title="http://dataid.dbpedia.org/ns/core#ModifyAgentRoles">ModifyAgentRoles</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e870"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e874"
                                                                           title="http://dataid.dbpedia.org/ns/core#ModifyAuthorization">ModifyAuthorization</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e891"
-                                                                          title="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents">ModifyAuthorizedAgents</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e912"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e895"
                                                                           title="http://dataid.dbpedia.org/ns/core#ModifyContent">ModifyContent</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1000"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e983"
                                                                           title="http://dataid.dbpedia.org/ns/core#ReadContent">ReadContent</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1021"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1004"
                                                                           title="http://dataid.dbpedia.org/ns/core#ReadDataId">ReadDataId</a><sup
                     title="named individual" class="type-ni">ni</sup></dd>
             <dt>is disjoint with</dt>
-            <dd><a href="#d4e1085" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
+            <dd><a href="#d4e1067" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e678" class="entity"><a name="http://dataid.dbpedia.org/ns/core#FileCollection"></a><a
+    <div id="d4e682" class="entity"><a name="http://dataid.dbpedia.org/ns/core#FileCollection"></a><a
             name="FileCollection"></a>
         <h3>FileCollection<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
@@ -552,19 +556,19 @@
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
-            <dd><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
+            <dd><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e771" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Identifier"></a><a name="Identifier"></a>
+    <div id="d4e775" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Identifier"></a><a name="Identifier"></a>
         <h3>Identifier<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Identifier</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>Uniquely identifies any resource, given an identifier as literal (see dataid:literal)
-            and a corresponding identifier scheme (e.g. a aid/pid scheme such as ORCID, ResearcherID etc.
-            pointed out via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web
-            (about this Identifier) using dct:references.</p>
+            and a corresponding identifier scheme (e.g. a aid/pid scheme such as ORCID, ResearcherID etc. pointed out
+            via datacite:usesIdentifierScheme). Optionally it can point out a reference document on the web (about this
+            Identifier) using dct:references.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -578,7 +582,7 @@
                     title="http://xmlns.com/foaf/0.1/Document">foaf:Document</a></dd>
         </dl>
     </div>
-    <div id="d4e836" class="entity"><a name="http://dataid.dbpedia.org/ns/core#MediaType"></a><a name="MediaType"></a>
+    <div id="d4e840" class="entity"><a name="http://dataid.dbpedia.org/ns/core#MediaType"></a><a name="MediaType"></a>
         <h3>MediaType<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#MediaType</p>
@@ -593,22 +597,22 @@
             <dd><a href="http://purl.org/dc/terms/MediaType"
                    title="http://purl.org/dc/terms/MediaType">dct:MediaType</a></dd>
             <dt>is in domain of</dt>
-            <dd><a href="#d4e1825" title="http://dataid.dbpedia.org/ns/core#innerMediaType">innerMediaType</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2131"
+            <dd><a href="#d4e1837" title="http://dataid.dbpedia.org/ns/core#innerMediaType">innerMediaType</a><sup
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2143"
                                                                          title="http://dataid.dbpedia.org/ns/core#typeExtension">typeExtension</a><sup
-                    title="data property" class="type-dp">dp</sup>, <a href="#d4e2146"
+                    title="data property" class="type-dp">dp</sup>, <a href="#d4e2158"
                                                                        title="http://dataid.dbpedia.org/ns/core#typeName">typeName</a><sup
-                    title="data property" class="type-dp">dp</sup>, <a href="#d4e2161"
+                    title="data property" class="type-dp">dp</sup>, <a href="#d4e2173"
                                                                        title="http://dataid.dbpedia.org/ns/core#typeReference">typeReference</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2176"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2188"
                                                                          title="http://dataid.dbpedia.org/ns/core#typeTemplate">typeTemplate</a><sup
                     title="data property" class="type-dp">dp</sup></dd>
             <dt>is in range of</dt>
-            <dd><a href="#d4e1825" title="http://dataid.dbpedia.org/ns/core#innerMediaType">innerMediaType</a><sup
+            <dd><a href="#d4e1837" title="http://dataid.dbpedia.org/ns/core#innerMediaType">innerMediaType</a><sup
                     title="object property" class="type-op">op</sup></dd>
         </dl>
     </div>
-    <div id="d4e1085" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ResponsibleAction"></a><a
+    <div id="d4e1067" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ResponsibleAction"></a><a
             name="ResponsibleAction"></a>
         <h3>ResponsibleAction<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
@@ -621,29 +625,29 @@
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
-            <dd><a href="#d4e161" title="http://dataid.dbpedia.org/ns/core#AuthorizedAction">AuthorizedAction</a><sup
+            <dd><a href="#d4e165" title="http://dataid.dbpedia.org/ns/core#AuthorizedAction">AuthorizedAction</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dt>has members</dt>
-            <dd><a href="#d4e88" title="http://dataid.dbpedia.org/ns/core#AgentSupervision">AgentSupervision</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e110"
+            <dd><a href="#d4e92" title="http://dataid.dbpedia.org/ns/core#AgentSupervision">AgentSupervision</a><sup
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e114"
                                                                           title="http://dataid.dbpedia.org/ns/core#AllEntitlements">AllEntitlements</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e129"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e133"
                                                                           title="http://dataid.dbpedia.org/ns/core#AllResponsibilities">AllResponsibilities</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e979"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e962"
                                                                           title="http://dataid.dbpedia.org/ns/core#PublishingDecision">PublishingDecision</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1042"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1025"
                                                                           title="http://dataid.dbpedia.org/ns/core#ResponseToContact">ResponseToContact</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1063"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1046"
                                                                           title="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent">ResponseToLifeCycleEvent</a><sup
-                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1207"
+                    title="named individual" class="type-ni">ni</sup>, <a href="#d4e1192"
                                                                           title="http://dataid.dbpedia.org/ns/core#UpdateDataId">UpdateDataId</a><sup
                     title="named individual" class="type-ni">ni</sup></dd>
             <dt>is disjoint with</dt>
-            <dd><a href="#d4e662" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
+            <dd><a href="#d4e666" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e1100" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ServiceEndpoint"></a><a
+    <div id="d4e1083" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ServiceEndpoint"></a><a
             name="ServiceEndpoint"></a>
         <h3>ServiceEndpoint<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
@@ -654,21 +658,21 @@
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
-            <dd><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
+            <dd><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e1126" class="entity"><a name="http://dataid.dbpedia.org/ns/core#SimpleStatement"></a><a
+    <div id="d4e1109" class="entity"><a name="http://dataid.dbpedia.org/ns/core#SimpleStatement"></a><a
             name="SimpleStatement"></a>
         <h3>SimpleStatement<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#SimpleStatement</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>A SimpleStatement is intended as a tool for conveying a statement, definition or point
-            of view about a certain topic. Using either a simple literal (using dataid:literal)
-            to provide a quotation or by a referencing a web resource providing or representing the statement in any
-            given medium (picture, text, video etc.). This class implements several classes of
-            Dublin Core which is not further specified within DC.</p>
+            of view about a certain topic. Using either a simple literal (using dataid:literal) to provide a quotation
+            or by a referencing a web resource providing or representing the statement in any given medium (picture,
+            text, video etc.). This class implements several classes of Dublin Core which is not further specified
+            within DC.</p>
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
@@ -680,30 +684,31 @@
             </dd>
             <dd><a href="http://www.essepuntato.it/2010/06/literalreification/Literal"
                    title="http://www.essepuntato.it/2010/06/literalreification/Literal">lit:Literal</a></dd>
+            <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a></dd>
             <dd><a href="http://purl.org/dc/terms/references"
                    title="http://purl.org/dc/terms/references">dct:references</a> <span class="logic">only</span> <a
                     href="http://xmlns.com/foaf/0.1/Document"
                     title="http://xmlns.com/foaf/0.1/Document">foaf:Document</a></dd>
             <dt>is in range of</dt>
-            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#accessProcedure">accessProcedure</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1710"
+            <dd><a href="#d4e1213" title="http://dataid.dbpedia.org/ns/core#accessProcedure">accessProcedure</a><sup
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1722"
                                                                          title="http://dataid.dbpedia.org/ns/core#dataDescription">dataDescription</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1743"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1755"
                                                                          title="http://dataid.dbpedia.org/ns/core#growth">growth</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e1943"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e1955"
                                                                          title="http://dataid.dbpedia.org/ns/core#openness">openness</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2085"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2097"
                                                                          title="http://dataid.dbpedia.org/ns/core#reuseAndIntegration">reuseAndIntegration</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2101"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2112"
                                                                          title="http://dataid.dbpedia.org/ns/core#similarData">similarData</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2116"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2128"
                                                                          title="http://dataid.dbpedia.org/ns/core#softwareRequirement">softwareRequirement</a><sup
-                    title="object property" class="type-op">op</sup>, <a href="#d4e2231"
+                    title="object property" class="type-op">op</sup>, <a href="#d4e2243"
                                                                          title="http://dataid.dbpedia.org/ns/core#usefulness">usefulness</a><sup
                     title="object property" class="type-op">op</sup></dd>
         </dl>
     </div>
-    <div id="d4e1156" class="entity"><a name="http://dataid.dbpedia.org/ns/core#SingleFile"></a><a
+    <div id="d4e1141" class="entity"><a name="http://dataid.dbpedia.org/ns/core#SingleFile"></a><a
             name="SingleFile"></a>
         <h3>SingleFile<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#classes">Class ToC</a></span></h3>
@@ -714,11 +719,11 @@
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
-            <dd><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
+            <dd><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e1183" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Superset"></a><a name="Superset"></a>
+    <div id="d4e1167" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Superset"></a><a name="Superset"></a>
         <h3>Superset<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#classes">Class ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Superset</p>
@@ -731,7 +736,7 @@
         </div>
         <dl class="description">
             <dt>has super-classes</dt>
-            <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+            <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                     class="type-c">c</sup>
             </dd>
             <dd><a href="http://www.w3.org/ns/dcat#distribution" title="http://www.w3.org/ns/dcat#distribution">dcat:distribution</a>
@@ -742,84 +747,84 @@
 </div>
 <div id="objectproperties"><h2>Object Properties</h2>
     <ul class="hlist">
-        <li><a href="#d4e1228"
+        <li><a href="#d4e1213"
                title="http://dataid.dbpedia.org/ns/core#accessProcedure"><span>accessProcedure</span></a></li>
-        <li><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor"><span>allowsFor</span></a></li>
-        <li><a href="#d4e1258"
+        <li><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor"><span>allowsFor</span></a></li>
+        <li><a href="#d4e1243"
                title="http://dataid.dbpedia.org/ns/core#associatedAgent"><span>associatedAgent</span></a></li>
-        <li><a href="#d4e1294"
+        <li><a href="#d4e1279"
                title="http://dataid.dbpedia.org/ns/core#authorityAgentRole"><span>authorityAgentRole</span></a></li>
-        <li><a href="#d4e1313"
+        <li><a href="#d4e1297"
                title="http://dataid.dbpedia.org/ns/core#authorizationChain1"><span>authorizationChain1</span></a></li>
-        <li><a href="#d4e1344"
+        <li><a href="#d4e1332"
                title="http://dataid.dbpedia.org/ns/core#authorizationChain2"><span>authorizationChain2</span></a></li>
-        <li><a href="#d4e1375"
+        <li><a href="#d4e1366"
                title="http://dataid.dbpedia.org/ns/core#authorizationChain3"><span>authorizationChain3</span></a></li>
-        <li><a href="#d4e1406"
+        <li><a href="#d4e1400"
                title="http://dataid.dbpedia.org/ns/core#authorizationChain4"><span>authorizationChain4</span></a></li>
-        <li><a href="#d4e1437"
+        <li><a href="#d4e1434"
                title="http://dataid.dbpedia.org/ns/core#authorizationChain5"><span>authorizationChain5</span></a></li>
         <li><a href="#d4e1476"
                title="http://dataid.dbpedia.org/ns/core#authorizationChain6"><span>authorizationChain6</span></a></li>
-        <li><a href="#d4e1516"
+        <li><a href="#d4e1518"
                title="http://dataid.dbpedia.org/ns/core#authorizationChain7"><span>authorizationChain7</span></a></li>
-        <li><a href="#d4e1547"
+        <li><a href="#d4e1553"
                title="http://dataid.dbpedia.org/ns/core#authorizationChain8"><span>authorizationChain8</span></a></li>
-        <li><a href="#d4e1578"
+        <li><a href="#d4e1587"
                title="http://dataid.dbpedia.org/ns/core#authorizationChain9"><span>authorizationChain9</span></a></li>
-        <li><a href="#d4e1609"
+        <li><a href="#d4e1621"
                title="http://dataid.dbpedia.org/ns/core#authorizationScope"><span>authorizationScope</span></a></li>
-        <li><a href="#d4e1624" title="http://dataid.dbpedia.org/ns/core#authorizedAction"><span>authorizedAction</span></a>
+        <li><a href="#d4e1636" title="http://dataid.dbpedia.org/ns/core#authorizedAction"><span>authorizedAction</span></a>
         </li>
-        <li><a href="#d4e1658"
+        <li><a href="#d4e1670"
                title="http://dataid.dbpedia.org/ns/core#authorizedAgent"><span>authorizedAgent</span></a></li>
-        <li><a href="#d4e1677" title="http://dataid.dbpedia.org/ns/core#authorizedFor"><span>authorizedFor</span></a>
+        <li><a href="#d4e1688" title="http://dataid.dbpedia.org/ns/core#authorizedFor"><span>authorizedFor</span></a>
         </li>
-        <li><a href="#d4e1695" title="http://dataid.dbpedia.org/ns/core#checksum"><span>checksum</span></a></li>
-        <li><a href="#d4e1710"
+        <li><a href="#d4e1707" title="http://dataid.dbpedia.org/ns/core#checksum"><span>checksum</span></a></li>
+        <li><a href="#d4e1722"
                title="http://dataid.dbpedia.org/ns/core#dataDescription"><span>dataDescription</span></a></li>
-        <li><a href="#d4e1725"
+        <li><a href="#d4e1737"
                title="http://dataid.dbpedia.org/ns/core#datasetRelationRole"><span>datasetRelationRole</span></a></li>
-        <li><a href="#d4e1743" title="http://dataid.dbpedia.org/ns/core#growth"><span>growth</span></a></li>
-        <li><a href="#d4e1758" title="http://dataid.dbpedia.org/ns/core#hasAuthorization"><span>hasAuthorization</span></a>
+        <li><a href="#d4e1755" title="http://dataid.dbpedia.org/ns/core#growth"><span>growth</span></a></li>
+        <li><a href="#d4e1770" title="http://dataid.dbpedia.org/ns/core#hasAuthorization"><span>hasAuthorization</span></a>
         </li>
-        <li><a href="#d4e1772" title="http://dataid.dbpedia.org/ns/core#identifier"><span>identifier</span></a></li>
-        <li><a href="#d4e1792" title="http://dataid.dbpedia.org/ns/core#identifierScheme"><span>identifierScheme</span></a>
+        <li><a href="#d4e1783" title="http://dataid.dbpedia.org/ns/core#identifier"><span>identifier</span></a></li>
+        <li><a href="#d4e1804" title="http://dataid.dbpedia.org/ns/core#identifierScheme"><span>identifierScheme</span></a>
         </li>
-        <li><a href="#d4e1807" title="http://dataid.dbpedia.org/ns/core#inCatalog"><span>inCatalog</span></a></li>
-        <li><a href="#d4e1825" title="http://dataid.dbpedia.org/ns/core#innerMediaType"><span>innerMediaType</span></a>
+        <li><a href="#d4e1819" title="http://dataid.dbpedia.org/ns/core#inCatalog"><span>inCatalog</span></a></li>
+        <li><a href="#d4e1837" title="http://dataid.dbpedia.org/ns/core#innerMediaType"><span>innerMediaType</span></a>
         </li>
-        <li><a href="#d4e1845" title="http://dataid.dbpedia.org/ns/core#isDistributionOf"><span>isDistributionOf</span></a>
+        <li><a href="#d4e1857" title="http://dataid.dbpedia.org/ns/core#isDistributionOf"><span>isDistributionOf</span></a>
         </li>
-        <li><a href="#d4e1882" title="http://dataid.dbpedia.org/ns/core#latestVersion"><span>latestVersion</span></a>
+        <li><a href="#d4e1893" title="http://dataid.dbpedia.org/ns/core#latestVersion"><span>latestVersion</span></a>
         </li>
-        <li><a href="#d4e1912" title="http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization"><span>needsSpecialAuthorization</span></a>
+        <li><a href="#d4e1924" title="http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization"><span>needsSpecialAuthorization</span></a>
         </li>
-        <li><a href="#d4e1930" title="http://dataid.dbpedia.org/ns/core#nextVersion"><span>nextVersion</span></a></li>
-        <li><a href="#d4e1943" title="http://dataid.dbpedia.org/ns/core#openness"><span>openness</span></a></li>
-        <li><a href="#d4e1958" title="http://dataid.dbpedia.org/ns/core#preview"><span>preview</span></a></li>
-        <li><a href="#d4e1974"
+        <li><a href="#d4e1942" title="http://dataid.dbpedia.org/ns/core#nextVersion"><span>nextVersion</span></a></li>
+        <li><a href="#d4e1955" title="http://dataid.dbpedia.org/ns/core#openness"><span>openness</span></a></li>
+        <li><a href="#d4e1970" title="http://dataid.dbpedia.org/ns/core#preview"><span>preview</span></a></li>
+        <li><a href="#d4e1985"
                title="http://dataid.dbpedia.org/ns/core#previousVersion"><span>previousVersion</span></a></li>
-        <li><a href="#d4e1992" title="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation"><span>qualifiedDatasetRelation</span></a>
+        <li><a href="#d4e2004" title="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation"><span>qualifiedDatasetRelation</span></a>
         </li>
-        <li><a href="#d4e2012"
+        <li><a href="#d4e2024"
                title="http://dataid.dbpedia.org/ns/core#qualifiedRelationOf"><span>qualifiedRelationOf</span></a></li>
-        <li><a href="#d4e2027"
+        <li><a href="#d4e2039"
                title="http://dataid.dbpedia.org/ns/core#qualifiedRelationTo"><span>qualifiedRelationTo</span></a></li>
-        <li><a href="#d4e2045" title="http://dataid.dbpedia.org/ns/core#relatedDataset"><span>relatedDataset</span></a>
+        <li><a href="#d4e2057" title="http://dataid.dbpedia.org/ns/core#relatedDataset"><span>relatedDataset</span></a>
         </li>
-        <li><a href="#d4e2085"
+        <li><a href="#d4e2097"
                title="http://dataid.dbpedia.org/ns/core#reuseAndIntegration"><span>reuseAndIntegration</span></a></li>
-        <li><a href="#d4e2101" title="http://dataid.dbpedia.org/ns/core#similarData"><span>similarData</span></a></li>
-        <li><a href="#d4e2116"
+        <li><a href="#d4e2112" title="http://dataid.dbpedia.org/ns/core#similarData"><span>similarData</span></a></li>
+        <li><a href="#d4e2128"
                title="http://dataid.dbpedia.org/ns/core#softwareRequirement"><span>softwareRequirement</span></a></li>
-        <li><a href="#d4e2161" title="http://dataid.dbpedia.org/ns/core#typeReference"><span>typeReference</span></a>
+        <li><a href="#d4e2173" title="http://dataid.dbpedia.org/ns/core#typeReference"><span>typeReference</span></a>
         </li>
-        <li><a href="#d4e2213"
+        <li><a href="#d4e2225"
                title="http://dataid.dbpedia.org/ns/core#underAuthorization"><span>underAuthorization</span></a></li>
-        <li><a href="#d4e2231" title="http://dataid.dbpedia.org/ns/core#usefulness"><span>usefulness</span></a></li>
+        <li><a href="#d4e2243" title="http://dataid.dbpedia.org/ns/core#usefulness"><span>usefulness</span></a></li>
     </ul>
-    <div id="d4e1228" class="entity"><a name="http://dataid.dbpedia.org/ns/core#accessProcedure"></a><a
+    <div id="d4e1213" class="entity"><a name="http://dataid.dbpedia.org/ns/core#accessProcedure"></a><a
             name="accessProcedure"></a>
         <h3>accessProcedure<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -831,15 +836,15 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
+                <dd><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e1126" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
+                <dd><a href="#d4e1109" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1243" class="entity"><a name="http://dataid.dbpedia.org/ns/core#allowsFor"></a><a name="allowsFor"></a>
+    <div id="d4e1228" class="entity"><a name="http://dataid.dbpedia.org/ns/core#allowsFor"></a><a name="allowsFor"></a>
         <h3>allowsFor<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#allowsFor</p>
@@ -849,18 +854,18 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e60" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
+                <dd><a href="#d4e64" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
                                                                                                            class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e161"
+                <dd><a href="#d4e165"
                        title="http://dataid.dbpedia.org/ns/core#AuthorizedAction">AuthorizedAction</a><sup title="class"
                                                                                                            class="type-c">c</sup>
                 </dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1258" class="entity"><a name="http://dataid.dbpedia.org/ns/core#associatedAgent"></a><a
+    <div id="d4e1243" class="entity"><a name="http://dataid.dbpedia.org/ns/core#associatedAgent"></a><a
             name="associatedAgent"></a>
         <h3>associatedAgent<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -878,19 +883,19 @@
                 <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e42" title="http://dataid.dbpedia.org/ns/core#Agent">Agent</a><sup title="class"
+                <dd><a href="#d4e46" title="http://dataid.dbpedia.org/ns/core#Agent">Agent</a><sup title="class"
                                                                                                    class="type-c">c</sup>
                 </dd>
                 <dt>has sub-property chains</dt>
-                <dd><a href="#d4e2213"
+                <dd><a href="#d4e2225"
                        title="http://dataid.dbpedia.org/ns/core#underAuthorization">underAuthorization</a><sup
-                        title="object property" class="type-op">op</sup> , <a href="#d4e1658"
+                        title="object property" class="type-op">op</sup> , <a href="#d4e1670"
                                                                               title="http://dataid.dbpedia.org/ns/core#authorizedAgent">authorizedAgent</a><sup
                         title="object property" class="type-op">op</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1294" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorityAgentRole"></a><a
+    <div id="d4e1279" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorityAgentRole"></a><a
             name="authorityAgentRole"></a>
         <h3>authorityAgentRole<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -908,13 +913,13 @@
                 <dd><a href="http://www.w3.org/ns/prov#AgentInfluence" title="http://www.w3.org/ns/prov#AgentInfluence">prov:AgentInfluence</a>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e60" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
+                <dd><a href="#d4e64" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
                                                                                                            class="type-c">c</sup>
                 </dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1313" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain1"></a><a
+    <div id="d4e1297" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain1"></a><a
             name="authorizationChain1"></a>
         <h3>authorizationChain1<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -926,9 +931,12 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e1609"
+                <dd><a href="#d4e1621"
                        title="http://dataid.dbpedia.org/ns/core#authorizationScope">authorizationScope</a><sup
                         title="object property" class="type-op">op</sup></dd>
+                <dt>has range</dt>
+                <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
+                </dd>
                 <dt>has sub-property chains</dt>
                 <dd><a href="http://xmlns.com/foaf/0.1/primaryTopic" title="http://xmlns.com/foaf/0.1/primaryTopic">foaf:primaryTopic</a>
                     , <a href="http://www.w3.org/ns/dcat#distribution" title="http://www.w3.org/ns/dcat#distribution">dcat:distribution</a>
@@ -936,7 +944,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1344" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain2"></a><a
+    <div id="d4e1332" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain2"></a><a
             name="authorizationChain2"></a>
         <h3>authorizationChain2<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -948,9 +956,12 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e1609"
+                <dd><a href="#d4e1621"
                        title="http://dataid.dbpedia.org/ns/core#authorizationScope">authorizationScope</a><sup
                         title="object property" class="type-op">op</sup></dd>
+                <dt>has range</dt>
+                <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
+                </dd>
                 <dt>has sub-property chains</dt>
                 <dd><a href="http://xmlns.com/foaf/0.1/primaryTopic" title="http://xmlns.com/foaf/0.1/primaryTopic">foaf:primaryTopic</a>
                     , <a href="http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">void:subset</a>
@@ -958,7 +969,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1375" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain3"></a><a
+    <div id="d4e1366" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain3"></a><a
             name="authorizationChain3"></a>
         <h3>authorizationChain3<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -970,9 +981,12 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e1609"
+                <dd><a href="#d4e1621"
                        title="http://dataid.dbpedia.org/ns/core#authorizationScope">authorizationScope</a><sup
                         title="object property" class="type-op">op</sup></dd>
+                <dt>has range</dt>
+                <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
+                </dd>
                 <dt>has sub-property chains</dt>
                 <dd><a href="http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">void:subset</a> , <a
                         href="http://www.w3.org/ns/dcat#distribution" title="http://www.w3.org/ns/dcat#distribution">dcat:distribution</a>
@@ -980,7 +994,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1406" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain4"></a><a
+    <div id="d4e1400" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain4"></a><a
             name="authorizationChain4"></a>
         <h3>authorizationChain4<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -992,9 +1006,12 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e1609"
+                <dd><a href="#d4e1621"
                        title="http://dataid.dbpedia.org/ns/core#authorizationScope">authorizationScope</a><sup
                         title="object property" class="type-op">op</sup></dd>
+                <dt>has range</dt>
+                <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
+                </dd>
                 <dt>has sub-property chains</dt>
                 <dd><a href="http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">void:subset</a> , <a
                         href="http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">void:subset</a>
@@ -1002,7 +1019,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1437" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain5"></a><a
+    <div id="d4e1434" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain5"></a><a
             name="authorizationChain5"></a>
         <h3>authorizationChain5<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1014,9 +1031,12 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e1609"
+                <dd><a href="#d4e1621"
                        title="http://dataid.dbpedia.org/ns/core#authorizationScope">authorizationScope</a><sup
                         title="object property" class="type-op">op</sup></dd>
+                <dt>has range</dt>
+                <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
+                </dd>
                 <dt>has sub-property chains</dt>
                 <dd><a href="http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">void:subset</a> , <a
                         href="http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">void:subset</a> ,
@@ -1037,9 +1057,12 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e1609"
+                <dd><a href="#d4e1621"
                        title="http://dataid.dbpedia.org/ns/core#authorizationScope">authorizationScope</a><sup
                         title="object property" class="type-op">op</sup></dd>
+                <dt>has range</dt>
+                <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
+                </dd>
                 <dt>has sub-property chains</dt>
                 <dd><a href="http://xmlns.com/foaf/0.1/primaryTopic" title="http://xmlns.com/foaf/0.1/primaryTopic">foaf:primaryTopic</a>
                     , <a href="http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">void:subset</a> ,
@@ -1048,7 +1071,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1516" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain7"></a><a
+    <div id="d4e1518" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain7"></a><a
             name="authorizationChain7"></a>
         <h3>authorizationChain7<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1060,18 +1083,21 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e1609"
+                <dd><a href="#d4e1621"
                        title="http://dataid.dbpedia.org/ns/core#authorizationScope">authorizationScope</a><sup
                         title="object property" class="type-op">op</sup></dd>
+                <dt>has range</dt>
+                <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
+                </dd>
                 <dt>has sub-property chains</dt>
-                <dd><a href="#d4e1677" title="http://dataid.dbpedia.org/ns/core#authorizedFor">authorizedFor</a><sup
+                <dd><a href="#d4e1688" title="http://dataid.dbpedia.org/ns/core#authorizedFor">authorizedFor</a><sup
                         title="object property" class="type-op">op</sup> , <a
                         href="http://xmlns.com/foaf/0.1/primaryTopic" title="http://xmlns.com/foaf/0.1/primaryTopic">foaf:primaryTopic</a>
                 </dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1547" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain8"></a><a
+    <div id="d4e1553" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain8"></a><a
             name="authorizationChain8"></a>
         <h3>authorizationChain8<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1083,18 +1109,21 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e1609"
+                <dd><a href="#d4e1621"
                        title="http://dataid.dbpedia.org/ns/core#authorizationScope">authorizationScope</a><sup
                         title="object property" class="type-op">op</sup></dd>
+                <dt>has range</dt>
+                <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
+                </dd>
                 <dt>has sub-property chains</dt>
-                <dd><a href="#d4e1677" title="http://dataid.dbpedia.org/ns/core#authorizedFor">authorizedFor</a><sup
+                <dd><a href="#d4e1688" title="http://dataid.dbpedia.org/ns/core#authorizedFor">authorizedFor</a><sup
                         title="object property" class="type-op">op</sup> , <a href="http://rdfs.org/ns/void#subset"
                                                                               title="http://rdfs.org/ns/void#subset">void:subset</a>
                 </dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1578" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain9"></a><a
+    <div id="d4e1587" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationChain9"></a><a
             name="authorizationChain9"></a>
         <h3>authorizationChain9<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1106,18 +1135,21 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e1609"
+                <dd><a href="#d4e1621"
                        title="http://dataid.dbpedia.org/ns/core#authorizationScope">authorizationScope</a><sup
                         title="object property" class="type-op">op</sup></dd>
+                <dt>has range</dt>
+                <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
+                </dd>
                 <dt>has sub-property chains</dt>
-                <dd><a href="#d4e1677" title="http://dataid.dbpedia.org/ns/core#authorizedFor">authorizedFor</a><sup
+                <dd><a href="#d4e1688" title="http://dataid.dbpedia.org/ns/core#authorizedFor">authorizedFor</a><sup
                         title="object property" class="type-op">op</sup> , <a
                         href="http://www.w3.org/ns/dcat#distribution" title="http://www.w3.org/ns/dcat#distribution">dcat:distribution</a>
                 </dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1609" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationScope"></a><a
+    <div id="d4e1621" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizationScope"></a><a
             name="authorizationScope"></a>
         <h3>authorizationScope<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1133,25 +1165,25 @@
         <div class="description"><p><strong>has characteristics:</strong> transitive</p>
             <dl>
                 <dt>has sub-properties</dt>
-                <dd><a href="#d4e1313"
+                <dd><a href="#d4e1297"
                        title="http://dataid.dbpedia.org/ns/core#authorizationChain1">authorizationChain1</a><sup
-                        title="object property" class="type-op">op</sup>, <a href="#d4e1344"
+                        title="object property" class="type-op">op</sup>, <a href="#d4e1332"
                                                                              title="http://dataid.dbpedia.org/ns/core#authorizationChain2">authorizationChain2</a><sup
-                        title="object property" class="type-op">op</sup>, <a href="#d4e1375"
+                        title="object property" class="type-op">op</sup>, <a href="#d4e1366"
                                                                              title="http://dataid.dbpedia.org/ns/core#authorizationChain3">authorizationChain3</a><sup
-                        title="object property" class="type-op">op</sup>, <a href="#d4e1406"
+                        title="object property" class="type-op">op</sup>, <a href="#d4e1400"
                                                                              title="http://dataid.dbpedia.org/ns/core#authorizationChain4">authorizationChain4</a><sup
-                        title="object property" class="type-op">op</sup>, <a href="#d4e1437"
+                        title="object property" class="type-op">op</sup>, <a href="#d4e1434"
                                                                              title="http://dataid.dbpedia.org/ns/core#authorizationChain5">authorizationChain5</a><sup
                         title="object property" class="type-op">op</sup>, <a href="#d4e1476"
                                                                              title="http://dataid.dbpedia.org/ns/core#authorizationChain6">authorizationChain6</a><sup
-                        title="object property" class="type-op">op</sup>, <a href="#d4e1516"
+                        title="object property" class="type-op">op</sup>, <a href="#d4e1518"
                                                                              title="http://dataid.dbpedia.org/ns/core#authorizationChain7">authorizationChain7</a><sup
-                        title="object property" class="type-op">op</sup>, <a href="#d4e1547"
+                        title="object property" class="type-op">op</sup>, <a href="#d4e1553"
                                                                              title="http://dataid.dbpedia.org/ns/core#authorizationChain8">authorizationChain8</a><sup
-                        title="object property" class="type-op">op</sup>, <a href="#d4e1578"
+                        title="object property" class="type-op">op</sup>, <a href="#d4e1587"
                                                                              title="http://dataid.dbpedia.org/ns/core#authorizationChain9">authorizationChain9</a><sup
-                        title="object property" class="type-op">op</sup>, <a href="#d4e1677"
+                        title="object property" class="type-op">op</sup>, <a href="#d4e1688"
                                                                              title="http://dataid.dbpedia.org/ns/core#authorizedFor">authorizedFor</a><sup
                         title="object property" class="type-op">op</sup></dd>
                 <dt>has range</dt>
@@ -1160,7 +1192,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1624" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizedAction"></a><a
+    <div id="d4e1636" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizedAction"></a><a
             name="authorizedAction"></a>
         <h3>authorizedAction<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1175,20 +1207,20 @@
                 <dd><a href="http://www.w3.org/ns/prov#AgentInfluence" title="http://www.w3.org/ns/prov#AgentInfluence">prov:AgentInfluence</a>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e161"
+                <dd><a href="#d4e165"
                        title="http://dataid.dbpedia.org/ns/core#AuthorizedAction">AuthorizedAction</a><sup title="class"
                                                                                                            class="type-c">c</sup>
                 </dd>
                 <dt>has sub-property chains</dt>
-                <dd><a href="#d4e1294"
+                <dd><a href="#d4e1279"
                        title="http://dataid.dbpedia.org/ns/core#authorityAgentRole">authorityAgentRole</a><sup
-                        title="object property" class="type-op">op</sup> , <a href="#d4e1243"
+                        title="object property" class="type-op">op</sup> , <a href="#d4e1228"
                                                                               title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
                         title="object property" class="type-op">op</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1658" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizedAgent"></a><a
+    <div id="d4e1670" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizedAgent"></a><a
             name="authorizedAgent"></a>
         <h3>authorizedAgent<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1206,17 +1238,17 @@
                 <dd><a href="http://www.w3.org/ns/prov#AgentInfluence" title="http://www.w3.org/ns/prov#AgentInfluence">prov:AgentInfluence</a>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e42" title="http://dataid.dbpedia.org/ns/core#Agent">Agent</a><sup title="class"
+                <dd><a href="#d4e46" title="http://dataid.dbpedia.org/ns/core#Agent">Agent</a><sup title="class"
                                                                                                    class="type-c">c</sup>
                 </dd>
                 <dt>is inverse of</dt>
-                <dd><a href="#d4e1758"
+                <dd><a href="#d4e1770"
                        title="http://dataid.dbpedia.org/ns/core#hasAuthorization">hasAuthorization</a><sup
                         title="object property" class="type-op">op</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1677" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizedFor"></a><a
+    <div id="d4e1688" class="entity"><a name="http://dataid.dbpedia.org/ns/core#authorizedFor"></a><a
             name="authorizedFor"></a>
         <h3>authorizedFor<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1233,11 +1265,11 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e1609"
+                <dd><a href="#d4e1621"
                        title="http://dataid.dbpedia.org/ns/core#authorizationScope">authorizationScope</a><sup
                         title="object property" class="type-op">op</sup></dd>
                 <dt>has domain</dt>
-                <dd><a href="#d4e148" title="http://dataid.dbpedia.org/ns/core#Authorization">Authorization</a><sup
+                <dd><a href="#d4e152" title="http://dataid.dbpedia.org/ns/core#Authorization">Authorization</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
                 <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
@@ -1245,7 +1277,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1695" class="entity"><a name="http://dataid.dbpedia.org/ns/core#checksum"></a><a name="checksum"></a>
+    <div id="d4e1707" class="entity"><a name="http://dataid.dbpedia.org/ns/core#checksum"></a><a name="checksum"></a>
         <h3>checksum<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#checksum</p>
@@ -1256,7 +1288,7 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
+                <dd><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
                 <dd><a href="http://spdx.org/rdf/terms/#Checksum" title="http://spdx.org/rdf/terms/#Checksum">spdx:Checksum</a>
@@ -1264,7 +1296,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1710" class="entity"><a name="http://dataid.dbpedia.org/ns/core#dataDescription"></a><a
+    <div id="d4e1722" class="entity"><a name="http://dataid.dbpedia.org/ns/core#dataDescription"></a><a
             name="dataDescription"></a>
         <h3>dataDescription<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1275,16 +1307,16 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e1126" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
+                <dd><a href="#d4e1109" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1725" class="entity"><a name="http://dataid.dbpedia.org/ns/core#datasetRelationRole"></a><a
+    <div id="d4e1737" class="entity"><a name="http://dataid.dbpedia.org/ns/core#datasetRelationRole"></a><a
             name="datasetRelationRole"></a>
         <h3>datasetRelationRole<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1300,17 +1332,17 @@
                 <dd><a href="http://www.w3.org/ns/prov#hadRole"
                        title="http://www.w3.org/ns/prov#hadRole">prov:hadRole</a></dd>
                 <dt>has domain</dt>
-                <dd><a href="#d4e526"
+                <dd><a href="#d4e530"
                        title="http://dataid.dbpedia.org/ns/core#DatasetRelationship">DatasetRelationship</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e512"
+                <dd><a href="#d4e516"
                        title="http://dataid.dbpedia.org/ns/core#DatasetRelationRole">DatasetRelationRole</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1743" class="entity"><a name="http://dataid.dbpedia.org/ns/core#growth"></a><a name="growth"></a>
+    <div id="d4e1755" class="entity"><a name="http://dataid.dbpedia.org/ns/core#growth"></a><a name="growth"></a>
         <h3>growth<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#growth</p>
@@ -1320,16 +1352,16 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e1126" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
+                <dd><a href="#d4e1109" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1758" class="entity"><a name="http://dataid.dbpedia.org/ns/core#hasAuthorization"></a><a
+    <div id="d4e1770" class="entity"><a name="http://dataid.dbpedia.org/ns/core#hasAuthorization"></a><a
             name="hasAuthorization"></a>
         <h3>hasAuthorization<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1341,12 +1373,12 @@
         <div class="description">
             <dl>
                 <dt>is inverse of</dt>
-                <dd><a href="#d4e1658" title="http://dataid.dbpedia.org/ns/core#authorizedAgent">authorizedAgent</a><sup
+                <dd><a href="#d4e1670" title="http://dataid.dbpedia.org/ns/core#authorizedAgent">authorizedAgent</a><sup
                         title="object property" class="type-op">op</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1772" class="entity"><a name="http://dataid.dbpedia.org/ns/core#identifier"></a><a
+    <div id="d4e1783" class="entity"><a name="http://dataid.dbpedia.org/ns/core#identifier"></a><a
             name="identifier"></a>
         <h3>identifier<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1368,7 +1400,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1792" class="entity"><a name="http://dataid.dbpedia.org/ns/core#identifierScheme"></a><a
+    <div id="d4e1804" class="entity"><a name="http://dataid.dbpedia.org/ns/core#identifierScheme"></a><a
             name="identifierScheme"></a>
         <h3>identifierScheme<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1380,7 +1412,7 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
@@ -1389,7 +1421,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1807" class="entity"><a name="http://dataid.dbpedia.org/ns/core#inCatalog"></a><a name="inCatalog"></a>
+    <div id="d4e1819" class="entity"><a name="http://dataid.dbpedia.org/ns/core#inCatalog"></a><a name="inCatalog"></a>
         <h3>inCatalog<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#inCatalog</p>
@@ -1400,7 +1432,7 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e283" title="http://dataid.dbpedia.org/ns/core#DataId">DataId</a><sup title="class"
+                <dd><a href="#d4e287" title="http://dataid.dbpedia.org/ns/core#DataId">DataId</a><sup title="class"
                                                                                                       class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
@@ -1412,7 +1444,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1825" class="entity"><a name="http://dataid.dbpedia.org/ns/core#innerMediaType"></a><a
+    <div id="d4e1837" class="entity"><a name="http://dataid.dbpedia.org/ns/core#innerMediaType"></a><a
             name="innerMediaType"></a>
         <h3>innerMediaType<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1427,15 +1459,15 @@
                 <dd><a href="http://www.w3.org/ns/dcat#mediaType" title="http://www.w3.org/ns/dcat#mediaType">dcat:mediaType</a>
                 </dd>
                 <dt>has domain</dt>
-                <dd><a href="#d4e836" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
+                <dd><a href="#d4e840" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e836" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
+                <dd><a href="#d4e840" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1845" class="entity"><a name="http://dataid.dbpedia.org/ns/core#isDistributionOf"></a><a
+    <div id="d4e1857" class="entity"><a name="http://dataid.dbpedia.org/ns/core#isDistributionOf"></a><a
             name="isDistributionOf"></a>
         <h3>isDistributionOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1446,10 +1478,10 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
+                <dd><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>is inverse of</dt>
@@ -1458,7 +1490,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1882" class="entity"><a name="http://dataid.dbpedia.org/ns/core#latestVersion"></a><a
+    <div id="d4e1893" class="entity"><a name="http://dataid.dbpedia.org/ns/core#latestVersion"></a><a
             name="latestVersion"></a>
         <h3>latestVersion<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1477,7 +1509,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1912" class="entity"><a name="http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization"></a><a
+    <div id="d4e1924" class="entity"><a name="http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization"></a><a
             name="needsSpecialAuthorization"></a>
         <h3>needsSpecialAuthorization<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1489,19 +1521,19 @@
         <div class="description">
             <dl>
                 <dt>has super-properties</dt>
-                <dd><a href="#d4e2213"
+                <dd><a href="#d4e2225"
                        title="http://dataid.dbpedia.org/ns/core#underAuthorization">underAuthorization</a><sup
                         title="object property" class="type-op">op</sup></dd>
                 <dt>has domain</dt>
                 <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e148" title="http://dataid.dbpedia.org/ns/core#Authorization">Authorization</a><sup
+                <dd><a href="#d4e152" title="http://dataid.dbpedia.org/ns/core#Authorization">Authorization</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1930" class="entity"><a name="http://dataid.dbpedia.org/ns/core#nextVersion"></a><a
+    <div id="d4e1942" class="entity"><a name="http://dataid.dbpedia.org/ns/core#nextVersion"></a><a
             name="nextVersion"></a>
         <h3>nextVersion<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1512,35 +1544,35 @@
         <div class="description">
             <dl>
                 <dt>is inverse of</dt>
-                <dd><a href="#d4e1974" title="http://dataid.dbpedia.org/ns/core#previousVersion">previousVersion</a><sup
+                <dd><a href="#d4e1985" title="http://dataid.dbpedia.org/ns/core#previousVersion">previousVersion</a><sup
                         title="object property" class="type-op">op</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1943" class="entity"><a name="http://dataid.dbpedia.org/ns/core#openness"></a><a name="openness"></a>
+    <div id="d4e1955" class="entity"><a name="http://dataid.dbpedia.org/ns/core#openness"></a><a name="openness"></a>
         <h3>openness<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#openness</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>General description of how data will be shared. For example embargo periods (if any),
-            outlines of technical mechanisms for dissemination or a definition of
-            whether access will be widely open or restricted to specific groups. In case the Dataset cannot be shared,
-            the reasons for this should be mentioned (e.g. ethical, rules of
-            personal data, intellectual property, commercial, privacy-related, security-related).</p>
+            outlines of technical mechanisms for dissemination or a definition of whether access will be widely open or
+            restricted to specific groups. In case the Dataset cannot be shared, the reasons for this should be
+            mentioned (e.g. ethical, rules of personal data, intellectual property, commercial, privacy-related,
+            security-related).</p>
         </div>
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e1126" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
+                <dd><a href="#d4e1109" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1958" class="entity"><a name="http://dataid.dbpedia.org/ns/core#preview"></a><a name="preview"></a>
+    <div id="d4e1970" class="entity"><a name="http://dataid.dbpedia.org/ns/core#preview"></a><a name="preview"></a>
         <h3>preview<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#objectproperties">Object Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#preview</p>
@@ -1551,7 +1583,7 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
+                <dd><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
                 <dd><a href="http://xmlns.com/foaf/0.1/Document" title="http://xmlns.com/foaf/0.1/Document">foaf:Document</a>
@@ -1559,7 +1591,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1974" class="entity"><a name="http://dataid.dbpedia.org/ns/core#previousVersion"></a><a
+    <div id="d4e1985" class="entity"><a name="http://dataid.dbpedia.org/ns/core#previousVersion"></a><a
             name="previousVersion"></a>
         <h3>previousVersion<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1579,12 +1611,12 @@
                 <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
                 </dd>
                 <dt>is inverse of</dt>
-                <dd><a href="#d4e1930" title="http://dataid.dbpedia.org/ns/core#nextVersion">nextVersion</a><sup
+                <dd><a href="#d4e1942" title="http://dataid.dbpedia.org/ns/core#nextVersion">nextVersion</a><sup
                         title="object property" class="type-op">op</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e1992" class="entity"><a name="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation"></a><a
+    <div id="d4e2004" class="entity"><a name="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation"></a><a
             name="qualifiedDatasetRelation"></a>
         <h3>qualifiedDatasetRelation<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1598,21 +1630,21 @@
                 <dd><a href="http://www.w3.org/ns/prov#qualifiedInfluence"
                        title="http://www.w3.org/ns/prov#qualifiedInfluence">prov:qualifiedInfluence</a></dd>
                 <dt>has domain</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e526"
+                <dd><a href="#d4e530"
                        title="http://dataid.dbpedia.org/ns/core#DatasetRelationship">DatasetRelationship</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>is inverse of</dt>
-                <dd><a href="#d4e2012"
+                <dd><a href="#d4e2024"
                        title="http://dataid.dbpedia.org/ns/core#qualifiedRelationOf">qualifiedRelationOf</a><sup
                         title="object property" class="type-op">op</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e2012" class="entity"><a name="http://dataid.dbpedia.org/ns/core#qualifiedRelationOf"></a><a
+    <div id="d4e2024" class="entity"><a name="http://dataid.dbpedia.org/ns/core#qualifiedRelationOf"></a><a
             name="qualifiedRelationOf"></a>
         <h3>qualifiedRelationOf<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1624,12 +1656,12 @@
         <div class="description"><p><strong>has characteristics:</strong> functional</p>
             <dl>
                 <dt>is inverse of</dt>
-                <dd><a href="#d4e1992" title="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation">qualifiedDatasetRelation</a><sup
+                <dd><a href="#d4e2004" title="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation">qualifiedDatasetRelation</a><sup
                         title="object property" class="type-op">op</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e2027" class="entity"><a name="http://dataid.dbpedia.org/ns/core#qualifiedRelationTo"></a><a
+    <div id="d4e2039" class="entity"><a name="http://dataid.dbpedia.org/ns/core#qualifiedRelationTo"></a><a
             name="qualifiedRelationTo"></a>
         <h3>qualifiedRelationTo<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1644,17 +1676,17 @@
                 <dd><a href="http://www.w3.org/ns/prov#entity" title="http://www.w3.org/ns/prov#entity">prov:entity</a>
                 </dd>
                 <dt>has domain</dt>
-                <dd><a href="#d4e526"
+                <dd><a href="#d4e530"
                        title="http://dataid.dbpedia.org/ns/core#DatasetRelationship">DatasetRelationship</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
             </dl>
         </div>
     </div>
-    <div id="d4e2045" class="entity"><a name="http://dataid.dbpedia.org/ns/core#relatedDataset"></a><a
+    <div id="d4e2057" class="entity"><a name="http://dataid.dbpedia.org/ns/core#relatedDataset"></a><a
             name="relatedDataset"></a>
         <h3>relatedDataset<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1671,22 +1703,22 @@
                 <dd><a href="http://www.w3.org/ns/prov#wasInfluencedBy"
                        title="http://www.w3.org/ns/prov#wasInfluencedBy">prov:wasInfluencedBy</a></dd>
                 <dt>has domain</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>has sub-property chains</dt>
-                <dd><a href="#d4e1992" title="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation">qualifiedDatasetRelation</a><sup
-                        title="object property" class="type-op">op</sup> , <a href="#d4e2027"
+                <dd><a href="#d4e2004" title="http://dataid.dbpedia.org/ns/core#qualifiedDatasetRelation">qualifiedDatasetRelation</a><sup
+                        title="object property" class="type-op">op</sup> , <a href="#d4e2039"
                                                                               title="http://dataid.dbpedia.org/ns/core#qualifiedRelationTo">qualifiedRelationTo</a><sup
                         title="object property" class="type-op">op</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e2085" class="entity"><a name="http://dataid.dbpedia.org/ns/core#reuseAndIntegration"></a><a
+    <div id="d4e2097" class="entity"><a name="http://dataid.dbpedia.org/ns/core#reuseAndIntegration"></a><a
             name="reuseAndIntegration"></a>
         <h3>reuseAndIntegration<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1697,16 +1729,16 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e1126" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
+                <dd><a href="#d4e1109" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e2101" class="entity"><a name="http://dataid.dbpedia.org/ns/core#similarData"></a><a
+    <div id="d4e2112" class="entity"><a name="http://dataid.dbpedia.org/ns/core#similarData"></a><a
             name="similarData"></a>
         <h3>similarData<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1718,16 +1750,16 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e1126" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
+                <dd><a href="#d4e1109" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e2116" class="entity"><a name="http://dataid.dbpedia.org/ns/core#softwareRequirement"></a><a
+    <div id="d4e2128" class="entity"><a name="http://dataid.dbpedia.org/ns/core#softwareRequirement"></a><a
             name="softwareRequirement"></a>
         <h3>softwareRequirement<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1739,15 +1771,15 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
+                <dd><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e1126" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
+                <dd><a href="#d4e1109" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e2161" class="entity"><a name="http://dataid.dbpedia.org/ns/core#typeReference"></a><a
+    <div id="d4e2173" class="entity"><a name="http://dataid.dbpedia.org/ns/core#typeReference"></a><a
             name="typeReference"></a>
         <h3>typeReference<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1760,12 +1792,12 @@
                 <dt>has super-properties</dt>
                 <dd><a href="http://xmlns.com/foaf/0.1/page" title="http://xmlns.com/foaf/0.1/page">foaf:page</a></dd>
                 <dt>has domain</dt>
-                <dd><a href="#d4e836" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
+                <dd><a href="#d4e840" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e2213" class="entity"><a name="http://dataid.dbpedia.org/ns/core#underAuthorization"></a><a
+    <div id="d4e2225" class="entity"><a name="http://dataid.dbpedia.org/ns/core#underAuthorization"></a><a
             name="underAuthorization"></a>
         <h3>underAuthorization<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1780,18 +1812,18 @@
                 <dd><a href="http://www.w3.org/ns/prov#qualifiedAttribution"
                        title="http://www.w3.org/ns/prov#qualifiedAttribution">prov:qualifiedAttribution</a></dd>
                 <dt>has sub-properties</dt>
-                <dd><a href="#d4e1912" title="http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization">needsSpecialAuthorization</a><sup
+                <dd><a href="#d4e1924" title="http://dataid.dbpedia.org/ns/core#needsSpecialAuthorization">needsSpecialAuthorization</a><sup
                         title="object property" class="type-op">op</sup></dd>
                 <dt>has domain</dt>
                 <dd><a href="http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">prov:Entity</a>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e148" title="http://dataid.dbpedia.org/ns/core#Authorization">Authorization</a><sup
+                <dd><a href="#d4e152" title="http://dataid.dbpedia.org/ns/core#Authorization">Authorization</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
     </div>
-    <div id="d4e2231" class="entity"><a name="http://dataid.dbpedia.org/ns/core#usefulness"></a><a
+    <div id="d4e2243" class="entity"><a name="http://dataid.dbpedia.org/ns/core#usefulness"></a><a
             name="usefulness"></a>
         <h3>usefulness<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a></span></h3>
@@ -1803,11 +1835,11 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e372" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
+                <dd><a href="#d4e376" title="http://dataid.dbpedia.org/ns/core#Dataset">Dataset</a><sup title="class"
                                                                                                         class="type-c">c</sup>
                 </dd>
                 <dt>has range</dt>
-                <dd><a href="#d4e1126" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
+                <dd><a href="#d4e1109" title="http://dataid.dbpedia.org/ns/core#SimpleStatement">SimpleStatement</a><sup
                         title="class" class="type-c">c</sup></dd>
             </dl>
         </div>
@@ -1815,19 +1847,19 @@
 </div>
 <div id="dataproperties"><h2>Data Properties</h2>
     <ul class="hlist">
-        <li><a href="#d4e1863" title="http://dataid.dbpedia.org/ns/core#isInheritable"><span>isInheritable</span></a>
+        <li><a href="#d4e1875" title="http://dataid.dbpedia.org/ns/core#isInheritable"><span>isInheritable</span></a>
         </li>
-        <li><a href="#d4e1897" title="http://dataid.dbpedia.org/ns/core#literal"><span>literal</span></a></li>
-        <li><a href="#d4e2131" title="http://dataid.dbpedia.org/ns/core#typeExtension"><span>typeExtension</span></a>
+        <li><a href="#d4e1909" title="http://dataid.dbpedia.org/ns/core#literal"><span>literal</span></a></li>
+        <li><a href="#d4e2143" title="http://dataid.dbpedia.org/ns/core#typeExtension"><span>typeExtension</span></a>
         </li>
-        <li><a href="#d4e2146" title="http://dataid.dbpedia.org/ns/core#typeName"><span>typeName</span></a></li>
-        <li><a href="#d4e2176" title="http://dataid.dbpedia.org/ns/core#typeTemplate"><span>typeTemplate</span></a></li>
-        <li><a href="#d4e2195"
+        <li><a href="#d4e2158" title="http://dataid.dbpedia.org/ns/core#typeName"><span>typeName</span></a></li>
+        <li><a href="#d4e2188" title="http://dataid.dbpedia.org/ns/core#typeTemplate"><span>typeTemplate</span></a></li>
+        <li><a href="#d4e2206"
                title="http://dataid.dbpedia.org/ns/core#uncompressedByteSize"><span>uncompressedByteSize</span></a></li>
-        <li><a href="#d4e2246" title="http://dataid.dbpedia.org/ns/core#validFrom"><span>validFrom</span></a></li>
-        <li><a href="#d4e2264" title="http://dataid.dbpedia.org/ns/core#validUntil"><span>validUntil</span></a></li>
+        <li><a href="#d4e2258" title="http://dataid.dbpedia.org/ns/core#validFrom"><span>validFrom</span></a></li>
+        <li><a href="#d4e2276" title="http://dataid.dbpedia.org/ns/core#validUntil"><span>validUntil</span></a></li>
     </ul>
-    <div id="d4e1863" class="entity"><a name="http://dataid.dbpedia.org/ns/core#isInheritable"></a><a
+    <div id="d4e1875" class="entity"><a name="http://dataid.dbpedia.org/ns/core#isInheritable"></a><a
             name="isInheritable"></a>
         <h3>isInheritable<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
@@ -1839,7 +1871,7 @@
         <div class="description"><p><strong>has characteristics:</strong> functional</p>
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e148" title="http://dataid.dbpedia.org/ns/core#Authorization">Authorization</a><sup
+                <dd><a href="#d4e152" title="http://dataid.dbpedia.org/ns/core#Authorization">Authorization</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
                 <dd><a href="http://www.w3.org/2001/XMLSchema#boolean" title="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a>
@@ -1847,7 +1879,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e1897" class="entity"><a name="http://dataid.dbpedia.org/ns/core#literal"></a><a name="literal"></a>
+    <div id="d4e1909" class="entity"><a name="http://dataid.dbpedia.org/ns/core#literal"></a><a name="literal"></a>
         <h3>literal<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#literal</p>
@@ -1866,7 +1898,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e2131" class="entity"><a name="http://dataid.dbpedia.org/ns/core#typeExtension"></a><a
+    <div id="d4e2143" class="entity"><a name="http://dataid.dbpedia.org/ns/core#typeExtension"></a><a
             name="typeExtension"></a>
         <h3>typeExtension<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
@@ -1877,7 +1909,7 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e836" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
+                <dd><a href="#d4e840" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
                 <dd><a href="http://www.w3.org/2000/01/rdf-schema#Literal"
@@ -1885,7 +1917,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e2146" class="entity"><a name="http://dataid.dbpedia.org/ns/core#typeName"></a><a name="typeName"></a>
+    <div id="d4e2158" class="entity"><a name="http://dataid.dbpedia.org/ns/core#typeName"></a><a name="typeName"></a>
         <h3>typeName<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#dataproperties">Data Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#typeName</p>
@@ -1895,7 +1927,7 @@
         <div class="description">
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e836" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
+                <dd><a href="#d4e840" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
                 <dd><a href="http://www.w3.org/2000/01/rdf-schema#Literal"
@@ -1903,7 +1935,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e2176" class="entity"><a name="http://dataid.dbpedia.org/ns/core#typeTemplate"></a><a
+    <div id="d4e2188" class="entity"><a name="http://dataid.dbpedia.org/ns/core#typeTemplate"></a><a
             name="typeTemplate"></a>
         <h3>typeTemplate<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
@@ -1914,7 +1946,7 @@
         <div class="description"><p><strong>has characteristics:</strong> functional</p>
             <dl>
                 <dt>has domain</dt>
-                <dd><a href="#d4e836" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
+                <dd><a href="#d4e840" title="http://dataid.dbpedia.org/ns/core#MediaType">MediaType</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
                 <dd><a href="http://www.w3.org/2000/01/rdf-schema#Literal"
@@ -1922,7 +1954,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e2195" class="entity"><a name="http://dataid.dbpedia.org/ns/core#uncompressedByteSize"></a><a
+    <div id="d4e2206" class="entity"><a name="http://dataid.dbpedia.org/ns/core#uncompressedByteSize"></a><a
             name="uncompressedByteSize"></a>
         <h3>uncompressedByteSize<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a></span></h3>
@@ -1936,7 +1968,7 @@
                 <dd><a href="http://www.w3.org/ns/dcat#byteSize" title="http://www.w3.org/ns/dcat#byteSize">dcat:byteSize</a>
                 </dd>
                 <dt>has domain</dt>
-                <dd><a href="#d4e586" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
+                <dd><a href="#d4e590" title="http://dataid.dbpedia.org/ns/core#Distribution">Distribution</a><sup
                         title="class" class="type-c">c</sup></dd>
                 <dt>has range</dt>
                 <dd><a href="http://www.w3.org/2001/XMLSchema#integer" title="http://www.w3.org/2001/XMLSchema#integer">xsd:integer</a>
@@ -1944,7 +1976,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e2246" class="entity"><a name="http://dataid.dbpedia.org/ns/core#validFrom"></a><a name="validFrom"></a>
+    <div id="d4e2258" class="entity"><a name="http://dataid.dbpedia.org/ns/core#validFrom"></a><a name="validFrom"></a>
         <h3>validFrom<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#dataproperties">Data Property ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#validFrom</p>
@@ -1963,7 +1995,7 @@
             </dl>
         </div>
     </div>
-    <div id="d4e2264" class="entity"><a name="http://dataid.dbpedia.org/ns/core#validUntil"></a><a
+    <div id="d4e2276" class="entity"><a name="http://dataid.dbpedia.org/ns/core#validUntil"></a><a
             name="validUntil"></a>
         <h3>validUntil<sup title="data property" class="type-dp">dp</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#dataproperties">Data Property ToC</a></span></h3>
@@ -1986,53 +2018,51 @@
 </div>
 <div id="namedindividuals"><h2>Named Individuals</h2>
     <ul class="hlist">
-        <li><a href="#d4e75" title="http://dataid.dbpedia.org/ns/core#AgentRoleScheme"><span>AgentRoleScheme</span></a>
+        <li><a href="#d4e79" title="http://dataid.dbpedia.org/ns/core#AgentRoleScheme"><span>AgentRoleScheme</span></a>
         </li>
-        <li><a href="#d4e88"
+        <li><a href="#d4e92"
                title="http://dataid.dbpedia.org/ns/core#AgentSupervision"><span>AgentSupervision</span></a></li>
-        <li><a href="#d4e110" title="http://dataid.dbpedia.org/ns/core#AllEntitlements"><span>AllEntitlements</span></a>
+        <li><a href="#d4e114" title="http://dataid.dbpedia.org/ns/core#AllEntitlements"><span>AllEntitlements</span></a>
         </li>
-        <li><a href="#d4e129"
+        <li><a href="#d4e133"
                title="http://dataid.dbpedia.org/ns/core#AllResponsibilities"><span>AllResponsibilities</span></a></li>
-        <li><a href="#d4e174" title="http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme"><span>AuthorizedActionScheme</span></a>
+        <li><a href="#d4e178" title="http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme"><span>AuthorizedActionScheme</span></a>
         </li>
-        <li><a href="#d4e189" title="http://dataid.dbpedia.org/ns/core#Contact"><span>Contact</span></a></li>
-        <li><a href="#d4e222" title="http://dataid.dbpedia.org/ns/core#Contributor"><span>Contributor</span></a></li>
-        <li><a href="#d4e247" title="http://dataid.dbpedia.org/ns/core#CopyRole"><span>CopyRole</span></a></li>
-        <li><a href="#d4e260" title="http://dataid.dbpedia.org/ns/core#Creator"><span>Creator</span></a></li>
-        <li><a href="#d4e539" title="http://dataid.dbpedia.org/ns/core#DeleteContent"><span>DeleteContent</span></a>
+        <li><a href="#d4e193" title="http://dataid.dbpedia.org/ns/core#Contact"><span>Contact</span></a></li>
+        <li><a href="#d4e226" title="http://dataid.dbpedia.org/ns/core#Contributor"><span>Contributor</span></a></li>
+        <li><a href="#d4e251" title="http://dataid.dbpedia.org/ns/core#CopyRole"><span>CopyRole</span></a></li>
+        <li><a href="#d4e264" title="http://dataid.dbpedia.org/ns/core#Creator"><span>Creator</span></a></li>
+        <li><a href="#d4e543" title="http://dataid.dbpedia.org/ns/core#DeleteContent"><span>DeleteContent</span></a>
         </li>
-        <li><a href="#d4e560" title="http://dataid.dbpedia.org/ns/core#DerivatRole"><span>DerivatRole</span></a></li>
-        <li><a href="#d4e691" title="http://dataid.dbpedia.org/ns/core#GenericRelation"><span>GenericRelation</span></a>
+        <li><a href="#d4e564" title="http://dataid.dbpedia.org/ns/core#DerivateRole"><span>DerivateRole</span></a></li>
+        <li><a href="#d4e695" title="http://dataid.dbpedia.org/ns/core#GenericRelation"><span>GenericRelation</span></a>
         </li>
-        <li><a href="#d4e704" title="http://dataid.dbpedia.org/ns/core#Guest"><span>Guest</span></a></li>
-        <li><a href="#d4e729" title="http://dataid.dbpedia.org/ns/core#GuestAgent"><span>GuestAgent</span></a></li>
-        <li><a href="#d4e750"
+        <li><a href="#d4e708" title="http://dataid.dbpedia.org/ns/core#Guest"><span>Guest</span></a></li>
+        <li><a href="#d4e733" title="http://dataid.dbpedia.org/ns/core#GuestAgent"><span>GuestAgent</span></a></li>
+        <li><a href="#d4e754"
                title="http://dataid.dbpedia.org/ns/core#GuestAuthorization"><span>GuestAuthorization</span></a></li>
-        <li><a href="#d4e798" title="http://dataid.dbpedia.org/ns/core#Maintainer"><span>Maintainer</span></a></li>
-        <li><a href="#d4e849"
+        <li><a href="#d4e802" title="http://dataid.dbpedia.org/ns/core#Maintainer"><span>Maintainer</span></a></li>
+        <li><a href="#d4e853"
                title="http://dataid.dbpedia.org/ns/core#ModifyAgentRoles"><span>ModifyAgentRoles</span></a></li>
-        <li><a href="#d4e870"
+        <li><a href="#d4e874"
                title="http://dataid.dbpedia.org/ns/core#ModifyAuthorization"><span>ModifyAuthorization</span></a></li>
-        <li><a href="#d4e891" title="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents"><span>ModifyAuthorizedAgents</span></a>
+        <li><a href="#d4e895" title="http://dataid.dbpedia.org/ns/core#ModifyContent"><span>ModifyContent</span></a>
         </li>
-        <li><a href="#d4e912" title="http://dataid.dbpedia.org/ns/core#ModifyContent"><span>ModifyContent</span></a>
-        </li>
-        <li><a href="#d4e934" title="http://dataid.dbpedia.org/ns/core#Publisher"><span>Publisher</span></a></li>
-        <li><a href="#d4e979"
+        <li><a href="#d4e916" title="http://dataid.dbpedia.org/ns/core#Publisher"><span>Publisher</span></a></li>
+        <li><a href="#d4e962"
                title="http://dataid.dbpedia.org/ns/core#PublishingDecision"><span>PublishingDecision</span></a></li>
-        <li><a href="#d4e1000" title="http://dataid.dbpedia.org/ns/core#ReadContent"><span>ReadContent</span></a></li>
-        <li><a href="#d4e1021" title="http://dataid.dbpedia.org/ns/core#ReadDataId"><span>ReadDataId</span></a></li>
-        <li><a href="#d4e1042"
+        <li><a href="#d4e983" title="http://dataid.dbpedia.org/ns/core#ReadContent"><span>ReadContent</span></a></li>
+        <li><a href="#d4e1004" title="http://dataid.dbpedia.org/ns/core#ReadDataId"><span>ReadDataId</span></a></li>
+        <li><a href="#d4e1025"
                title="http://dataid.dbpedia.org/ns/core#ResponseToContact"><span>ResponseToContact</span></a></li>
-        <li><a href="#d4e1063" title="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent"><span>ResponseToLifeCycleEvent</span></a>
+        <li><a href="#d4e1046" title="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent"><span>ResponseToLifeCycleEvent</span></a>
         </li>
-        <li><a href="#d4e1113" title="http://dataid.dbpedia.org/ns/core#SimilarityRole"><span>SimilarityRole</span></a>
+        <li><a href="#d4e1096" title="http://dataid.dbpedia.org/ns/core#SimilarityRole"><span>SimilarityRole</span></a>
         </li>
-        <li><a href="#d4e1169" title="http://dataid.dbpedia.org/ns/core#SourceRole"><span>SourceRole</span></a></li>
-        <li><a href="#d4e1207" title="http://dataid.dbpedia.org/ns/core#UpdateDataId"><span>UpdateDataId</span></a></li>
+        <li><a href="#d4e1154" title="http://dataid.dbpedia.org/ns/core#SourceRole"><span>SourceRole</span></a></li>
+        <li><a href="#d4e1192" title="http://dataid.dbpedia.org/ns/core#UpdateDataId"><span>UpdateDataId</span></a></li>
     </ul>
-    <div id="d4e75" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AgentRoleScheme"></a><a
+    <div id="d4e79" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AgentRoleScheme"></a><a
             name="AgentRoleScheme"></a>
         <h3>AgentRoleScheme<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2047,7 +2077,7 @@
                    title="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a></dd>
         </dl>
     </div>
-    <div id="d4e88" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AgentSupervision"></a><a
+    <div id="d4e92" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AgentSupervision"></a><a
             name="AgentSupervision"></a>
         <h3>AgentSupervision<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2057,11 +2087,11 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e1085" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
+            <dd><a href="#d4e1067" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e110" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AllEntitlements"></a><a
+    <div id="d4e114" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AllEntitlements"></a><a
             name="AllEntitlements"></a>
         <h3>AllEntitlements<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2072,11 +2102,11 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e1085" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
+            <dd><a href="#d4e1067" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e129" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AllResponsibilities"></a><a
+    <div id="d4e133" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AllResponsibilities"></a><a
             name="AllResponsibilities"></a>
         <h3>AllResponsibilities<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2087,11 +2117,11 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e1085" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
+            <dd><a href="#d4e1067" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e174" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme"></a><a
+    <div id="d4e178" class="entity"><a name="http://dataid.dbpedia.org/ns/core#AuthorizedActionScheme"></a><a
             name="AuthorizedActionScheme"></a>
         <h3>AuthorizedActionScheme<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2104,79 +2134,78 @@
                    title="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a></dd>
         </dl>
     </div>
-    <div id="d4e189" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Contact"></a><a name="Contact"></a>
+    <div id="d4e193" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Contact"></a><a name="Contact"></a>
         <h3>Contact<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Contact</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Contact agent. An Agent that can be contacted for general requests about the
-            resource.</p>
+        <div class="comment"><p>An Agent that can be contacted for general requests about the resource.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e60" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
+            <dd><a href="#d4e64" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
                                                                                                        class="type-c">c</sup>
             </dd>
             <dt>has facts</dt>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e912"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e895"
                                                                         title="http://dataid.dbpedia.org/ns/core#ModifyContent">ModifyContent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1000"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e983"
                                                                         title="http://dataid.dbpedia.org/ns/core#ReadContent">ReadContent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1021"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1004"
                                                                         title="http://dataid.dbpedia.org/ns/core#ReadDataId">ReadDataId</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1042"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1025"
                                                                         title="http://dataid.dbpedia.org/ns/core#ResponseToContact">ResponseToContact</a>
             </dd>
         </dl>
     </div>
-    <div id="d4e222" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Contributor"></a><a
+    <div id="d4e226" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Contributor"></a><a
             name="Contributor"></a>
         <h3>Contributor<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Contributor</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>Contributor to the resource. An Agent that was involved in creating or maintaining the
-            resource but does not have the main part in this activity.</p>
+            resource but did not have the main part in this activity.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e60" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
+            <dd><a href="#d4e64" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
                                                                                                        class="type-c">c</sup>
             </dd>
             <dt>has facts</dt>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1000"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e983"
                                                                         title="http://dataid.dbpedia.org/ns/core#ReadContent">ReadContent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1021"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1004"
                                                                         title="http://dataid.dbpedia.org/ns/core#ReadDataId">ReadDataId</a>
             </dd>
         </dl>
     </div>
-    <div id="d4e247" class="entity"><a name="http://dataid.dbpedia.org/ns/core#CopyRole"></a><a name="CopyRole"></a>
+    <div id="d4e251" class="entity"><a name="http://dataid.dbpedia.org/ns/core#CopyRole"></a><a name="CopyRole"></a>
         <h3>CopyRole<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#CopyRole</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>This role specifies a dataid:DatasetRelationship where one dataset is an exeact copy of
-            a second dataset (e.g. when republished under a different domain).</p>
+        <div class="comment"><p>This role specifies a dataid:DatasetRelationship where the origin dataset is an exact
+            copy of the target dataset (e.g. when republished under a different domain).</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e512"
+            <dd><a href="#d4e516"
                    title="http://dataid.dbpedia.org/ns/core#DatasetRelationRole">DatasetRelationRole</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e260" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Creator"></a><a name="Creator"></a>
+    <div id="d4e264" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Creator"></a><a name="Creator"></a>
         <h3>Creator<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Creator</p>
@@ -2186,21 +2215,21 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e60" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
+            <dd><a href="#d4e64" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
                                                                                                        class="type-c">c</sup>
             </dd>
             <dt>has facts</dt>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e110"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e114"
                                                                         title="http://dataid.dbpedia.org/ns/core#AllEntitlements">AllEntitlements</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e129"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e133"
                                                                         title="http://dataid.dbpedia.org/ns/core#AllResponsibilities">AllResponsibilities</a>
             </dd>
         </dl>
     </div>
-    <div id="d4e539" class="entity"><a name="http://dataid.dbpedia.org/ns/core#DeleteContent"></a><a
+    <div id="d4e543" class="entity"><a name="http://dataid.dbpedia.org/ns/core#DeleteContent"></a><a
             name="DeleteContent"></a>
         <h3>DeleteContent<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2210,27 +2239,27 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e662" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
+            <dd><a href="#d4e666" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e560" class="entity"><a name="http://dataid.dbpedia.org/ns/core#DerivatRole"></a><a
-            name="DerivatRole"></a>
-        <h3>DerivatRole<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
+    <div id="d4e564" class="entity"><a name="http://dataid.dbpedia.org/ns/core#DerivateRole"></a><a
+            name="DerivateRole"></a>
+        <h3>DerivateRole<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-        <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#DerivatRole</p>
+        <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#DerivateRole</p>
         <dl class="definedBy"></dl>
         <div class="comment"><p>This role specifies a dataid:DatasetRelationship where one dataset points out a second
-            dataset, which is a derivat of the first.</p>
+            dataset, which is a derivate of the first.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e512"
+            <dd><a href="#d4e516"
                    title="http://dataid.dbpedia.org/ns/core#DatasetRelationRole">DatasetRelationRole</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e691" class="entity"><a name="http://dataid.dbpedia.org/ns/core#GenericRelation"></a><a
+    <div id="d4e695" class="entity"><a name="http://dataid.dbpedia.org/ns/core#GenericRelation"></a><a
             name="GenericRelation"></a>
         <h3>GenericRelation<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2241,35 +2270,35 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e512"
+            <dd><a href="#d4e516"
                    title="http://dataid.dbpedia.org/ns/core#DatasetRelationRole">DatasetRelationRole</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e704" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Guest"></a><a name="Guest"></a>
+    <div id="d4e708" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Guest"></a><a name="Guest"></a>
         <h3>Guest<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a href="#toc">ToC</a> or <a
                 href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Guest</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>A visitor or anonymous Agent has only read rights on public documents</p>
+        <div class="comment"><p>A visitor or anonymous Agent which only has the right to read public documents.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e60" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
+            <dd><a href="#d4e64" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
                                                                                                        class="type-c">c</sup>
             </dd>
             <dt>has facts</dt>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1000"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e983"
                                                                         title="http://dataid.dbpedia.org/ns/core#ReadContent">ReadContent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1021"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1004"
                                                                         title="http://dataid.dbpedia.org/ns/core#ReadDataId">ReadDataId</a>
             </dd>
         </dl>
     </div>
-    <div id="d4e729" class="entity"><a name="http://dataid.dbpedia.org/ns/core#GuestAgent"></a><a name="GuestAgent"></a>
+    <div id="d4e733" class="entity"><a name="http://dataid.dbpedia.org/ns/core#GuestAgent"></a><a name="GuestAgent"></a>
         <h3>GuestAgent<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#GuestAgent</p>
@@ -2279,12 +2308,12 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e42" title="http://dataid.dbpedia.org/ns/core#Agent">Agent</a><sup title="class"
+            <dd><a href="#d4e46" title="http://dataid.dbpedia.org/ns/core#Agent">Agent</a><sup title="class"
                                                                                                class="type-c">c</sup>
             </dd>
         </dl>
     </div>
-    <div id="d4e750" class="entity"><a name="http://dataid.dbpedia.org/ns/core#GuestAuthorization"></a><a
+    <div id="d4e754" class="entity"><a name="http://dataid.dbpedia.org/ns/core#GuestAuthorization"></a><a
             name="GuestAuthorization"></a>
         <h3>GuestAuthorization<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2295,25 +2324,25 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e148" title="http://dataid.dbpedia.org/ns/core#Authorization">Authorization</a><sup
+            <dd><a href="#d4e152" title="http://dataid.dbpedia.org/ns/core#Authorization">Authorization</a><sup
                     title="class" class="type-c">c</sup></dd>
             <dt>has facts</dt>
-            <dd><a href="#d4e1294"
+            <dd><a href="#d4e1279"
                    title="http://dataid.dbpedia.org/ns/core#authorityAgentRole">authorityAgentRole</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e704"
+                    title="object property" class="type-op">op</sup> <a href="#d4e708"
                                                                         title="http://dataid.dbpedia.org/ns/core#Guest">Guest</a>
             </dd>
-            <dd><a href="#d4e1658" title="http://dataid.dbpedia.org/ns/core#authorizedAgent">authorizedAgent</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e729"
+            <dd><a href="#d4e1670" title="http://dataid.dbpedia.org/ns/core#authorizedAgent">authorizedAgent</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e733"
                                                                         title="http://dataid.dbpedia.org/ns/core#GuestAgent">GuestAgent</a>
             </dd>
-            <dd><a href="#d4e1863" title="http://dataid.dbpedia.org/ns/core#isInheritable">isInheritable</a><sup
+            <dd><a href="#d4e1875" title="http://dataid.dbpedia.org/ns/core#isInheritable">isInheritable</a><sup
                     title="data property" class="type-dp">dp</sup> <span class="literal">"true"^^<a
                     href="http://www.w3.org/2001/XMLSchema#boolean" title="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a></span>
             </dd>
         </dl>
     </div>
-    <div id="d4e798" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Maintainer"></a><a name="Maintainer"></a>
+    <div id="d4e802" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Maintainer"></a><a name="Maintainer"></a>
         <h3>Maintainer<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Maintainer</p>
@@ -2323,45 +2352,45 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e60" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
+            <dd><a href="#d4e64" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
                                                                                                        class="type-c">c</sup>
             </dd>
             <dt>has facts</dt>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e539"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e543"
                                                                         title="http://dataid.dbpedia.org/ns/core#DeleteContent">DeleteContent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e891"
-                                                                        title="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents">ModifyAuthorizedAgents</a>
-            </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e912"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a
+                    href="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents"
+                    title="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents">ModifyAuthorizedAgents</a></dd>
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e895"
                                                                         title="http://dataid.dbpedia.org/ns/core#ModifyContent">ModifyContent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1000"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e983"
                                                                         title="http://dataid.dbpedia.org/ns/core#ReadContent">ReadContent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1021"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1004"
                                                                         title="http://dataid.dbpedia.org/ns/core#ReadDataId">ReadDataId</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1042"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1025"
                                                                         title="http://dataid.dbpedia.org/ns/core#ResponseToContact">ResponseToContact</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1063"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1046"
                                                                         title="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent">ResponseToLifeCycleEvent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1207"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1192"
                                                                         title="http://dataid.dbpedia.org/ns/core#UpdateDataId">UpdateDataId</a>
             </dd>
         </dl>
     </div>
-    <div id="d4e849" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ModifyAgentRoles"></a><a
+    <div id="d4e853" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ModifyAgentRoles"></a><a
             name="ModifyAgentRoles"></a>
         <h3>ModifyAgentRoles<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2371,11 +2400,11 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e662" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
+            <dd><a href="#d4e666" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e870" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ModifyAuthorization"></a><a
+    <div id="d4e874" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ModifyAuthorization"></a><a
             name="ModifyAuthorization"></a>
         <h3>ModifyAuthorization<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2385,25 +2414,11 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e662" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
+            <dd><a href="#d4e666" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e891" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents"></a><a
-            name="ModifyAuthorizedAgents"></a>
-        <h3>ModifyAuthorizedAgents<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
-                href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
-        <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents</p>
-        <dl class="definedBy"></dl>
-        <div class="comment"><p>EntitledAction to modify which Agents are authorized on certain Entities.</p>
-        </div>
-        <dl class="description">
-            <dt>belongs to</dt>
-            <dd><a href="#d4e662" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
-                    title="class" class="type-c">c</sup></dd>
-        </dl>
-    </div>
-    <div id="d4e912" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ModifyContent"></a><a
+    <div id="d4e895" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ModifyContent"></a><a
             name="ModifyContent"></a>
         <h3>ModifyContent<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2413,85 +2428,86 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e662" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
+            <dd><a href="#d4e666" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e934" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Publisher"></a><a name="Publisher"></a>
+    <div id="d4e916" class="entity"><a name="http://dataid.dbpedia.org/ns/core#Publisher"></a><a name="Publisher"></a>
         <h3>Publisher<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#Publisher</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>Publisher of the Dataset. An Agent that makes the Dataset accessible online on a server
-            or repository without necessarily being involved in its creation.</p>
+        <div class="comment"><p>An Agent that makes the Dataset accessible online on a server or repository without
+            necessarily being involved in its creation and decides on all dissemination related tasks as well (e.g. data
+            portal entries).</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e60" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
+            <dd><a href="#d4e64" title="http://dataid.dbpedia.org/ns/core#AgentRole">AgentRole</a><sup title="class"
                                                                                                        class="type-c">c</sup>
             </dd>
             <dt>has facts</dt>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e88"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e92"
                                                                         title="http://dataid.dbpedia.org/ns/core#AgentSupervision">AgentSupervision</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e539"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e543"
                                                                         title="http://dataid.dbpedia.org/ns/core#DeleteContent">DeleteContent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e870"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e874"
                                                                         title="http://dataid.dbpedia.org/ns/core#ModifyAuthorization">ModifyAuthorization</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e891"
-                                                                        title="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents">ModifyAuthorizedAgents</a>
-            </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e912"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a
+                    href="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents"
+                    title="http://dataid.dbpedia.org/ns/core#ModifyAuthorizedAgents">ModifyAuthorizedAgents</a></dd>
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e895"
                                                                         title="http://dataid.dbpedia.org/ns/core#ModifyContent">ModifyContent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e979"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e962"
                                                                         title="http://dataid.dbpedia.org/ns/core#PublishingDecision">PublishingDecision</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1000"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e983"
                                                                         title="http://dataid.dbpedia.org/ns/core#ReadContent">ReadContent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1021"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1004"
                                                                         title="http://dataid.dbpedia.org/ns/core#ReadDataId">ReadDataId</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1042"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1025"
                                                                         title="http://dataid.dbpedia.org/ns/core#ResponseToContact">ResponseToContact</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1063"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1046"
                                                                         title="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent">ResponseToLifeCycleEvent</a>
             </dd>
-            <dd><a href="#d4e1243" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
-                    title="object property" class="type-op">op</sup> <a href="#d4e1207"
+            <dd><a href="#d4e1228" title="http://dataid.dbpedia.org/ns/core#allowsFor">allowsFor</a><sup
+                    title="object property" class="type-op">op</sup> <a href="#d4e1192"
                                                                         title="http://dataid.dbpedia.org/ns/core#UpdateDataId">UpdateDataId</a>
             </dd>
         </dl>
     </div>
-    <div id="d4e979" class="entity"><a name="http://dataid.dbpedia.org/ns/core#PublishingDecision"></a><a
+    <div id="d4e962" class="entity"><a name="http://dataid.dbpedia.org/ns/core#PublishingDecision"></a><a
             name="PublishingDecision"></a>
         <h3>PublishingDecision<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#PublishingDecision</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The responsibility (ResponsibleAction) to decide if an Entity should be published.</p>
+        <div class="comment"><p>The final decision if an Entity (or a version of it) should be published.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e1085" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
+            <dd><a href="#d4e1067" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e1000" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ReadContent"></a><a
+    <div id="d4e983" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ReadContent"></a><a
             name="ReadContent"></a>
         <h3>ReadContent<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2501,11 +2517,11 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e662" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
+            <dd><a href="#d4e666" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e1021" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ReadDataId"></a><a
+    <div id="d4e1004" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ReadDataId"></a><a
             name="ReadDataId"></a>
         <h3>ReadDataId<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2515,11 +2531,11 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e662" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
+            <dd><a href="#d4e666" title="http://dataid.dbpedia.org/ns/core#EntitledAction">EntitledAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e1042" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ResponseToContact"></a><a
+    <div id="d4e1025" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ResponseToContact"></a><a
             name="ResponseToContact"></a>
         <h3>ResponseToContact<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2530,58 +2546,58 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e1085" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
+            <dd><a href="#d4e1067" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e1063" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent"></a><a
+    <div id="d4e1046" class="entity"><a name="http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent"></a><a
             name="ResponseToLifeCycleEvent"></a>
         <h3>ResponseToLifeCycleEvent<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#ResponseToLifeCycleEvent</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>The responsibility (ResponsibleAction) to manage changes and react to bugs and issues
-            that are reported concerning a Dataset.</p>
+        <div class="comment"><p>The responsibility to manage changes and react to any event related to the lifecycle of
+            a Dataset (e.g. issue tracker entries, unavailable download URL, etc.)</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e1085" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
+            <dd><a href="#d4e1067" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e1113" class="entity"><a name="http://dataid.dbpedia.org/ns/core#SimilarityRole"></a><a
+    <div id="d4e1096" class="entity"><a name="http://dataid.dbpedia.org/ns/core#SimilarityRole"></a><a
             name="SimilarityRole"></a>
         <h3>SimilarityRole<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#SimilarityRole</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>This role specifies a dataid:DatasetRelationship where one dataset has a significant
-            similarity to another dataset (without any assertion as to dimension of similarity).</p>
+        <div class="comment"><p>This role specifies a dataid:DatasetRelationship where the origin dataset has a
+            significant similarity to the target dataset (without any assertion as to dimension of similarity).</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e512"
+            <dd><a href="#d4e516"
                    title="http://dataid.dbpedia.org/ns/core#DatasetRelationRole">DatasetRelationRole</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e1169" class="entity"><a name="http://dataid.dbpedia.org/ns/core#SourceRole"></a><a
+    <div id="d4e1154" class="entity"><a name="http://dataid.dbpedia.org/ns/core#SourceRole"></a><a
             name="SourceRole"></a>
         <h3>SourceRole<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
         <p><strong>IRI:</strong> http://dataid.dbpedia.org/ns/core#SourceRole</p>
         <dl class="definedBy"></dl>
-        <div class="comment"><p>This role specifies a dataid:DatasetRelationship where one dataset is created by
-            transforming/collectiong data from another dataset.</p>
+        <div class="comment"><p>This role specifies a dataid:DatasetRelationship where the origin dataset is created by
+            transforming/collecting data from the target dataset.</p>
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e512"
+            <dd><a href="#d4e516"
                    title="http://dataid.dbpedia.org/ns/core#DatasetRelationRole">DatasetRelationRole</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>
-    <div id="d4e1207" class="entity"><a name="http://dataid.dbpedia.org/ns/core#UpdateDataId"></a><a
+    <div id="d4e1192" class="entity"><a name="http://dataid.dbpedia.org/ns/core#UpdateDataId"></a><a
             name="UpdateDataId"></a>
         <h3>UpdateDataId<sup title="named individual" class="type-ni">ni</sup><span class="backlink"> back to <a
                 href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a></span></h3>
@@ -2591,7 +2607,7 @@
         </div>
         <dl class="description">
             <dt>belongs to</dt>
-            <dd><a href="#d4e1085" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
+            <dd><a href="#d4e1067" title="http://dataid.dbpedia.org/ns/core#ResponsibleAction">ResponsibleAction</a><sup
                     title="class" class="type-c">c</sup></dd>
         </dl>
     </div>

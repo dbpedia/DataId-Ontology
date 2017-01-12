@@ -829,7 +829,7 @@ dataid:ResponseToContact
 dataid:ResponseToLifeCycleEvent
 	a owl:NamedIndividual, dataid:ResponsibleAction ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:comment "The responsibility (ResponsibleAction) to manage changes and react to bugs and issues that are reported concerning a Dataset."@en ;
+	rdfs:comment "The responsibility to manage changes and react to any event related to the lifecycle of a Dataset (e.g. issue tracker entries, unavailable download URL, etc.)"@en ;
 	skos:prefLabel "response to life-cycle event"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
 	skos:broader dataid:AllResponsibilities ;
@@ -838,7 +838,7 @@ dataid:ResponseToLifeCycleEvent
 dataid:PublishingDecision
 	a owl:NamedIndividual, dataid:ResponsibleAction ;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	rdfs:comment "The responsibility (ResponsibleAction) to decide if an Entity should be published."@en ;
+	rdfs:comment "The final decision if an Entity (or a version of it) should be published."@en ;
 	skos:prefLabel "publishing decision"@en ;
 	skos:inScheme dataid:AuthorizedActionScheme ;
 	skos:broader dataid:AllResponsibilities ;
@@ -878,7 +878,7 @@ dataid:ReadDataId
 	skos:inScheme dataid:AuthorizedActionScheme ;
 	skos:broader dataid:AllEntitlements ;
 	rdfs:label "read DataID right"@en .
-
+		
 dataid:ReadContent
 	a owl:NamedIndividual, dataid:EntitledAction;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
@@ -905,15 +905,6 @@ dataid:DeleteContent
 	skos:inScheme dataid:AuthorizedActionScheme ;
 	skos:broader dataid:AllEntitlements ;
 	rdfs:label "delete content right"@en .
-
-dataid:ModifyAuthorizedAgents
-	a owl:NamedIndividual, dataid:EntitledAction ;
-	rdfs:comment "EntitledAction to modify which Agents are authorized on certain Entities."@en ;
-	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-	skos:prefLabel "modify authorized agents"@en ;
-	skos:inScheme dataid:AuthorizedActionScheme ;
-	skos:broader dataid:AllEntitlements ;
-	rdfs:label "modify authorized agents"@en .
 
 dataid:ModifyAuthorization
 	a owl:NamedIndividual, dataid:EntitledAction ;
@@ -962,7 +953,7 @@ dataid:Publisher
 	dataid:allowsFor dataid:AgentSupervision;
 	dataid:allowsFor dataid:PublishingDecision;
 	dataid:allowsFor dataid:ModifyAuthorization;
-    rdfs:comment "Publisher of the Dataset. An Agent that makes the Dataset accessible online on a server or repository without necessarily being involved in its creation."@en ;
+    rdfs:comment "An Agent that makes the Dataset accessible online on a server or repository without necessarily being involved in its creation and decides on all dissemination related tasks as well (e.g. data portal entries)."@en ;
     skos:prefLabel "publisher"@en ;
 	skos:inScheme dataid:AgentRoleScheme ;
 	skos:broader dataid:Creator ;
@@ -990,7 +981,7 @@ dataid:Contributor
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
 	dataid:allowsFor dataid:ReadDataId;
 	dataid:allowsFor dataid:ReadContent;
-	rdfs:comment "Contributor to the resource. An Agent that was involved in creating or maintaining the resource but does not have the main part in this activity."@en ;
+	rdfs:comment "Contributor to the resource. An Agent that was involved in creating or maintaining the resource but did not have the main part in this activity."@en ;
 	skos:prefLabel "contributor"@en ;
 	skos:inScheme dataid:AgentRoleScheme ;
 	skos:broader dataid:Publisher ;
@@ -1003,7 +994,7 @@ dataid:Contact
 	dataid:allowsFor dataid:ModifyContent;
 	dataid:allowsFor dataid:ReadContent;
 	dataid:allowsFor dataid:ResponseToContact;
-    rdfs:comment "Contact agent. An Agent that can be contacted for general requests about the resource."@en ;
+    rdfs:comment "An Agent that can be contacted for general requests about the resource."@en ;
     skos:prefLabel "contact"@en ;
 	skos:inScheme dataid:AgentRoleScheme ;
 	skos:broader dataid:Publisher, dataid:Maintainer ;
@@ -1014,7 +1005,7 @@ dataid:Guest
 	dataid:allowsFor dataid:ReadDataId;
 	dataid:allowsFor dataid:ReadContent;
 	rdfs:isDefinedBy <http://dataid.dbpedia.org/ns/core#> ;
-    rdfs:comment "A visitor or anonymous Agent has only read rights on public documents"@en ;
+    rdfs:comment "A visitor or anonymous Agent which only has the right to read public documents."@en ;
     skos:prefLabel "guest"@en ;
 	skos:inScheme dataid:AgentRoleScheme ;
 	skos:broader dataid:Contributor ;
