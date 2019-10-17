@@ -38,7 +38,7 @@ object Main {
     prefixMap.put("rdf", "http://www.w3.org/2000/01/rdf-schema#")
     prefixMap.put("owl", "http://www.w3.org/2002/07/owl#")
     prefixMap.put("prov", "http://www.w3.org/ns/prov#")
-    prefixMap.put("dbpedia", "http://dataid.dbpedia.org/ns/iana#")
+    prefixMap.put("dataid-iana", "http://dataid.dbpedia.org/ns/iana#")
 
     model.setNsPrefixes(prefixMap)
 
