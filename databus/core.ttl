@@ -1,0 +1,161 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix databus: <https://dataid.dbpedia.org/databus#> .
+@prefix dataid: <http://dataid.dbpedia.org/ns/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix lvont: <http://lexvo.org/ontology#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix marl: <http://purl.org/marl/ns#> .
+@prefix fise: <http://fise.iks-project.eu/ontology/> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix spdx: <http://spdx.org/rdf/terms/#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix lit: <http://www.essepuntato.it/2010/06/literalreification/> .
+
+<https://dataid.dbpedia.org/databus#>
+    a owl:Ontology ;
+    dc:contributor "Jan Forberg", "Sebastian Hellmann" ;
+    dc:creator "Milan Dojchinovski" ;
+    dc:description """The Databus Ontology provides description of classes and properties used to model information in the DBpedia Databus platform. The Databus Ontology is aligned and meant to be used with the DataID ontology.
+
+	Feedback
+	If you'd like to leave feedback, please open an issue on GitHub (https://github.com/dbpedia/DataId-Ontology)."""@en ;
+    dc:publisher "DBpedia Association, The Institute for Applied Informatics (InfAI)" ;
+    dc:rights "This ontology is licensed under Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0) and CC-BY (http://creativecommons.org/licenses/by/3.0/)"@en ;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/>, <http://www.apache.org/licenses/LICENSE-2.0> ;
+    dcterms:title "Databus Ontology"@en ;
+    <http://purl.org/vocab/vann/changes> <https://github.com/dbpedia/DataId-Ontology/commits/master> ;
+    <http://purl.org/vocab/vann/preferredNamespacePrefix> "databus" ;
+    <http://purl.org/vocab/vann/preferredNamespaceUri> "https://dataid.dbpedia.org/databus#" ;
+    rdfs:label "Databus Ontology"@en ;
+    owl:versionInfo "Versioning done on resource level." .
+
+##############################
+# Base Classes
+##############################
+
+databus:Group a owl:Class ;
+    rdfs:label "Databus Group"@en ;
+    rdfs:comment """A Databus Group is a container owned by a Databus user that bundles Databus Artifacts intended to form a meaningful unit."""@en ; 
+    rdfs:subClassOf prov:Entity ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:Artifact a owl:Class ;
+    rdfs:label "Databus Artifact"@en ;
+    rdfs:comment """A Databus Artifact is a logical dataset on the Databus"""@en ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/databus#> .
+
+databus:Version  a owl:Class ;
+    rdfs:label "Version"@en ;
+    rdfs:comment "Dataset Version"@en ; 
+    rdfs:subClassOf dcat:Dataset , dataid:Dataset ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:Part  a owl:Class ;
+    rdfs:label "Part"@en ;
+    rdfs:comment """A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). Artifacts are packaged compositionally, e.g. each distribution/part adds to the dataset, which is the sum of information."""@en ;
+    rdfs:subclassOf dcat:Distribution ; # todo: , dataid:XXX ;
+    rdfs:isDefinedBy <http://dataid.dbpedia.org/databus#> .
+
+databus:Collection a owl:Class ;
+    rdfs:label "Collection"@en ;
+    rdfs:comment "A Databus Collection aggregates and logically groups a set of datasets."@en ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+
+##############################
+# Base Properties
+##############################
+
+
+databus:compression rdf:type owl:DatatypeProperty ;
+    rdfs:label "compression"@en ;
+    rdfs:comment "Specifies the compression algorithm used for the file or none, if uncompressed."@en ;
+    rdfs:domain dcat:Distribution , databus:Part ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:contentVariant
+    a owl:DatatypeProperty ;
+    rdfs:label "Content Variant" ;
+    rdfs:comment "Specifies the variant of the content of a file." ;
+    rdfs:domain databus:Part ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:file a owl:ObjectProperty ;
+    rdfs:label "file" ;
+    rdfs:comment "The file associated with a data resource." ;
+    rdfs:domain databus:Part ; # todo: check -> databus:Part?
+    rdfs:range dcat:Distribution ;  # todo: check -> drop range?
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:formatExtension a owl:DatatypeProperty ;
+    rdfs:label "Format Extension" ;
+    rdfs:comment "The file format extension of a data file." ;
+    rdfs:domain databus:Part ;
+    rdfs:range xsd:String ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:sha256sum a owl:DatatypeProperty ;
+    rdfs:label "SHA256 Sum" ;
+    rdfs:comment "The SHA256 hash sum of a file content." ;
+    rdfs:domain databus:Part ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:signature a owl:DatatypeProperty ;
+    rdfs:label "Signature" ;
+    rdfs:comment "The signature of a file or resource." ;
+    rdfs:domain databus:Part ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:account a owl:ObjectProperty ; # todo: check with Jan
+    rdfs:label "Account" ;
+    rdfs:comment "Relates a dataset to an account on the Databus platform." ;
+    rdfs:range foaf:OnlineAccount ;
+    rdfs:domain dataid:Dataset ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:artifact a rdf:ObjectProperty ;
+    rdfs:label "artifact" ;
+    rdfs:comment "Specifies an artifact associated with a dataset in the DataID vocabulary." ;
+    rdfs:domain databus:Version ;
+    rdfs:range databus:Artifact ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:group rdf:type owl:ObjectProperty ;
+    rdfs:label "group"@en ;
+    rdfs:comment "Refers to a group or collection of resources."@en ;
+    rdfs:domain dataid:Version ;
+    rdfs:range dataid:Group ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:version rdf:type owl:ObjectProperty ;
+    rdfs:label "version"@en ;
+    rdfs:comment "Indicates the version of the resource."@en ;
+    rdfs:domain dataid:Dataset ; # todo: check with Jan
+    rdfs:range databus:Version ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:collectionContent a owl:DatatypeProperty ;
+    rdfs:label "content"@en ;
+    rdfs:comment "The content of a Databus Collection in JSON format."@en ;
+    rdfs:domain databus:Collection ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
