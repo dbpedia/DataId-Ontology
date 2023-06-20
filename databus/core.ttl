@@ -76,6 +76,18 @@ databus:Collection a owl:Class ;
     rdfs:subClassOf prov:Entity ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
+databus:DatabusTractateV1 a owl:Class ;
+    rdfs:label "DatabusTractateV1"@en ;
+    rdfs:comment "Defines the proof method for the dataset."@en ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:Databus a owl:Class ;
+    rdfs:label "Databus"@en ;
+    rdfs:comment "Defines an instance of a Databus platform."@en ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
 
 ##############################
 # Base Properties
@@ -118,13 +130,6 @@ databus:sha256sum a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
-databus:signature a owl:DatatypeProperty ;
-    rdfs:label "Signature"@en ;
-    rdfs:comment "The signature of a file or resource."@en ;
-    rdfs:domain databus:Part ;
-    rdfs:range xsd:string ;
-    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
-
 databus:account a owl:ObjectProperty ; # todo: check with Jan
     rdfs:label "Account"@en ;
     rdfs:comment "Relates a dataset to an account on the Databus platform."@en ;
@@ -157,4 +162,11 @@ databus:collectionContent a owl:DatatypeProperty ;
     rdfs:label "content"@en ;
     rdfs:comment "The content of a Databus Collection in JSON format. Note that JSON-LD was considered and declined in the code."@en ;
     rdfs:domain databus:Collection ;
+    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+
+databus:attribution a owl:DatatypeProperty ;
+    rdfs:label "attribution"@en ;
+    rdfs:comment "Attribution for a specific Version."@en ;
+    rdfs:domain databus:Version ;
+    rdfs:range xsd:string ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
