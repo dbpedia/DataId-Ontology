@@ -37,7 +37,7 @@
     <http://purl.org/vocab/vann/preferredNamespacePrefix> "databus" ;
     <http://purl.org/vocab/vann/preferredNamespaceUri> "https://dataid.dbpedia.org/databus#" ;
     rdfs:label "Databus Ontology"@en ;
-    owl:versionInfo "Versioning done on resource level."@en ;
+    owl:versionInfo "See Archivo: https://archivo.dbpedia.org/info?o=https%3A//dataid.dbpedia.org/databus%23"@en ;
     sh:shapesGraph <https://raw.githubusercontent.com/dbpedia/databus/master/model/generated/shacl/artifact.shacl> , <https://raw.githubusercontent.com/dbpedia/databus/master/model/generated/shacl/dataid.shacl> , <https://raw.githubusercontent.com/dbpedia/databus/master/model/generated/shacl/group.shacl> , <https://raw.githubusercontent.com/dbpedia/databus/master/model/generated/shacl/version.shacl> .
 
 ##############################
@@ -67,7 +67,7 @@ databus:Part  a owl:Class ;
     rdfs:label "Part"@en ;
     rdfs:comment """A Part represents a single file (i.e. distribution) which is referenced from a particular Version.
     Typically a dataset consists of several files, e.g. same (or similar) files but in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail. Artifacts are packaged compositionally, i.e. each Part adds to the dataset, which is the sum of information."""@en ;
-    rdfs:subClassOf dcat:Distribution ; # todo: , dataid:XXX ;
+    rdfs:subClassOf dcat:Distribution ; dataid:Distribution ; 
     rdfs:isDefinedBy <http://dataid.dbpedia.org/databus#> .
 
 databus:Collection a owl:Class ;
@@ -112,8 +112,8 @@ databus:contentVariant
 databus:file a owl:ObjectProperty ;
     rdfs:label "file"@en ;
     rdfs:comment "The file associated with a data resource."@en ;
-    rdfs:domain databus:Part ; # todo: check -> databus:Part?
-    rdfs:range dcat:Distribution ;  # todo: check -> drop range?
+    rdfs:domain databus:Part ;
+    #SH: droppedrdfs:range dcat:Distribution ;  # : check -> drop range?
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
 databus:formatExtension a owl:DatatypeProperty ;
@@ -154,7 +154,7 @@ databus:group rdf:type owl:ObjectProperty ;
 databus:version rdf:type owl:ObjectProperty ;
     rdfs:label "version"@en ;
     rdfs:comment "Indicates the version of the resource."@en ;
-    rdfs:domain dataid:Dataset ; # todo: check with Jan
+    rdfs:domain dataid:Dataset ; # todo: check with Jan, SH: this seems incorrect. should be either databus:Version or databus:Part
     rdfs:range databus:Version ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
