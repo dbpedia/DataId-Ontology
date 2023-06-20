@@ -15,10 +15,20 @@
     a owl:Ontology ;
     dc:contributor "Jan Forberg", "Sebastian Hellmann" ;
     dc:creator "Milan Dojchinovski" ;
-    dc:description """The Databus Ontology provides description of classes and properties used to model information in the DBpedia Databus platform. The Databus Ontology is aligned and meant to be used with the DataID ontology.
+    dc:description """
+    The Databus Ontology provides description of classes and properties used to model information in the DBpedia Databus platform.
+    The Databus Ontology is aligned and meant to be used in combination with the DataID ontology.
 
-	Feedback
-	If you'd like to leave feedback, please open an issue on GitHub (https://github.com/dbpedia/DataId-Ontology)."""@en ;
+    * Databus Model Overview *
+    The Databus ontology implements a version-centric model. 
+    The Version is the concept which describes a particular version of an Artifact.
+    Each Artifact belongs to a particular group of artifacts.
+    The Version is associated with one or more distributions.
+    Each Distribution represents exactly one file, modeled using the Part concept.
+    Each Distribution (i.e Part) then adds to the dataset (i.e. Version), which is the sum of information.
+
+    * Feedback *
+    If you'd like to leave feedback, please open an issue on GitHub (https://github.com/dbpedia/databus/issues)."""@en ;
     dc:publisher "DBpedia Association, The Institute for Applied Informatics (InfAI)"@en ;
     dc:rights "This ontology is licensed under Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0) and CC-BY (http://creativecommons.org/licenses/by/3.0/)"@en ;
     dcterms:license <http://creativecommons.org/licenses/by/3.0/>, <http://www.apache.org/licenses/LICENSE-2.0> ;
@@ -34,15 +44,6 @@
 # Base Classes
 ##############################
 
-#    ## Databus Model Overview ##
-# 
-# The Databus ontology implements a version-centric model. 
-# The Version is the concept which describes a particular version of an Artifact.
-# Each Artifact belongs to a particular group of artifacts.
-# The Version is associated with one or more distributions.
-# Each distribution represents exactly one file, modeled using the Part concept.
-# Each Distribution (i.e Part) then adds to the dataset (i.e. Version), which is the sum of information.
-# 
 
 databus:Group a owl:Class ;
     rdfs:label "Databus Group"@en ;
