@@ -132,7 +132,7 @@ databus:sha256sum a owl:DatatypeProperty ;
 
 databus:account a owl:ObjectProperty ; 
     rdfs:label "Account"@en ;
-    rdfs:comment "Relates a dataset to an account on the Databus platform."@en ;
+    rdfs:comment "Relates a Version of an Artifact to an account on the Databus platform."@en ;
     rdfs:range foaf:OnlineAccount ;
     rdfs:domain dataid:Dataset ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
