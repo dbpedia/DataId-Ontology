@@ -130,7 +130,7 @@ databus:sha256sum a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
-databus:account a owl:ObjectProperty ; # todo: check with Jan
+databus:account a owl:ObjectProperty ; 
     rdfs:label "Account"@en ;
     rdfs:comment "Relates a dataset to an account on the Databus platform."@en ;
     rdfs:range foaf:OnlineAccount ;
@@ -151,12 +151,13 @@ databus:group rdf:type owl:ObjectProperty ;
     rdfs:range databus:Group ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
-databus:version rdf:type owl:ObjectProperty ;
-    rdfs:label "version"@en ;
-    rdfs:comment "Indicates the version of the resource."@en ;
-    rdfs:domain dataid:Dataset ; # todo: check with Jan, SH: this seems incorrect. should be either databus:Version or databus:Part
-    rdfs:range databus:Version ;
-    rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
+# removed, it's a remnant from Databus 1.0
+# databus:version rdf:type owl:ObjectProperty ;
+    #rdfs:label "version"@en ;
+    #rdfs:comment "Indicates the version of the resource."@en ;
+    #rdfs:domain dataid:Dataset ; 
+    #rdfs:range databus:Version ;
+    #rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
 databus:collectionContent a owl:DatatypeProperty ;
     rdfs:label "content"@en ;
