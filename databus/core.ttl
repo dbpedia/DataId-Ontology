@@ -16,16 +16,11 @@
     dc:contributor "Jan Forberg", "Sebastian Hellmann" ;
     dc:creator "Milan Dojchinovski" ;
     dc:description """
-    The Databus Ontology provides description of classes and properties used to model information in the DBpedia Databus platform.
+    The Databus Ontology provides a model for version-centric data management and enables efficient organization and retrieval of datasets. The Databus Ontology supports version tracking, retrieval of different dataset versions, and efficient organization of data artifacts. It allows for seamless collaboration and consumption of data, and facilitates the management and categorization of datasets.
     The Databus Ontology is aligned and meant to be used in combination with the DataID ontology.
 
     * Databus Model Overview *
-    The Databus ontology implements a version-centric model. 
-    The Version is the concept which describes a particular version of an Artifact.
-    Each Artifact belongs to a particular group of artifacts.
-    The Version is associated with one or more distributions.
-    Each Distribution represents exactly one file, modeled using the Part concept.
-    Each Distribution (i.e Part) then adds to the dataset (i.e. Version), which is the sum of information.
+    The Group class allows users to organize and categorize data by grouping related artifacts, facilitating collaboration and data consumption across projects. The Artifact class represents a logical dataset and maintains a stable reference across different versions and variants of the dataset. The Version class represents a specific version of an artifact and is associated with one or more distributions (parts). The Part class represents a dataset distribution that contributes to a version by adding information. The Collection class enables users to create data catalogs and organize related datasets.
 
     * Feedback *
     If you'd like to leave feedback, please open an issue on GitHub (https://github.com/dbpedia/databus/issues)."""@en ;
@@ -47,32 +42,32 @@
 
 databus:Group a owl:Class ;
     rdfs:label "Databus Group"@en ;
-    rdfs:comment """A Databus Group is a container owned by a Databus user that bundles Databus Artifacts intended to form a meaningful unit."""@en ; 
+    rdfs:comment """The Databus Group concept enables users to efficiently organize and categorize their data by grouping them into sets of related artifacts. These groups help establish a logical structure for organizing data artifacts within a project or organization. By assigning group identifiers, conflicts in naming can be avoided, ensuring seamless collaboration and consumption of data across multiple projects or organizations."""@en ; 
     rdfs:subClassOf prov:Entity ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
 databus:Artifact a owl:Class ;
     rdfs:label "Databus Artifact"@en ;
-    rdfs:comment """A Databus Artifact represents a logical dataset in the DBpedia Databus platform, akin to the role that artifacts play in Maven. However, instead of software libraries, it encompasses datasets. Each artifact has an abstract identity, meaning it maintains a stable reference across different versions and variants of the dataset. The abstract identity facilitates tracking and retrieval of various versions of the dataset."""@en ;
+    rdfs:comment """A Databus Artifact represents a logical dataset, akin to the role that artifacts play in Maven. However, instead of software libraries, it encompasses datasets. Each artifact has an abstract identity, meaning it maintains a stable reference across different versions and variants of the dataset. The abstract identity facilitates tracking and retrieval of various versions of the dataset."""@en ;
     rdfs:subClassOf prov:Entity ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/databus#> .
 
 databus:Version  a owl:Class ;
     rdfs:label "Version"@en ;
-    rdfs:comment "Dataset Version"@en ; 
+    rdfs:comment """The Version concept represents a specific version of an artifact within the DBpedia Databus platform. It represents a dataset version that is associated with a particular artifact. Each Version is linked to one or more distributions, represented by the Part class (see databus:Part definition). 
+    The Version-centric model implemented by the Databus ontology allows for tracking and retrieval of different versions and variants of datasets. It ensures that each version of an artifact maintains a stable reference across variations and updates."""@en ; 
     rdfs:subClassOf dcat:Dataset , dataid:Dataset ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
 databus:Part  a owl:Class ;
     rdfs:label "Part"@en ;
-    rdfs:comment """A Part represents a single file (i.e. distribution) which is referenced from a particular Version.
-    Typically a dataset consists of several files, e.g. same (or similar) files but in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail. Artifacts are packaged compositionally, i.e. each Part adds to the dataset, which is the sum of information."""@en ;
+    rdfs:comment """A Part represents a dataset distribution. Each Part corresponds to a specific file and contributes to a dataset (Version) by adding information."""@en ;
     rdfs:subClassOf dcat:Distribution , dataid:Distribution ; 
     rdfs:isDefinedBy <http://dataid.dbpedia.org/databus#> .
 
 databus:Collection a owl:Class ;
     rdfs:label "Collection"@en ;
-    rdfs:comment "A Databus Collection aggregates and logically groups a set of datasets."@en ;
+    rdfs:comment """Collections  are user speccific/created data catalogues. It enables users to organize related datasets together, providing a logical structure for accessing data artifacts within a project or organization. By using collections, users can efficiently categorize and manage datasets based on their relevance, thematic similarity, or any other criteria."""@en ;
     rdfs:subClassOf prov:Entity ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
@@ -96,7 +91,7 @@ databus:Databus a owl:Class ;
 
 databus:compression rdf:type owl:DatatypeProperty ;
     rdfs:label "compression"@en ;
-    rdfs:comment "Specifies the compression algorithm used for the file or none, if uncompressed."@en ;
+    rdfs:comment "Specifies the compression algorithm used for the file, or none, if uncompressed."@en ;
     rdfs:domain dcat:Distribution , databus:Part ;
     rdfs:range xsd:string ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
@@ -104,14 +99,14 @@ databus:compression rdf:type owl:DatatypeProperty ;
 databus:contentVariant
     a owl:DatatypeProperty ;
     rdfs:label "Content Variant"@en ;
-    rdfs:comment "Specifies the variant of the content of a file."@en ;
+    rdfs:comment "Specifies the variant of the Part."@en ;
     rdfs:domain databus:Part ;
     rdfs:range xsd:string ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
 databus:file a owl:ObjectProperty ;
     rdfs:label "file"@en ;
-    rdfs:comment "The file associated with a data resource."@en ;
+    rdfs:comment "The file associated with a Part (i.e. distribution)."@en ;
     rdfs:domain databus:Part ;
     #SH: droppedrdfs:range dcat:Distribution ;  # : check -> drop range?
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
@@ -139,14 +134,14 @@ databus:account a owl:ObjectProperty ;
 
 databus:artifact a rdf:ObjectProperty ;
     rdfs:label "artifact"@en ;
-    rdfs:comment "Specifies an artifact associated with a dataset in the DataID vocabulary."@en ;
+    rdfs:comment "Specifies an artifact associated with a dataset version."@en ;
     rdfs:domain databus:Version ;
     rdfs:range databus:Artifact ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
 databus:group rdf:type owl:ObjectProperty ;
     rdfs:label "group"@en ;
-    rdfs:comment "Refers to a group or collection of resources."@en ;
+    rdfs:comment "Relates a version with a specific group."@en ;
     rdfs:domain databus:Version ;
     rdfs:range databus:Group ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
