@@ -13,7 +13,7 @@
 
 <https://dataid.dbpedia.org/databus#>
     a owl:Ontology ;
-    dc:contributor "Jan Forberg", "Sebastian Hellmann" ;
+    dc:contributor "Jan Forberg", "Sebastian Hellmann", "Milan Dojchinovski" ;
     dc:creator "Milan Dojchinovski" ;
     dc:description """
     The Databus Ontology provides a model for version-centric data management and enables efficient organization and retrieval of datasets. The Databus Ontology supports version tracking, retrieval of different dataset versions, and efficient organization of data artifacts. It allows for seamless collaboration and consumption of data, and facilitates the management and categorization of datasets.
