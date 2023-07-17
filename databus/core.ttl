@@ -35,6 +35,18 @@
     owl:versionInfo "See Archivo: https://archivo.dbpedia.org/info?o=https%3A//dataid.dbpedia.org/databus%23"@en ;
     sh:shapesGraph <https://raw.githubusercontent.com/dbpedia/databus/master/model/generated/shacl/artifact.shacl> , <https://raw.githubusercontent.com/dbpedia/databus/master/model/generated/shacl/dataid.shacl> , <https://raw.githubusercontent.com/dbpedia/databus/master/model/generated/shacl/group.shacl> , <https://raw.githubusercontent.com/dbpedia/databus/master/model/generated/shacl/version.shacl> .
 
+# Petra's comments:
+# However, there are a few points where there might be room for improvement or at least warrant further discussion:
+# 1. **Multilinguality:** All the labels and comments are in English. Adding translations in other languages, if possible, could make the ontology more accessible to non-English speakers.
+# DONE 2. **Deprecated Property:** The 'databus:version' property is commented out, marking it as deprecated. It would be helpful to also include a reason for this deprecation to provide a full context to the users. 
+# 3. **Use of complex data types:** The 'databus:collectionContent' property has a comment indicating that its content is in JSON format. It's unusual to embed a complex format like JSON within a RDF triple as it could potentially make queries more complex and difficult to handle. 
+# 4. **Specific domains and ranges:** While it can be good to have specific domains and ranges for some properties, it might also be restricting in some cases. For example, 'databus:file' has the domain as 'databus:Part', which means it can't be used with instances of any other class.
+# 5. **Dependencies:** The ontology depends on some other ontologies such as dataid. For this ontology to work, the other ontologies need to be accessible and available. Any changes in those ontologies could potentially affect this ontology.
+# 6. **Lack of examples:** It would be beneficial to provide some practical examples of how the classes and properties can be used. This can make it easier for users to understand and use the ontology correctly.
+# 7. **Naming conventions:** While most of the names are clear, there are some (like 'DatabusTractateV1') that might not be immediately clear to users. More descriptive or standard naming could be beneficial.
+# In general, this ontology seems to be well-structured, follows good ontology design practices, and is likely to meet its intended purpose of providing a model for version-centric data management.
+
+
 ##############################
 # Base Classes
 ##############################
@@ -147,6 +159,8 @@ databus:group rdf:type owl:ObjectProperty ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
 # removed, it's a remnant from Databus 1.0
+# main reason was that it links a version to itself: <v1> databus:version <v1> . 
+# It was originally introduced for completeness, so that all version had account/group/artifact/version properties. 
 # databus:version rdf:type owl:ObjectProperty ;
     #rdfs:label "version"@en ;
     #rdfs:comment "Indicates the version of the resource."@en ;
