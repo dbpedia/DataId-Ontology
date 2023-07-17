@@ -17,7 +17,7 @@
     dc:creator "Milan Dojchinovski" ;
     dc:description """
     The Databus Ontology provides a model for version-centric data management and enables efficient organization and retrieval of datasets. The Databus Ontology supports version tracking, retrieval of different dataset versions, and efficient organization of data artifacts. It allows for seamless collaboration and consumption of data, and facilitates the management and categorization of datasets.
-    The Databus Ontology is aligned and meant to be used in combination with the DataID ontology.
+    The Databus Ontology is aligned and meant to be used in combination with the DataID ontology, DCAT, Prov-O and Dublin Core.
 
     * Databus Model Overview *
     The Group class allows users to organize and categorize data by grouping related artifacts, facilitating collaboration and data consumption across projects. The Artifact class represents a logical dataset and maintains a stable reference across different versions and variants of the dataset. The Version class represents a specific version of an artifact and is associated with one or more distributions (parts). The Part class represents a dataset distribution that contributes to a version by adding information. The Collection class enables users to create data catalogs and organize related datasets.
@@ -60,26 +60,26 @@ databus:Group a owl:Class ;
 
 databus:Artifact a owl:Class ;
     rdfs:label "Databus Artifact"@en ;
-    rdfs:comment """A Databus Artifact represents a logical dataset, akin to the role that artifacts play in Maven. However, instead of software libraries, it encompasses datasets. Each artifact has an abstract identity, meaning it maintains a stable reference across different versions and variants of the dataset. The abstract identity facilitates tracking and retrieval of various versions of the dataset."""@en ;
+    rdfs:comment """A Databus Artifact represents a logical dataset, that holds the versions of the same dataset. Lika a channel, users can subscribe to an artifact to retrieve the latest versions. Each artifact is an abstract identity, meaning it maintains a stable reference across different versions and variants of the dataset. The abstract identity facilitates tracking and retrieval of various versions of the dataset. Databus Artifacts are akin to the role that artifacts play in Maven, but, instead of software libraries, it encompasses datasets."""@en ;
     rdfs:subClassOf prov:Entity ;
     rdfs:isDefinedBy <http://dataid.dbpedia.org/databus#> .
 
 databus:Version  a owl:Class ;
     rdfs:label "Version"@en ;
-    rdfs:comment """The Version concept represents a specific version of an artifact within the DBpedia Databus platform. It represents a dataset version that is associated with a particular artifact. Each Version is linked to one or more distributions, represented by the Part class (see databus:Part definition). 
+    rdfs:comment """The Version concept represents a specific version of an artifact (a snapshot of the dataset) within the DBpedia Databus platform. It represents a dataset version that is associated with a particular artifact. Each Version is linked to one or more distributions, per default represented by the Part class (see databus:Part definition). 
     The Version-centric model implemented by the Databus ontology allows for tracking and retrieval of different versions and variants of datasets. It ensures that each version of an artifact maintains a stable reference across variations and updates."""@en ; 
     rdfs:subClassOf dcat:Dataset , dataid:Dataset ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
 databus:Part  a owl:Class ;
     rdfs:label "Part"@en ;
-    rdfs:comment """A Part represents a dataset distribution. Each Part corresponds to a specific file and contributes to a dataset (Version) by adding information."""@en ;
+    rdfs:comment """A Part represents a dataset distribution. Each Part corresponds to a specific file and contributes to a dataset (Version) as a whole. All parts together constitute the particular version (even if it is just one Part). """@en ;
     rdfs:subClassOf dcat:Distribution , dataid:Distribution ; 
     rdfs:isDefinedBy <http://dataid.dbpedia.org/databus#> .
 
 databus:Collection a owl:Class ;
     rdfs:label "Collection"@en ;
-    rdfs:comment """Collections  are user speccific/created data catalogues. It enables users to organize related datasets together, providing a logical structure for accessing data artifacts within a project or organization. By using collections, users can efficiently categorize and manage datasets based on their relevance, thematic similarity, or any other criteria."""@en ;
+    rdfs:comment """Collections  are user-created data catalogues. It enables users to organize related datasets together, providing a logical structure for accessing data artifacts within a project or organization.  By using collections, users can efficiently categorize and manage datasets based on their relevance, thematic similarity, or any other criteria. Each collection is a SPARQL query, that retrieves all versions/files of the collections."""@en ;
     rdfs:subClassOf prov:Entity ;
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
@@ -120,7 +120,6 @@ databus:file a owl:ObjectProperty ;
     rdfs:label "file"@en ;
     rdfs:comment "The file associated with a Part (i.e. distribution)."@en ;
     rdfs:domain databus:Part ;
-    #SH: droppedrdfs:range dcat:Distribution ;  # : check -> drop range?
     rdfs:isDefinedBy <https://dataid.dbpedia.org/databus#> .
 
 databus:formatExtension a owl:DatatypeProperty ;
